@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - Page Not Found | Taranis Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   TARANIS CAPITAL — DESIGN SYSTEM
+   ============================================ */
+
+:root {
+  /* Primary palette */
+  --tc-green-dark: #2c3e35;
+  --tc-green-mid: #3a5247;
+  --tc-green-light: #4a6459;
+  --tc-gold: #c9a84c;
+  --tc-gold-light: #d4b65e;
+  --tc-gold-muted: rgba(201, 168, 76, 0.15);
+
+  /* Neutrals */
+  --tc-white: #ffffff;
+  --tc-off-white: #f5f6f7;
+  --tc-grey-light: #e8eaec;
+  --tc-grey-mid: #cfd3d7;
+  --tc-grey-dark: #606e79;
+  --tc-charcoal: #374047;
+  --tc-black: #1a1a1a;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing */
+  --section-padding: 100px 0;
+  --section-padding-sm: 60px 0;
+  --container-max: 1200px;
+  --container-padding: 0 40px;
+}
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--tc-charcoal);
+  background: var(--tc-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--container-padding);
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--tc-green-dark);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.3s ease;
+}
+
+.nav-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-logo {
+  width: 38px;
+  height: 38px;
+  background: var(--tc-gold);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo svg { width: 24px; height: 24px; }
+
+.nav-brand-text {
+  font-family: var(--font-display);
+  color: var(--tc-white);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.nav-brand-sub {
+  font-family: var(--font-body);
+  color: rgba(255,255,255,0.6);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.75);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--tc-gold);
+}
+
+.nav-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-mobile-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--tc-white);
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+/* ============================================
+   ERROR PAGE
+   ============================================ */
+.error-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--tc-green-dark) 0%, var(--tc-green-mid) 50%, var(--tc-green-dark) 100%);
+  overflow: hidden;
+  padding-top: 72px;
+}
+
+.error-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 30%, rgba(201, 168, 76, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 60% 80%, rgba(155, 186, 195, 0.05) 0%, transparent 40%);
+}
+
+.error-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(201, 168, 76, 0.12) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.4;
+}
+
+.error-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 600px;
+}
+
+.error-code {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 10vw, 120px);
+  font-weight: 700;
+  color: var(--tc-gold);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.error-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  color: var(--tc-white);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.error-description {
+  font-size: 17px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.error-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--tc-gold);
+  color: var(--tc-green-dark);
+  padding: 16px 36px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.error-cta:hover {
+  background: var(--tc-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.error-cta svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.error-cta:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  background: var(--tc-black);
+  padding: 60px 0 30px;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+.footer-brand-text {
+  font-family: var(--font-display);
+  color: var(--tc-white);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.footer-brand-sub {
+  color: rgba(255,255,255,0.4);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.footer-tagline {
+  color: rgba(255,255,255,0.45);
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.footer h4 {
+  color: var(--tc-white);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--tc-gold);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+}
+
+.footer-bottom a {
+  color: rgba(255,255,255,0.35);
+}
+
+.footer-bottom a:hover {
+  color: rgba(255,255,255,0.6);
+}
+
+.footer-legal {
+  display: flex;
+  gap: 24px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 0 24px;
+  }
+
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: block; }
+
+  .error-section { padding-top: 72px; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     NAVIGATION
+     ============================================ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+          <polygon points="12 2 22 20 2 20"/>
+        </svg>
+      </div>
+      <div>
+        <div class="nav-brand-text">Taranis Capital</div>
+        <div class="nav-brand-sub">Venture Capital &amp; Strategic Investment</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/who-we-are">Who We Are</a></li>
+      <li><a href="/our-approach">Our Approach</a></li>
+      <li><a href="/our-funds">Our Funds</a></li>
+      <li><a href="/insights">Insights</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <button class="nav-mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============================================
+     ERROR CONTENT
+     ============================================ -->
+<section class="error-section">
+  <div class="error-content">
+    <div class="error-code">404</div>
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-description">Sorry, the page you're looking for doesn't exist. It may have been moved or deleted. Please return to the homepage to continue exploring.</p>
+    <a href="/" class="error-cta">
+      Return to Home
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-text">Taranis Capital</div>
+        <div class="footer-brand-sub">Venture Capital &amp; Strategic Investment</div>
+        <p class="footer-tagline">Disciplined capital deployment and knowledge leadership across emerging markets and high-growth sectors.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="/who-we-are">Who We Are</a></li>
+          <li><a href="/our-approach">Our Approach</a></li>
+          <li><a href="/our-funds">Our Funds</a></li>
+          <li><a href="/insights">Insights</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ecosystem</h4>
+        <ul class="footer-links">
+          <li><a href="https://biotech.taraniscapital.com">Biotech Fund</a></li>
+          <li><a href="https://helix-8.com">Helix8</a></li>
+          <li><a href="https://wiseinit.org">WISE Initiative</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="mailto:info@taraniscapital.com">info@taraniscapital.com</a></li>
+          <li>London, United Kingdom</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Taranis Capital. All rights reserved.</span>
+      <div class="footer-legal">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/cookie-policy">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Taranis Capital Website Credits
+
+Team: Taranis Capital Limited
+
+Site: Built with HTML, CSS, and JavaScript
+Hosted: AWS S3 + CloudFront
+
+Standards:
+- HTML5
+- CSS3
+- Responsive Web Design
+- Accessibility (WCAG 2.1 AA)
+
+Created: 2026
+Location: London, United Kingdom
+
+Contact: info@taraniscapital.com

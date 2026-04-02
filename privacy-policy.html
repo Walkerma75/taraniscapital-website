@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | Taranis Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   TARANIS CAPITAL — DESIGN SYSTEM
+   ============================================ */
+
+:root {
+  /* Primary palette */
+  --tc-green-dark: #2c3e35;
+  --tc-green-mid: #3a5247;
+  --tc-green-light: #4a6459;
+  --tc-gold: #c9a84c;
+  --tc-gold-light: #d4b65e;
+  --tc-gold-muted: rgba(201, 168, 76, 0.15);
+
+  /* Neutrals */
+  --tc-white: #ffffff;
+  --tc-off-white: #f5f6f7;
+  --tc-grey-light: #e8eaec;
+  --tc-grey-mid: #cfd3d7;
+  --tc-grey-dark: #606e79;
+  --tc-charcoal: #374047;
+  --tc-black: #1a1a1a;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing */
+  --section-padding: 100px 0;
+  --section-padding-sm: 60px 0;
+  --container-max: 1200px;
+  --container-padding: 0 40px;
+}
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--tc-charcoal);
+  background: var(--tc-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--container-padding);
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--tc-green-dark);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.3s ease;
+}
+
+.nav-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-logo {
+  width: 38px;
+  height: 38px;
+  background: var(--tc-gold);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo svg { width: 24px; height: 24px; }
+
+.nav-brand-text {
+  font-family: var(--font-display);
+  color: var(--tc-white);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.nav-brand-sub {
+  font-family: var(--font-body);
+  color: rgba(255,255,255,0.6);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.75);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--tc-gold);
+}
+
+.nav-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-mobile-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--tc-white);
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  position: relative;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--tc-green-dark) 0%, var(--tc-green-mid) 50%, var(--tc-green-dark) 100%);
+  overflow: hidden;
+  padding-top: 72px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 30%, rgba(201, 168, 76, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 60% 80%, rgba(155, 186, 195, 0.05) 0%, transparent 40%);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(201, 168, 76, 0.12) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.4;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  color: var(--tc-white);
+  line-height: 1.15;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+/* ============================================
+   CONTENT SECTIONS
+   ============================================ */
+.content-section {
+  padding: 60px 0;
+  background: var(--tc-white);
+}
+
+.content-section:nth-child(even) {
+  background: var(--tc-off-white);
+}
+
+.content-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.content-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--tc-charcoal);
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.content-title:first-of-type {
+  margin-top: 0;
+}
+
+.content-text {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--tc-charcoal);
+  margin-bottom: 16px;
+}
+
+.content-text strong {
+  font-weight: 600;
+  color: var(--tc-charcoal);
+}
+
+.content-list {
+  margin: 20px 0;
+  padding-left: 24px;
+  list-style: none;
+}
+
+.content-list li {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--tc-charcoal);
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 16px;
+}
+
+.content-list li:before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--tc-gold);
+  font-weight: bold;
+}
+
+.content-highlight {
+  background: var(--tc-gold-muted);
+  border-left: 4px solid var(--tc-gold);
+  padding: 20px;
+  margin: 24px 0;
+  border-radius: 4px;
+}
+
+.content-highlight p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--tc-charcoal);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  background: var(--tc-black);
+  padding: 60px 0 30px;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+.footer-brand-text {
+  font-family: var(--font-display);
+  color: var(--tc-white);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.footer-brand-sub {
+  color: rgba(255,255,255,0.4);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.footer-tagline {
+  color: rgba(255,255,255,0.45);
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.footer h4 {
+  color: var(--tc-white);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--tc-gold);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+}
+
+.footer-bottom a {
+  color: rgba(255,255,255,0.35);
+}
+
+.footer-bottom a:hover {
+  color: rgba(255,255,255,0.6);
+}
+
+.footer-legal {
+  display: flex;
+  gap: 24px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 0 24px;
+  }
+
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: block; }
+
+  .hero { min-height: 35vh; }
+
+  .content-container { padding: 0 24px; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     NAVIGATION
+     ============================================ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <div class="nav-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+          <polygon points="12 2 22 20 2 20"/>
+        </svg>
+      </div>
+      <div>
+        <div class="nav-brand-text">Taranis Capital</div>
+        <div class="nav-brand-sub">Venture Capital &amp; Strategic Investment</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/who-we-are">Who We Are</a></li>
+      <li><a href="/our-approach">Our Approach</a></li>
+      <li><a href="/our-funds">Our Funds</a></li>
+      <li><a href="/insights">Insights</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <button class="nav-mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Privacy Policy</h1>
+      <p class="hero-subtitle">How we handle and protect your personal data. Last updated April 2026.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CONTENT
+     ============================================ -->
+<section class="content-section">
+  <div class="content-container">
+    <div class="content-text">
+      <strong>Taranis Capital Limited</strong> (hereinafter "we", "us", "our", or "Company") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and otherwise process your personal data in relation to our website and services. Please read this policy carefully to understand our practices.
+    </div>
+
+    <h2 class="content-title">1. Data Controller and Contact Information</h2>
+    <div class="content-text">
+      Taranis Capital Limited is the data controller responsible for your personal data. You may contact us regarding data privacy matters at:
+    </div>
+    <div class="content-highlight">
+      <p><strong>Taranis Capital Limited</strong><br>
+      London, United Kingdom<br>
+      Email: <a href="mailto:info@taraniscapital.com">info@taraniscapital.com</a></p>
+    </div>
+
+    <h2 class="content-title">2. What Data We Collect</h2>
+    <div class="content-text">We collect personal data in the following circumstances:</div>
+    <ul class="content-list">
+      <li><strong>Contact Form Submissions:</strong> When you submit our website contact form, we collect your name, email address, phone number (if provided), and message content.</li>
+      <li><strong>Analytics and Tracking:</strong> We use analytics cookies and similar technologies to collect information about how you interact with our website, including your IP address, browser type, pages visited, and time spent on pages.</li>
+      <li><strong>Server Logs:</strong> Our web servers automatically record standard server information including IP addresses, access times, and referrer information.</li>
+      <li><strong>Cookies:</strong> We use both essential and non-essential cookies as described in Section 8 below.</li>
+    </ul>
+
+    <h2 class="content-title">3. Legal Basis for Processing</h2>
+    <div class="content-text">We process your personal data on the following legal bases under the UK General Data Protection Regulation (UK GDPR):</div>
+    <ul class="content-list">
+      <li><strong>Legitimate Interests:</strong> We process analytics data and server logs based on our legitimate interest in understanding website usage, improving our services, and protecting against fraud or abuse.</li>
+      <li><strong>Consent:</strong> For non-essential cookies and marketing communications, we rely on your explicit consent which you may withdraw at any time.</li>
+      <li><strong>Contract Fulfilment:</strong> When you submit a contact form, processing is necessary to respond to your enquiry.</li>
+    </ul>
+
+    <h2 class="content-title">4. How We Use Your Data</h2>
+    <div class="content-text">We use your personal data for the following purposes:</div>
+    <ul class="content-list">
+      <li>To respond to your enquiries and communications</li>
+      <li>To improve and optimise our website functionality and user experience</li>
+      <li>To compile analytics reports on website usage and performance</li>
+      <li>To comply with legal obligations</li>
+      <li>To prevent fraud, abuse, and security incidents</li>
+      <li>To send you marketing communications (only with your consent)</li>
+    </ul>
+
+    <h2 class="content-title">5. Data Sharing and Third Parties</h2>
+    <div class="content-text">We do not sell or rent your personal data. We may share your data only with trusted third parties in limited circumstances:</div>
+    <ul class="content-list">
+      <li><strong>MailerLite:</strong> When you submit a contact form, your email and message are processed by MailerLite (our email service provider) to facilitate communication with you. MailerLite processes data under appropriate data processing agreements.</li>
+      <li><strong>Analytics Providers:</strong> We may use analytics services (such as Google Analytics) which receive aggregated, anonymised data about website usage.</li>
+      <li><strong>Legal Requirements:</strong> We may disclose data if required by law, regulation, court order, or other legal process.</li>
+    </ul>
+    <div class="content-text">We ensure all third parties have appropriate safeguards and data processing agreements in place.</div>
+
+    <h2 class="content-title">6. Data Retention Periods</h2>
+    <div class="content-text">We retain your personal data only for as long as necessary:</div>
+    <ul class="content-list">
+      <li><strong>Contact Form Data:</strong> Retained for 24 months from submission, or until the enquiry is resolved, whichever is longer.</li>
+      <li><strong>Analytics Data:</strong> Typically retained for 26 months in anonymised form.</li>
+      <li><strong>Server Logs:</strong> Typically retained for 90 days.</li>
+      <li><strong>Cookies:</strong> Retention periods vary by cookie type (see Section 8).</li>
+    </ul>
+
+    <h2 class="content-title">7. Your Rights Under UK GDPR</h2>
+    <div class="content-text">Under UK GDPR, you have the following rights regarding your personal data:</div>
+    <ul class="content-list">
+      <li><strong>Right of Access:</strong> You may request a copy of the personal data we hold about you.</li>
+      <li><strong>Right to Rectification:</strong> You may request that inaccurate or incomplete data be corrected.</li>
+      <li><strong>Right to Erasure:</strong> You may request deletion of your data (subject to certain exceptions).</li>
+      <li><strong>Right to Restrict Processing:</strong> You may request that we limit how we use your data.</li>
+      <li><strong>Right to Data Portability:</strong> You may request your data in a portable format and transfer it to another provider.</li>
+      <li><strong>Right to Object:</strong> You may object to processing based on legitimate interests or for marketing purposes.</li>
+      <li><strong>Rights Related to Automated Decision-Making:</strong> You have rights regarding decisions made solely by automated means.</li>
+    </ul>
+    <div class="content-text">To exercise any of these rights, please contact us at <a href="mailto:info@taraniscapital.com">info@taraniscapital.com</a>. We will respond within 30 days (or up to 90 days for complex requests).</div>
+
+    <h2 class="content-title">8. Cookie Policy</h2>
+    <div class="content-text"><strong>Cookies are small text files stored on your device when you visit our website. We use the following types of cookies:</strong></div>
+
+    <h3 class="content-title" style="font-size: 20px; margin-top: 30px;">Essential Cookies</h3>
+    <div class="content-text">These cookies are necessary for the website to function properly. They do not require your consent:</div>
+    <ul class="content-list">
+      <li>Session management cookies</li>
+      <li>Security and authentication cookies</li>
+      <li>Load balancing and performance cookies</li>
+    </ul>
+
+    <h3 class="content-title" style="font-size: 20px; margin-top: 30px;">Analytics Cookies</h3>
+    <div class="content-text">We use analytics cookies to understand how visitors interact with our website. These require your consent and may include:</div>
+    <ul class="content-list">
+      <li>Google Analytics and similar analytics services</li>
+      <li>Heatmapping and user behaviour tracking tools</li>
+    </ul>
+    <div class="content-text">These cookies help us improve website performance and user experience.</div>
+
+    <h3 class="content-title" style="font-size: 20px; margin-top: 30px;">Third-Party Cookies</h3>
+    <div class="content-text">Third parties such as MailerLite may set cookies when you interact with our contact forms to enhance their services and track campaign effectiveness.</div>
+
+    <div class="content-highlight">
+      <p><strong>Managing Cookies:</strong> You can control cookies through your browser settings and may refuse non-essential cookies at any time. However, refusing essential cookies may affect website functionality.</p>
+    </div>
+
+    <h2 class="content-title">9. International Data Transfers</h2>
+    <div class="content-text">Our website is hosted in the United Kingdom. If we transfer data internationally, we ensure adequate safeguards are in place, including Standard Contractual Clauses or other UK-approved transfer mechanisms.</div>
+
+    <h2 class="content-title">10. Data Security</h2>
+    <div class="content-text">We implement appropriate technical and organisational security measures to protect your personal data against unauthorised access, alteration, disclosure, or destruction. These measures include encryption, firewalls, and secure servers. However, no transmission over the internet is completely secure, and we cannot guarantee absolute security.</div>
+
+    <h2 class="content-title">11. Children's Privacy</h2>
+    <div class="content-text">Our website is not intended for individuals under the age of 13. We do not knowingly collect personal data from children. If we become aware that a child has provided us with personal data, we will delete it promptly.</div>
+
+    <h2 class="content-title">12. Complaints and the Information Commissioner's Office</h2>
+    <div class="content-text">If you believe we have mishandled your personal data or violated your privacy rights, you have the right to lodge a complaint with the <strong>Information Commissioner's Office (ICO)</strong>, the UK's independent regulator for data protection:</div>
+    <div class="content-highlight">
+      <p><strong>Information Commissioner's Office</strong><br>
+      Wycliffe House<br>
+      Water Lane<br>
+      Wilmslow, Cheshire SK9 5AF<br>
+      Phone: 0303 123 1113<br>
+      Website: <a href="https://www.ico.org.uk" target="_blank">www.ico.org.uk</a></p>
+    </div>
+
+    <h2 class="content-title">13. Updates to This Privacy Policy</h2>
+    <div class="content-text">We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. We will notify you of any material changes by posting the updated policy on our website and updating the "Last updated" date. Your continued use of our website following such updates constitutes your acceptance of the revised policy.</div>
+
+    <h2 class="content-title">14. Contact Us</h2>
+    <div class="content-text">If you have any questions about this Privacy Policy or our privacy practices, please contact us at:</div>
+    <div class="content-highlight">
+      <p><strong>Taranis Capital Limited</strong><br>
+      Email: <a href="mailto:info@taraniscapital.com">info@taraniscapital.com</a><br>
+      Location: London, United Kingdom</p>
+    </div>
+
+    <div class="content-text" style="margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--tc-grey-light); color: var(--tc-grey-dark); font-size: 13px;">
+      <strong>Last Updated:</strong> April 2026<br>
+      <strong>Effective Date:</strong> April 2026
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-text">Taranis Capital</div>
+        <div class="footer-brand-sub">Venture Capital &amp; Strategic Investment</div>
+        <p class="footer-tagline">Disciplined capital deployment and knowledge leadership across emerging markets and high-growth sectors.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="/who-we-are">Who We Are</a></li>
+          <li><a href="/our-approach">Our Approach</a></li>
+          <li><a href="/our-funds">Our Funds</a></li>
+          <li><a href="/insights">Insights</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ecosystem</h4>
+        <ul class="footer-links">
+          <li><a href="https://biotech.taraniscapital.com">Biotech Fund</a></li>
+          <li><a href="https://helix-8.com">Helix8</a></li>
+          <li><a href="https://wiseinit.org">WISE Initiative</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="mailto:info@taraniscapital.com">info@taraniscapital.com</a></li>
+          <li>London, United Kingdom</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Taranis Capital. All rights reserved.</span>
+      <div class="footer-legal">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/cookie-policy">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

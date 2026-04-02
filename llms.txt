@@ -1,0 +1,24 @@
+# Taranis Capital - llms.txt
+
+Company: Taranis Capital Limited
+
+Description: Taranis Capital is a venture capital and strategic investment firm specialising in high-growth sectors across emerging markets. We combine disciplined capital deployment with ethical governance to create lasting value.
+
+What We Do:
+- Venture capital investment and strategic advisory
+- Focus sectors: Fintech, Biotech, Datacentres, Property, and Ecosystem Development
+- Geographic focus: MENA region, Africa, and Europe
+- Ethical governance and ESG-aligned investment approach
+
+Key People:
+- Mark Walker - Founder & Managing Director
+
+Key Links:
+- Main Website: https://taraniscapital.com
+- Biotech Fund: https://biotech.taraniscapital.com
+- Helix8: https://helix-8.com
+- WISE Initiative: https://wiseinit.org
+
+Contact:
+Email: info@taraniscapital.com
+Location: London, United Kingdom

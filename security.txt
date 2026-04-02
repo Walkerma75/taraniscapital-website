@@ -1,0 +1,7 @@
+# Taranis Capital Security Policy
+# RFC 9116 Compliance
+
+Contact: mailto:info@taraniscapital.com
+Preferred-Languages: en
+Canonical: https://taraniscapital.com/.well-known/security.txt
+Expires: 2027-04-02T00:00:00.000Z
