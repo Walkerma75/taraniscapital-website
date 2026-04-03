@@ -87,42 +87,59 @@
 - All changes staged but git index.lock prevented commit from sandbox environment
 - Must commit and push from local machine (see commands below)
 
+### Session 4 — 3 April 2026 (continued)
+
+**Bruno Martorano — Name & Bio Fix**
+- Fixed name from "Bruno" to "Bruno Martorano" across who-we-are.html and board profile page
+- Created board/bruno-martorano.html with full bio (5 paragraphs: 35 years international banking/fintech, multicultural career across New York/Paris/Hong Kong/Dubai/London, CEO of Abu Dhabi bank, fintech leadership, speaking engagements)
+- Updated link on who-we-are.html from /board/bruno to /board/bruno-martorano
+- Old file board/bruno.html needs manual deletion locally
+
+**Team Member Bios — Updated from Old WP Site**
+- Re-scraped all team member profiles from old WordPress site via Chrome
+- Updated 4 team members with real bios replacing placeholder content:
+  - Mark Walker: experienced technologist, enterprise software, UK Trade & Investment adviser, Fintech Power50, The Fintech Times
+  - Emad Zowawi: NY/DC licensed corporate lawyer, Chief Legal Officer, former banker with 10+ years experience
+  - Mohamed Essam: fintech/VC expert lawyer, Matouk Bassiouny Fintech Group Sector lead
+  - Osama Ben Saleh Bukhari: entrepreneur, Alfaris International Group, ICC Banking Committee head, CNBC Arabia, recognised by Arabian Business
+
+**Board Member Bio Audit**
+- Scraped all 18 board member profiles from old WordPress site
+- Found that 10 board members had NO bio content on the old WP site either (pages existed but were blank)
+- Created MISSING-PROFILE-INFO.md documenting: 10 board members needing bios, 5 needing LinkedIn URLs, and all members with complete profiles
+
+**Footer Cleanup (all 44 HTML files)**
+- Removed "Venture Capital & Strategic Investment" subtitle from all footers site-wide (footer-brand-sub div)
+
 ---
 
 ## Pending / To Do
 
 ### Immediate (commit & deploy)
-1. **Remove git lock and commit** — Run from local machine:
+1. **Delete old bruno.html and commit** — Run from local machine:
    ```
    cd "C:\Users\mark\Claude Cowork\Taranis Capital Website"
-   del .git\index.lock
+   del "board\bruno.html"
    git add -A
-   git commit -m "Site-wide updates: team ordering, address fixes, header cleanup, partners, jurisdiction"
+   git commit -m "Session 4: Bruno Martorano fix, team bios updated, footer subtitle removed"
    git push origin main
    ```
 2. **Verify live site** — Check all pages load correctly on CloudFront URL after deployment
 
-### RSS Feeds for Insights Page
-3. **Implement live RSS feeds** — Current insights page has static placeholder articles. Need to add JavaScript RSS reader or build step. Suggested feeds:
-   - **Venture Capital:** TechCrunch VC (techcrunch.com/category/venture/feed/), PitchBook News, EU-Startups
-   - **Biotech:** FierceBiotech, BioSpace, Endpoints News, GEN
-   - **MENA:** MENA Bytes (menabytes.com/feed/), Wamda, Magnitt, Arabian Business Tech
-   - Limit display to 12 most recent articles per category
-
 ### Content & Data
-4. **Missing board member bios** — 3 board members returned 404 on old site (Osama Al Zamil, Mohammed Aljumah, Rayan Al-Karawi) — bio content needed
-5. **Board members without LinkedIn** — Daniel Roubeni, Dr Amer Mahmood, Dr Tarek El Mansy, Ghassan Najmeddin, Osama Al-Thanon
-6. **Scrape old WP fund pages** — Additional content from old WP site for enriching fund pages
+3. **10 board member bios needed** — See MISSING-PROFILE-INFO.md for full list (Dr Amer Mahmood, Asim Chohan, Daniel Roubeni, David Grunfeld, Ghassan Najmeddin, Leif Hesse, Osama Al-Thanon, Rayan Al-Karawi, Sarah Sinclair, Dr Tarek El Mansy)
+4. **5 board members without LinkedIn** — Daniel Roubeni, Dr Amer Mahmood, Dr Tarek El Mansy, Ghassan Najmeddin, Osama Al-Thanon
+5. **Scrape old WP fund pages** — Additional content from old WP site for enriching fund pages
 
 ### Technical
-7. **DNS & SSL** — Confirm custom domain and SSL certificate are validated
-8. **Sitemap update** — sitemap.xml needs new pages (team/*, board/*, fund pages)
-9. **SEO & meta tags** — Review and optimise across all new pages
-10. **Mobile responsiveness** — Test all new pages on mobile devices
-11. **Analytics** — Consider adding Google Analytics or similar
+6. **DNS & SSL** — Confirm custom domain and SSL certificate are validated
+7. **Sitemap update** — sitemap.xml needs new pages (team/*, board/*, fund pages, bruno-martorano)
+8. **SEO & meta tags** — Review and optimise across all new pages
+9. **Mobile responsiveness** — Test all new pages on mobile devices
+10. **Analytics** — Consider adding Google Analytics or similar
 
 ### Design
-12. **Images** — Need to decide on imagery for: company intro section placeholder, fund pages, partner logos (currently text-only cards)
+11. **Images** — Need to decide on imagery for: company intro section placeholder, fund pages, partner logos (currently text-only cards)
 
 ---
 
