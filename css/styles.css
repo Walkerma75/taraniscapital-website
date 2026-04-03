@@ -557,6 +557,11 @@ a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   margin-top: 50px;
+  align-items: start;
+}
+
+.team-grid > a {
+  display: block;
 }
 
 .team-card {
@@ -1756,7 +1761,7 @@ a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
   .explore-grid { grid-template-columns: repeat(2, 1fr); }
   .about-grid { gap: 40px; }
   .intro-grid { gap: 40px; }
-  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .board-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
   .feed-layout { grid-template-columns: 1fr; }
@@ -1786,7 +1791,7 @@ a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
   .focus-grid { grid-template-columns: 1fr; }
   .explore-grid { grid-template-columns: 1fr; }
   .values-grid { grid-template-columns: 1fr; }
-  .team-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .board-grid { grid-template-columns: 1fr; }
 
   .footer-grid { grid-template-columns: 1fr; gap: 30px; }
@@ -1797,4 +1802,8 @@ a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
   .feed-sidebar { flex-direction: column; }
 
   .section { padding: 60px 0; }
+}
+
+@media (max-width: 480px) {
+  .team-grid { grid-template-columns: 1fr; gap: 16px; }
 }
