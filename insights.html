@@ -77,7 +77,7 @@
       </div>
       <div class="feed-info">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        Updated every 30 minutes
+        Live from 14 industry sources
       </div>
     </div>
   </div>
@@ -88,96 +88,11 @@
   <div class="container">
     <div class="feed-layout">
 
-      <!-- Main Feed -->
+      <!-- Main Feed — populated by JavaScript RSS reader -->
       <div class="feed-main">
-
-        <div class="feed-card" data-category="vc">
-          <div class="feed-card-source">
-            <div class="feed-source-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></div>
-            <span class="feed-source-name">TechCrunch</span>
-            <span class="feed-source-dot"></span>
-            <span class="feed-source-time">2 hours ago</span>
-          </div>
-          <h3>Saudi Arabia's $100B Tech Fund Signals New Era for MENA Venture Capital</h3>
-          <p>The kingdom's latest sovereign wealth initiative is reshaping the venture capital landscape across the Middle East, with a particular focus on fintech and biotechnology infrastructure.</p>
-          <div class="feed-card-tags">
-            <span class="feed-tag feed-tag--vc">Venture Capital</span>
-            <span class="feed-tag feed-tag--mena">MENA</span>
-            <span class="feed-tag feed-tag--fintech">Fintech</span>
-          </div>
-          <span class="feed-read-more">Read full article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <div class="feed-loading" style="text-align:center;padding:60px 0;color:var(--tc-grey-dark);">
+          <p>Loading latest articles...</p>
         </div>
-
-        <div class="feed-card" data-category="fintech">
-          <div class="feed-card-source">
-            <div class="feed-source-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></div>
-            <span class="feed-source-name">The Fintech Times</span>
-            <span class="feed-source-dot"></span>
-            <span class="feed-source-time">5 hours ago</span>
-          </div>
-          <h3>Open Banking Adoption Accelerates Across Gulf States Following Regulatory Push</h3>
-          <p>Central banks across the GCC are fast-tracking open banking frameworks, creating significant opportunities for fintech companies and digital payment infrastructure providers.</p>
-          <div class="feed-card-tags">
-            <span class="feed-tag feed-tag--fintech">Fintech</span>
-            <span class="feed-tag feed-tag--mena">MENA</span>
-          </div>
-          <span class="feed-read-more">Read full article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-
-        <div class="feed-card" data-category="biotech">
-          <div class="feed-card-source">
-            <div class="feed-source-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></div>
-            <span class="feed-source-name">Nature Biotechnology</span>
-            <span class="feed-source-dot"></span>
-            <span class="feed-source-time">8 hours ago</span>
-          </div>
-          <h3>Gene Therapy Manufacturing Costs Drop 40% as New Platforms Scale Production</h3>
-          <p>Breakthrough manufacturing platforms are dramatically reducing the cost of gene therapy production, opening the door for wider adoption in emerging markets including the Middle East.</p>
-          <div class="feed-card-tags">
-            <span class="feed-tag feed-tag--biotech">Biotech</span>
-          </div>
-          <span class="feed-read-more">Read full article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-
-        <div class="feed-card" data-category="crypto">
-          <div class="feed-card-source">
-            <div class="feed-source-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></div>
-            <span class="feed-source-name">CoinDesk</span>
-            <span class="feed-source-dot"></span>
-            <span class="feed-source-time">12 hours ago</span>
-          </div>
-          <h3>Bahrain Emerges as Leading Crypto Hub Following New Licensing Framework</h3>
-          <p>The Central Bank of Bahrain's progressive digital asset regulations are attracting international crypto exchanges and blockchain companies to the Gulf region.</p>
-          <div class="feed-card-tags">
-            <span class="feed-tag feed-tag--crypto">Crypto</span>
-            <span class="feed-tag feed-tag--mena">MENA</span>
-          </div>
-          <span class="feed-read-more">Read full article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-
-        <div class="feed-card" data-category="fintech">
-          <div class="feed-card-source">
-            <div class="feed-source-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></div>
-            <span class="feed-source-name">Financial Times</span>
-            <span class="feed-source-dot"></span>
-            <span class="feed-source-time">1 day ago</span>
-          </div>
-          <h3>Africa Fintech Funding Rebounds With Record Q1 as Mobile Money Drives Growth</h3>
-          <p>After a challenging 2024, African fintech companies raised a record $1.2 billion in Q1 2026, led by mobile money, lending, and payment infrastructure platforms.</p>
-          <div class="feed-card-tags">
-            <span class="feed-tag feed-tag--fintech">Fintech</span>
-            <span class="feed-tag feed-tag--vc">Venture Capital</span>
-          </div>
-          <span class="feed-read-more">Read full article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-
-        <div style="text-align:center;margin-top:40px;">
-          <a href="#" class="feed-load-more" style="display:inline-flex;align-items:center;gap:8px;padding:12px 32px;border:2px solid var(--tc-gold);border-radius:4px;color:var(--tc-gold);font-weight:600;text-decoration:none;transition:all 0.3s ease;">
-            Read More Articles
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-
       </div>
 
       <!-- Sidebar -->
@@ -188,33 +103,58 @@
           <ul class="sidebar-feed-list">
             <li class="sidebar-feed-item">
               <span class="sidebar-feed-dot sidebar-feed-dot--active"></span>
-              <span class="sidebar-feed-name">TechCrunch VC</span>
-              <span class="sidebar-feed-count">24</span>
+              <span class="sidebar-feed-name">TechCrunch</span>
+              <span class="sidebar-feed-count">-</span>
+            </li>
+            <li class="sidebar-feed-item">
+              <span class="sidebar-feed-dot sidebar-feed-dot--active"></span>
+              <span class="sidebar-feed-name">EU-Startups</span>
+              <span class="sidebar-feed-count">-</span>
+            </li>
+            <li class="sidebar-feed-item">
+              <span class="sidebar-feed-dot sidebar-feed-dot--active"></span>
+              <span class="sidebar-feed-name">Crunchbase News</span>
+              <span class="sidebar-feed-count">-</span>
             </li>
             <li class="sidebar-feed-item">
               <span class="sidebar-feed-dot sidebar-feed-dot--active"></span>
               <span class="sidebar-feed-name">The Fintech Times</span>
-              <span class="sidebar-feed-count">18</span>
+              <span class="sidebar-feed-count">-</span>
             </li>
             <li class="sidebar-feed-item">
               <span class="sidebar-feed-dot sidebar-feed-dot--active"></span>
-              <span class="sidebar-feed-name">Nature Biotechnology</span>
-              <span class="sidebar-feed-count">12</span>
+              <span class="sidebar-feed-name">Finextra</span>
+              <span class="sidebar-feed-count">-</span>
+            </li>
+            <li class="sidebar-feed-item">
+              <span class="sidebar-feed-dot sidebar-feed-dot--active"></span>
+              <span class="sidebar-feed-name">FierceBiotech</span>
+              <span class="sidebar-feed-count">-</span>
+            </li>
+            <li class="sidebar-feed-item">
+              <span class="sidebar-feed-dot sidebar-feed-dot--active"></span>
+              <span class="sidebar-feed-name">GEN</span>
+              <span class="sidebar-feed-count">-</span>
+            </li>
+            <li class="sidebar-feed-item">
+              <span class="sidebar-feed-dot sidebar-feed-dot--active"></span>
+              <span class="sidebar-feed-name">Zawya</span>
+              <span class="sidebar-feed-count">-</span>
+            </li>
+            <li class="sidebar-feed-item">
+              <span class="sidebar-feed-dot sidebar-feed-dot--active"></span>
+              <span class="sidebar-feed-name">Gulf News Business</span>
+              <span class="sidebar-feed-count">-</span>
             </li>
             <li class="sidebar-feed-item">
               <span class="sidebar-feed-dot sidebar-feed-dot--active"></span>
               <span class="sidebar-feed-name">CoinDesk</span>
-              <span class="sidebar-feed-count">31</span>
+              <span class="sidebar-feed-count">-</span>
             </li>
             <li class="sidebar-feed-item">
               <span class="sidebar-feed-dot sidebar-feed-dot--active"></span>
-              <span class="sidebar-feed-name">Financial Times</span>
-              <span class="sidebar-feed-count">15</span>
-            </li>
-            <li class="sidebar-feed-item">
-              <span class="sidebar-feed-dot sidebar-feed-dot--active"></span>
-              <span class="sidebar-feed-name">MENA Bytes</span>
-              <span class="sidebar-feed-count">9</span>
+              <span class="sidebar-feed-name">CoinTelegraph</span>
+              <span class="sidebar-feed-count">-</span>
             </li>
           </ul>
         </div>
