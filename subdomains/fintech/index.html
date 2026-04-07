@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Taranis Capital Fintech Fund - Investing in financial technology innovation across emerging markets">
+    <link rel="icon" href="https://taraniscapital.com/images/logo-gold.png" type="image/png">
     <title>Taranis Capital | Fintech Fund</title>
 
     <!-- Google Fonts -->
@@ -50,20 +51,20 @@
         /* Navigation */
         nav {
             background: var(--tc-green-dark);
-            padding: 1.5rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 72px;
         }
 
         .nav-logo {
@@ -80,10 +81,11 @@
 
         .nav-logo-text {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
+            font-size: 1.125rem;
             font-weight: 600;
-            color: var(--tc-gold);
+            color: #ffffff;
             text-decoration: none;
+            letter-spacing: 0.02em;
         }
 
         .nav-links {
@@ -388,43 +390,45 @@
         /* Team & Advisers */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
         }
 
-        .team-card {
+        .team-member {
+            background-color: var(--tc-off-white);
             padding: 2rem;
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
             border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 3px solid var(--tc-gold);
         }
 
-        .team-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-        }
-
-        .team-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
+        .team-member h3 {
+            font-size: 1.2rem;
             color: var(--tc-green-dark);
             margin-bottom: 0.5rem;
         }
 
-        .team-card .role {
-            font-weight: 600;
-            color: var(--tc-gold);
+        .team-member .title {
             font-size: 0.85rem;
+            color: var(--tc-gold);
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             margin-bottom: 1rem;
         }
 
-        .team-card p {
+        .team-member p {
+            color: var(--tc-grey-dark);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .team-section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
             color: var(--tc-charcoal);
-            font-size: 0.9rem;
             line-height: 1.7;
         }
 
@@ -788,8 +792,6 @@
             </a>
             <ul class="nav-links">
                 <li><a href="https://taraniscapital.com">Home</a></li>
-                <li><a href="#fund-overview">Fund Overview</a></li>
-                <li><a href="https://taraniscapital.com/our-funds">Our Funds</a></li>
                 <li><a href="https://taraniscapital.com/contact" target="_blank">Contact</a></li>
             </ul>
         </div>
@@ -937,55 +939,51 @@
             <h2>Fund Leadership & Advisers</h2>
             <p class="intro-text">Led by founders with 25+ years of investment banking, fintech operations, and technology leadership.</p>
 
-            <div class="team-section">
-                <h3>Fund Leadership</h3>
-                <div class="team-grid">
-                    <div class="team-card">
-                        <h3>Nicholas S. Bingham</h3>
-                        <div class="role">Founding Partner & CEO</div>
-                        <p>25+ years in investment banking and asset management. Pioneered world-first projects in augmented and mixed reality technology. Leads Taranis Capital's overall strategy and portfolio.</p>
-                    </div>
-                    <div class="team-card">
-                        <h3>Mark Walker</h3>
-                        <div class="role">Founding Partner & COO</div>
-                        <p>Founded an enterprise software company (M&A exit). Founded The Fintech Power50 accelerator. Led operations at The Fintech Times. Former UK Trade & Investment Senior Adviser for technology sectors.</p>
-                    </div>
-                    <div class="team-card">
-                        <h3>Amit Varma</h3>
-                        <div class="role">Chief Information Officer</div>
-                        <p>28 years as CIO/Technology Head at Citibank, Emirates NBD, DBS, and Fidelity. Created 450+ fintech products. Built world's first blockchain pre-IPO trading platform.</p>
-                    </div>
-                    <div class="team-card">
-                        <h3>Mohamed Essam</h3>
-                        <div class="role">Legal Counsel</div>
-                        <p>Fintech and venture capital specialist. Led Fintech Group Sector at Matouk Bassiouny. Specialist in payments, lending, and fintech regulations across jurisdictions.</p>
-                    </div>
+            <div class="team-section-title">Executive Team</div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Nicholas S. Bingham</h3>
+                    <p class="title">Founding Partner & CEO</p>
+                    <p>25+ years in investment banking and asset management. Pioneered world-first projects in augmented and mixed reality technology. Leads Taranis Capital's overall strategy and portfolio.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Mark Walker</h3>
+                    <p class="title">Founding Partner & COO</p>
+                    <p>Founded an enterprise software company (M&A exit). Founded The Fintech Power50 accelerator. Led operations at The Fintech Times. Former UK Trade & Investment Senior Adviser for technology sectors.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Amit Varma</h3>
+                    <p class="title">Chief Information Officer</p>
+                    <p>28 years as CIO/Technology Head at Citibank, Emirates NBD, DBS, and Fidelity. Created 450+ fintech products. Built world's first blockchain pre-IPO trading platform.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Mohamed Essam</h3>
+                    <p class="title">Legal Counsel</p>
+                    <p>Fintech and venture capital specialist. Led Fintech Group Sector at Matouk Bassiouny. Specialist in payments, lending, and fintech regulations across jurisdictions.</p>
                 </div>
             </div>
 
-            <div class="team-section">
-                <h3>Board of Advisers</h3>
-                <div class="team-grid">
-                    <div class="team-card">
-                        <h3>Bruno Martorano</h3>
-                        <div class="role">Board Adviser</div>
-                        <p>35 years in international banking, fintech, and finance. Executive roles in neobanks, commercial banking, private banking, and FDI across New York, Paris, Hong Kong, Dubai, and London.</p>
-                    </div>
-                    <div class="team-card">
-                        <h3>David Parker</h3>
-                        <div class="role">Board Adviser</div>
-                        <p>Globally recognised fintech specialist with decades of industry experience. Former senior roles at Saatchi. Keynote presenter on fintech trends and digital financial innovation.</p>
-                    </div>
-                    <div class="team-card">
-                        <h3>Michael Boevink</h3>
-                        <div class="role">Board Adviser</div>
-                        <p>15+ years in technology, telecommunications, and fintech. Founder of Boevink Group, specialising in capital raises and scale-up growth across tech, fintech, and crypto sectors.</p>
-                    </div>
-                    <div class="team-card">
-                        <h3>Jack Hollander</h3>
-                        <div class="role">Board Adviser</div>
-                        <p>Extensive capital markets experience. Raised over $3 billion in alternative investment capital. Deep expertise in fund structuring and cross-border investment strategy.</p>
-                    </div>
+            <div class="team-section-title">Board of Advisers</div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Bruno Martorano</h3>
+                    <p class="title">Board Adviser</p>
+                    <p>35 years in international banking, fintech, and finance. Executive roles in neobanks, commercial banking, private banking, and FDI across New York, Paris, Hong Kong, Dubai, and London.</p>
+                </div>
+                <div class="team-member">
+                    <h3>David Parker</h3>
+                    <p class="title">Board Adviser</p>
+                    <p>Globally recognised fintech specialist with decades of industry experience. Former senior roles at Saatchi. Keynote presenter on fintech trends and digital financial innovation.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Michael Boevink</h3>
+                    <p class="title">Board Adviser</p>
+                    <p>15+ years in technology, telecommunications, and fintech. Founder of Boevink Group, specialising in capital raises and scale-up growth across tech, fintech, and crypto sectors.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Jack Hollander</h3>
+                    <p class="title">Board Adviser</p>
+                    <p>Extensive capital markets experience. Raised over $3 billion in alternative investment capital. Deep expertise in fund structuring and cross-border investment strategy.</p>
                 </div>
             </div>
         </div>
@@ -1052,35 +1050,34 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Taranis Capital</h4>
-                    <p>Global investment firm deploying capital into transformative technology and financial services companies across emerging markets.</p>
+                    <p>Disciplined capital deployment and knowledge leadership across emerging markets and high-growth sectors.</p>
                     <div class="social-links">
-                        <a href="https://linkedin.com/company/taranis-capital" title="LinkedIn" aria-label="LinkedIn">in</a>
-                        <a href="https://twitter.com/taraniscapital" title="Twitter" aria-label="Twitter">𝕏</a>
+                        <a href="https://www.linkedin.com/company/taranis-capital/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">in</a>
+                        <a href="https://twitter.com/TaranisCapital" target="_blank" rel="noopener noreferrer" title="Twitter" aria-label="Twitter">𝕏</a>
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Locations</h4>
-                    <p><strong>Dubai (HQ)</strong><br>Level 20, Tower 1<br>DIFC<br>PO Box 506722<br>Dubai, UAE</p>
-                    <p><strong>London</strong><br>London, UK</p>
-                    <p><strong>Geneva</strong><br>Geneva, Switzerland</p>
+                    <h4>Head Office</h4>
+                    <p>Level 02, Innovation One,<br>Dubai International Financial Centre (DIFC),<br>Dubai, United Arab Emirates</p>
+                    <p style="margin-top:1rem;"><strong>London</strong><br>41 Luke Street, London, EC2A 4DP, UK</p>
+                    <p style="margin-top:1rem;"><strong>Geneva</strong><br>Quartier Levratte 38, Geneva, 1260, Switzerland</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="https://taraniscapital.com">Main Site</a></li>
+                        <li><a href="https://taraniscapital.com/our-funds">Our Funds</a></li>
                         <li><a href="https://taraniscapital.com/contact">Contact Us</a></li>
-                        <li><a href="https://taraniscapital.com/privacy">Privacy Policy</a></li>
-                        <li><a href="https://taraniscapital.com/terms">Terms of Use</a></li>
+                        <li><a href="https://taraniscapital.com/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="https://taraniscapital.com/cookie-policy">Cookie Policy</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-divider">
+                <p style="text-align:center;font-size:0.8rem;opacity:0.75;margin-bottom:1.5rem;">Licensed by Dubai International Financial Centre (DIFC). Regulated by the Dubai Financial Services Authority.</p>
                 <div class="footer-bottom">
-                    <div>
-                        <p>&copy; 2026 Taranis Capital. All rights reserved.</p>
-                        <p class="regulatory-text">Taranis Capital is a Dubai Financial Services Authority (DFSA) authorised and regulated fund manager operating from the Dubai International Financial Centre (DIFC). This website is for informational purposes only and does not constitute an offer to invest. Any investment in our funds is subject to completion of appropriate legal documentation. Please contact us for further information about our investment funds and our approach.</p>
-                    </div>
+                    <p>&copy; 2026 Taranis Capital. All rights reserved.</p>
                 </div>
             </div>
         </div>

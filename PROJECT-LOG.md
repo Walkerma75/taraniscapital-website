@@ -235,7 +235,7 @@
 - Invalidate CloudFront caches after deploying real files
 - Update GitHub Actions workflow with subdomain deploy steps
 
-### Session 8 — 7 April 2026 (continued)
+### Session 8 — 8 April 2026
 
 **Main Site — UI/Design Fixes**
 - Fixed disruptive-tech.html hero colour from `#2a4a6b` (blue) → `var(--tc-green-dark)` to match other sector pages
@@ -254,12 +254,28 @@
 - Standardised nav CSS: consistent logo size (40px), font sizing, hover colours, transitions
 - No logo background colour in any subdomain header (confirmed clean)
 
-**DNS Status**
-- datacentre.taraniscapital.com and disruptive-tech.taraniscapital.com CloudFront distributions still pending DNS propagation — check from browser
+**GitHub Actions Updated**
+- Added subdomain S3 sync and CloudFront invalidation to deploy workflow (all 4 subdomains auto-deploy on push to main)
+- Added `--exclude "subdomains/*"` to main site sync to prevent subdomain files uploading to main bucket
+- Fixed fintech CloudFront distribution ID: E260FGTXCVORQ6 (was E260FGTXCV0RQ6 — terminal font confusion between O and 0)
 
-**Still Needs:**
-- Push to GitHub and sync subdomain files to S3 via CloudShell
-- Invalidate CloudFront caches for fintech and property (live subdomains)
+### Session 8b — 8 April 2026 (continued)
+
+**Main Site**
+- Partner cards on who-we-are page: made equal height using flexbox
+- Fixed our-approach.html image path: URL-encoded spaces (`Approach%20Strategy%20Image.jpg`)
+
+**Subdomain Standardisation (all 4 fund sites: fintech, property, datacentre, disruptive-tech)**
+- Removed Fund Overview and Our Funds from nav menus (just Home + Contact now)
+- Added favicon (`logo-gold.png`) to all 4 subdomains
+- Matched header height to main site (72px fixed height, `padding: 0 40px`)
+- Changed "Taranis Capital" header text from gold to white to match main site
+- Replaced `box-shadow` with `border-bottom: 1px solid rgba(255,255,255,0.08)` to match main site
+- Standardised all 4 footers: same 3-column layout (brand/tagline/social, head office/addresses, quick links), DIFC regulatory text, matching CSS classes
+- Standardised leadership/adviser cards across all 4 subdomains to property format (`.team-member` with off-white background, gold top border, consistent sizing)
+
+**DNS Status — datacentre & disruptive-tech still not loading**
+- Need to verify Route 53 CNAME targets and CloudFront alternate domain names via CloudShell
 
 ---
 

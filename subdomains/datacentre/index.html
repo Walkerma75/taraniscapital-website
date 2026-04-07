@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://taraniscapital.com/images/logo-gold.png" type="image/png">
     <title>Datacentre Fund | Taranis Capital</title>
     <meta name="description" content="Taranis Capital's Datacentre Fund invests in digital infrastructure across emerging markets, powering cloud, AI, and enterprise computing.">
 
@@ -38,21 +39,21 @@
 
         /* Header & Navigation */
         nav {
-            background-color: #3a5247;
-            padding: 1.5rem 0;
+            background-color: #2c3e35;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 72px;
         }
 
         .nav-logo {
@@ -69,10 +70,11 @@
 
         .nav-logo-text {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+            font-size: 1.125rem;
             font-weight: 600;
-            color: #c9a84c;
+            color: #ffffff;
             text-decoration: none;
+            letter-spacing: 0.02em;
         }
 
         .nav-links {
@@ -307,51 +309,40 @@
             margin-top: 2.5rem;
         }
 
-        .team-card {
-            background-color: #ffffff;
+        .team-member {
+            background-color: #f5f6f7;
             padding: 2rem;
-            border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-radius: 8px;
+            border-top: 3px solid #c9a84c;
         }
 
-        .team-card h3 {
-            font-family: 'Playfair Display', serif;
+        .team-member h3 {
             font-size: 1.2rem;
             color: #2c3e35;
             margin-bottom: 0.5rem;
         }
 
-        .team-card .role {
+        .team-member .title {
+            font-size: 0.85rem;
             color: #c9a84c;
             font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
         }
 
-        .team-card p {
+        .team-member p {
             color: #606e79;
             font-size: 0.95rem;
             line-height: 1.7;
         }
 
-        .team-section h2 {
-            text-align: left;
-            margin-bottom: 0.5rem;
-        }
-
-        .team-subsection {
-            margin-top: 3rem;
-        }
-
-        .team-subsection h3 {
-            font-family: 'Playfair Display', serif;
+        .team-section-title {
             font-size: 1.5rem;
-            color: #2c3e35;
+            font-weight: 700;
+            margin-top: 3rem;
             margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #c9a84c;
+            color: #374047;
         }
 
         /* ESG Section */
@@ -614,8 +605,6 @@
             </a>
             <ul class="nav-links">
                 <li><a href="https://taraniscapital.com">Home</a></li>
-                <li><a href="#fund-overview">Fund Overview</a></li>
-                <li><a href="https://taraniscapital.com/our-funds">Our Funds</a></li>
                 <li><a href="https://taraniscapital.com/contact" target="_blank">Contact</a></li>
             </ul>
         </div>
@@ -759,37 +748,31 @@
         <div class="section-container">
             <h2 class="section-title">Fund Leadership & Advisers</h2>
 
-            <div class="team-subsection">
-                <h3>Fund Leadership</h3>
-                <div class="team-grid">
-                    <div class="team-card">
-                        <h3>Nicholas S. Bingham</h3>
-                        <div class="role">Founding Partner & CEO</div>
-                        <p>Nicholas brings 25+ years of experience spanning investment banking and asset management. He led the establishment of Global Growth Partnerships and has pioneered world-first projects in augmented reality and mixed reality infrastructure. His leadership combines deep financial expertise with a track record of identifying and executing transformational infrastructure investments across emerging markets.</p>
-                    </div>
-
-                    <div class="team-card">
-                        <h3>Milan Radia</h3>
-                        <div class="role">Senior Partner</div>
-                        <p>Milan is the driving force behind the Datacentre Fund, bringing 30+ years of direct sector experience spanning asset management, data centres, and digital infrastructure. His career began at Prudential in 1993 and progressed through 17 years at tier-one investment firms including UBS, Bridgewell Securities, and Jefferies, where he was directly involved in landmark data centre IPOs and major M&A transactions. Milan held senior leadership positions at Interxion (now Digital Realty), with portfolio responsibility across the African continent, and maintains strategic involvement in major subsea connectivity initiatives including the 2Africa submarine cable.</p>
-                    </div>
+            <div class="team-section-title">Executive Team</div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Nicholas S. Bingham</h3>
+                    <p class="title">Founding Partner & CEO</p>
+                    <p>Nicholas brings 25+ years of experience spanning investment banking and asset management. He led the establishment of Global Growth Partnerships and has pioneered world-first projects in augmented reality and mixed reality infrastructure. His leadership combines deep financial expertise with a track record of identifying and executing transformational infrastructure investments across emerging markets.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Milan Radia</h3>
+                    <p class="title">Senior Partner</p>
+                    <p>Milan is the driving force behind the Datacentre Fund, bringing 30+ years of direct sector experience spanning asset management, data centres, and digital infrastructure. His career began at Prudential in 1993 and progressed through 17 years at tier-one investment firms including UBS, Bridgewell Securities, and Jefferies, where he was directly involved in landmark data centre IPOs and major M&A transactions. Milan held senior leadership positions at Interxion (now Digital Realty), with portfolio responsibility across the African continent, and maintains strategic involvement in major subsea connectivity initiatives including the 2Africa submarine cable.</p>
                 </div>
             </div>
 
-            <div class="team-subsection">
-                <h3>Board of Advisers</h3>
-                <div class="team-grid">
-                    <div class="team-card">
-                        <h3>H.E. Eng. Osama Al-Zamil</h3>
-                        <div class="role">Chairman of Advisory Board</div>
-                        <p>H.E. Eng. Osama Al-Zamil served as Vice Minister of Industry and Mineral Resources for the Kingdom of Saudi Arabia from 2019 to 2023, where he was instrumental in designing and executing Saudi Arabia's National Industrial Strategy aligned with Vision 2030. Under his leadership, the Kingdom expanded its industrial base from 7,000 to over 11,000 factories. His deep understanding of GCC industrial policy, government digital transformation priorities, and regional infrastructure planning is invaluable to the Fund's strategic positioning in the MENA market.</p>
-                    </div>
-
-                    <div class="team-card">
-                        <h3>Mazen Al-Rahim</h3>
-                        <div class="role">Board of Advisers</div>
-                        <p>Mazen brings 30+ years of operational and strategic experience in petrochemicals, manufacturing, and supply chain management. He previously served as Executive Director at SABIC and has managed multibillion-dollar supply chain operations for major international corporations including Saudi Aramco, ExxonMobil, and Sinopec joint ventures. His operational expertise and deep relationships across GCC industrial and energy sectors strengthen the Fund's ability to execute complex infrastructure projects at scale.</p>
-                    </div>
+            <div class="team-section-title">Board of Advisers</div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>H.E. Eng. Osama Al-Zamil</h3>
+                    <p class="title">Chairman of Advisory Board</p>
+                    <p>H.E. Eng. Osama Al-Zamil served as Vice Minister of Industry and Mineral Resources for the Kingdom of Saudi Arabia from 2019 to 2023, where he was instrumental in designing and executing Saudi Arabia's National Industrial Strategy aligned with Vision 2030. Under his leadership, the Kingdom expanded its industrial base from 7,000 to over 11,000 factories. His deep understanding of GCC industrial policy, government digital transformation priorities, and regional infrastructure planning is invaluable to the Fund's strategic positioning in the MENA market.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Mazen Al-Rahim</h3>
+                    <p class="title">Board of Advisers</p>
+                    <p>Mazen brings 30+ years of operational and strategic experience in petrochemicals, manufacturing, and supply chain management. He previously served as Executive Director at SABIC and has managed multibillion-dollar supply chain operations for major international corporations including Saudi Aramco, ExxonMobil, and Sinopec joint ventures. His operational expertise and deep relationships across GCC industrial and energy sectors strengthen the Fund's ability to execute complex infrastructure projects at scale.</p>
                 </div>
             </div>
         </div>
@@ -850,32 +833,35 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Taranis Capital</h4>
-                    <p>We build transformational infrastructure in emerging markets, combining patient capital with operational expertise and deep regional partnerships.</p>
+                    <p>Disciplined capital deployment and knowledge leadership across emerging markets and high-growth sectors.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/taranis-capital/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">in</a>
+                        <a href="https://twitter.com/TaranisCapital" target="_blank" rel="noopener noreferrer" title="Twitter" aria-label="Twitter">𝕏</a>
+                    </div>
                 </div>
-
                 <div class="footer-section">
-                    <h4>Office Locations</h4>
-                    <p><strong>Dubai (DIFC)</strong><br>Unit 123, Gate Village 4<br>Dubai International Financial Centre<br>Dubai, UAE<br><br><strong>London</strong><br>London, UK<br><br><strong>Geneva</strong><br>Geneva, Switzerland</p>
+                    <h4>Head Office</h4>
+                    <p>Level 02, Innovation One,<br>Dubai International Financial Centre (DIFC),<br>Dubai, United Arab Emirates</p>
+                    <p style="margin-top:1rem;"><strong>London</strong><br>41 Luke Street, London, EC2A 4DP, UK</p>
+                    <p style="margin-top:1rem;"><strong>Geneva</strong><br>Quartier Levratte 38, Geneva, 1260, Switzerland</p>
                 </div>
-
                 <div class="footer-section">
                     <h4>Quick Links</h4>
-                    <p><a href="https://taraniscapital.com">Home</a><br><a href="https://taraniscapital.com/who-we-are">Who We Are</a><br><a href="https://taraniscapital.com/our-approach">Our Approach</a><br><a href="https://taraniscapital.com/our-funds">Our Funds</a><br><a href="https://taraniscapital.com/contact">Contact</a></p>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="https://linkedin.com/company/taraniscapital">LinkedIn</a>
-                        <a href="https://twitter.com/taraniscapital">Twitter/X</a>
-                        <a href="https://facebook.com/taraniscapital">Facebook</a>
-                    </div>
+                    <ul>
+                        <li><a href="https://taraniscapital.com">Main Site</a></li>
+                        <li><a href="https://taraniscapital.com/our-funds">Our Funds</a></li>
+                        <li><a href="https://taraniscapital.com/contact">Contact Us</a></li>
+                        <li><a href="https://taraniscapital.com/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="https://taraniscapital.com/cookie-policy">Cookie Policy</a></li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="footer-bottom">
-                <p><strong>Regulatory Notice:</strong> Taranis Capital is regulated by the Dubai Financial Services Authority (DFSA) under DFSA registration number. This website is for information purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities. Past performance is not indicative of future results. Please consult with a qualified advisor before making investment decisions.</p>
-                <p>&copy; 2026 Taranis Capital. All rights reserved.</p>
+            <div class="footer-divider">
+                <p style="text-align:center;font-size:0.8rem;opacity:0.75;margin-bottom:1.5rem;">Licensed by Dubai International Financial Centre (DIFC). Regulated by the Dubai Financial Services Authority.</p>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Taranis Capital. All rights reserved.</p>
+                </div>
             </div>
         </div>
     </footer>
