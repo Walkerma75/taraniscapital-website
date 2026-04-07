@@ -1,10 +1,8 @@
 # Taranis Capital - robots.txt
-# Allow all crawlers to index the site
+# https://taraniscapital.com
 
 User-agent: *
 Allow: /
-Disallow: /wp-content/
-Disallow: /wp-admin/
 
 # Sitemap location
 Sitemap: https://taraniscapital.com/sitemap.xml
