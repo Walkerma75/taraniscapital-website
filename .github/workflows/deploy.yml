@@ -19,7 +19,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Sync to S3
+      - name: Sync main site to S3
         run: |
           aws s3 sync . s3://${{ secrets.S3_BUCKET }} \
             --delete \
@@ -30,10 +30,35 @@ jobs:
             --exclude "Board of Advisors/*" \
             --exclude "Documents/*" \
             --exclude "TC Logos/*" \
-            --exclude "Team Images/*"
+            --exclude "Team Images/*" \
+            --exclude "subdomains/*"
 
-      - name: Invalidate CloudFront cache
+      - name: Sync fintech subdomain to S3
+        run: aws s3 sync subdomains/fintech/ s3://fintech.taraniscapital.com/ --delete
+
+      - name: Sync datacentre subdomain to S3
+        run: aws s3 sync subdomains/datacentre/ s3://datacentre.taraniscapital.com/ --delete
+
+      - name: Sync property subdomain to S3
+        run: aws s3 sync subdomains/property/ s3://property.taraniscapital.com/ --delete
+
+      - name: Sync disruptive-tech subdomain to S3
+        run: aws s3 sync subdomains/disruptive-tech/ s3://disruptive-tech.taraniscapital.com/ --delete
+
+      - name: Invalidate CloudFront caches
         run: |
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
+          aws cloudfront create-invalidation \
+            --distribution-id E260FGTXCVORQ6 \
+            --paths "/*"
+          aws cloudfront create-invalidation \
+            --distribution-id E3EJUFMMNZLO3V \
+            --paths "/*"
+          aws cloudfront create-invalidation \
+            --distribution-id E2H8IQKJ8LPQ01 \
+            --paths "/*"
+          aws cloudfront create-invalidation \
+            --distribution-id E98QNGA1O9AI0 \
             --paths "/*"

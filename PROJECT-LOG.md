@@ -222,7 +222,7 @@
 2. **Wildcard SSL certificate** — `*.taraniscapital.com` issued in us-east-1 (ARN: `arn:aws:acm:us-east-1:571600836975:certificate/fa9c7dad-94a1-4cb1-8a9e-c8e5ee64b60d`)
 3. **4 S3 buckets created** — fintech, datacentre, property, disruptive-tech `.taraniscapital.com` with static website hosting and public read policies
 4. **4 CloudFront distributions created:**
-   - fintech: E260FGTXCV0RQ6 (d2ykbvfjmg586t.cloudfront.net)
+   - fintech: E260FGTXCVORQ6 (d2ykbvfjmg586t.cloudfront.net)
    - datacentre: E3EJUFMMNZLO3V (dg42m017gq950.cloudfront.net)
    - property: E2H8IQKJ8LPQ01 (d3bmdcmsydjb0z.cloudfront.net)
    - disruptive-tech: E98QNGA1O9AI0 (d2us91vkabbd5i.cloudfront.net)
@@ -292,7 +292,7 @@
 **CloudFront Distribution:** E18AUIFBUGMXSB
 **CloudFront Domain:** d1ete5r3431epc.cloudfront.net
 **CloudFront Function:** `url-rewrite` — handles 301 redirects (old WP URLs, trailing slashes, www→non-www), plus clean URL rewriting (.html append). Biotech redirect removed 2026-04-07.
-**Subdomain CloudFront Distributions:** fintech (E260FGTXCV0RQ6), datacentre (E3EJUFMMNZLO3V), property (E2H8IQKJ8LPQ01), disruptive-tech (E98QNGA1O9AI0)
+**Subdomain CloudFront Distributions:** fintech (E260FGTXCVORQ6), datacentre (E3EJUFMMNZLO3V), property (E2H8IQKJ8LPQ01), disruptive-tech (E98QNGA1O9AI0)
 **Wildcard SSL Cert:** arn:aws:acm:us-east-1:571600836975:certificate/fa9c7dad-94a1-4cb1-8a9e-c8e5ee64b60d
 **Deploy Trigger:** Push to main branch → GitHub Actions → S3 sync → CloudFront invalidation
 **Route 53 Hosted Zone:** Z0680053Y587NB8B8C9S

@@ -293,10 +293,41 @@ To auto-deploy subdomain sites on push (like the main site), add to `.github/wor
 
       - name: Invalidate subdomain CloudFront caches
         run: |
-          aws cloudfront create-invalidation --distribution-id CF_DIST_FINTECH --paths "/*"
-          aws cloudfront create-invalidation --distribution-id CF_DIST_DATACENTRE --paths "/*"
-          aws cloudfront create-invalidation --distribution-id CF_DIST_PROPERTY --paths "/*"
-          aws cloudfront create-invalidation --distribution-id CF_DIST_DISRUPTIVETECH --paths "/*"
+          aws cloudfront create-invalidation --distribution-id E260FGTXCVORQ6 --paths "/*"
+          aws cloudfront create-invalidation --distribution-id E3EJUFMMNZLO3V --paths "/*"
+          aws cloudfront create-invalidation --distribution-id E2H8IQKJ8LPQ01 --paths "/*"
+          aws cloudfront create-invalidation --distribution-id E98QNGA1O9AI0 --paths "/*"
 ```
 
-Replace `CF_DIST_*` with the actual CloudFront distribution IDs once created.
+---
+
+## Actual CloudFront Distribution Details (created 2026-04-07)
+
+| Subdomain | CloudFront Domain | Distribution ID |
+|---|---|---|
+| fintech.taraniscapital.com | d2ykbvfjmg586t.cloudfront.net | E260FGTXCVORQ6 |
+| datacentre.taraniscapital.com | dg42m017gq950.cloudfront.net | E3EJUFMMNZLO3V |
+| property.taraniscapital.com | d3bmdcmsydjb0z.cloudfront.net | E2H8IQKJ8LPQ01 |
+| disruptive-tech.taraniscapital.com | d2us91vkabbd5i.cloudfront.net | E98QNGA1O9AI0 |
+
+Wildcard cert ARN: `arn:aws:acm:us-east-1:571600836975:certificate/fa9c7dad-94a1-4cb1-8a9e-c8e5ee64b60d`
+
+---
+
+## Deploy Full Fund Sites (from local machine)
+
+Run from the repo root directory:
+
+```bash
+cd "C:\Users\mark\Claude Cowork\Taranis Capital Website"
+
+for SUBDOMAIN in fintech datacentre property disruptive-tech; do
+  aws s3 sync subdomains/${SUBDOMAIN}/ s3://${SUBDOMAIN}.taraniscapital.com/ --delete
+done
+
+# Invalidate CloudFront caches
+aws cloudfront create-invalidation --distribution-id E260FGTXCVORQ6 --paths "/*"
+aws cloudfront create-invalidation --distribution-id E3EJUFMMNZLO3V --paths "/*"
+aws cloudfront create-invalidation --distribution-id E2H8IQKJ8LPQ01 --paths "/*"
+aws cloudfront create-invalidation --distribution-id E98QNGA1O9AI0 --paths "/*"
+```
