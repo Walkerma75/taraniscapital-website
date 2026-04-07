@@ -3,7 +3,7 @@
 **Project:** Rebuild taraniscapital.com from WordPress to native static HTML/CSS/JS
 **Repository:** github.com/Walkerma75/taraniscapital-website
 **Hosting:** AWS S3 (bucket: taraniscapital.com, eu-west-2) + CloudFront (E18AUIFBUGMXSB)
-**Live URL:** https://taraniscapital.com (pending DNS/cert) | https://d1ete5r3431epc.cloudfront.net
+**Live URL:** https://taraniscapital.com | https://d1ete5r3431epc.cloudfront.net
 
 ---
 
@@ -111,20 +111,62 @@
 **Footer Cleanup (all 44 HTML files)**
 - Removed "Venture Capital & Strategic Investment" subtitle from all footers site-wide (footer-brand-sub div)
 
+**Team Grid Layout Fix (who-we-are.html + css/styles.css)**
+- Diagnosed root cause of "pyramid" layout: nested `<a>` tags inside outer `<a class="team-card-link">` wrappers
+- Social link `<a>` tags (LinkedIn, email) inside the card-wrapping `<a>` is invalid HTML — browsers auto-close the outer link, turning 9 cards into 18 broken grid items
+- Fix: removed social link icons from team grid cards (they remain on individual profile pages); each card is now a single clean `<a>` wrapping the photo, name, and role
+- Grid now renders correctly as 3×3 on desktop/tablet, single column on mobile
+- Also updated CSS responsive breakpoints to keep 3 columns down to 480px
+
+**Git Commit & Deploy**
+- All changes committed and pushed to main by Mark
+- Live on CloudFront via GitHub Actions → S3 sync pipeline
+
+### Session 5 — 7 April 2026
+
+**DNS & Nameserver Migration to AWS Route 53**
+- Audited all 30 DNS records on Funkygrafix cPanel; identified 9 essential records and 21 cPanel-generated junk
+- Essential records: A (root → CloudFront), www CNAME, MX (Google Workspace → SMTP.GOOGLE.COM), SPF TXT, DKIM TXT, Google site verification CNAME, biotech A (→ Replit 34.111.179.128), biotech Replit verification TXT, ACM validation CNAME
+- Created Route 53 hosted zone (ID: Z0680053Y587NB8B8C9S) for taraniscapital.com
+- Created all 9 records via AWS CloudShell CLI using batch JSON + Python script (DKIM required special handling for JSON quoting)
+- Root domain uses Route 53 ALIAS record pointing to CloudFront distribution d1ete5r3431epc.cloudfront.net (CloudFront hosted zone ID: Z2FDTNDATAQYW2)
+- Updated nameservers at e& registrar from ns1/ns2.funkygrafix.co.uk to Route 53: ns-1539.awsdns-00.co.uk, ns-942.awsdns-53.net, ns-399.awsdns-49.com, ns-1261.awsdns-29.org
+- Verified propagation via dnschecker.org: NS records 100% propagated across all 28 global DNS servers; A records resolving to CloudFront edge IPs worldwide
+- Funkygrafix decommission scheduled for 2026-04-10 (48-72 hours post-migration)
+
+### Session 6 — 7 April 2026 (continued)
+
+**SEO Audit & Fixes (based on Pro-Curo GSC audit)**
+- Audited site against Google Search Console indexing issues (crawled-not-indexed, duplicate-without-canonical, soft 404, trailing slash duplicates)
+- Expanded sitemap.xml from 8 URLs to 39 — added all 4 fund pages, 9 team profiles, 17 board profiles, 2 legal pages
+- Added canonical tag and meta description to privacy-policy.html
+- Added `<meta name="robots" content="noindex, nofollow">` to 404.html
+- Cleaned robots.txt — removed old WordPress disallow rules (/wp-content/, /wp-admin/), added sitemap reference
+
+**CloudFront Function — 301 Redirect Engine**
+- Upgraded the `url-rewrite` CloudFront Function from simple clean-URL handler to full redirect engine
+- Specific redirects: /contact-us/ → /contact, /ai/ → /disruptive-tech, /insights/page/2/ → /insights, /wp-login.php → /, /feed/ → /insights
+- External redirect: /biotech/ → biotech.taraniscapital.com (301)
+- Pattern redirect: /appointment-news/* mapped to individual /team/ or /board/ profiles via slug lookup table (22 people)
+- Pattern redirect: /taranis-capital-* and /aazzur-* old news posts → /insights
+- Trailing slash normalisation (301 strip trailing slash on all paths except root)
+- www → non-www canonical redirect
+- Published and tested via AWS CloudShell CLI; verified all redirects live on production
+
+**Google Analytics 4**
+- Added GA4 tracking tag (G-JLN31RRY1V) to all 40 HTML pages across the site (13 root pages, 9 team profiles, 18 board profiles)
+- Tag placed immediately after `<head>` on every page
+
+**Verification (Session 6 continued)**
+- Confirmed sitemap.xml live with all 39 URLs
+- Confirmed robots.txt clean with sitemap reference
+- Confirmed privacy-policy.html has canonical tag and meta description
+- Confirmed 404.html has noindex/nofollow meta tag
+- Tested all CloudFront Function redirects: /contact-us/ → /contact ✓, /ai/ → /disruptive-tech ✓, /biotech/ → biotech.taraniscapital.com ✓, /insights/page/2/ → /insights ✓, trailing slash normalisation ✓, /appointment-news/nicholas-bingham → /team/nicholas-bingham ✓
+
 ---
 
 ## Pending / To Do
-
-### Immediate (commit & deploy)
-1. **Delete old bruno.html and commit** — Run from local machine:
-   ```
-   cd "C:\Users\mark\Claude Cowork\Taranis Capital Website"
-   del "board\bruno.html"
-   git add -A
-   git commit -m "Session 4: Bruno Martorano fix, team bios updated, footer subtitle removed"
-   git push origin main
-   ```
-2. **Verify live site** — Check all pages load correctly on CloudFront URL after deployment
 
 ### Content & Data
 3. **10 board member bios needed** — See MISSING-PROFILE-INFO.md for full list (Dr Amer Mahmood, Asim Chohan, Daniel Roubeni, David Grunfeld, Ghassan Najmeddin, Leif Hesse, Osama Al-Thanon, Rayan Al-Karawi, Sarah Sinclair, Dr Tarek El Mansy)
@@ -132,11 +174,11 @@
 5. **Scrape old WP fund pages** — Additional content from old WP site for enriching fund pages
 
 ### Technical
-6. **DNS & SSL** — Confirm custom domain and SSL certificate are validated
-7. **Sitemap update** — sitemap.xml needs new pages (team/*, board/*, fund pages, bruno-martorano)
-8. **SEO & meta tags** — Review and optimise across all new pages
+6. **DNS & SSL** — ✅ DNS migrated to Route 53, SSL certificate issued, custom domain live. Decommission Funkygrafix after 2026-04-10
+7. **Sitemap update** — ✅ Expanded from 8 to 39 URLs (all pages covered)
+8. **SEO & meta tags** — ✅ Canonical tags, meta descriptions, noindex on 404, 301 redirects for old WP URLs all implemented
 9. **Mobile responsiveness** — Test all new pages on mobile devices
-10. **Analytics** — Consider adding Google Analytics or similar
+10. **Analytics** — ✅ GA4 (G-JLN31RRY1V) added to all 40 pages
 
 ### Design
 11. **Images** — Need to decide on imagery for: company intro section placeholder, fund pages, partner logos (currently text-only cards)
@@ -150,5 +192,9 @@
 **S3 Website Endpoint:** http://taraniscapital.com.s3-website.eu-west-2.amazonaws.com/
 **CloudFront Distribution:** E18AUIFBUGMXSB
 **CloudFront Domain:** d1ete5r3431epc.cloudfront.net
-**CloudFront Function:** Appends .html to extensionless URIs for clean URLs
+**CloudFront Function:** `url-rewrite` — handles 301 redirects (old WP URLs, trailing slashes, www→non-www, /biotech/→subdomain), plus clean URL rewriting (.html append)
 **Deploy Trigger:** Push to main branch → GitHub Actions → S3 sync → CloudFront invalidation
+**Route 53 Hosted Zone:** Z0680053Y587NB8B8C9S
+**Route 53 Nameservers:** ns-1539.awsdns-00.co.uk, ns-942.awsdns-53.net, ns-399.awsdns-49.com, ns-1261.awsdns-29.org
+**Domain Registrar:** e& (formerly Etisalat) — nic.ae
+**Live URL:** https://taraniscapital.com (live as of 2026-04-07)
