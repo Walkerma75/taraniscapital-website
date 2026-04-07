@@ -277,6 +277,47 @@
 **DNS Status — datacentre & disruptive-tech still not loading**
 - Need to verify Route 53 CNAME targets and CloudFront alternate domain names via CloudShell
 
+### Session 8c — 8 April 2026 (continued)
+
+**Full Subdomain Rebuild — All 3 Non-Fintech Sites Rebuilt to Match Fintech Template**
+
+Rebuilt property, datacentre, and disruptive-tech subdomain sites to match fintech template's exact CSS, HTML structure, and section layout. Fintech site used as the master template.
+
+**Common changes across all 3 sites:**
+- Exact fintech CSS: all colour variables (--tc-green-dark, --tc-green-mid, --tc-gold, etc.), grid layouts, hover effects, responsive breakpoints, animations
+- Hero: green gradient (`linear-gradient(135deg, var(--tc-green-dark) 0%, var(--tc-green-mid) 100%)`) with decorative SVG `::before` overlay
+- Fund Overview: 2-column `.overview-grid` (text + 4 highlight cards with gold left borders)
+- Why Taranis: `.why-grid` of `.why-card` cards with circular gold `.why-card-icon` icons and hover lift
+- Market Opportunity: `.opportunity-grid` of `.opportunity-item` cards with `.stat` gold numbers
+- Investment Focus: `.focus-grid` of `.focus-card` dark green gradient cards with gold headings
+- Team: `.team-grid` of `.team-member` cards with gold top border, Executive Team + Board of Advisers
+- ESG: `.esg-grid` of `.esg-item` centered text cards
+- CTA: green gradient `.cta-section` inside container with border-radius
+- Cookie banner: slide-up `.show` class mechanism (like fintech)
+- Footer: standard 3-column (brand+social, head office+London+Geneva, quick links)
+
+**Property Fund (`/subdomains/property/index.html`):**
+- Converted Why Taranis from 5 `.why-item` list to 4 `.why-card` grid (Deep GCC Network, Vision 2030, DIFC Base, Institutional Experience)
+- Converted Market Opportunity from paragraphs to 4 stat cards ($1.4T+ GCC market stat)
+- Converted Investment Focus from plain white cards to green gradient `.focus-card` cards
+- No Strategic Partners section (property fund difference)
+- ESG: 4 items
+
+**Datacentre Fund (`/subdomains/datacentre/index.html`):**
+- Converted Why Taranis from `.benefit-card` list to 6 `.why-card` grid with icons
+- Converted Market Opportunity from `.market-stat` to `.opportunity-item` cards (6 items, 3 with $ stats)
+- Converted Investment Focus from `.focus-card` (similar but different CSS) to fintech `.focus-card` exact CSS
+- No Strategic Partners section
+- ESG: 6 items
+
+**Disruptive Tech Fund (`/subdomains/disruptive-tech/index.html`):**
+- **CRITICAL**: Changed hero and CTA from navy/blue (`--tc-navy: #2a4a6b`) to green gradient — removed all `--tc-navy` references
+- Converted from completely different structure (fund stats panel, bullet-point Why Taranis, emoji sector icons, investment strategy allocation table, GCC Regional Opportunity, Key Fund Terms) to fintech template layout
+- Fund-specific content preserved: $250M target AUM, Series A/B/C allocation info (moved to overview highlights), $1.8T+ AI market stat
+- Strategic Partners section retained (Disrupts + The Fintech Times)
+- ESG: 3 items (Pre-Investment Assessment, Post-Investment Monitoring, Portfolio Company Support)
+- Largest rebuild of the three — most structurally different from fintech template
+
 ---
 
 ## Pending / To Do
