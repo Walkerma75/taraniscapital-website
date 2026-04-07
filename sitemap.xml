@@ -59,7 +59,13 @@
   </url>
   <url>
     <loc>https://taraniscapital.com/disruptive-tech</loc>
-    <lastmod>2026-04-03</lastmod>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://taraniscapital.com/biotech</loc>
+    <lastmod>2026-04-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

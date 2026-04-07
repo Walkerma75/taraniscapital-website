@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disruptive Tech Fund | Taranis Capital</title>
+    <meta name="description" content="A DFSA-acknowledged venture capital fund investing in disruptive technology companies across AI, cybersecurity, and next-generation platforms.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLN31RRY1V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JLN31RRY1V');
+    </script>
+
+    <style>
+        :root {
+            --tc-green-dark: #2c3e35;
+            --tc-gold: #c9a84c;
+            --tc-gold-light: #d4b65e;
+            --tc-charcoal: #374047;
+            --tc-grey-dark: #606e79;
+            --tc-off-white: #f5f6f7;
+            --tc-navy: #2a4a6b;
+            --tc-white: #ffffff;
+            --tc-black: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--tc-charcoal);
+            line-height: 1.6;
+            background-color: var(--tc-white);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            color: var(--tc-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--tc-gold-light);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--tc-green-dark);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--tc-white);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .nav-logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        .nav-logo a {
+            color: var(--tc-white);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--tc-white);
+            font-size: 0.95rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--tc-navy) 0%, #1f3a52 100%);
+            color: var(--tc-white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Spacing */
+        section {
+            padding: 4rem 0;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--tc-charcoal);
+        }
+
+        .section-intro {
+            font-size: 1.05rem;
+            color: var(--tc-grey-dark);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .card {
+            background: var(--tc-off-white);
+            border: 1px solid #e0e4e8;
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--tc-charcoal);
+        }
+
+        .card p {
+            color: var(--tc-grey-dark);
+            line-height: 1.7;
+        }
+
+        /* Fund Stats */
+        .fund-stats {
+            background-color: var(--tc-off-white);
+            padding: 3rem 2rem;
+            border-radius: 8px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--tc-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--tc-grey-dark);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Why Taranis Section */
+        .why-taranis {
+            background-color: var(--tc-off-white);
+        }
+
+        .why-taranis ul {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .why-taranis li {
+            padding: 1.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--tc-grey-dark);
+            line-height: 1.8;
+        }
+
+        .why-taranis li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 1.75rem;
+            width: 8px;
+            height: 8px;
+            background-color: var(--tc-gold);
+            border-radius: 50%;
+        }
+
+        /* Sector Cards */
+        .sectors .card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sector-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        /* Investment Strategy */
+        .investment-strategy {
+            background-color: var(--tc-off-white);
+        }
+
+        .strategy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+            align-items: center;
+        }
+
+        .strategy-left h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--tc-charcoal);
+        }
+
+        .strategy-allocation {
+            background: var(--tc-white);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .allocation-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .allocation-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .allocation-label {
+            font-weight: 600;
+        }
+
+        .allocation-percent {
+            color: var(--tc-gold);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .strategy-right {
+            background: var(--tc-white);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--tc-gold);
+        }
+
+        .strategy-right h4 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--tc-charcoal);
+        }
+
+        .strategy-right p {
+            color: var(--tc-grey-dark);
+            line-height: 1.7;
+        }
+
+        /* Investment Committee */
+        .committee {
+            background-color: var(--tc-off-white);
+        }
+
+        .committee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .committee-card {
+            background: var(--tc-white);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #e0e4e8;
+        }
+
+        .committee-name {
+            font-size: 1.3rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--tc-charcoal);
+        }
+
+        .committee-title {
+            color: var(--tc-gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .committee-bio {
+            color: var(--tc-grey-dark);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .committee-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .committee-contact a {
+            color: var(--tc-gold);
+        }
+
+        /* Board Advisers */
+        .advisers .card {
+            min-height: 200px;
+        }
+
+        .adviser-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .adviser-focus {
+            color: var(--tc-gold);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        /* Strategic Partners */
+        .partners .card {
+            text-align: center;
+        }
+
+        .partner-name {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .partner-url {
+            color: var(--tc-gold);
+            margin: 1rem 0;
+        }
+
+        /* GCC Section */
+        .gcc-section {
+            background-color: var(--tc-off-white);
+        }
+
+        .gcc-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .gcc-list {
+            list-style: none;
+        }
+
+        .gcc-list li {
+            padding: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--tc-grey-dark);
+            line-height: 1.7;
+        }
+
+        .gcc-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--tc-gold);
+            font-weight: bold;
+        }
+
+        .gcc-highlight {
+            background: var(--tc-white);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--tc-gold);
+        }
+
+        /* Fund Terms */
+        .fund-terms {
+            background-color: var(--tc-off-white);
+        }
+
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .term-item {
+            background: var(--tc-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e0e4e8;
+        }
+
+        .term-label {
+            color: var(--tc-gold);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .term-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--tc-charcoal);
+        }
+
+        /* ESG Section */
+        .esg-section {
+            background-color: var(--tc-off-white);
+        }
+
+        .esg-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .esg-card {
+            background: var(--tc-white);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--tc-gold);
+        }
+
+        .esg-card h4 {
+            margin-bottom: 1rem;
+            color: var(--tc-charcoal);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--tc-navy) 0%, #1f3a52 100%);
+            color: var(--tc-white);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+
+        .cta-section h2 {
+            color: var(--tc-white);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--tc-gold);
+            color: var(--tc-charcoal);
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--tc-gold-light);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--tc-green-dark);
+            color: var(--tc-white);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--tc-gold);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--tc-white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        /* Scroll to Top Button */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--tc-gold);
+            color: var(--tc-charcoal);
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: none;
+            font-size: 1.5rem;
+            z-index: 999;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: var(--tc-gold-light);
+            transform: scale(1.1);
+        }
+
+        #scrollTopBtn.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--tc-charcoal);
+            color: var(--tc-white);
+            padding: 1.5rem 2rem;
+            z-index: 998;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cookie-banner.hidden {
+            display: none;
+        }
+
+        .cookie-text {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .cookie-accept, .cookie-reject {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .cookie-accept {
+            background-color: var(--tc-gold);
+            color: var(--tc-charcoal);
+        }
+
+        .cookie-accept:hover {
+            transform: translateY(-2px);
+        }
+
+        .cookie-reject {
+            background-color: transparent;
+            color: var(--tc-white);
+            border: 1px solid var(--tc-white);
+        }
+
+        .cookie-reject:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .strategy-content,
+            .gcc-content {
+                grid-template-columns: 1fr;
+            }
+
+            .committee-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cookie-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .cookie-buttons {
+                width: 100%;
+            }
+
+            .cookie-accept, .cookie-reject {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://taraniscapital.com/images/logo-gold.png" alt="Taranis Capital Logo">
+                <a href="https://taraniscapital.com">Taranis Capital</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="https://taraniscapital.com">Home</a></li>
+                <li><a href="https://taraniscapital.com/funds">Funds</a></li>
+                <li><a href="https://taraniscapital.com/team">Team</a></li>
+                <li><a href="https://taraniscapital.com/insights">Insights</a></li>
+                <li><a href="https://taraniscapital.com/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Disruptive Tech Fund</h1>
+            <p>A DFSA-acknowledged venture capital fund investing in disruptive technology companies across AI, cybersecurity, and next-generation platforms</p>
+        </div>
+    </section>
+
+    <!-- Fund Overview -->
+    <section>
+        <div class="container">
+            <h2>Fund Overview</h2>
+            <p class="section-intro">Taranis Disruptive Tech Fund LP is a closed-ended Qualified Investor Venture Capital Fund established in DIFC and regulated by DFSA. Managed by Taranis Capital Limited (DFSA-regulated fund manager), the fund invests in early-stage and growth-stage companies with innovative technology components and strong global ambitions. We seek companies with exceptional growth potential, strong management teams, defensible competitive advantages, and scalable business models.</p>
+
+            <div class="fund-stats">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">$250M</div>
+                        <div class="stat-label">Target AUM</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">$1M</div>
+                        <div class="stat-label">Minimum Subscription</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">10 Years</div>
+                        <div class="stat-label">Fund Term</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Target Sectors</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Taranis -->
+    <section class="why-taranis">
+        <div class="container">
+            <h2>Why Taranis?</h2>
+            <p class="section-intro">We are uniquely positioned to source and support disruptive technology companies across the globe and particularly in the Gulf region.</p>
+
+            <ul>
+                <li><strong>Media Platform Advantage:</strong> Our proprietary platforms—disrupts.com and The Fintech Times (250,000+ subscribers)—provide systematic intelligence on emerging technology companies. This is a genuine structural differentiator in deal sourcing and market intelligence.</li>
+                <li><strong>Regional Presence & Relationships:</strong> DIFC regulatory presence combined with our Investment Committee's extensive GCC relationships create a natural advantage for sourcing technology companies expanding into the Gulf region.</li>
+                <li><strong>Sector Expertise:</strong> Our team includes enterprise software founders, CIOs from tier-1 banks, and experienced operators with direct technology sector experience across multiple verticals.</li>
+                <li><strong>Board & Advisory Network:</strong> Our board includes cybersecurity specialists, technology scaling experts, and Vision 2030 architects, providing deep domain expertise and regional insights.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Sector Focus -->
+    <section class="sectors">
+        <div class="container">
+            <h2>Sector Focus</h2>
+            <p class="section-intro">We focus on four core technology sectors with significant growth potential and global opportunity.</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="sector-icon">🤖</div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>AI/ML infrastructure, foundation models, enterprise AI, intelligent automation, and data platforms. The global AI market is projected to exceed $1.8 trillion by 2030, with significant demand for practical applications and enterprise solutions.</p>
+                </div>
+                <div class="card">
+                    <div class="sector-icon">💳</div>
+                    <h3>Financial Technology</h3>
+                    <p>Digital payments, embedded finance, blockchain, DeFi, and digital banking solutions. We leverage proprietary intelligence from The Fintech Times to identify transformative fintech innovations reshaping financial services globally.</p>
+                </div>
+                <div class="card">
+                    <div class="sector-icon">☁️</div>
+                    <h3>Enterprise Software & Cybersecurity</h3>
+                    <p>SaaS platforms, cybersecurity solutions, productivity tools, developer infrastructure, and cloud-native technologies. These businesses deliver predictable recurring revenue models with strong retention characteristics.</p>
+                </div>
+                <div class="card">
+                    <div class="sector-icon">📡</div>
+                    <h3>Media & Telecommunications</h3>
+                    <p>Digital media platforms, content technology, streaming solutions, next-generation telecoms, and 5G applications. As the convergence of media and technology accelerates, innovative platforms are reshaping how content is created, distributed, and consumed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Strategy -->
+    <section class="investment-strategy">
+        <div class="container">
+            <h2>Investment Strategy</h2>
+
+            <div class="strategy-content">
+                <div class="strategy-left">
+                    <h3>Capital Allocation</h3>
+                    <p>Our investment strategy focuses on capital deployment across development stages with a clear allocation framework:</p>
+
+                    <div class="strategy-allocation">
+                        <div class="allocation-item">
+                            <span class="allocation-label">Series A Investments</span>
+                            <span class="allocation-percent">35-45%</span>
+                        </div>
+                        <div class="allocation-item">
+                            <span class="allocation-label">Series B/C Investments</span>
+                            <span class="allocation-percent">55-65%</span>
+                        </div>
+                    </div>
+
+                    <p style="color: var(--tc-grey-dark); font-size: 0.95rem; margin-top: 1.5rem;">Series A investments focus on companies with proven product-market fit ready to scale. Series B/C investments target companies with proven business models looking to expand reach and market penetration.</p>
+                </div>
+
+                <div class="strategy-right">
+                    <h4>Global Mandate & Regional Focus</h4>
+                    <p>We operate with a truly global mandate with no geographic restrictions. Our investment team actively sources across major technology hubs in North America, Europe, Asia-Pacific, and the Middle East.</p>
+
+                    <h4 style="margin-top: 2rem;">DIFC Advantage</h4>
+                    <p>Our position in DIFC combined with deep GCC relationships creates a natural advantage for identifying and supporting technology companies looking to establish or expand Gulf region operations.</p>
+
+                    <h4 style="margin-top: 2rem;">Value-Add Approach</h4>
+                    <p>Beyond capital, we provide strategic guidance, operational expertise, and access to our extensive network of advisers, limited partners, and technology sector specialists to support portfolio company growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GCC Regional Opportunity -->
+    <section class="gcc-section">
+        <div class="container">
+            <h2>GCC Regional Opportunity</h2>
+            <p class="section-intro">The Gulf Cooperation Council region presents a compelling investment opportunity driven by government-led modernisation initiatives with technology at the core.</p>
+
+            <div class="gcc-content">
+                <div>
+                    <ul class="gcc-list">
+                        <li><strong>Saudi Arabia Vision 2030:</strong> A transformational national strategy focused on economic diversification with significant investment in technology, digital infrastructure, and innovation.</li>
+                        <li><strong>UAE Operation 300bn:</strong> An ambitious economic initiative emphasising advanced technology, cybersecurity, digital transformation, and emerging industries.</li>
+                        <li><strong>Qatar National Vision 2030:</strong> Strategic focus on sustainable economic growth with technology and innovation as critical enablers.</li>
+                    </ul>
+                </div>
+
+                <div class="gcc-highlight">
+                    <h4 style="color: var(--tc-charcoal); margin-bottom: 1rem;">Trillions in Government-Directed Modernisation</h4>
+                    <p>GCC governments are directing trillions in capital toward technology-enabled modernisation. Companies that successfully establish or expand Gulf operations benefit from substantial local demand, strategic partnerships with government entities, and access to regional capital.</p>
+                    <p style="margin-top: 1rem;">We actively encourage our portfolio companies to evaluate GCC market opportunities and support them in establishing regional operations and partnerships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Committee -->
+    <section class="committee">
+        <div class="container">
+            <h2>Investment Committee</h2>
+            <p class="section-intro">Our Investment Committee brings together decades of experience spanning investment banking, asset management, technology entrepreneurship, banking operations, and GCC regulatory expertise.</p>
+
+            <div class="committee-grid">
+                <div class="committee-card">
+                    <div class="committee-name">Nicholas S. Bingham</div>
+                    <div class="committee-title">Founding Partner & CEO, Chairman</div>
+                    <div class="committee-bio">25+ years in investment banking and asset management, including a decade as CEO of Global Growth Partnerships. Pioneered world-first augmented reality and mixed reality projects, combining technical innovation with commercial execution.</div>
+                    <div class="committee-contact">
+                        <a href="https://www.linkedin.com/in/nick-s-b-782833116/">LinkedIn Profile</a>
+                        <a href="mailto:nicholas@taraniscapital.com">nicholas@taraniscapital.com</a>
+                    </div>
+                </div>
+
+                <div class="committee-card">
+                    <div class="committee-name">Mark Walker</div>
+                    <div class="committee-title">Founding Partner & COO</div>
+                    <div class="committee-bio">Founded and scaled an enterprise software company to successful M&A exit. Former Senior Adviser at UK Trade & Investment for technology sectors. Founded an exclusive fintech accelerator and led operations at The Fintech Times.</div>
+                    <div class="committee-contact">
+                        <a href="mailto:mark@taraniscapital.com">mark@taraniscapital.com</a>
+                    </div>
+                </div>
+
+                <div class="committee-card">
+                    <div class="committee-name">David Grunfeld</div>
+                    <div class="committee-title">Partner</div>
+                    <div class="committee-bio">Serial entrepreneur with multiple successful exits and active angel investments. Founded aiiro AI and Prose Solutions. 22+ years advising GCC corporates and governments on technology strategy and digital transformation.</div>
+                    <div class="committee-contact">
+                        <a href="https://www.linkedin.com/in/davidgrunfeld/">LinkedIn Profile</a>
+                        <a href="mailto:davidg@taraniscapital.com">davidg@taraniscapital.com</a>
+                    </div>
+                </div>
+
+                <div class="committee-card">
+                    <div class="committee-name">Amit Varma</div>
+                    <div class="committee-title">Chief Information Officer</div>
+                    <div class="committee-bio">28 years as CIO and Technology Head at tier-1 global financial institutions including Citibank, Emirates NBD, DBS, and Fidelity. Launched 450+ fintech products and created the world's first blockchain-enabled pre-IPO trading platform.</div>
+                    <div class="committee-contact">
+                        <a href="https://www.linkedin.com/in/amit-j-varma/">LinkedIn Profile</a>
+                        <a href="mailto:amit@taraniscapital.com">amit@taraniscapital.com</a>
+                    </div>
+                </div>
+
+                <div class="committee-card">
+                    <div class="committee-name">Osama Ben Saleh Bukhari</div>
+                    <div class="committee-title">Chief Technical Officer</div>
+                    <div class="committee-bio">Two decades of banking industry experience and leadership at Alfaris International Group. Head of the Banking Committee at ICC Saudi Arabia since 2012. Named by Arabian Business as one of the '50 People You Need to Know in KSA'.</div>
+                    <div class="committee-contact">
+                        <a href="https://www.linkedin.com/in/osama-ben-saleh-bukhari-8164295/">LinkedIn Profile</a>
+                        <a href="mailto:osama@taraniscapital.com">osama@taraniscapital.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Board Advisers -->
+    <section class="advisers">
+        <div class="container">
+            <h2>Board Advisers</h2>
+            <p class="section-intro">Our board of advisers brings specialised expertise in technology, cybersecurity, ESG, and regional economic development.</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="adviser-name">Michael Boevink</div>
+                    <div class="adviser-focus">Technology & Scale-Up Growth</div>
+                    <p>15+ years across technology, telecommunications, and financial services. Founder of Boevink Group, specialising in capital raises and scale-up growth acceleration across tech, fintech, and emerging sectors.</p>
+                </div>
+
+                <div class="card">
+                    <div class="adviser-name">Osama Al-Thanon</div>
+                    <div class="adviser-focus">Cybersecurity & Technology Strategy</div>
+                    <p>Appointed to strengthen digital resilience and cybersecurity governance across portfolio companies and fund operations. Brings deep expertise in technology security and risk management.</p>
+                </div>
+
+                <div class="card">
+                    <div class="adviser-name">Joel Blake OBE</div>
+                    <div class="adviser-focus">ESG & Ethical Governance</div>
+                    <p>ESG subject matter expert focused on expanding ethical governance practices and sustainability integration throughout our technology investments. Ensures portfolio companies meet highest governance standards.</p>
+                </div>
+
+                <div class="card">
+                    <div class="adviser-name">H.E. Eng. Osama Al-Zamil</div>
+                    <div class="adviser-focus">Vision 2030 & Economic Development</div>
+                    <p>Former Vice Minister of Industry, Saudi Arabia. Vision 2030 architect with expertise in industrial base expansion and supply chain optimisation at enterprise scale. Provides insights on government strategy and regional opportunity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Partners -->
+    <section>
+        <div class="container">
+            <h2>Strategic Partners</h2>
+            <p class="section-intro">Our fund leverages strategic partnerships to enhance deal sourcing, market intelligence, and investor communication.</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="partner-name">Disrupts</div>
+                    <p>A leading technology media platform tracking emerging companies across artificial intelligence, fintech, enterprise software, and media technology sectors. Disrupts provides systematic intelligence on innovation and emerging market opportunities.</p>
+                    <div class="partner-url">
+                        <strong>Website:</strong> <a href="https://disrupts.com">disrupts.com</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="partner-name">The Fintech Times</div>
+                    <p>Global fintech media brand with 250,000+ engaged subscribers. Provides proprietary intelligence on fintech innovations, regulatory developments, and investment trends. Essential intelligence for fintech sector sourcing and due diligence.</p>
+                    <div class="partner-url">
+                        <strong>Website:</strong> <a href="https://thefintechtimes.com">thefintechtimes.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fund Terms -->
+    <section class="fund-terms">
+        <div class="container">
+            <h2>Key Fund Terms</h2>
+            <p class="section-intro">Taranis Disruptive Tech Fund is structured as a Limited Partnership under DIFC Law with clear governance and investor protections.</p>
+
+            <div class="terms-grid">
+                <div class="term-item">
+                    <div class="term-label">Fund Manager</div>
+                    <div class="term-value">Taranis Capital Limited</div>
+                    <div style="color: var(--tc-grey-dark); font-size: 0.85rem; margin-top: 0.5rem;">DFSA Licence F008985</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-label">Fund Structure</div>
+                    <div class="term-value">Limited Partnership</div>
+                    <div style="color: var(--tc-grey-dark); font-size: 0.85rem; margin-top: 0.5rem;">DIFC Law Jurisdiction</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-label">Base Currency</div>
+                    <div class="term-value">USD</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-label">Investment Period</div>
+                    <div class="term-value">5 Years</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-label">Fund Term</div>
+                    <div class="term-value">10 Years</div>
+                    <div style="color: var(--tc-grey-dark); font-size: 0.85rem; margin-top: 0.5rem;">Plus up to two 1-year extensions</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-label">Management Fee</div>
+                    <div class="term-value">2.5% p.a.</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-label">Carried Interest</div>
+                    <div class="term-value">20% of Net Profits</div>
+                    <div style="color: var(--tc-grey-dark); font-size: 0.85rem; margin-top: 0.5rem;">8% Preferred Return Hurdle</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-label">Investment Leverage</div>
+                    <div class="term-value">None</div>
+                    <div style="color: var(--tc-grey-dark); font-size: 0.85rem; margin-top: 0.5rem;">Equity-only approach</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-label">Auditor</div>
+                    <div class="term-value">Moore Stephens LLC</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-label">Legal Counsel</div>
+                    <div class="term-value">Matouk Bassiouny</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-label">Annual Reporting</div>
+                    <div class="term-value">IFRS-Audited</div>
+                    <div style="color: var(--tc-grey-dark); font-size: 0.85rem; margin-top: 0.5rem;">Within 120 days</div>
+                </div>
+
+                <div class="term-item">
+                    <div class="term-label">Quarterly Reporting</div>
+                    <div class="term-value">Investor Updates</div>
+                    <div style="color: var(--tc-grey-dark); font-size: 0.85rem; margin-top: 0.5rem;">Within 45 days</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESG Integration -->
+    <section class="esg-section">
+        <div class="container">
+            <h2>ESG Integration</h2>
+            <p class="section-intro">Environmental, social, and governance considerations are integrated throughout our investment process and portfolio management.</p>
+
+            <div class="esg-cards">
+                <div class="esg-card">
+                    <h4>Pre-Investment Assessment</h4>
+                    <p>Each prospective investment undergoes rigorous ESG evaluation to identify material risks and opportunities. We assess governance structures, management experience, diversity, and environmental impact across all portfolio candidates.</p>
+                </div>
+
+                <div class="esg-card">
+                    <h4>Post-Investment Monitoring</h4>
+                    <p>Portfolio companies receive quarterly ESG monitoring and guidance. We work actively with management teams to strengthen governance, expand diversity initiatives, and implement sustainability frameworks aligned with global best practices.</p>
+                </div>
+
+                <div class="esg-card">
+                    <h4>Portfolio Company Support</h4>
+                    <p>We encourage and support portfolio companies in adopting recognised ESG frameworks and reporting standards. Access to our board advisers and network of ESG specialists enables portfolio companies to strengthen governance and operational practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section>
+        <div class="container">
+            <div class="cta-section">
+                <h2>Interested in the Disruptive Tech Fund?</h2>
+                <p>We welcome conversations with qualified investors seeking exposure to disruptive technology companies. Contact us to discuss the fund opportunity and how we can support your investment objectives.</p>
+                <a href="https://taraniscapital.com/contact" class="cta-button">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Taranis Capital</h4>
+                <ul>
+                    <li><a href="https://taraniscapital.com">Home</a></li>
+                    <li><a href="https://taraniscapital.com/funds">Our Funds</a></li>
+                    <li><a href="https://taraniscapital.com/team">Team</a></li>
+                    <li><a href="https://taraniscapital.com/insights">Insights</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Fund Resources</h4>
+                <ul>
+                    <li><a href="https://taraniscapital.com/contact">Contact Us</a></li>
+                    <li><a href="https://taraniscapital.com/privacy">Privacy Policy</a></li>
+                    <li><a href="https://taraniscapital.com/terms">Terms of Service</a></li>
+                    <li><a href="https://taraniscapital.com/disclosures">Disclosures</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Media Partners</h4>
+                <ul>
+                    <li><a href="https://disrupts.com">Disrupts</a></li>
+                    <li><a href="https://thefintechtimes.com">The Fintech Times</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Regulatory</h4>
+                <ul>
+                    <li>DFSA Regulated</li>
+                    <li>DIFC Jurisdiction</li>
+                    <li>Licence: F008985</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Taranis Capital Limited. All rights reserved. This website is for informational purposes. Nothing herein constitutes an offer to sell or solicitation of an offer to purchase any securities. Investments are only available to qualified investors as defined by applicable regulations.</p>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-text">
+            We use cookies to enhance your browsing experience and analyse site traffic. By continuing to use this site, you consent to our use of cookies in accordance with our privacy policy.
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-accept" id="cookieAccept">Accept</button>
+            <button class="cookie-reject" id="cookieReject">Reject</button>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn">↑</button>
+
+    <script>
+        // Cookie Banner
+        const cookieBanner = document.getElementById('cookieBanner');
+        const cookieAccept = document.getElementById('cookieAccept');
+        const cookieReject = document.getElementById('cookieReject');
+
+        function handleCookieChoice(accepted) {
+            if (accepted) {
+                gtag('consent', 'update', {
+                    'analytics_storage': 'granted'
+                });
+            }
+            cookieBanner.classList.add('hidden');
+            localStorage.setItem('cookieConsent', accepted ? 'accepted' : 'rejected');
+        }
+
+        cookieAccept.addEventListener('click', () => handleCookieChoice(true));
+        cookieReject.addEventListener('click', () => handleCookieChoice(false));
+
+        // Check if user has already made a choice
+        if (localStorage.getItem('cookieConsent')) {
+            cookieBanner.classList.add('hidden');
+        }
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

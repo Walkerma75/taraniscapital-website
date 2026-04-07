@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Taranis Capital Fintech Fund - Investing in financial technology innovation across emerging markets">
+    <title>Taranis Capital | Fintech Fund</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLN31RRY1V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JLN31RRY1V');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #374047;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        /* Colour palette */
+        :root {
+            --tc-green-dark: #2c3e35;
+            --tc-green-mid: #3a5247;
+            --tc-gold: #c9a84c;
+            --tc-gold-light: #d4b65e;
+            --tc-charcoal: #374047;
+            --tc-grey-dark: #606e79;
+            --tc-off-white: #f5f6f7;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--tc-green-dark);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--tc-gold);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--tc-gold);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--tc-green-dark) 0%, var(--tc-green-mid) 100%);
+            color: #ffffff;
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23ffffff" opacity="0.03" width="1200" height="600"/><circle cx="100" cy="100" r="200" fill="%23c9a84c" opacity="0.05"/><circle cx="1100" cy="500" r="150" fill="%23c9a84c" opacity="0.05"/></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        section.alt {
+            background: var(--tc-off-white);
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--tc-green-dark);
+        }
+
+        section .intro-text {
+            font-size: 1.1rem;
+            color: var(--tc-grey-dark);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+
+        /* Fund Overview */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .overview-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--tc-charcoal);
+            margin-bottom: 1.5rem;
+        }
+
+        .overview-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: var(--tc-charcoal);
+        }
+
+        .overview-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .highlight {
+            padding: 1.5rem;
+            background: var(--tc-off-white);
+            border-left: 4px solid var(--tc-gold);
+            border-radius: 4px;
+        }
+
+        .highlight strong {
+            color: var(--tc-green-dark);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Why Taranis */
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-card {
+            padding: 2rem;
+            border-radius: 8px;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .why-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .why-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--tc-green-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .why-card-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--tc-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--tc-green-dark);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .why-card p {
+            color: var(--tc-charcoal);
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Market Opportunity */
+        .opportunity-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .opportunity-item {
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .opportunity-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--tc-green-dark);
+            margin-bottom: 1rem;
+        }
+
+        .opportunity-item p {
+            color: var(--tc-charcoal);
+            line-height: 1.8;
+        }
+
+        .stat {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--tc-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .opportunity-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Investment Focus */
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .focus-card {
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--tc-green-dark) 0%, var(--tc-green-mid) 100%);
+            color: #ffffff;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .focus-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(44, 62, 53, 0.2);
+        }
+
+        .focus-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--tc-gold-light);
+        }
+
+        .focus-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .focus-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Team & Advisers */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            padding: 2rem;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--tc-green-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-card .role {
+            font-weight: 600;
+            color: var(--tc-gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .team-card p {
+            color: var(--tc-charcoal);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .team-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--tc-green-dark);
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--tc-gold);
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Partners */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .partner-card {
+            padding: 2.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--tc-off-white) 100%);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .partner-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--tc-green-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .partner-card .website {
+            color: var(--tc-gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .partner-card .website:hover {
+            text-decoration: underline;
+        }
+
+        .partner-card p {
+            color: var(--tc-charcoal);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ESG Section */
+        .esg-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .esg-item {
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .esg-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--tc-green-dark);
+            margin-bottom: 1rem;
+        }
+
+        .esg-item p {
+            color: var(--tc-charcoal);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .esg-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--tc-green-dark) 0%, var(--tc-green-mid) 100%);
+            color: #ffffff;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin: 4rem 0;
+        }
+
+        .cta-section h2 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--tc-gold);
+            color: var(--tc-green-dark);
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--tc-gold);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--tc-gold);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--tc-green-dark);
+            color: #ffffff;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--tc-gold);
+        }
+
+        .footer-section p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--tc-gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #ffffff;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--tc-gold);
+            color: var(--tc-green-dark);
+        }
+
+        .footer-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .regulatory-text {
+            font-size: 0.75rem;
+            margin-top: 1rem;
+            line-height: 1.6;
+            opacity: 0.75;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: var(--tc-gold);
+            color: var(--tc-green-dark);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: var(--tc-green-dark);
+            color: var(--tc-gold);
+            transform: translateY(-4px);
+        }
+
+        /* Cookie Consent Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--tc-green-dark);
+            color: #ffffff;
+            padding: 1.5rem 2rem;
+            z-index: 998;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .cookie-banner.show {
+            transform: translateY(0);
+        }
+
+        .cookie-text {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .cookie-text a {
+            color: var(--tc-gold);
+            text-decoration: none;
+        }
+
+        .cookie-text a:hover {
+            text-decoration: underline;
+        }
+
+        .cookie-button {
+            background: var(--tc-gold);
+            color: var(--tc-green-dark);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .cookie-button:hover {
+            background: var(--tc-gold-light);
+        }
+
+        @media (max-width: 768px) {
+            .cookie-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .cookie-button {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="https://taraniscapital.com" class="nav-logo">
+                <img src="https://taraniscapital.com/images/logo-gold.png" alt="Taranis Capital Logo">
+                <span class="nav-logo-text">Taranis Capital</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="https://taraniscapital.com">Home</a></li>
+                <li><a href="https://taraniscapital.com#who-we-are">Who We Are</a></li>
+                <li><a href="https://taraniscapital.com#our-approach">Our Approach</a></li>
+                <li><a href="https://taraniscapital.com#our-funds">Our Funds</a></li>
+                <li><a href="https://taraniscapital.com/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Fintech Fund</h1>
+            <p>Investing in financial technology innovation across payments, digital banking, blockchain, and regulatory technology in emerging markets</p>
+        </div>
+    </section>
+
+    <!-- Fund Overview -->
+    <section>
+        <div class="container">
+            <h2>Fund Overview</h2>
+            <p class="intro-text">Taranis Capital's Fintech Fund deploys capital into financial technology companies at the forefront of digital transformation across emerging markets.</p>
+
+            <div class="overview-grid">
+                <div class="overview-text">
+                    <h3>A Disciplined Approach to Fintech Investment</h3>
+                    <p>We invest in companies transforming financial services through technology. Our focus spans digital payments infrastructure, open banking platforms, regulatory technology solutions, and blockchain-enabled financial products—sectors reshaping how billions of people access and manage financial services.</p>
+                    <p>Taranis Capital is a DIFC-regulated fund manager authorised by the Dubai Financial Services Authority (DFSA). We bring institutional discipline, global networks, and deep operational expertise to fintech investing.</p>
+                </div>
+                <div class="overview-highlights">
+                    <div class="highlight">
+                        <strong>Digital Payments</strong>
+                        <p>Infrastructure enabling seamless, secure payment flows across geographies and platforms</p>
+                    </div>
+                    <div class="highlight">
+                        <strong>Open Banking</strong>
+                        <p>API-first platforms unlocking data access and third-party innovation in financial services</p>
+                    </div>
+                    <div class="highlight">
+                        <strong>Regulatory Technology</strong>
+                        <p>Solutions helping financial institutions navigate compliance, AML, and KYC at scale</p>
+                    </div>
+                    <div class="highlight">
+                        <strong>Blockchain & Digital Assets</strong>
+                        <p>Technologies enabling tokenised finance, decentralised settlement, and digital currencies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Taranis -->
+    <section class="alt">
+        <div class="container">
+            <h2>Why Taranis</h2>
+            <p class="intro-text">We are uniquely positioned to identify, support, and scale fintech businesses across emerging markets.</p>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <h3>
+                        <span class="why-card-icon">📰</span>
+                        The Fintech Times
+                    </h3>
+                    <p>We operate The Fintech Times, a leading global fintech media brand reaching 250,000+ industry subscribers. This proprietary intelligence platform provides unparalleled deal sourcing, market trends analysis, and direct access to the fintech ecosystem's most promising entrepreneurs and innovators.</p>
+                </div>
+                <div class="why-card">
+                    <h3>
+                        <span class="why-card-icon">🚀</span>
+                        The Fintech Power50
+                    </h3>
+                    <p>Our founding team established The Fintech Power50, an exclusive fintech accelerator programme. This gives us early access to emerging companies, deep relationships with founders, and hands-on operational experience scaling fintech businesses.</p>
+                </div>
+                <div class="why-card">
+                    <h3>
+                        <span class="why-card-icon">🌍</span>
+                        GCC Hub Advantage
+                    </h3>
+                    <p>Based in the DIFC, we have direct access to the Gulf Cooperation Council's dynamic fintech ecosystem. Governments across the GCC are investing heavily in digital financial infrastructure, open banking regulations, and digital assets—creating significant investment opportunities.</p>
+                </div>
+                <div class="why-card">
+                    <h3>
+                        <span class="why-card-icon">👥</span>
+                        Operator-Investors
+                    </h3>
+                    <p>Our founding team combines 25+ years of investment banking, enterprise software founding, fintech operations, and technology leadership. We are operators who have built and scaled companies, not purely financial investors. We bring hands-on expertise to portfolio companies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section>
+        <div class="container">
+            <h2>The Market Opportunity</h2>
+            <p class="intro-text">Fintech is reshaping financial services globally, with emerging markets representing the largest untapped opportunity.</p>
+
+            <div class="opportunity-grid">
+                <div class="opportunity-item">
+                    <div class="stat">24%</div>
+                    <h3>Growth in UK Fintech</h3>
+                    <p>UK fintech investment grew 24% in H1 2022, demonstrating sustained investor appetite for financial technology innovation across mature markets.</p>
+                </div>
+                <div class="opportunity-item">
+                    <h3>Emerging Markets Potential</h3>
+                    <p>Emerging markets represent a far larger opportunity: billions of unbanked and underbanked individuals gaining access to digital financial services for the first time.</p>
+                </div>
+                <div class="opportunity-item">
+                    <h3>GCC Regulatory Support</h3>
+                    <p>The GCC is actively investing in digital financial infrastructure, with governments mandating open banking regulations, digital payment systems, and digital asset frameworks.</p>
+                </div>
+                <div class="opportunity-item">
+                    <h3>Vision 2030 & Beyond</h3>
+                    <p>Regional governments (Saudi Arabia, UAE, others) have committed to Vision 2030 initiatives, channelling investment into financial technology, digital banking, and fintech innovation hubs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Focus -->
+    <section class="alt">
+        <div class="container">
+            <h2>Investment Focus</h2>
+            <p class="intro-text">We focus on four core areas transforming financial services in emerging markets.</p>
+
+            <div class="focus-grid">
+                <div class="focus-card">
+                    <h3>Digital Payments Infrastructure</h3>
+                    <p>Payment processors, settlement networks, and infrastructure enabling frictionless, secure transactions across borders and channels.</p>
+                </div>
+                <div class="focus-card">
+                    <h3>Open Banking & API Platforms</h3>
+                    <p>API-first platforms unlocking data access, enabling third-party innovation, and accelerating the shift from closed to open financial services.</p>
+                </div>
+                <div class="focus-card">
+                    <h3>Regulatory Technology (RegTech)</h3>
+                    <p>Software solutions helping financial institutions automate compliance, strengthen AML/KYC processes, and navigate evolving regulatory requirements.</p>
+                </div>
+                <div class="focus-card">
+                    <h3>Blockchain & Digital Assets</h3>
+                    <p>Technologies enabling decentralised finance, tokenisation, blockchain-based settlement, and central bank digital currencies (CBDCs).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fund Leadership & Advisers -->
+    <section>
+        <div class="container">
+            <h2>Fund Leadership & Advisers</h2>
+            <p class="intro-text">Led by founders with 25+ years of investment banking, fintech operations, and technology leadership.</p>
+
+            <div class="team-section">
+                <h3>Fund Leadership</h3>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <h3>Nicholas S. Bingham</h3>
+                        <div class="role">Founding Partner & CEO</div>
+                        <p>25+ years in investment banking and asset management. Pioneered world-first projects in augmented and mixed reality technology. Leads Taranis Capital's overall strategy and portfolio.</p>
+                    </div>
+                    <div class="team-card">
+                        <h3>Mark Walker</h3>
+                        <div class="role">Founding Partner & COO</div>
+                        <p>Founded an enterprise software company (M&A exit). Founded The Fintech Power50 accelerator. Led operations at The Fintech Times. Former UK Trade & Investment Senior Adviser for technology sectors.</p>
+                    </div>
+                    <div class="team-card">
+                        <h3>Amit Varma</h3>
+                        <div class="role">Chief Information Officer</div>
+                        <p>28 years as CIO/Technology Head at Citibank, Emirates NBD, DBS, and Fidelity. Created 450+ fintech products. Built world's first blockchain pre-IPO trading platform.</p>
+                    </div>
+                    <div class="team-card">
+                        <h3>Mohamed Essam</h3>
+                        <div class="role">Legal Counsel</div>
+                        <p>Fintech and venture capital specialist. Led Fintech Group Sector at Matouk Bassiouny. Specialist in payments, lending, and fintech regulations across jurisdictions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-section">
+                <h3>Board of Advisers</h3>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <h3>Bruno Martorano</h3>
+                        <div class="role">Board Adviser</div>
+                        <p>35 years in international banking, fintech, and finance. Executive roles in neobanks, commercial banking, private banking, and FDI across New York, Paris, Hong Kong, Dubai, and London.</p>
+                    </div>
+                    <div class="team-card">
+                        <h3>David Parker</h3>
+                        <div class="role">Board Adviser</div>
+                        <p>Globally recognised fintech specialist with decades of industry experience. Former senior roles at Saatchi. Keynote presenter on fintech trends and digital financial innovation.</p>
+                    </div>
+                    <div class="team-card">
+                        <h3>Michael Boevink</h3>
+                        <div class="role">Board Adviser</div>
+                        <p>15+ years in technology, telecommunications, and fintech. Founder of Boevink Group, specialising in capital raises and scale-up growth across tech, fintech, and crypto sectors.</p>
+                    </div>
+                    <div class="team-card">
+                        <h3>Jack Hollander</h3>
+                        <div class="role">Board Adviser</div>
+                        <p>Extensive capital markets experience. Raised over $3 billion in alternative investment capital. Deep expertise in fund structuring and cross-border investment strategy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Partners -->
+    <section class="alt">
+        <div class="container">
+            <h2>Strategic Partners</h2>
+            <p class="intro-text">We work alongside sector-leading partners to drive deal sourcing, market intelligence, and portfolio value creation.</p>
+
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <h3>The Fintech Times</h3>
+                    <a href="https://thefintechtimes.com" class="website">thefintechtimes.com</a>
+                    <p>Global fintech media brand reaching 250,000+ subscribers. Provides unparalleled market intelligence, industry analysis, and early access to emerging fintech companies. Our proprietary insights fuel deal sourcing and investment thesis development.</p>
+                </div>
+                <div class="partner-card">
+                    <h3>Disrupts</h3>
+                    <a href="https://disrupts.com" class="website">disrupts.com</a>
+                    <p>Technology media platform tracking emerging companies across artificial intelligence, fintech, enterprise software, and media technology. Provides market coverage and company tracking to inform investment strategy and portfolio monitoring.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESG Section -->
+    <section>
+        <div class="container">
+            <h2>Responsible Investment</h2>
+            <p class="intro-text">We are committed to responsible, ethical investing across all portfolio companies.</p>
+
+            <div class="esg-grid">
+                <div class="esg-item">
+                    <h3>ESG Governance</h3>
+                    <p>All portfolio companies undergo rigorous ESG screening. We embed responsible governance, ethical practices, and strong compliance frameworks from day one of investment.</p>
+                </div>
+                <div class="esg-item">
+                    <h3>Financial Inclusion</h3>
+                    <p>Many of our portfolio companies expand financial access to underserved populations. We invest in technology enabling greater financial inclusion in emerging markets.</p>
+                </div>
+                <div class="esg-item">
+                    <h3>Ethical Alignment</h3>
+                    <p>We prioritise companies with strong ethical governance, transparent operations, and alignment with international compliance standards and regulatory best practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section>
+        <div class="container">
+            <div class="cta-section">
+                <h2>Interested in the Fintech Fund?</h2>
+                <p>Learn more about investment opportunities and how Taranis Capital can unlock fintech growth in emerging markets.</p>
+                <a href="https://taraniscapital.com/contact" class="cta-button">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Taranis Capital</h4>
+                    <p>Global investment firm deploying capital into transformative technology and financial services companies across emerging markets.</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/company/taranis-capital" title="LinkedIn" aria-label="LinkedIn">in</a>
+                        <a href="https://twitter.com/taraniscapital" title="Twitter" aria-label="Twitter">𝕏</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Locations</h4>
+                    <p><strong>Dubai (HQ)</strong><br>Level 20, Tower 1<br>DIFC<br>PO Box 506722<br>Dubai, UAE</p>
+                    <p><strong>London</strong><br>London, UK</p>
+                    <p><strong>Geneva</strong><br>Geneva, Switzerland</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="https://taraniscapital.com">Main Site</a></li>
+                        <li><a href="https://taraniscapital.com/contact">Contact Us</a></li>
+                        <li><a href="https://taraniscapital.com/privacy">Privacy Policy</a></li>
+                        <li><a href="https://taraniscapital.com/terms">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-divider">
+                <div class="footer-bottom">
+                    <div>
+                        <p>&copy; 2026 Taranis Capital. All rights reserved.</p>
+                        <p class="regulatory-text">Taranis Capital is a Dubai Financial Services Authority (DFSA) authorised and regulated fund manager operating from the Dubai International Financial Centre (DIFC). This website is for informational purposes only and does not constitute an offer to invest. Any investment in our funds is subject to completion of appropriate legal documentation. Please contact us for further information about our investment funds and our approach.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-text">
+            <p>We use cookies to enhance your experience and analyse our traffic. By continuing to browse this site, you consent to our use of cookies. <a href="https://taraniscapital.com/privacy">Learn more</a></p>
+        </div>
+        <button class="cookie-button" onclick="acceptCookies()">Accept</button>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behaviour: 'smooth' });
+        }
+
+        // Cookie Banner
+        const cookieBanner = document.getElementById('cookieBanner');
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieBanner.classList.remove('show');
+        }
+
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                setTimeout(() => {
+                    cookieBanner.classList.add('show');
+                }, 1500);
+            }
+        }
+
+        checkCookieConsent();
+    </script>
+</body>
+</html>

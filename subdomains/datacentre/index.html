@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datacentre Fund | Taranis Capital</title>
+    <meta name="description" content="Taranis Capital's Datacentre Fund invests in digital infrastructure across emerging markets, powering cloud, AI, and enterprise computing.">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLN31RRY1V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JLN31RRY1V');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #374047;
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #3a5247;
+            padding: 1.25rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-brand img {
+            height: 32px;
+            width: auto;
+        }
+
+        .nav-brand-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #c9a84c;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #f5f6f7;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #c9a84c;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3a5247 0%, #2c3e35 100%);
+            color: #f5f6f7;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.8;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #c9a84c;
+            color: #2c3e35;
+            padding: 0.875rem 2.25rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s, transform 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            background-color: #d4b65e;
+            transform: translateY(-2px);
+        }
+
+        /* Content Sections */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e35;
+            margin-bottom: 2rem;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #606e79;
+            margin-bottom: 3rem;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Fund Overview */
+        .overview-section {
+            background-color: #f5f6f7;
+        }
+
+        .overview-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .overview-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #374047;
+            margin-bottom: 1.5rem;
+        }
+
+        .overview-content strong {
+            color: #2c3e35;
+            font-weight: 600;
+        }
+
+        /* Why Taranis Section */
+        .why-taranis {
+            background-color: #ffffff;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .benefit-card {
+            background-color: #f5f6f7;
+            padding: 2rem;
+            border-radius: 6px;
+            border-left: 4px solid #c9a84c;
+        }
+
+        .benefit-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            color: #2c3e35;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            color: #606e79;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Market Opportunity */
+        .market-section {
+            background-color: #f5f6f7;
+        }
+
+        .market-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .market-stat {
+            background-color: #ffffff;
+            padding: 1.75rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .market-stat .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #c9a84c;
+            margin-bottom: 0.5rem;
+        }
+
+        .market-stat p {
+            color: #606e79;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Investment Focus */
+        .focus-section {
+            background-color: #ffffff;
+        }
+
+        .focus-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .focus-card {
+            background: linear-gradient(135deg, #3a5247 0%, #2c3e35 100%);
+            color: #f5f6f7;
+            padding: 2.25rem;
+            border-radius: 6px;
+            transition: transform 0.2s;
+        }
+
+        .focus-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .focus-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #c9a84c;
+        }
+
+        .focus-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        /* Team & Advisers */
+        .team-section {
+            background-color: #f5f6f7;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .team-card {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .team-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #2c3e35;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-card .role {
+            color: #c9a84c;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .team-card p {
+            color: #606e79;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .team-section h2 {
+            text-align: left;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-subsection {
+            margin-top: 3rem;
+        }
+
+        .team-subsection h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2c3e35;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #c9a84c;
+        }
+
+        /* ESG Section */
+        .esg-section {
+            background-color: #ffffff;
+        }
+
+        .esg-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .esg-card {
+            padding: 2rem;
+            border-radius: 6px;
+            background-color: #f5f6f7;
+        }
+
+        .esg-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: #2c3e35;
+            margin-bottom: 1rem;
+        }
+
+        .esg-card p {
+            color: #606e79;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #3a5247 0%, #2c3e35 100%);
+            color: #f5f6f7;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: #f5f6f7;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e35;
+            color: #f5f6f7;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            color: #c9a84c;
+        }
+
+        .footer-section p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #d0d6dd;
+        }
+
+        .footer-section a {
+            color: #c9a84c;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: #d4b65e;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(201, 168, 76, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: #c9a84c;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #d4b65e;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background-color: #c9a84c;
+            color: #2c3e35;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s, transform 0.2s;
+            z-index: 99;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #d4b65e;
+            transform: translateY(-4px);
+        }
+
+        .scroll-to-top.show {
+            display: flex;
+        }
+
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #2c3e35;
+            color: #f5f6f7;
+            padding: 1.5rem 2rem;
+            z-index: 98;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+            max-height: 120px;
+        }
+
+        .cookie-banner.hidden {
+            display: none;
+        }
+
+        .cookie-banner p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .cookie-banner a {
+            color: #c9a84c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .cookie-banner button {
+            background-color: #c9a84c;
+            color: #2c3e35;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: background-color 0.2s;
+        }
+
+        .cookie-banner button:hover {
+            background-color: #d4b65e;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .nav-brand-text {
+                display: none;
+            }
+
+            .benefits-grid,
+            .focus-cards,
+            .market-highlights,
+            .team-grid,
+            .esg-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cookie-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .scroll-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: 5rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="https://taraniscapital.com" class="nav-brand">
+                <img src="https://taraniscapital.com/images/logo-gold.png" alt="Taranis Capital">
+                <span class="nav-brand-text">Taranis Capital</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="https://taraniscapital.com">Home</a></li>
+                    <li><a href="https://taraniscapital.com/who-we-are">Who We Are</a></li>
+                    <li><a href="https://taraniscapital.com/our-approach">Our Approach</a></li>
+                    <li><a href="https://taraniscapital.com/our-funds">Our Funds</a></li>
+                    <li><a href="https://taraniscapital.com/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Datacentre Fund</h1>
+            <p class="subtitle">Investing in digital infrastructure across emerging markets — powering the next generation of cloud, AI, and enterprise computing</p>
+            <a href="https://taraniscapital.com/contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Fund Overview -->
+    <section class="overview-section">
+        <div class="section-container">
+            <h2 class="section-title">Fund Overview</h2>
+            <div class="overview-content">
+                <p>Taranis Capital's Datacentre Fund focuses on funding the planning, construction, and operation of reliable data centres in emerging economies. <strong>Digital infrastructure is critical to driving economic development</strong> and remains a fundamental enabler of modern business.</p>
+
+                <p>The Fund targets projects enabling rapid deployment of data centre capacity—from hyperscale facilities serving multinational cloud providers to edge computing infrastructure supporting regional connectivity needs. Our approach combines <strong>patient capital with deep expertise in infrastructure development</strong> and established regional partnerships across the Middle East, Africa, and adjacent markets.</p>
+
+                <p>We invest across the full spectrum of data centre development: greenfield site identification and permitting, construction and fit-out, equipment procurement, and operational deployment. Our team brings together proven sector knowledge, financial discipline, and strong on-the-ground relationships to deliver projects that drive economic impact and sustainable returns.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Taranis -->
+    <section class="why-taranis">
+        <div class="section-container">
+            <h2 class="section-title">Why Taranis Capital</h2>
+            <p class="section-subtitle">Our unique positioning in data centre infrastructure across emerging markets</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Deep Sector Expertise</h3>
+                    <p>Our leadership team brings 30+ years of direct data centre sector experience, including landmark IPOs, M&A transactions, and operational roles at tier-one global operators. We understand the technical, regulatory, and financial dimensions of data centre deployment at scale.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Strategic DIFC/GCC Positioning</h3>
+                    <p>Taranis is based in the Dubai International Financial Centre and has deep roots across the Gulf Cooperation Council. The MENA region represents one of the fastest-growing markets for data centre capacity, supported by government digital transformation initiatives and strong corporate demand.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Established Regional Partnerships</h3>
+                    <p>We have built strong relationships with government bodies, major telecoms providers, cloud operators, and infrastructure partners across MENA and Africa. These partnerships accelerate deal sourcing, permitting, and project execution.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Proven Infrastructure Track Record</h3>
+                    <p>Taranis has a demonstrated history of executing infrastructure projects across emerging markets. We bring disciplined project management, on-the-ground operational capability, and the ability to navigate complex regulatory and financial environments.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Connectivity Leadership</h3>
+                    <p>Our team has strategic involvement in major subsea connectivity initiatives, including the 2Africa submarine cable. This positions us uniquely to understand the intersection of data centre infrastructure and global connectivity requirements.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Patient, Flexible Capital</h3>
+                    <p>We provide the capital, expertise, and operational support that emerging market data centre projects require. Our ability to move quickly while maintaining financial discipline gives us a significant competitive advantage in competitive markets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section class="market-section">
+        <div class="section-container">
+            <h2 class="section-title">Market Opportunity</h2>
+            <p class="section-subtitle">Global tailwinds driving demand for data centre infrastructure</p>
+
+            <div class="market-highlights">
+                <div class="market-stat">
+                    <div class="number">$2T+</div>
+                    <p>Global data centre market TAM exceeds $2 trillion in 2024, with annual growth rates of 10–12%</p>
+                </div>
+
+                <div class="market-stat">
+                    <div class="number">500+</div>
+                    <p>More than 500 significant data centre developments announced or commenced globally in 2023 alone</p>
+                </div>
+
+                <div class="market-stat">
+                    <div class="number">$70B+</div>
+                    <p>Private equity investment in data centre assets grew from $30 billion in 2020 to over $70 billion in 2023</p>
+                </div>
+
+                <div class="market-stat">
+                    <div class="number">AI & Cloud</div>
+                    <p>Cloud computing, artificial intelligence workloads, and fintech infrastructure are driving exponential capacity demand</p>
+                </div>
+
+                <div class="market-stat">
+                    <div class="number">MENA Focus</div>
+                    <p>MENA and Africa are experiencing accelerating demand for hyperscale capacity, supported by government digital strategies</p>
+                </div>
+
+                <div class="market-stat">
+                    <div class="number">GCC Investment</div>
+                    <p>Gulf governments are actively investing in domestic digital infrastructure as part of economic diversification initiatives</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Focus -->
+    <section class="focus-section">
+        <div class="section-container">
+            <h2 class="section-title">Investment Focus Areas</h2>
+            <p class="section-subtitle">The Fund targets high-impact data centre infrastructure across four strategic pillars</p>
+
+            <div class="focus-cards">
+                <div class="focus-card">
+                    <h3>Hyperscale Datacentre Development</h3>
+                    <p>Large-scale facility construction serving multinational cloud providers, major tech companies, and regional hyperscalers. Projects ranging from 5–50+ MW of power.</p>
+                </div>
+
+                <div class="focus-card">
+                    <h3>Edge Computing Infrastructure</h3>
+                    <p>Distributed data centre capacity deployed closer to end users, reducing latency and supporting real-time applications, autonomous systems, and 5G/6G networks.</p>
+                </div>
+
+                <div class="focus-card">
+                    <h3>Sustainable Cooling & Energy</h3>
+                    <p>Advanced cooling systems, renewable energy integration, and power efficiency technologies that reduce operational environmental footprint and energy costs.</p>
+                </div>
+
+                <div class="focus-card">
+                    <h3>Cloud Services & Connectivity</h3>
+                    <p>Co-location facilities, cloud edge nodes, and integrated connectivity platforms supporting enterprise applications, regional cloud services, and digital transformation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fund Leadership & Advisers -->
+    <section class="team-section">
+        <div class="section-container">
+            <h2 class="section-title">Fund Leadership & Advisers</h2>
+
+            <div class="team-subsection">
+                <h3>Fund Leadership</h3>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <h3>Nicholas S. Bingham</h3>
+                        <div class="role">Founding Partner & CEO</div>
+                        <p>Nicholas brings 25+ years of experience spanning investment banking and asset management. He led the establishment of Global Growth Partnerships and has pioneered world-first projects in augmented reality and mixed reality infrastructure. His leadership combines deep financial expertise with a track record of identifying and executing transformational infrastructure investments across emerging markets.</p>
+                    </div>
+
+                    <div class="team-card">
+                        <h3>Milan Radia</h3>
+                        <div class="role">Senior Partner</div>
+                        <p>Milan is the driving force behind the Datacentre Fund, bringing 30+ years of direct sector experience spanning asset management, data centres, and digital infrastructure. His career began at Prudential in 1993 and progressed through 17 years at tier-one investment firms including UBS, Bridgewell Securities, and Jefferies, where he was directly involved in landmark data centre IPOs and major M&A transactions. Milan held senior leadership positions at Interxion (now Digital Realty), with portfolio responsibility across the African continent, and maintains strategic involvement in major subsea connectivity initiatives including the 2Africa submarine cable.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-subsection">
+                <h3>Board of Advisers</h3>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <h3>H.E. Eng. Osama Al-Zamil</h3>
+                        <div class="role">Chairman of Advisory Board</div>
+                        <p>H.E. Eng. Osama Al-Zamil served as Vice Minister of Industry and Mineral Resources for the Kingdom of Saudi Arabia from 2019 to 2023, where he was instrumental in designing and executing Saudi Arabia's National Industrial Strategy aligned with Vision 2030. Under his leadership, the Kingdom expanded its industrial base from 7,000 to over 11,000 factories. His deep understanding of GCC industrial policy, government digital transformation priorities, and regional infrastructure planning is invaluable to the Fund's strategic positioning in the MENA market.</p>
+                    </div>
+
+                    <div class="team-card">
+                        <h3>Mazen Al-Rahim</h3>
+                        <div class="role">Board of Advisers</div>
+                        <p>Mazen brings 30+ years of operational and strategic experience in petrochemicals, manufacturing, and supply chain management. He previously served as Executive Director at SABIC and has managed multibillion-dollar supply chain operations for major international corporations including Saudi Aramco, ExxonMobil, and Sinopec joint ventures. His operational expertise and deep relationships across GCC industrial and energy sectors strengthen the Fund's ability to execute complex infrastructure projects at scale.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESG Section -->
+    <section class="esg-section">
+        <div class="section-container">
+            <h2 class="section-title">Environmental, Social & Governance</h2>
+            <p class="section-subtitle">Responsible infrastructure investment is core to our approach</p>
+
+            <div class="esg-grid">
+                <div class="esg-card">
+                    <h3>Energy Efficiency</h3>
+                    <p>We prioritise data centre designs that minimise power consumption through advanced cooling systems, efficient power distribution, and intelligent workload management. Lower energy use reduces both operational costs and environmental impact.</p>
+                </div>
+
+                <div class="esg-card">
+                    <h3>Renewable Energy Integration</h3>
+                    <p>Our projects incorporate renewable energy sources where possible, including solar and wind partnerships. This supports global decarbonisation goals whilst providing sustainable, predictable energy costs for operations.</p>
+                </div>
+
+                <div class="esg-card">
+                    <h3>Sustainable Cooling Solutions</h3>
+                    <p>We deploy innovative cooling technologies including free cooling, liquid cooling, and waste heat recovery systems. These reduce water consumption and environmental impact whilst maintaining optimal facility performance.</p>
+                </div>
+
+                <div class="esg-card">
+                    <h3>Community Impact</h3>
+                    <p>Data centre development creates local employment, skills training, and economic development opportunities. We work closely with communities and governments to ensure projects deliver broad-based economic benefits.</p>
+                </div>
+
+                <div class="esg-card">
+                    <h3>Governance & Transparency</h3>
+                    <p>We maintain rigorous governance standards, transparent reporting, and regular stakeholder engagement. Our advisory board brings world-class expertise and independent oversight to Fund operations and investments.</p>
+                </div>
+
+                <div class="esg-card">
+                    <h3>Digital Inclusion</h3>
+                    <p>Reliable data centre infrastructure supports digital inclusion, fintech access, and technology adoption across emerging markets. We believe this is fundamental to sustainable economic development and shared prosperity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="section-container">
+            <h2>Interested in the Datacentre Fund?</h2>
+            <p>We welcome discussions with institutional investors, strategic partners, and infrastructure professionals interested in emerging market data centre investment.</p>
+            <a href="https://taraniscapital.com/contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Taranis Capital</h4>
+                    <p>We build transformational infrastructure in emerging markets, combining patient capital with operational expertise and deep regional partnerships.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Office Locations</h4>
+                    <p><strong>Dubai (DIFC)</strong><br>Unit 123, Gate Village 4<br>Dubai International Financial Centre<br>Dubai, UAE<br><br><strong>London</strong><br>London, UK<br><br><strong>Geneva</strong><br>Geneva, Switzerland</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p><a href="https://taraniscapital.com">Home</a><br><a href="https://taraniscapital.com/who-we-are">Who We Are</a><br><a href="https://taraniscapital.com/our-approach">Our Approach</a><br><a href="https://taraniscapital.com/our-funds">Our Funds</a><br><a href="https://taraniscapital.com/contact">Contact</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/company/taraniscapital">LinkedIn</a>
+                        <a href="https://twitter.com/taraniscapital">Twitter/X</a>
+                        <a href="https://facebook.com/taraniscapital">Facebook</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p><strong>Regulatory Notice:</strong> Taranis Capital is regulated by the Dubai Financial Services Authority (DFSA) under DFSA registration number. This website is for information purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities. Past performance is not indicative of future results. Please consult with a qualified advisor before making investment decisions.</p>
+                <p>&copy; 2026 Taranis Capital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <p>We use cookies to enhance your experience and analyse site traffic. By continuing to use this website, you consent to our use of cookies. Learn more in our <a href="https://taraniscapital.com/privacy">Privacy Policy</a>.</p>
+        <button onclick="acceptCookies()">Accept Cookies</button>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()" title="Back to top">↑</button>
+
+    <script>
+        // Cookie Banner
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieBanner').classList.add('hidden');
+        }
+
+        function initCookieBanner() {
+            if (localStorage.getItem('cookiesAccepted') === 'true') {
+                document.getElementById('cookieBanner').classList.add('hidden');
+            }
+        }
+
+        // Scroll to Top
+        window.addEventListener('scroll', function() {
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behaviour: 'smooth' });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initCookieBanner();
+        });
+    </script>
+</body>
+</html>

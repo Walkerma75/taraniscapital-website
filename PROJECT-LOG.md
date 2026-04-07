@@ -164,6 +164,56 @@
 - Confirmed 404.html has noindex/nofollow meta tag
 - Tested all CloudFront Function redirects: /contact-us/ → /contact ✓, /ai/ → /disruptive-tech ✓, /biotech/ → biotech.taraniscapital.com ✓, /insights/page/2/ → /insights ✓, trailing slash normalisation ✓, /appointment-news/nicholas-bingham → /team/nicholas-bingham ✓
 
+### Session 7 — 7 April 2026 (continued)
+
+**Home Page Updates**
+- Replaced [Team / Office Image] placeholder with actual team photo (TC Team Image1.jpg → /images/team/tc-team-office.jpg)
+- Changed Biotech card link from biotech.taraniscapital.com (fund subdomain) to /biotech (new sector/market info page)
+
+**Sector vs Fund Page Separation**
+- Created new /biotech sector page (biotech.html) — market dynamics, Taranis strengths, partnerships (Helix8), ESG. No fund-specific info (AUM, returns, fees, etc.)
+- Rewrote /disruptive-tech page — removed all PPM/fund info ($250M target, $1M min subscription, management fees, carried interest, fund terms, investment committee profiles). Replaced with market dynamics, sector focus cards, GCC opportunity, partnerships & ecosystem, ESG
+- Cleaned /fintech page — renamed from "Fintech Fund" to "Financial Technology", replaced fund overview (investor relations, accredited HNW individuals, fund returns) with sector overview (market expertise, The Fintech Times partnership), updated breadcrumb, back link, CTA
+- Cleaned /datacentres page — renamed from "Data Centres Fund" to "Data Centres", replaced fund overview with sector overview, updated breadcrumb, back link, CTA
+- Cleaned /property page — renamed from "Property Fund" to "Property", replaced fund overview with sector overview, updated breadcrumb, back link, CTA
+
+**Our Funds Page — Subdomain Links**
+- Updated all 5 fund card links on /our-funds to point to fund subdomains (target="_blank"):
+  - Fintech → fintech.taraniscapital.com
+  - Biotech → biotech.taraniscapital.com (was already correct)
+  - Datacentre → datacentre.taraniscapital.com
+  - Property → property.taraniscapital.com
+  - Disruptive Tech → disruptive-tech.taraniscapital.com
+
+**Sitemap**
+- Added /biotech to sitemap.xml (now 40 URLs)
+- Updated lastmod on /disruptive-tech
+
+**Note:** CloudFront Function currently has `/biotech/ → biotech.taraniscapital.com` 301 redirect. This should be removed so /biotech serves the new sector page. The redirect only fires on /biotech/ (trailing slash), so /biotech (no trailing slash) should serve correctly via clean URL rewriting.
+
+### Session 7b — 7 April 2026 (continued)
+
+**Fund Subdomain Sites Created**
+- Created 4 self-contained fund sites under /subdomains/, each with their own index.html:
+  - **fintech.taraniscapital.com** — Fund overview, Why Taranis (The Fintech Times, Power50, DIFC, operator-investors), market opportunity, investment focus (payments, open banking, RegTech, blockchain), leadership (Bingham, Walker, Varma, Essam), advisers (Martorano, Parker, Boevink, Hollander), partners (The Fintech Times, Disrupts), ESG
+  - **datacentre.taraniscapital.com** — Fund overview, Why Taranis (Milan Radia's 30yr DC expertise, DIFC/GCC presence, regional partnerships), market ($2T TAM, 500+ projects, $70B+ PE), investment focus (hyperscale, edge, cooling, cloud), leadership (Bingham, Radia), advisers (Al-Zamil, Al-Rahim), ESG
+  - **property.taraniscapital.com** — Fund overview, Why Taranis (GCC network, Vision 2030, DIFC, SABIC experience, ethical governance), market (Dubai, Saudi), investment focus (commercial, mixed-use, high-growth, sustainable), leadership (Bingham, Bukhari, Zowawi), advisers (Al-Zamil, Al-Rahim, Blake OBE), ESG
+  - **disruptive-tech.taraniscapital.com** — Full PPM-level detail: fund overview with stats ($250M target, $1M min, 10yr term), Why Taranis (media platform, GCC network, operator team, advisory board), sector focus (AI/ML, fintech, enterprise SW, media/telecoms), investment strategy (Series A 35-45%, B/C 55-65%), GCC opportunity, investment committee (Bingham, Walker, Grunfeld, Varma, Bukhari with LinkedIn/email), advisers (Boevink, Al-Thanon, Blake, Al-Zamil), partners (Disrupts, Fintech Times), key fund terms (DIFC LP, DFSA F008985, 2.5% mgmt fee, 20% carry, 8% hurdle), ESG
+
+- Each site is self-contained with inline CSS, Google Fonts, GA4, cookie consent, scroll-to-top
+- Advisers matched to relevant sectors based on their expertise
+- Strategic partners matched (Fintech Times → fintech/disruptive tech, Disrupts → disruptive tech, Helix8 → biotech)
+
+**AWS Subdomain Setup Guide**
+- Created SUBDOMAIN-SETUP.md with full CLI commands for:
+  - Wildcard ACM certificate (*.taraniscapital.com)
+  - S3 bucket creation (4 buckets)
+  - Static website hosting + public read policies
+  - CloudFront distributions (4) with SSL
+  - Route 53 CNAME records
+  - Optional GitHub Actions auto-deploy config
+  - CloudFront function update to remove /biotech/ redirect
+
 ---
 
 ## Pending / To Do

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Fund | Taranis Capital</title>
+    <meta name="description" content="Strategic real estate investment in high-growth urban centres across the MENA region and emerging markets.">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLN31RRY1V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JLN31RRY1V');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* CSS Variables */
+        :root {
+            --tc-green-dark: #2c3e35;
+            --tc-green-light: #4a6459;
+            --tc-gold: #c9a84c;
+            --tc-gold-light: #d4b65e;
+            --tc-charcoal: #374047;
+            --tc-grey-dark: #606e79;
+            --tc-off-white: #f5f6f7;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--tc-charcoal);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            color: var(--tc-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--tc-gold-light);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--tc-green-dark);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-brand img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-brand a {
+            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--tc-gold);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--tc-green-light) 0%, #5a7568 100%);
+            color: #ffffff;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Main Content */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--tc-charcoal);
+        }
+
+        /* Fund Overview */
+        .fund-overview {
+            background-color: #ffffff;
+        }
+
+        .fund-overview p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--tc-grey-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Why Taranis */
+        .why-taranis {
+            background-color: var(--tc-off-white);
+        }
+
+        .why-taranis-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .why-item {
+            padding: 2rem;
+            background-color: #ffffff;
+            border-left: 4px solid var(--tc-gold);
+            border-radius: 4px;
+        }
+
+        .why-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--tc-green-dark);
+        }
+
+        .why-item p {
+            color: var(--tc-grey-dark);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Market Opportunity */
+        .market-opportunity {
+            background-color: #ffffff;
+        }
+
+        .market-opportunity p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--tc-grey-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Investment Focus */
+        .investment-focus {
+            background-color: var(--tc-off-white);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--tc-green-dark);
+        }
+
+        .card p {
+            color: var(--tc-grey-dark);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Team & Advisers */
+        .team-advisers {
+            background-color: #ffffff;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background-color: var(--tc-off-white);
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 3px solid var(--tc-gold);
+        }
+
+        .team-member h3 {
+            font-size: 1.2rem;
+            color: var(--tc-green-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member .title {
+            font-size: 0.85rem;
+            color: var(--tc-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .team-member p {
+            color: var(--tc-grey-dark);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .team-section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--tc-charcoal);
+        }
+
+        /* ESG Section */
+        .esg {
+            background-color: var(--tc-off-white);
+        }
+
+        .esg-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .esg-item {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .esg-item h3 {
+            font-size: 1.2rem;
+            color: var(--tc-green-dark);
+            margin-bottom: 1rem;
+        }
+
+        .esg-item p {
+            color: var(--tc-grey-dark);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--tc-green-dark) 0%, #3d4e46 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--tc-gold);
+            color: var(--tc-charcoal);
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: var(--tc-gold-light);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--tc-green-dark);
+            color: #ffffff;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--tc-gold);
+        }
+
+        .footer-section p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(201, 168, 76, 0.2);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            color: var(--tc-gold);
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background-color: var(--tc-gold);
+            color: var(--tc-green-dark);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Scroll to Top */
+        #scrollToTop {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--tc-gold);
+            color: var(--tc-charcoal);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            font-size: 1.5rem;
+            font-weight: 600;
+            z-index: 999;
+        }
+
+        #scrollToTop.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #scrollToTop:hover {
+            background-color: var(--tc-gold-light);
+        }
+
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--tc-green-dark);
+            color: #ffffff;
+            padding: 1.5rem 2rem;
+            z-index: 998;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+        }
+
+        .cookie-banner.hidden {
+            display: none;
+        }
+
+        .cookie-text {
+            flex: 1;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .cookie-text a {
+            color: var(--tc-gold);
+        }
+
+        .cookie-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .cookie-btn {
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .cookie-accept {
+            background-color: var(--tc-gold);
+            color: var(--tc-charcoal);
+        }
+
+        .cookie-accept:hover {
+            background-color: var(--tc-gold-light);
+        }
+
+        .cookie-decline {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+        }
+
+        .cookie-decline:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .cookie-banner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cookie-actions {
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="https://taraniscapital.com/images/logo-gold.png" alt="Taranis Capital Logo">
+                <a href="https://taraniscapital.com/">Taranis Capital</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="https://taraniscapital.com/">Home</a></li>
+                <li><a href="https://taraniscapital.com/about">About</a></li>
+                <li><a href="https://taraniscapital.com/funds">Funds</a></li>
+                <li><a href="https://taraniscapital.com/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Property Fund</h1>
+            <p class="subtitle">Strategic real estate investment in high-growth urban centres across the MENA region and emerging markets</p>
+        </div>
+    </section>
+
+    <!-- Fund Overview -->
+    <section class="section fund-overview">
+        <h2>Fund Overview</h2>
+        <p>Taranis Capital's Property Fund focuses on strategic investments in commercial and mixed-use developments across high-growth urban centres. We target opportunities where rapid urbanisation, economic diversification, and infrastructure development create compelling real estate dynamics.</p>
+        <p>Our approach combines rigorous financial analysis with deep regional knowledge. We identify properties and developments positioned to benefit from structural economic shifts in key markets, with particular emphasis on the GCC region and selective emerging markets.</p>
+    </section>
+
+    <!-- Why Taranis -->
+    <section class="section why-taranis">
+        <h2>Why Taranis Capital</h2>
+        <div class="why-taranis-list">
+            <div class="why-item">
+                <h3>Deep GCC Network</h3>
+                <p>Our leadership team brings decades of experience across Saudi Arabia, UAE, and the wider MENA region, providing unparalleled market access and insight.</p>
+            </div>
+            <div class="why-item">
+                <h3>Vision 2030 Alignment</h3>
+                <p>Our Board of Advisers includes a former Saudi Vice Minister of Industry who designed the National Industrial Strategy, giving us unique insight into government priorities and structural economic shifts.</p>
+            </div>
+            <div class="why-item">
+                <h3>Strategic DIFC Base</h3>
+                <p>Located in the Dubai International Financial Centre, we maintain direct access to Gulf property market intelligence and participate in regional investment networks at the highest levels.</p>
+            </div>
+            <div class="why-item">
+                <h3>Institutional Experience</h3>
+                <p>Our Board includes senior SABIC executives with multibillion-dollar regional project experience, providing technical expertise and market validation across energy, industrial, and commercial real estate sectors.</p>
+            </div>
+            <div class="why-item">
+                <h3>Ethical Governance</h3>
+                <p>Our commitment to responsible investment and sustainable development principles aligns with the values driving modern Gulf real estate and attracts quality capital partners.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section class="section market-opportunity">
+        <h2>Market Opportunity</h2>
+        <p>The GCC property market is experiencing a structural shift driven by economic diversification away from oil dependence. Population growth, rising foreign investment, and major infrastructure projects are creating unprecedented demand for quality commercial and mixed-use real estate.</p>
+        <p><strong>Dubai</strong> continues to set records for transaction volumes and property valuations, whilst <strong>Saudi Arabia's Vision 2030</strong> programme is creating massive demand for world-class commercial property, hospitality, and mixed-use developments. The Kingdom is investing heavily in new business districts, tourism infrastructure, and financial centres that require significant real estate investment.</p>
+        <p>Beyond the Gulf, high-growth markets in Asia and Africa are seeing similar dynamics: infrastructure mega-projects, tourism expansion, financial sector growth, and urbanisation are driving a structural shift in real estate fundamentals. These markets present compelling opportunities for experienced, well-connected investors who can navigate local dynamics and identify assets positioned for long-term appreciation.</p>
+    </section>
+
+    <!-- Investment Focus -->
+    <section class="section investment-focus">
+        <h2>Investment Focus</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <h3>Commercial Property Development</h3>
+                <p>Grade A office spaces, retail centres, and business parks in prime locations with strong tenant demand and pricing power.</p>
+            </div>
+            <div class="card">
+                <h3>Mixed-Use Urban Projects</h3>
+                <p>Integrated developments combining residential, commercial, and hospitality uses in high-growth urban centres.</p>
+            </div>
+            <div class="card">
+                <h3>High-Growth Market Positioning</h3>
+                <p>Properties in strategic locations where urbanisation, infrastructure development, and economic growth create compelling value creation opportunities.</p>
+            </div>
+            <div class="card">
+                <h3>Sustainable Building Practices</h3>
+                <p>Modern developments incorporating energy efficiency, renewable energy, and sustainable design to meet investor and regulatory expectations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team & Advisers -->
+    <section class="section team-advisers">
+        <h2>Fund Leadership & Advisers</h2>
+
+        <div class="team-section-title">Executive Team</div>
+        <div class="team-grid">
+            <div class="team-member">
+                <h3>Nicholas S. Bingham</h3>
+                <p class="title">Founding Partner & CEO</p>
+                <p>25+ years of experience in investment banking and asset management. Nicholas brings institutional investment expertise and global networks to lead Taranis Capital's investment strategy and capital partnerships.</p>
+            </div>
+            <div class="team-member">
+                <h3>Osama Ben Saleh Bukhari</h3>
+                <p class="title">Chief Technical Officer</p>
+                <p>Two decades of banking experience and leadership of Alfaris International Group. Head of Banking Committee, ICC Saudi Arabia since 2012. Named by Arabian Business as '50 People You Need to Know in KSA' for his contributions to regional financial development.</p>
+            </div>
+            <div class="team-member">
+                <h3>Emad Zowawi</h3>
+                <p class="title">KSA Legal Counsel to the CEO</p>
+                <p>New York and DC licensed corporate lawyer with 10+ years banking and asset management experience. Emad provides deep expertise in KSA legal and regulatory matters, ensuring compliance and market access across Kingdom transactions.</p>
+            </div>
+        </div>
+
+        <div class="team-section-title">Board of Advisers</div>
+        <div class="team-grid">
+            <div class="team-member">
+                <h3>H.E. Eng. Osama Al-Zamil</h3>
+                <p class="title">Chairman of Advisory Board</p>
+                <p>Former Vice Minister of Industry and Mineral Resources, Saudi Arabia (2019-2023). Designed Saudi Arabia's National Industrial Strategy as part of Vision 2030, expanding the Kingdom's industrial base from 7,000 to over 11,000 factories. 20+ years of private sector executive experience.</p>
+            </div>
+            <div class="team-member">
+                <h3>Mazen Al-Rahim</h3>
+                <p class="title">Board of Advisers</p>
+                <p>30+ years of experience in petrochemicals, manufacturing, and supply chain. Former Executive Director at SABIC, leading major initiatives across the Middle East and Asia Pacific. Co-founder of Saudi industrial ventures including SSCS, ERTIKAZ, NCS, TSMO, and LS Gulf.</p>
+            </div>
+            <div class="team-member">
+                <h3>Joel Blake OBE</h3>
+                <p class="title">Board of Advisers</p>
+                <p>ESG and sustainability expertise bringing world-class governance practices to Taranis Capital. Strengthens our commitment to ethical governance and sustainable investment practices that align with evolving investor and regulatory expectations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESG -->
+    <section class="section esg">
+        <h2>ESG & Sustainability</h2>
+        <div class="esg-grid">
+            <div class="esg-item">
+                <h3>Energy Efficiency</h3>
+                <p>Modern properties incorporating renewable energy systems, smart building management, and energy-efficient design to reduce operational costs and environmental impact.</p>
+            </div>
+            <div class="esg-item">
+                <h3>Sustainable Building</h3>
+                <p>LEED and regional sustainability certification standards guide our development and acquisition decisions, ensuring long-term asset quality and regulatory compliance.</p>
+            </div>
+            <div class="esg-item">
+                <h3>Community Impact</h3>
+                <p>Investments that create jobs, support local economies, and contribute positively to the communities in which we operate.</p>
+            </div>
+            <div class="esg-item">
+                <h3>Responsible Governance</h3>
+                <p>Ethical business practices, transparent reporting, and alignment with UN Sustainable Development Goals across all fund activities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Interested in the Property Fund?</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.95;">Get in touch to learn more about investment opportunities and strategic partnerships.</p>
+        <a href="https://taraniscapital.com/contact" class="cta-button">Contact Us</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Taranis Capital</h3>
+                <p>Strategic investment in growth markets across real estate, energy, and industrial sectors.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Offices</h3>
+                <p><strong>Dubai:</strong><br>Dubai International Financial Centre<br>Dubai, UAE</p>
+                <p style="margin-top: 1rem;"><strong>London:</strong><br>London, UK</p>
+                <p style="margin-top: 1rem;"><strong>Geneva:</strong><br>Geneva, Switzerland</p>
+            </div>
+            <div class="footer-section">
+                <h3>Regulatory</h3>
+                <p>Taranis Capital operates under DFSA (Dubai Financial Services Authority) regulation, ensuring compliance with international financial standards and investor protections.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="https://taraniscapital.com/">Website</a></li>
+                    <li><a href="https://taraniscapital.com/contact">Contact</a></li>
+                    <li><a href="https://taraniscapital.com/privacy">Privacy Policy</a></li>
+                </ul>
+                <div class="footer-social">
+                    <a href="#" title="LinkedIn">in</a>
+                    <a href="#" title="Twitter">𝕏</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Taranis Capital. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-text">
+            We use cookies to enhance your experience. By continuing to browse this site, you agree to our use of cookies. <a href="https://taraniscapital.com/privacy">Learn more</a>.
+        </div>
+        <div class="cookie-actions">
+            <button class="cookie-btn cookie-decline" onclick="declineCookies()">Decline</button>
+            <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept</button>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div id="scrollToTop" onclick="scrollToTop()">↑</div>
+
+    <script>
+        // Cookie Banner
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieBanner').classList.add('hidden');
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookiesAccepted', 'false');
+            document.getElementById('cookieBanner').classList.add('hidden');
+        }
+
+        // Check if cookies were previously accepted
+        window.addEventListener('load', function() {
+            const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+            if (cookiesAccepted !== null) {
+                document.getElementById('cookieBanner').classList.add('hidden');
+            }
+        });
+
+        // Scroll to Top
+        window.addEventListener('scroll', function() {
+            const scrollToTop = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTop.classList.add('visible');
+            } else {
+                scrollToTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
