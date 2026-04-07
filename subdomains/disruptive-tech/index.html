@@ -84,22 +84,21 @@
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            color: var(--tc-white);
-            font-weight: 600;
-            font-size: 1.1rem;
+            gap: 1rem;
+            text-decoration: none;
         }
 
         .nav-logo img {
-            height: 32px;
+            height: 40px;
             width: auto;
         }
 
-        .nav-logo a {
-            color: var(--tc-white);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+        .nav-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--tc-gold);
+            text-decoration: none;
         }
 
         .nav-links {
@@ -109,8 +108,15 @@
         }
 
         .nav-links a {
-            color: var(--tc-white);
+            color: #ffffff;
+            text-decoration: none;
             font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--tc-gold);
         }
 
         /* Hero Section */
@@ -738,16 +744,15 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="nav-logo">
+            <a href="https://taraniscapital.com" class="nav-logo">
                 <img src="https://taraniscapital.com/images/logo-gold.png" alt="Taranis Capital Logo">
-                <a href="https://taraniscapital.com">Taranis Capital</a>
-            </div>
+                <span class="nav-logo-text">Taranis Capital</span>
+            </a>
             <ul class="nav-links">
                 <li><a href="https://taraniscapital.com">Home</a></li>
-                <li><a href="https://taraniscapital.com/funds">Funds</a></li>
-                <li><a href="https://taraniscapital.com/team">Team</a></li>
-                <li><a href="https://taraniscapital.com/insights">Insights</a></li>
-                <li><a href="https://taraniscapital.com/contact">Contact</a></li>
+                <li><a href="#fund-overview">Fund Overview</a></li>
+                <li><a href="https://taraniscapital.com/our-funds">Our Funds</a></li>
+                <li><a href="https://taraniscapital.com/contact" target="_blank">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -761,7 +766,7 @@
     </section>
 
     <!-- Fund Overview -->
-    <section>
+    <section id="fund-overview">
         <div class="container">
             <h2>Fund Overview</h2>
             <p class="section-intro">Taranis Disruptive Tech Fund LP is a closed-ended Qualified Investor Venture Capital Fund established in DIFC and regulated by DFSA. Managed by Taranis Capital Limited (DFSA-regulated fund manager), the fund invests in early-stage and growth-stage companies with innovative technology components and strong global ambitions. We seek companies with exceptional growth potential, strong management teams, defensible competitive advantages, and scalable business models.</p>

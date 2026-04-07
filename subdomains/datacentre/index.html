@@ -37,13 +37,13 @@
         }
 
         /* Header & Navigation */
-        header {
+        nav {
             background-color: #3a5247;
-            padding: 1.25rem 0;
+            padding: 1.5rem 0;
             position: sticky;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .nav-container {
@@ -55,41 +55,41 @@
             align-items: center;
         }
 
-        .nav-brand {
+        .nav-logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem;
             text-decoration: none;
         }
 
-        .nav-brand img {
-            height: 32px;
+        .nav-logo img {
+            height: 40px;
             width: auto;
         }
 
-        .nav-brand-text {
+        .nav-logo-text {
             font-family: 'Playfair Display', serif;
-            font-size: 1.125rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #c9a84c;
-            letter-spacing: -0.5px;
+            text-decoration: none;
         }
 
-        nav ul {
-            list-style: none;
+        .nav-links {
             display: flex;
             gap: 2rem;
+            list-style: none;
         }
 
-        nav a {
-            color: #f5f6f7;
+        .nav-links a {
+            color: #ffffff;
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
-            transition: color 0.2s;
+            transition: color 0.3s ease;
         }
 
-        nav a:hover {
+        .nav-links a:hover {
             color: #c9a84c;
         }
 
@@ -577,7 +577,7 @@
                 font-size: 1.75rem;
             }
 
-            .nav-brand-text {
+            .nav-logo-text {
                 display: none;
             }
 
@@ -605,24 +605,21 @@
     </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header>
+    <!-- Navigation -->
+    <nav>
         <div class="nav-container">
-            <a href="https://taraniscapital.com" class="nav-brand">
-                <img src="https://taraniscapital.com/images/logo-gold.png" alt="Taranis Capital">
-                <span class="nav-brand-text">Taranis Capital</span>
+            <a href="https://taraniscapital.com" class="nav-logo">
+                <img src="https://taraniscapital.com/images/logo-gold.png" alt="Taranis Capital Logo">
+                <span class="nav-logo-text">Taranis Capital</span>
             </a>
-            <nav>
-                <ul>
-                    <li><a href="https://taraniscapital.com">Home</a></li>
-                    <li><a href="https://taraniscapital.com/who-we-are">Who We Are</a></li>
-                    <li><a href="https://taraniscapital.com/our-approach">Our Approach</a></li>
-                    <li><a href="https://taraniscapital.com/our-funds">Our Funds</a></li>
-                    <li><a href="https://taraniscapital.com/contact">Contact</a></li>
-                </ul>
-            </nav>
+            <ul class="nav-links">
+                <li><a href="https://taraniscapital.com">Home</a></li>
+                <li><a href="#fund-overview">Fund Overview</a></li>
+                <li><a href="https://taraniscapital.com/our-funds">Our Funds</a></li>
+                <li><a href="https://taraniscapital.com/contact" target="_blank">Contact</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -634,7 +631,7 @@
     </section>
 
     <!-- Fund Overview -->
-    <section class="overview-section">
+    <section id="fund-overview" class="overview-section">
         <div class="section-container">
             <h2 class="section-title">Fund Overview</h2>
             <div class="overview-content">

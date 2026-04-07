@@ -78,22 +78,24 @@
             align-items: center;
         }
 
-        .nav-brand {
+        .nav-logo {
             display: flex;
             align-items: center;
             gap: 1rem;
+            text-decoration: none;
         }
 
-        .nav-brand img {
+        .nav-logo img {
             height: 40px;
             width: auto;
         }
 
-        .nav-brand a {
-            color: #ffffff;
+        .nav-logo-text {
             font-family: 'Playfair Display', serif;
             font-size: 1.2rem;
-            font-weight: 700;
+            font-weight: 600;
+            color: var(--tc-gold);
+            text-decoration: none;
         }
 
         .nav-links {
@@ -104,8 +106,10 @@
 
         .nav-links a {
             color: #ffffff;
+            text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
@@ -556,15 +560,15 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="nav-brand">
+            <a href="https://taraniscapital.com" class="nav-logo">
                 <img src="https://taraniscapital.com/images/logo-gold.png" alt="Taranis Capital Logo">
-                <a href="https://taraniscapital.com/">Taranis Capital</a>
-            </div>
+                <span class="nav-logo-text">Taranis Capital</span>
+            </a>
             <ul class="nav-links">
-                <li><a href="https://taraniscapital.com/">Home</a></li>
-                <li><a href="https://taraniscapital.com/about">About</a></li>
-                <li><a href="https://taraniscapital.com/funds">Funds</a></li>
-                <li><a href="https://taraniscapital.com/contact">Contact</a></li>
+                <li><a href="https://taraniscapital.com">Home</a></li>
+                <li><a href="#fund-overview">Fund Overview</a></li>
+                <li><a href="https://taraniscapital.com/our-funds">Our Funds</a></li>
+                <li><a href="https://taraniscapital.com/contact" target="_blank">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -578,7 +582,7 @@
     </section>
 
     <!-- Fund Overview -->
-    <section class="section fund-overview">
+    <section id="fund-overview" class="section fund-overview">
         <h2>Fund Overview</h2>
         <p>Taranis Capital's Property Fund focuses on strategic investments in commercial and mixed-use developments across high-growth urban centres. We target opportunities where rapid urbanisation, economic diversification, and infrastructure development create compelling real estate dynamics.</p>
         <p>Our approach combines rigorous financial analysis with deep regional knowledge. We identify properties and developments positioned to benefit from structural economic shifts in key markets, with particular emphasis on the GCC region and selective emerging markets.</p>
