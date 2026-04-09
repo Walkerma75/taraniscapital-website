@@ -1,0 +1,1599 @@
+{
+  "_meta": {
+    "description": "Taranis Capital People Directory — structured reference file for website automation",
+    "sourceFile": "Taranis-People-Data-Collection-KB.xlsx",
+    "generatedBy": "Automated weekly sync",
+    "lastUpdated": "2026-04-09",
+    "schema": "1.0"
+  },
+  "people": [
+    {
+      "slug": "amer-mahmood",
+      "fullName": "Dr Amer Mahmood",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "amer@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/amer-scientist/",
+      "profileImage": {
+        "path": "/images/team/Dr-Amer-Mahmood-headshot-600-650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Dr Amer Mahmood is a Board Adviser at Taranis Capital and a Senior Scientist and Principal Investigator at the Stem Cell Unit, College of Medicine, King Saud University in Riyadh. He directs comprehensive regenerative medicine and gene therapy research programmes, developing novel treatments for chronic diseases and injuries.\n\nDr Mahmood maintains a strong international collaboration network and a significant research funding track record. His pioneering work in stem cell research and regenerative medicine spans multiple decades, with past positions including doctoral research in Molecular Endocrinology and Metabolism in Denmark, post-doctoral work at clinical immunology centres, and consultancy roles in stem cell and gene therapy for organisations in the United States and Saudi Arabia.\n\nHis deep expertise in cellular therapies and his leadership in managing and streamlining research centres bring invaluable scientific insight to Taranis Capital's biotech investment activities.",
+        "profileUrl": "taraniscapital.com/board/amer-mahmood"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Scientific Advisory Board",
+          "bio": "Senior Scientist and Principal Investigator at Stem Cell Unit, College of Medicine, King Saud University. Directs regenerative medicine and gene therapy research programmes. Develops novel treatments for chronic diseases and injuries. Pioneering work in stem cell research with strong international collaboration network."
+        }
+      }
+    },
+    {
+      "slug": "amit-varma",
+      "fullName": "Amit Varma",
+      "type": "Team",
+      "role": "Chief Information Officer",
+      "email": "amit@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/amit-j-varma/",
+      "profileImage": {
+        "path": "/images/team/Amit-Varma-600x650-1-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Amit Varma is Chief Investment Officer at Taranis Capital, bringing 28 years of fintech and financial services experience to the role. His deep expertise spans digital assets, decentralised finance, payments infrastructure, and the regulatory landscape governing emerging financial technologies.\nAmit's experience includes leading fintech ventures and advising on complex regulatory frameworks across multiple jurisdictions. He is committed to identifying investment opportunities that combine technological innovation with robust governance and ethical standards.",
+        "profileUrl": "taraniscapital.com/team/amit-varma"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": true,
+          "role": "Chief Information Officer",
+          "bio": "28 years as CIO/Technology Head at Citibank, Emirates NBD, DBS, and Fidelity. Created 450+ fintech products. Built world's first blockchain pre-IPO trading platform."
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "Award-winning technology executive with 28 years of global leadership at Citibank, Emirates NBD, DBS Bank, and American Express. Over 450 fintech products launched. Expertise in digital banking infrastructure and technology transformation."
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Chief Information Officer",
+          "bio": "28 years as CIO at Citibank, Emirates NBD, DBS, and Fidelity. Created 450+ fintech products. Built world's first blockchain pre-IPO trading platform."
+        },
+        "biotech": {
+          "assigned": false
+        }
+      }
+    },
+    {
+      "slug": "asim-chohan",
+      "fullName": "Asim Chohan",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "asim@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/asim-chohan-acp-ccp-mcp-pmp-49a02781/",
+      "profileImage": {
+        "path": "/images/team/Asim-Chohan-600x650-1-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Asim Chohan is a Board Adviser at Taranis Capital and serves as SVP Global Operations and COO at a leading US investment bank, bringing 21 years of experience driving Fortune 100 growth. He is an expert in artificial intelligence, business intelligence, and global transformation across three continents.\n\nAsim is an active venture capital investor and advisory board member, with a strong commitment to championing diversity and inclusion across the technology and financial services industries. He holds qualifications from Harvard, MIT, and Cambridge, and is a certified ACP, CCP, MCP, and PMP professional.\n\nHis blend of operational excellence at the highest levels of global finance, combined with his deep technology expertise, provides Taranis Capital with strategic insight across investment banking, AI-driven transformation, and international scaling.",
+        "profileUrl": "taraniscapital.com/board/asim-chohan"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": true,
+          "role": "Board Adviser",
+          "bio": "SVP Global Operations and COO at a leading US investment bank. 21 years driving Fortune 100 growth across AI, business intelligence, and global transformation. Harvard, MIT, and Cambridge educated. Certified ACP, CCP, MCP, PMP."
+        },
+        "property": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "SVP Global Operations and COO at a leading US investment bank. 21 years driving Fortune 100 growth across AI, business intelligence, and global transformation. Harvard, MIT, and Cambridge educated."
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "SVP Global Operations and COO at a leading US investment bank. 21 years driving Fortune 100 growth. Expert in AI, business intelligence, and global transformation across three continents."
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "SVP Global Operations and COO at a leading US investment bank. 21 years driving Fortune 100 growth. Expert in artificial intelligence, business intelligence, and global digital transformation across three continents. Harvard, MIT, and Cambridge educated."
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "SVP Global Operations and COO at a leading US investment bank. 21 years driving Fortune 100 growth across AI, business intelligence, and global transformation. Harvard, MIT, and Cambridge educated. Certified ACP, CCP, MCP, PMP."
+        }
+      }
+    },
+    {
+      "slug": "bijna-kotak-dasani",
+      "fullName": "Dr. Bijna Kotak Dasani MBE, FRSA",
+      "type": "Team",
+      "role": "Chief Investment Officer",
+      "email": "bijna@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/bijna/",
+      "profileImage": {
+        "path": "/images/team/Bijna-Kotak-D-650x600-1-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Bijna Kotak Dasani, MBE, is Chief Investment Officer at Taranis Capital with 25 years of experience in fintech, digital assets, and financial services across Asia, the Middle East, and Europe. Her career encompasses scaling digital payment systems, building fintech ventures from inception, and navigating complex regulatory environments.\nHer expertise spans fintech regulation, digital assets, decentralised finance, payments infrastructure and emerging financial technologies. She was recently honoured with an MBE (Member of the Order of the British Empire) for her services to fintech, diversity and inclusion in financial services.\nBijna is committed to investing in businesses that combine strong governance, inclusive leadership, and technological innovation.",
+        "profileUrl": "taraniscapital.com/team/bijna-kotak-dasani"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": false
+        }
+      }
+    },
+    {
+      "slug": "bruno-martorano",
+      "fullName": "Bruno Martorano",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "bruno@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/bruno-martorano-1a96a818/",
+      "profileImage": {
+        "path": "/images/team/Bruno-600x650-1-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Bruno Martorano is a Board Adviser at Taranis Capital with 35 years of experience in banking, fintech, and financial services across the Middle East, Africa, Europe, and Asia. His career spans establishing banking operations in emerging markets, building and scaling fintech ventures, developing regulatory frameworks, and advising on complex cross-border transactions.\nBruno has served in senior executive roles at major international banks, fintech platforms, and investment firms. His expertise encompasses retail and corporate banking, payments infrastructure, digital assets, and emerging market expansion strategies.\nThroughout his career, Bruno has been instrumental in navigating complex regulatory environments and building ethical, sustainable financial institutions. He has advised governments on fintech policy and led teams across multiple jurisdictions.\nHe is particularly focused on identifying investment opportunities that combine technological innovation with strong governance, ethical business practices, and positive social impact. Bruno believes that sustainable growth in financial services requires aligning profit motives with ethical standards and community benefit.\nHis track record includes scaling operations in challenging emerging markets, building diverse and inclusive teams, and creating long-term value through disciplined capital deployment.",
+        "profileUrl": "taraniscapital.com/board/bruno-martorano"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": true,
+          "role": "Board Adviser",
+          "bio": "35 years in international banking, fintech, and finance. Executive roles in neobanks, commercial banking, private banking, and FDI across New York, Paris, Hong Kong, Dubai, and London."
+        },
+        "property": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "35-year banking and fintech executive. Former CEO of a major Abu Dhabi bank and a European neobank. Expert in turnarounds, FDI, and cross-border deals across New York, Paris, Hong Kong, and Dubai."
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "35-year banking and fintech executive. Former CEO of a major Abu Dhabi bank and a European neobank. Expert in institutional turnarounds and foreign direct investment across the Middle East and Europe."
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "35-year banking and fintech executive. Former CEO of a major Abu Dhabi bank and a European neobank. Hands-on leader driving digital transformation in finance, health, and energy sectors."
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "35-year banking and fintech executive. Former CEO of a major Abu Dhabi bank and a European neobank. Expert in turnarounds, FDI, and cross-border deals. Hands-on leader driving digital transformation in finance, health, and energy."
+        }
+      }
+    },
+    {
+      "slug": "daniel-roubeni",
+      "fullName": "Daniel Roubeni",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "danielr@taraniscapital.com",
+      "linkedIn": "MISSING",
+      "profileImage": {
+        "path": "/images/team/Daniel-Roubeni-600x650-2-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Daniel Roubeni is a Board Adviser at Taranis Capital and a successful global entrepreneur who sits on various advisory boards and philanthropic committees. He has a wealth of international contacts, helping companies build their vision into thriving businesses.\n\nHis diverse experience spans international trade, financial management, early-stage venture capital investment, and independent movie production. Daniel holds an MBA in Entrepreneurship from Bocconi University (Milan) and a Bachelor of Science in Marketing and International Business from New York University's Stern School of Business.\n\nHe is fluent in English, German, Italian, and Farsi, and is proficient in Mandarin Chinese. Daniel resides in both New York and Hamburg, providing Taranis Capital with a global perspective and an extensive network of international business relationships.",
+        "profileUrl": "taraniscapital.com/board/daniel-roubeni"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": true,
+          "role": "Board Adviser",
+          "bio": "Global entrepreneur with experience in international trade, financial management, and early-stage venture capital investment. MBA in Entrepreneurship from Bocconi University, BSc from NYU Stern School of Business. Multilingual with extensive international network."
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Board Adviser",
+          "bio": "Global entrepreneur with expertise in international trade, early-stage venture capital investment, and financial management. MBA from Bocconi University, BSc from NYU Stern. Extensive international network across New York, Hamburg, and global markets."
+        },
+        "biotech": {
+          "assigned": false
+        }
+      }
+    },
+    {
+      "slug": "david-grunfeld",
+      "fullName": "David Grunfeld",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "davidg@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/davidgrunfeld/",
+      "profileImage": {
+        "path": "/images/team/David-Grunfeld-600x650-Headshot-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "David Grunfeld is a Board Adviser at Taranis Capital and a serial entrepreneur and strategic communications advisor with over 22 years of experience in the UAE. He is the founder of Prose Solutions, a leading communications consultancy, and PS NXT, an AI-focused venture.\n\nDavid has made dozens of angel investments across technology and knowledge services sectors, bringing deep practical experience in evaluating early-stage companies, supporting founders, and building businesses from inception to scale. His entrepreneurial track record and extensive UAE network provide Taranis Capital with valuable insight into the regional technology ecosystem, go-to-market strategy, and venture-stage company development.",
+        "profileUrl": "taraniscapital.com/board/david-grunfeld"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "Serial entrepreneur and strategic communications advisor with over 22 years in the UAE. Founder of Prose Solutions and PS NXT (AI ventures). Dozens of angel investments across technology and knowledge services."
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Partner",
+          "bio": "Serial entrepreneur with multiple exits across technology and software sectors. 22+ years advising GCC-based companies on growth strategy, market entry, and venture capital deployment."
+        },
+        "biotech": {
+          "assigned": false
+        }
+      }
+    },
+    {
+      "slug": "david-parker",
+      "fullName": "David Parker",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "Davidp@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/polymathconsulting/",
+      "profileImage": {
+        "path": "/images/team/David-full-shot-konsentus-600x650-1-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "David Parker is a Board Adviser at Taranis Capital with specialist expertise in fintech and digital financial services.",
+        "profileUrl": "taraniscapital.com/board/david-parker"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": true,
+          "role": "Board Adviser",
+          "bio": "20+ years working with fintechs and in marketing. Ex Saatchi. Co-Founder of Konsentus. Investor, Advisor, and NED to 3S Money, Swiipr, Nymcard, Itemize, and Curve. Globally recognised thought leader and commentator on the future of payments."
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Board Adviser",
+          "bio": "20+ years in fintech and marketing. Ex Saatchi. Co-Founder of Konsentus. Investor/Advisor/NED to 3S Money, Swiipr, Nymcard, Itemize, and Curve. Globally recognised thought leader on the future of payments and financial technology."
+        },
+        "biotech": {
+          "assigned": false
+        }
+      }
+    },
+    {
+      "slug": "emad-zowawi",
+      "fullName": "Emad Zowawi",
+      "type": "Team",
+      "role": "KSA Legal Consul to the CEO",
+      "email": "emad@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/emad-a-zowawi-%D8%B9%D9%85%D8%A7%D8%AF-%D8%A7%D9%84%D8%B2%D9%88%D8%A7%D9%88%D9%8A-77503010/",
+      "profileImage": {
+        "path": "/images/team/Emad-Zowawi-Profile-Pic-600x650-1-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Emad Zowawi is KSA Legal Consul at Taranis Capital. He is a lawyer and former banker with extensive experience in corporate law, banking regulation, and investment advisory across the GCC region and internationally.",
+        "profileUrl": "taraniscapital.com/team/emad-zowawi"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": true,
+          "role": "KSA Legal Counsel to the CEO",
+          "bio": "New York and DC licensed corporate lawyer with 10+ years banking and asset management experience. Provides deep expertise in KSA legal and regulatory matters."
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Advisory Board / Legal Advisor",
+          "bio": "New York and Washington DC licensed corporate lawyer and former banker with over 20 years of experience. Provides specialist KSA legal counsel to the Fund across international law firms and financial institutions."
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "KSA Legal Counsel to the CEO",
+          "bio": "New York and Washington DC licensed corporate lawyer and former banker. Over 20 years across international law firms and financial institutions. Provides specialist KSA legal counsel on Saudi regulatory and legal matters."
+        }
+      }
+    },
+    {
+      "slug": "ghassan-najmeddin",
+      "fullName": "Ghassan Najmeddin",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "Ghassan@taraniscapital.com",
+      "linkedIn": "MISSING",
+      "profileImage": {
+        "path": "/images/team/Ghassan-Najmeddin-Profile-600-650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Ghassan Najmeddin is a Board Adviser at Taranis Capital and Head of Retail Banking and Wealth Management at Emirates NBD Saudi Arabia, where he leads the bank's retail and affluent client strategy.\n\nWidely recognised as a leading figure in Saudi banking, Ghassan brings deep expertise in customer-centric innovation and strategic growth aligned with Saudi Vision 2030. His extensive experience in wealth management and retail banking across the Kingdom provides Taranis Capital with valuable insight into Saudi financial markets, investor behaviour, and distribution channels.",
+        "profileUrl": "taraniscapital.com/board/ghassan-najmeddin"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Fund Governance Board",
+          "bio": "Head of Retail Banking and Wealth Management at Emirates NBD Saudi Arabia. Leading figure in Saudi banking with deep expertise in customer-centric innovation and strategic growth aligned with Vision 2030."
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": false
+        }
+      }
+    },
+    {
+      "slug": "jack-hollander",
+      "fullName": "Jack Hollander",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "jack.hollander@njmparters.com",
+      "linkedIn": "https://www.linkedin.com/in/jack-hollander-b75a4617/",
+      "profileImage": {
+        "path": "/images/team/Jack-Hollander-600x650-1-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Jack Hollander is a Board Adviser at Taranis Capital with over 30 years in capital markets and venture capital. He has led fundraising efforts exceeding $3 billion across multiple continents and brings strategic expertise in scaling fintech and technology ventures.",
+        "profileUrl": "taraniscapital.com/board/jack-hollander"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": true,
+          "role": "Board Adviser",
+          "bio": "30+ years in capital markets. Executive Vice President at APX Energy. Raised over $3 billion in alternative and tax-advantaged investment programmes. Law degree from Brooklyn Law School, Master of Law from NYU. Former Chairman of the Investment Program Association. Member of the New York State bar."
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Board Adviser",
+          "bio": "30+ years in capital markets. Raised over $3 billion in alternative investment programmes. Master of Law from NYU. Former Chairman of the Investment Program Association. Deep expertise in specialised alternative investments for high-net-worth individuals."
+        },
+        "biotech": {
+          "assigned": false
+        }
+      }
+    },
+    {
+      "slug": "joel-blake",
+      "fullName": "Joel Blake OBE",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "joel@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/joelblakeobe/",
+      "profileImage": {
+        "path": "/images/team/Joel-Blake-OBE-picture-600x650-1-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Joel Blake is a Board Adviser at Taranis Capital with specialist expertise in ESG (Environmental, Social, and Governance) investing and sustainable business practices.",
+        "profileUrl": "taraniscapital.com/board/joel-blake"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": true,
+          "role": "Board Adviser",
+          "bio": "ESG and ethical governance specialist. Brings world-class expertise in sustainability strategy, impact measurement, and responsible investment practices to support Taranis Capital's ethical fintech mandate."
+        },
+        "property": {
+          "assigned": true,
+          "role": "Board of Advisers",
+          "bio": "ESG and sustainability expertise bringing world-class governance practices to Taranis Capital. Strengthens our commitment to ethical governance and sustainable investment practices."
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Board Adviser",
+          "bio": "ESG and ethical governance specialist. Expanding ethical governance practices, responsible technology deployment, and sustainable business models across portfolio companies."
+        },
+        "biotech": {
+          "assigned": false
+        }
+      }
+    },
+    {
+      "slug": "leif-hesse",
+      "fullName": "Leif Hesse",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "Leif@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/leif-hesse/",
+      "profileImage": {
+        "path": "/images/team/Leif-Hesse-Headshot-600-650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Leif Hesse is a Board Adviser at Taranis Capital, serving as Senior Advisor providing specialist guidance on cybersecurity architecture, operational resilience, and the security dimensions of critical digital infrastructure.\n\nHis expertise is particularly relevant to sovereign-grade infrastructure investments, where facilities must meet the highest standards of physical and cyber security. Leif advises on security architecture design, operational security protocols, and compliance with international and regional cybersecurity frameworks.\n\nHis advisory role is integral to Taranis Capital's digital infrastructure proposition as the Kingdom of Saudi Arabia accelerates its digital sovereignty agenda under Vision 2030.",
+        "profileUrl": "taraniscapital.com/board/leif-hesse"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Senior Advisor (Cybersecurity & Operations)",
+          "bio": "Specialist in cybersecurity architecture, operational resilience, and security of critical digital infrastructure. Advises on sovereign-grade security standards, compliance with international cybersecurity frameworks, and operational security protocols essential for data centre operations."
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": false
+        }
+      }
+    },
+    {
+      "slug": "mark-walker",
+      "fullName": "Mark Walker",
+      "type": "Team",
+      "role": "Founding Partner & COO",
+      "email": "mark@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/walkerm/",
+      "profileImage": {
+        "path": "/images/team/Mark-Walker-Profile-A71V3159-600x650-1-277x300.png",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Mark Walker is Founding Partner & Chief Operating Officer at Taranis Capital. He brings a deep entrepreneurial background in fintech, having founded and scaled multiple successful ventures across digital assets, decentralised finance, and financial services infrastructure.\nHis experience spans business development, operational scaling, fundraising, and navigating complex regulatory frameworks across multiple jurisdictions. He is passionate about building ethical, sustainable fintech businesses that prioritise good governance and positive social impact.",
+        "profileUrl": "taraniscapital.com/team/mark-walker"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": true,
+          "role": "Founding Partner & COO",
+          "bio": "Founded an enterprise software company (M&A exit). Founded The Fintech Power50 accelerator. Led operations at The Fintech Times. Former UK Trade & Investment Senior Adviser for technology sectors."
+        },
+        "property": {
+          "assigned": true,
+          "role": "Founding Partner & COO",
+          "bio": "Founding Partner & COO responsible for operational management, fund governance, and regulatory coordination. Over two decades of experience in enterprise technology, software entrepreneurship, and venture acceleration."
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Founding Partner & COO",
+          "bio": "Founding Partner & COO and Investment Committee member. Over two decades of operational and entrepreneurial experience across enterprise technology, fintech media, and government trade advisory. Responsible for day-to-day fund operations and regulatory coordination with J. Awan Capital."
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Founding Partner & COO",
+          "bio": "Founded enterprise software company (M&A exit). Founded The Fintech Power50 accelerator. Led operations at The Fintech Times. Former UK Trade & Investment Senior Adviser."
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Founding Partner & COO",
+          "bio": "Co-Founder and Managing Partner of Taranis Capital. Oversees operational aspects of the Technical Services Advisor's activities. Global multi-sector entrepreneur with deep expertise in operations, growth strategy, and strategic execution. Leads portfolio company engagement and strategic partnerships."
+        }
+      }
+    },
+    {
+      "slug": "mazen-al-rahim",
+      "fullName": "Mazen Al-Rahim",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "mazan@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/mazen-alrahim-35b933254/",
+      "profileImage": {
+        "path": "/images/team/Mazen-Al-Rahim-600x650-2-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Mazen Al-Rahim is a Board Adviser at Taranis Capital with over 30 years in the petrochemicals industry. He held senior executive positions at SABIC, one of the world's largest petrochemical companies, where he oversaw major regional operations and strategic initiatives. His expertise spans industrial development, international business expansion, and large-scale capital deployment across emerging markets and established economies.",
+        "profileUrl": "taraniscapital.com/board/mazen-al-rahim"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": true,
+          "role": "Board of Advisers",
+          "bio": "30+ years of experience in petrochemicals, manufacturing, and supply chain. Former Executive Director at SABIC, leading major initiatives across the Middle East and Asia Pacific. Co-founder of multiple Saudi industrial ventures."
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Board of Advisers",
+          "bio": "30+ years in petrochemicals, manufacturing, and supply chain infrastructure. Deep expertise in large-scale capital projects, operational excellence, and regional market development across MENA and Africa."
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Director of Local Manufacturing / Advisory Board",
+          "bio": "Petrochemicals and supply chain executive with 30+ years. Former SABIC Director leading Asia Pacific operations and JVs with ARAMCO and Exxon. Expert in manufacturing, risk, and strategic sourcing. Chemical Engineer and MBA. Oversees local manufacturing strategy for portfolio companies."
+        }
+      }
+    },
+    {
+      "slug": "michael-boevink",
+      "fullName": "Michael Boevink",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "Michael@taraniscapital.com",
+      "linkedIn": "https://uk.linkedin.com/in/michael-boevink",
+      "profileImage": {
+        "path": "/images/team/Michael-Boevink-600-650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Michael Boevink is a Board Adviser at Taranis Capital with 15+ years of leadership in technology and fintech sectors. He founded and leads Boevink Group, a global advisory and investment firm focused on digital transformation and financial services innovation across emerging markets.",
+        "profileUrl": "taraniscapital.com/board/michael-boevink"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": true,
+          "role": "Board Adviser",
+          "bio": "15+ years in technology, telecommunications, and fintech. Founder of Boevink Group, specialising in capital raises and scale-up growth across tech, fintech, and crypto sectors."
+        },
+        "property": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "Technology, telecoms, and finance executive with over 15 years scaling global operations. Expert in international expansion, capital raising, and go-to-market strategy."
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "Technology, telecoms, and finance executive with over 15 years scaling global operations. Expert in international expansion, raising capital, and go-to-market strategy. Action-focused leader driving business development."
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Board Adviser",
+          "bio": "15+ years in technology, telecommunications, and fintech sectors. Founder of Boevink Group. Specialises in capital raises and scale-up growth across tech, fintech, and crypto."
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "Technology, telecoms, and finance executive with 15+ years scaling global operations. Expert in international expansion, capital raising, and go-to-market strategy. Action-focused leader driving business development."
+        }
+      }
+    },
+    {
+      "slug": "milan-radia",
+      "fullName": "Milan Radia",
+      "type": "Team",
+      "role": "Senior Partner",
+      "email": "milan@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/milanradia/",
+      "profileImage": {
+        "path": "/images/team/Milan-Radia-Headshot-600-650-277x300.png",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Milan Radia is a Senior Partner at Taranis Capital with 30 years of experience in asset management, digital infrastructure, and emerging market investments. His career spans building and scaling investment platforms, developing infrastructure across digital assets and fintech, and identifying high-growth opportunities in developing economies.\nMilan has led major institutional investment vehicles and brings deep expertise in portfolio construction, risk management, and capital deployment across multiple asset classes and geographies. His experience includes establishing operations in challenging emerging markets and navigating complex regulatory environments.\nHe is committed to identifying investments that combine strong governance, technological innovation, and positive long-term social and economic impact.",
+        "profileUrl": "taraniscapital.com/team/milan-radia"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Senior Partner",
+          "bio": "Driving force behind the Datacentre Fund. 30+ years of direct data centre sector experience including facility planning, construction, operations, and hyperscale deployment across MENA and emerging markets."
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Partner — Technology & Infrastructure Strategy",
+          "bio": "Over 25 years in technology infrastructure operations, acquisitions, and development. Provides strategic input on investments in technology infrastructure, cloud computing, and enabling platforms. Deep operational knowledge of colocation, connectivity, and hyperscale environments."
+        },
+        "biotech": {
+          "assigned": false
+        }
+      }
+    },
+    {
+      "slug": "mohamed-essam",
+      "fullName": "Mohamed Essam",
+      "type": "Team",
+      "role": "Legal Consul",
+      "email": "mohamed@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/mohamed-essam-a20470101/",
+      "profileImage": {
+        "path": "/images/team/Mohamed-Essam-600-650_grey-suite-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Mohamed is a fintech and venture capital expert lawyer, having advised most of the tech and fintech players in the market and leading the Fintech Group Sector at Matouk Bassiouny. Mohamed has extensive experience in savings, lending, payments and other fintech regulations and legislation.",
+        "profileUrl": "taraniscapital.com/team/mohamed-essam"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": true,
+          "role": "Legal Counsel",
+          "bio": "Fintech and venture capital specialist. Led Fintech Group Sector at Matouk Bassiouny. Specialist in payments, lending, and fintech regulations across jurisdictions."
+        },
+        "property": {
+          "assigned": true,
+          "role": "Legal Counsel",
+          "bio": "Partner at Matouk Bassiouny, Head of Corporate and M&A. Solicitor of the Senior Courts of England and Wales. Over 100 transactions including M&A deals across MENA. Provides strategic legal counsel on fund structuring, regulatory matters, and cross-border transactions."
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Legal Counsel",
+          "bio": "Partner at Matouk Bassiouny, Head of Corporate and M&A. Extensive experience in finance, technology, and venture capital transactions. Solicitor of the Senior Courts of England and Wales with over 100 transactions across MENA."
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Legal Counsel",
+          "bio": "Fintech and venture capital specialist at Matouk Bassiouny. Head of Emerging Companies and Venture Capital practice. Advised on over 100 transactions including leading fintech and M&A deals across MENA. Solicitor of the Senior Courts of England and Wales."
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Legal Counsel",
+          "bio": "Partner at Matouk Bassiouny, Head of Corporate and M&A UAE and Head of ECVC practice. Solicitor of the Senior Courts of England and Wales. Advised on 100+ transactions. Provides legal counsel on fund operations, investment transactions, and regulatory compliance."
+        }
+      }
+    },
+    {
+      "slug": "mohammed-aljumah",
+      "fullName": "Professor Mohammed Al Jumah",
+      "type": "Board",
+      "role": "Senior Advisor",
+      "email": "MISSING",
+      "linkedIn": "MISSING",
+      "profileImage": {
+        "path": "/images/team/Mohammed-AlJumah-Headshot-600-650-277x300.png",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Mohammed Aljumah is a Senior Advisor at Taranis Capital with extensive experience in healthcare leadership and development. He is a founding member and former leader of KAIMRC (King Abdullah International Medical Research Center) and has been instrumental in advancing healthcare innovation and research across the MENA region.",
+        "profileUrl": "taraniscapital.com/board/mohammed-aljumah"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Investment Committee / Scientific Advisory Board",
+          "bio": "Founder and CEO of Itkan Health Consulting. Former KAIMRC Executive Director with 25+ years as a neurologist. Serves on SNIH and Ministry of Health national biotech committees and pharma advisory boards. Led multiple successful national health projects."
+        }
+      }
+    },
+    {
+      "slug": "nicholas-bingham",
+      "fullName": "Nicholas S. Bingham",
+      "type": "Team",
+      "role": "Founding Partner & CEO",
+      "email": "nicholas@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/nick-s-b-782833116/",
+      "profileImage": {
+        "path": "/images/team/Nicholas-Bingham-600x650-2-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Nicholas S. Bingham brings 25 years of experience from across the globe and has represented a wide range of financial markets. As the founder and chief executive of Taranis Capital, he has built an ethical, fintech-focused investment fund focused on investing in fintechs with excellent ethical governance. The fund, which has successfully secured a DFSA licence, focuses on ventures across fintech, biotechnology, datacentres, and property in the MENA region, Africa, and Europe.\nNicholas is committed to personal due diligence, visiting companies firsthand to gain a full understanding of their operations, governance, and ethical standing. Under his leadership, Taranis Capital provides both investment capital and first-hand advisory support.\nHe commented: \"Ethical governance, how staff are treated, the staff's social wellbeing and the projects companies work on are all very important. Even if a company looks attractive to an investor; if their ethical standing is not good then this fund would not want to get involved.\"",
+        "profileUrl": "taraniscapital.com/team/nicholas-bingham"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": true,
+          "role": "Founding Partner & CEO",
+          "bio": "25+ years in investment banking and asset management. Pioneered world-first projects in augmented and mixed reality technology. Leads Taranis Capital's overall strategy and portfolio."
+        },
+        "property": {
+          "assigned": true,
+          "role": "Founding Partner & CEO",
+          "bio": "25+ years in investment banking and asset management. Pioneered world-first projects in emerging technology sectors. Leads Taranis Capital's overall strategy and portfolio."
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Founding Partner & CEO",
+          "bio": "25+ years spanning investment banking and asset management. Pioneered world-first projects in emerging market infrastructure development. Leads Taranis Capital's overall strategy and portfolio across multiple infrastructure sectors."
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Founding Partner & CEO",
+          "bio": "25+ years in investment banking and asset management. Pioneered world-first projects in augmented and mixed reality technology. Leads Taranis Capital's overall strategy and portfolio."
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Investment Committee Chair",
+          "bio": "Founder and CEO of Taranis Capital, the Technical Services Advisor to the Fund. Chair of the Investment Committee. 25+ years in venture capital, fund management, and capital deployment across technology and life sciences. Provides strategic leadership for investment decisions and portfolio company value creation."
+        }
+      }
+    },
+    {
+      "slug": "osama-al-thanon",
+      "fullName": "Osama Al-Thanon",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "skywalker@taraniscapital.com",
+      "linkedIn": "MISSING",
+      "profileImage": {
+        "path": "/images/team/Osama-Al-Thanon-Profile-600-650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Osama Al-Thanon is a Board Adviser at Taranis Capital, bringing over 40 years of experience in executive leadership, entrepreneurship, and cybersecurity. A former C-level executive at ABB, one of the world's leading technology multinationals, Osama has been a serial entrepreneur since the 1980s.\n\nHe is an expert in digital transformation, white-hat security, and AI ventures, with deep practical knowledge spanning enterprise technology, operational security, and innovation strategy. He is a longstanding member of the Saudi Council of Engineers, driving innovation and operational excellence across the Kingdom's technology landscape.\n\nHis combination of corporate leadership, entrepreneurial experience, and cybersecurity expertise provides Taranis Capital with critical perspective on technology risk, digital transformation, and enterprise-grade security.",
+        "profileUrl": "taraniscapital.com/board/osama-al-thanon"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Fund Governance Board",
+          "bio": "Over 40 years in executive leadership and cybersecurity. Former ABB C-level executive with deep expertise in digital transformation, white-hat security, and AI ventures. Saudi Council of Engineers member."
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Board Adviser",
+          "bio": "Cybersecurity and technology strategy expert. Specialist in digital resilience, cybersecurity governance, and enterprise technology deployment across public and private sectors."
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "Technology pioneer with 40+ years in leadership and cybersecurity. Former ABB C-level executive and serial entrepreneur. Expert in digital transformation, white-hat security, and AI ventures. Saudi Council of Engineers member."
+        }
+      }
+    },
+    {
+      "slug": "osama-al-zamil",
+      "fullName": "HE Eng. Osama Al-Zamil",
+      "type": "Board",
+      "role": "Chairman of the Advisory Board",
+      "email": "osamaalzamil@taraniscapital.com",
+      "linkedIn": "MISSING",
+      "profileImage": {
+        "path": "/images/team/His-Excellency-Eng.-Osama-Abdulaziz-Al-Zamil-Joins-600x650-1-277x300.png",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Osama Al-Zamil is Chairman of the Advisory Board at Taranis Capital. He is a distinguished Saudi industrial leader with a remarkable career spanning multiple decades in business, government, and strategic advisory roles.\nHis extensive experience includes senior government positions, including former Vice Minister of Industry, as well as leadership roles in major Saudi industrial and commercial enterprises. He brings unparalleled expertise in MENA markets, industrial development, international trade, and strategic capital deployment.",
+        "profileUrl": "taraniscapital.com/board/osama-al-zamil"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": true,
+          "role": "Chairman of Advisory Board",
+          "bio": "Former Vice Minister of Industry and Mineral Resources, Saudi Arabia (2019-2023). Designed Saudi Arabia's National Industrial Strategy as part of Vision 2030. 20+ years of private sector executive experience."
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Chairman of Advisory Board",
+          "bio": "Former Vice Minister of Industry (2019-2023). Extensive experience in industrial policy, infrastructure development, and public-private partnerships. Provides critical government and regulatory perspective on data centre development across GCC."
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Board Adviser",
+          "bio": "Vision 2030 and economic development expert. Former Vice Minister of Industry. Strategic advisor on GCC technology policy, government relationships, and regional opportunities."
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "Former Vice Minister of Industry and Mineral Resources (2019–2023). Instrumental in designing the National Industrial Strategy under Vision 2030. Grew KSA's industrial base from 7,000 to 11,000 factories. Founder and Chairman of OAAZ Consulting."
+        }
+      }
+    },
+    {
+      "slug": "osama-bukhari",
+      "fullName": "Osama Ben Saleh Bukhari",
+      "type": "Team",
+      "role": "Chief Technical Officer",
+      "email": "osama@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/osama-ben-saleh-bukhari-8164295/",
+      "profileImage": {
+        "path": "/images/team/OB-Headshot-600x650-1-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Osama is an entrepreneur who leads several initiatives and businesses in Saudi Arabia as well as globally under Alfaris International Group. He embarked upon his career in the banking sector where he gained valuable experience across a span of almost two decades, before opting to shift his focus to expanding his family businesses since 2014, ranging from education to medical services, retail businesses, and most importantly, information technology.\nSince 2012, Osama has held the role of head of the Banking Committee under the International Chamber of Commerce, where he represents ICC Saudi Arabia in global events and regularly appears on CNBC Arabia addressing financial sector developments. He is also the deputy head of the digital economy committee and a member of the anti-corruption committee, both under ICC Saudi Arabia. In addition, Osama is a member of the executive committee of the Saudi-Uzbek Business Council.\nOsama has been recognised by Arabian Business as one of the \"50 People You Need to Know in KSA\"",
+        "profileUrl": "taraniscapital.com/team/osama-bukhari"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": true,
+          "role": "Chief Technical Officer",
+          "bio": "Pioneer of internet banking and e-wallets in the Kingdom of Saudi Arabia. CEO of AlFaris International Group. Named by Arabian Business as one of '50 People You Need to Know in KSA'. Drives innovation across education, medical, and IT sectors."
+        },
+        "property": {
+          "assigned": true,
+          "role": "Chief Technical Officer",
+          "bio": "Two decades of banking experience and leadership of Alfaris International Group. Head of Banking Committee, ICC Saudi Arabia. Named by Arabian Business as one of the 50 People You Need to Know in KSA for contributions to regional financial development."
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Chief Technical Officer / Fund Governance Board",
+          "bio": "Seasoned Saudi entrepreneur and technology executive. Nearly two decades of banking sector experience at Samba Financial Group, Banque Saudi Fransi, and National Commercial Bank. Pioneer of internet banking and e-wallets in KSA."
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Chief Technical Officer",
+          "bio": "Two decades in banking and technology infrastructure. Former Chief Technology Officer, ICC Saudi Arabia. Deep expertise in enterprise systems and fintech technology architecture."
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Investment Committee Member / CTO",
+          "bio": "Chief Technology Officer and Investment Committee member. Seasoned Saudi entrepreneur and King Saud University graduate. CEO of AlFaris International Group and Head of ICC Banking Committee. Pioneer of internet banking and e-wallets in KSA. Drives innovation across education, medical, and IT sectors."
+        }
+      }
+    },
+    {
+      "slug": "rayan-al-karawi",
+      "fullName": "Rayan Al-Karawi",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "rayan@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/rayanalkarawi/",
+      "profileImage": {
+        "path": "/images/team/Rayan-AI-Karawi-600x650-1-277x300.png",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Rayan Al-Karawi is a Board Adviser at Taranis Capital, bringing over three decades of experience across the financial services industry. His career began as an investment analyst at the Central Bank of Saudi Arabia (SAMA), before evolving into senior roles in investment and corporate banking at Dar Alarkan, Zain KSA, and FAS Holding (now Cenomi).\n\nRayan is Chairman of Razeen Capital and a founding member of MEIRA Saudi Arabia (the Middle East Investor Relations Association). He is an expert in investor relations, IPOs, sukuk issuances, and corporate restructuring.\n\nHis deep knowledge of Saudi capital markets, regulatory frameworks, and institutional investor networks provides Taranis Capital with invaluable insight into fundraising strategy and investor engagement across the Kingdom.",
+        "profileUrl": "taraniscapital.com/board/rayan-al-karawi"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "Financial industry veteran with over 30 years spanning investment banking, real estate, and telecommunications. Chairman of Razeen Capital and founding member of MEIRA Saudi Arabia. Expert in investor relations, IPOs, and corporate restructuring."
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Advisory Board",
+          "bio": "Financial industry veteran with 30+ years. Career began at SAMA, evolved into senior roles at Dar Alarkan, Zain KSA, and FAS Holding (now Cenomi). Chairman of Razeen Capital. Founding member of MEIRA Saudi Arabia. Expert in investor relations, IPOs, and sukuk issuances."
+        }
+      }
+    },
+    {
+      "slug": "sarah-sinclair",
+      "fullName": "Sarah Sinclair",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "sarah@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/sarah-sinclair-44910311",
+      "profileImage": {
+        "path": "/images/team/Sarah-Sinclair-600x650-1-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Sarah Sinclair is a Board Adviser at Taranis Capital and Co-Founder and CEO of ChangeGap, Taranis Capital's strategic ESG partner. ChangeGap is a purpose-led business whose advisory, technology, and collaboration services are known for authentically delivering on its mission to help create a stronger future for financial services.\n\nChangeGap's collaboration initiative 'Co-Labs' brings together a global ecosystem of like-minded businesses and individuals from the public and private sectors, working together to reduce the burden of regulatory compliance by providing transparent, industry-standard frameworks and tooling. Co-Labs are use-case driven, with focus on Economic Crime, ESG, Operational Resilience, and Prudential Regulation.\n\nSarah's expertise in ESG strategy, regulatory compliance, and ethical governance makes her an invaluable adviser to Taranis Capital's commitment to responsible investing and positive impact across all fund vehicles.",
+        "profileUrl": "taraniscapital.com/board/sarah-sinclair"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": true,
+          "role": "Board Adviser / ESG Partner",
+          "bio": "Co-Founder and CEO of ChangeGap, Taranis Capital's strategic ESG partner. Provides advisory, consulting, and collaboration services for ESG onboarding, due diligence, and community management across fintech investment opportunities."
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Board Adviser / ESG Partner",
+          "bio": "Co-Founder and CEO of ChangeGap. Provides ESG advisory, consulting, and collaboration services. ChangeGap's Co-Labs initiative brings together a global ecosystem addressing Economic Crime, ESG, Operational Resilience, and Prudential Regulation."
+        },
+        "biotech": {
+          "assigned": false
+        }
+      }
+    },
+    {
+      "slug": "svitlana-burlakova",
+      "fullName": "Svitlana Burlakova, ICA, TEP",
+      "type": "Team",
+      "role": "Compliance Officer & MLRO",
+      "email": "compliance@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/svitlana-burlakova-ica-tep-a2867a6/",
+      "profileImage": {
+        "path": "/images/team/Svitlana-Burlakova-ICA-TEP-600x650-1-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Svitlana Burlakova, ICA, TEP serves as Compliance Officer and Money Laundering Reporting Officer (MLRO) at Taranis Capital. Her professional designations — ICA (International Compliance Association) and TEP (Trust and Estate Practitioner) — reflect her deep expertise in regulatory compliance, anti-money laundering, and fiduciary governance.\nShe ensures Taranis Capital maintains the highest standards of regulatory compliance across all jurisdictions in which the firm operates, supporting the DFSA regulatory framework and the firm's commitment to ethical governance.",
+        "profileUrl": "taraniscapital.com/team/svitlana-burlakova"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Compliance Officer & MLRO",
+          "bio": "DFSA-regulated Compliance Officer and Money Laundering Reporting Officer for Taranis Capital. Ensures fund compliance with DFSA Conduct of Business Rules, AML/KYC regulations, and investor protection requirements."
+        },
+        "biotech": {
+          "assigned": false
+        }
+      }
+    },
+    {
+      "slug": "tarek-el-mans",
+      "fullName": "Dr Tarek El Mansy",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "tarek@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/tarek-mansy/",
+      "profileImage": {
+        "path": "/images/team/Dr-Tarek-El-Mans-Headshot-600-650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Dr Tarek El Mansy is a Board Adviser and Director of Localisation at Taranis Capital, bringing over 25 years of experience in the Kingdom of Saudi Arabia and the broader MENA region.\n\nHe is a biotech growth architect with deep expertise in localisation strategy, NUPCO tenders, and SFDA regulatory pathways. Dr El Mansy has a proven track record of building profitable entities, scaling revenue, and driving end-to-end commercialisation for biologics and pharmaceuticals across the GCC.\n\nHe ensures that Taranis Capital's portfolio companies and investment strategies are aligned with national development objectives and technology adoption priorities in key target markets, including digital transformation and healthcare innovation initiatives under Saudi Vision 2030 and UAE development programmes.",
+        "profileUrl": "taraniscapital.com/board/tarek-el-mans"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": true,
+          "role": "Director of Localisation",
+          "bio": "Over 25 years in KSA and MENA region. Ensures portfolio companies and investment strategies are aligned with national development objectives and technology adoption priorities, including digital transformation initiatives under UAE and Saudi Vision programmes."
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Director of Localisation / Scientific Advisory Board",
+          "bio": "Biotech growth architect with 25+ years in KSA and MENA. Expert in localisation strategy, NUPCO tenders, and SFDA pathways. Proven track record building profitable entities, scaling revenue, and driving end-to-end commercialisation for biologics and pharmaceuticals."
+        }
+      }
+    },
+    {
+      "slug": "jehanzeb-awan",
+      "fullName": "Jehanzeb Awan",
+      "type": "Partner",
+      "role": "CEO, J. Awan Capital (Fund Manager)",
+      "email": "jehanzeb@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/jehanzeb-awan-56b08430/",
+      "profileImage": {
+        "path": "/images/team/Jehanzeb-Awan-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Jehanzeb Awan is the Founding Partner and Chief Executive Officer of J. Awan Capital, the CMA-licensed Fund Manager for Taranis Capital's KSA fund vehicles. He brings over 25 years of experience in financial services regulation, compliance, and governance across the MENA region.\n\nHe established the compliance function at National Bank of Dubai (now Emirates NBD), served as Executive Director and Head of Compliance for Morgan Stanley's MENA business for approximately seven years, and founded J. Awan & Partners (an award-winning regulatory advisory firm) and Azakaw (a global regtech company). He is Chairman of the Middle East, Africa, and Asia Crypto and Blockchain Association.\n\nJehanzeb holds a Bachelor of Applied Science from the University of Arizona (Magna Cum Laude) and is a member of the International Compliance Association and the Association of Certified Anti-Money Laundering Specialists.",
+        "profileUrl": "taraniscapital.com/partners/jehanzeb-awan"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "CEO, J. Awan Capital (Fund Manager)",
+          "bio": "Founder and CEO of J. Awan Capital, the CMA-licensed Fund Manager for the Datacentre Fund. Over 25 years in financial services regulation and compliance across MENA. Investment Committee voting member."
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "CEO, J. Awan Capital (Fund Manager)",
+          "bio": "Founder and CEO of J. Awan Capital, the CMA-licensed Fund Manager. Former Regional Head of Compliance for Morgan Stanley MENA. 25+ years in financial services regulation, compliance, and governance. Provides strategic leadership for Fund Manager operations, regulatory compliance, and investor relations."
+        }
+      }
+    },
+    {
+      "slug": "mustafa-mahmood-khan",
+      "fullName": "Mustafa Mahmood Khan, CFA",
+      "type": "Partner",
+      "role": "Head of Asset Management, J. Awan Capital",
+      "email": "mustafa@taraniscapital.com",
+      "linkedIn": "MISSING",
+      "profileImage": {
+        "path": "/images/team/Mustafa-Mahmood-Khan-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Mustafa Mahmood Khan, CFA, leads the Asset Management division of J. Awan Capital with over 15 years of experience in portfolio management and financial consulting. He is a CMA-registered professional who has successfully advised and managed portfolios for high-net-worth individuals, institutional investors, and treasury funds.\n\nHe has delivered multi-million-dollar mandates and developed bespoke investment strategies tailored to client objectives and risk profiles. His experience spans multiple asset classes and investment strategies. Prior roles include Portfolio Manager at Al Meezan Investment Management and Head of Research and Fund Manager at HBL Asset Management.\n\nMustafa is an ACCA-qualified professional and CFA Charterholder, reflecting his commitment to the highest standards of investment analysis and portfolio management.",
+        "profileUrl": "taraniscapital.com/partners/mustafa-mahmood-khan"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Head of Asset Management, J. Awan Capital",
+          "bio": "CFA Charterholder and CMA-registered professional leading J. Awan Capital's Asset Management division. 15+ years in portfolio management. Investment Committee voting member."
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Head of Asset Management, J. Awan Capital",
+          "bio": "CFA Charterholder leading J. Awan Capital's Asset Management division. 15+ years in portfolio management and financial consulting. CMA-registered. Oversees fund operations, portfolio monitoring, and investor reporting."
+        }
+      }
+    },
+    {
+      "slug": "abdulaziz-al-sayyari",
+      "fullName": "Dr Abdulaziz Al Sayyari",
+      "type": "Board",
+      "role": "Investment Committee Member",
+      "email": "abdulazia@taraniscapital.com",
+      "linkedIn": "MISSING",
+      "profileImage": {
+        "path": "/images/team/Abdulaziz-Al-Sayyari-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Dr Abdulaziz Al Sayyari is an Investment Committee member for Taranis Capital's BioTech Growth Fund. He is the Managing Partner of BiSynergic and a former Executive Director of the Saudi Food and Drug Authority (SFDA).\n\nHe is a globally recognised expert in regulatory biotech and cell and gene therapy (CGT), serving on International Council for Harmonisation (ICH) bodies. He played a pivotal role in shaping the Kingdom of Saudi Arabia's national frameworks for advanced therapies, bridging policy and commercial objectives to localise innovation.\n\nDr Al Sayyari holds a PhD in Bioprocessing and an MBA from IMD Business School.",
+        "profileUrl": "taraniscapital.com/board/abdulaziz-al-sayyari"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Investment Committee Member",
+          "bio": "BiSynergic Managing Partner and former SFDA Executive Director. Global expert in regulatory biotech and CGT, serving on ICH bodies. Shaped KSA's national frameworks for advanced therapies. PhD Bioprocessing and IMD MBA. Bridges policy and commercial goals to localise innovation."
+        }
+      }
+    },
+    {
+      "slug": "kuyoung-chung",
+      "fullName": "Kuyoung Chung",
+      "type": "Board",
+      "role": "Investment Committee Member",
+      "email": "kuyoung@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/ku-young-chung/",
+      "profileImage": {
+        "path": "/images/team/KuYoung-Chung-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Kuyoung Chung is an Investment Committee member for Taranis Capital's BioTech Growth Fund. He is a Managing Director driving healthcare venture creation and digital strategy.\n\nHe is an expert in AI commercialisation with three patents and ten publications, having led innovation programmes for Samsung and LG. His expertise combines deep R&D capabilities, M&A due diligence, and global partnership strategy.\n\nKuyoung holds an MBA from IMD Business School and is an ETH Zurich alumnus.",
+        "profileUrl": "taraniscapital.com/board/kuyoung-chung"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Investment Committee Member",
+          "bio": "Managing Director driving healthcare venture creation and digital strategy. Expert in AI commercialisation with 3 patents and 10 publications. Led innovation for Samsung and LG. IMD MBA and ETH Zurich alumnus. Combines deep R&D, M&A due diligence, and global partnership strategy."
+        }
+      }
+    },
+    {
+      "slug": "sebastian-vaughan",
+      "fullName": "Dr Sebastian Vaughan",
+      "type": "Board",
+      "role": "Investment Committee Member / CEO, Phytome Life Sciences",
+      "email": "sabastian@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/dr-sebastian-vaughan-51365a18/",
+      "profileImage": {
+        "path": "/images/team/Sebastian-Vaughan-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Dr Sebastian Vaughan is an Investment Committee member for Taranis Capital's BioTech Growth Fund and the CEO of Phytome Life Sciences. He is also the Technical Services Adviser for the Green Biotech Fund.\n\nA serial healthcare entrepreneur, Dr Vaughan holds a PhD in Biochemistry from the University of Leeds and an MBA from Imperial College London. He is a former Imperial College post-doctoral researcher who discovered novel cancer gene functions, with research published in Nature and Cancer Discovery.\n\nHis deep scientific and commercial expertise across life sciences makes him uniquely positioned to evaluate biotech investment opportunities and support portfolio company development.",
+        "profileUrl": "taraniscapital.com/board/sebastian-vaughan"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Investment Committee Member",
+          "bio": "CEO of Phytome Life Sciences and serial healthcare entrepreneur. PhD in Biochemistry (Leeds) and MBA (Imperial College). Former Imperial College researcher published in Nature and Cancer Discovery. Deep scientific and commercial expertise across life sciences."
+        }
+      }
+    },
+    {
+      "slug": "arjumand-warsy",
+      "fullName": "Prof. Arjumand Warsy",
+      "type": "Board",
+      "role": "Scientific Advisory Board Member",
+      "email": "arjumand@taraniscapital.com",
+      "linkedIn": "MISSING",
+      "profileImage": {
+        "path": "/images/team/Arjumand-Warsy-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Prof. Arjumand Warsy is a Scientific Advisory Board member for Taranis Capital's BioTech Growth Fund. She is a distinguished retired King Saud University biochemistry professor with a multi-decade tenure.\n\nShe is a leading expert in genetic diseases and molecular genetics research, and a recipient of multiple teaching and research excellence awards. She served as Senior Scientist at the Central Laboratory Female Medical Centre and held positions as Postdoctoral Research Fellow at Birmingham University and Professor of Biochemistry at King Saud University's College of Medicine and College of Science.\n\nHer involvement in the WISE Initiative underscores her dedication to leveraging research on genetic diseases and molecular genetics to foster innovations addressing pressing health challenges in the region.",
+        "profileUrl": "taraniscapital.com/board/arjumand-warsy"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Scientific Advisory Board",
+          "bio": "Distinguished retired King Saud University biochemistry professor. Leading expert in genetic diseases and molecular genetics research. Multiple teaching and research excellence awards. Former Senior Scientist at Central Laboratory Female Medical Centre."
+        }
+      }
+    },
+    {
+      "slug": "junaid-kashir",
+      "fullName": "Dr Junaid Kashir",
+      "type": "Board",
+      "role": "Scientific Advisory Board Member",
+      "email": "junaid@taraniscapital.com",
+      "linkedIn": "MISSING",
+      "profileImage": {
+        "path": "/images/team/Junaid-Kashir-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Dr Junaid Kashir is a Scientific Advisory Board member for Taranis Capital's BioTech Growth Fund and an Associate Professor at the Department of Biological Sciences, Khalifa University, Abu Dhabi.\n\nHe is a reproductive biology expert specialising in PLCζ (phospholipase C zeta) and embryonic development research. He leads groundbreaking lab-grown halal meat and FBS (fetal bovine serum) alternatives research programmes. His previous positions include roles at Oxford, Cardiff, the NHS, and Alfaisal University.\n\nHis pioneering research contributes directly to the WISE Initiative's mission of leveraging scientific advances for commercial and governmental applications in the GCC.",
+        "profileUrl": "taraniscapital.com/board/junaid-kashir"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Scientific Advisory Board",
+          "bio": "Associate Professor at Khalifa University. Reproductive biology expert specialising in PLCζ and embryonic development. Leads groundbreaking lab-grown halal meat and FBS alternatives research. Previous positions at Oxford, Cardiff, NHS, and Alfaisal University."
+        }
+      }
+    },
+    {
+      "slug": "abdullah-alawad",
+      "fullName": "Dr Abdullah Alawad",
+      "type": "Board",
+      "role": "Scientific Advisory Board Member",
+      "email": "abdullah@taraniscapital.com",
+      "linkedIn": "MISSING",
+      "profileImage": {
+        "path": "/images/team/Abdullah-Alawad-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Dr Abdullah Alawad is a Scientific Advisory Board member for Taranis Capital's BioTech Growth Fund. He holds a PhD in Biomedical Sciences and Biotechnology from the University of Sheffield, an MSc in Developmental Cell Biology from the University of Sussex, and a BSc in Biology from King Saud University.\n\nWith over 20 years of experience, he has spearheaded transformative projects enhancing healthcare delivery, developing next-generation researchers, and driving impactful solutions for critical health challenges. He founded the National Centre for Stem Cell Technology at KACST and served on the Saudi Human Genome Program founding team.\n\nDr Alawad is a biotech consultant to the Ministry of Defence Health Services, Ministry of Health, Ministry of Investment, and the Science and Technology Park at KACST. He holds certifications from Imperial College Business School and Valeric Business School.",
+        "profileUrl": "taraniscapital.com/board/abdullah-alawad"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Scientific Advisory Board",
+          "bio": "PhD in Biomedical Sciences (Sheffield). Founded National Centre for Stem Cell Technology at KACST. Saudi Human Genome Program founding team member. 20+ years spearheading transformative healthcare projects. Biotech consultant to multiple Saudi ministries."
+        }
+      }
+    },
+    {
+      "slug": "qaisar-hamed-metawea",
+      "fullName": "Dr Qaisar Hamed Metawea",
+      "type": "Partner",
+      "role": "Managing Partner, QHM Law Firm (Local KSA Counsel)",
+      "email": "qaisar@taraniscapital.com",
+      "linkedIn": "MISSING",
+      "profileImage": {
+        "path": "/images/team/Qaisar-Hamed-Metawea-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Dr Qaisar Hamed Metawea is the Managing Partner and founding partner of QHM Law Firm, serving as Local KSA Counsel for Taranis Capital's fund vehicles. He is a Saudi lawyer licensed by the Ministry of Justice with over 15 years of practice.\n\nHe holds an SJD and LLM in International Intellectual Property Law from Indiana University, bringing deep expertise in Saudi commercial law, regulatory matters, and cross-border transactions. His practice encompasses legal opinions, business transactions, company structuring, litigation, and regulatory matters within the Kingdom.\n\nDr Metawea provides specialised knowledge relevant to biotechnology investments and intellectual property considerations, supporting portfolio company localisation activities and ensuring compliance with Kingdom-specific requirements.",
+        "profileUrl": "taraniscapital.com/partners/qaisar-hamed-metawea"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Local KSA Counsel (QHM Law Firm)",
+          "bio": "Saudi lawyer and founding partner of QHM Law Firm. Licensed by the Ministry of Justice with 15+ years of practice. SJD and LLM in International IP Law from Indiana University. Deep expertise in Saudi commercial law and regulatory matters."
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Local KSA Counsel (QHM Law Firm)",
+          "bio": "Saudi lawyer and founding partner of QHM Law Firm. Licensed by the Ministry of Justice with 15+ years of practice. SJD and LLM in International IP Law from Indiana University. Provides specialist KSA legal counsel on regulatory matters and biotech IP."
+        }
+      }
+    }
+  ],
+  "dataGaps": [
+    {
+      "category": "Missing Email",
+      "count": 4,
+      "names": "Daniel Roubeni, Professor Mohammed Al Jumah, HE Eng. Osama Al-Zamil, Rayan Al-Karawi",
+      "actionRequired": "Obtain personal/Taranis email addresses"
+    },
+    {
+      "category": "Missing LinkedIn",
+      "count": 9,
+      "names": "Dr Amer Mahmood, Daniel Roubeni, Ghassan Najmeddin, Mark Walker, Professor Mohammed Al Jumah, Osama Al-Thanon, HE Eng. Osama Al-Zamil, Rayan Al-Karawi, Dr Tarek El Mansy",
+      "actionRequired": "Find LinkedIn profile URLs"
+    },
+    {
+      "category": "Placeholder Bios (Main Site)",
+      "count": 10,
+      "names": "Dr Amer Mahmood, Asim Chohan, Daniel Roubeni, David Grunfeld, Ghassan Najmeddin, Leif Hesse, Osama Al-Thanon, Rayan Al-Karawi, Sarah Sinclair, Dr Tarek El Mansy",
+      "actionRequired": "Write full biographical profiles"
+    },
+    {
+      "category": "Not on Any Subdomain",
+      "count": 11,
+      "names": "Dr Amer Mahmood, Asim Chohan, Dr. Bijna Kotak Dasani MBE, FRSA, Daniel Roubeni, Ghassan Najmeddin, Leif Hesse, Professor Mohammed Al Jumah, Rayan Al-Karawi, Sarah Sinclair, Svitlana Burlakova, ICA, TEP, Dr Tarek El Mansy",
+      "actionRequired": "Determine fund assignments (if applicable)"
+    }
+  ],
+  "profileImages": [
+    {
+      "slug": "amer-mahmood",
+      "name": "Dr Amer Mahmood",
+      "filename": "Dr-Amer-Mahmood-headshot-600-650-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Dr-Amer-Mahmood-headshot-600-650-277x300.jpg"
+    },
+    {
+      "slug": "amit-varma",
+      "name": "Amit Varma",
+      "filename": "Amit-Varma-600x650-1-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Amit-Varma-600x650-1-277x300.jpg"
+    },
+    {
+      "slug": "asim-chohan",
+      "name": "Asim Chohan",
+      "filename": "Asim-Chohan-600x650-1-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Asim-Chohan-600x650-1-277x300.jpg"
+    },
+    {
+      "slug": "bijna-kotak-dasani",
+      "name": "Dr. Bijna Kotak Dasani MBE, FRSA",
+      "filename": "Bijna-Kotak-D-650x600-1-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Bijna-Kotak-D-650x600-1-277x300.jpg"
+    },
+    {
+      "slug": "bruno-martorano",
+      "name": "Bruno Martorano",
+      "filename": "Bruno-600x650-1-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Bruno-600x650-1-277x300.jpg"
+    },
+    {
+      "slug": "daniel-roubeni",
+      "name": "Daniel Roubeni",
+      "filename": "Daniel-Roubeni-600x650-2-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Daniel-Roubeni-600x650-2-277x300.jpg"
+    },
+    {
+      "slug": "david-grunfeld",
+      "name": "David Grunfeld",
+      "filename": "David-Grunfeld-600x650-Headshot-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/David-Grunfeld-600x650-Headshot-277x300.jpg"
+    },
+    {
+      "slug": "david-parker",
+      "name": "David Parker",
+      "filename": "David-full-shot-konsentus-600x650-1-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/David-full-shot-konsentus-600x650-1-277x300.jpg"
+    },
+    {
+      "slug": "emad-zowawi",
+      "name": "Emad Zowawi",
+      "filename": "Emad-Zowawi-Profile-Pic-600x650-1-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Emad-Zowawi-Profile-Pic-600x650-1-277x300.jpg"
+    },
+    {
+      "slug": "ghassan-najmeddin",
+      "name": "Ghassan Najmeddin",
+      "filename": "Ghassan-Najmeddin-Profile-600-650-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Ghassan-Najmeddin-Profile-600-650-277x300.jpg"
+    },
+    {
+      "slug": "jack-hollander",
+      "name": "Jack Hollander",
+      "filename": "Jack-Hollander-600x650-1-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Jack-Hollander-600x650-1-277x300.jpg"
+    },
+    {
+      "slug": "joel-blake",
+      "name": "Joel Blake OBE",
+      "filename": "Joel-Blake-OBE-picture-600x650-1-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Joel-Blake-OBE-picture-600x650-1-277x300.jpg"
+    },
+    {
+      "slug": "leif-hesse",
+      "name": "Leif Hesse",
+      "filename": "Leif-Hesse-Headshot-600-650-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Leif-Hesse-Headshot-600-650-277x300.jpg"
+    },
+    {
+      "slug": "mark-walker",
+      "name": "Mark Walker",
+      "filename": "Mark-Walker-Profile-A71V3159-600x650-1-277x300.png",
+      "imageUrl": "https://taraniscapital.com/images/team/Mark-Walker-Profile-A71V3159-600x650-1-277x300.png"
+    },
+    {
+      "slug": "mazen-al-rahim",
+      "name": "Mazen Al-Rahim",
+      "filename": "Mazen-Al-Rahim-600x650-2-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Mazen-Al-Rahim-600x650-2-277x300.jpg"
+    },
+    {
+      "slug": "michael-boevink",
+      "name": "Michael Boevink",
+      "filename": "Michael-Boevink-600-650-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Michael-Boevink-600-650-277x300.jpg"
+    },
+    {
+      "slug": "milan-radia",
+      "name": "Milan Radia",
+      "filename": "Milan-Radia-Headshot-600-650-277x300.png",
+      "imageUrl": "https://taraniscapital.com/images/team/Milan-Radia-Headshot-600-650-277x300.png"
+    },
+    {
+      "slug": "mohamed-essam",
+      "name": "Mohamed Essam",
+      "filename": "Mohamed-Essam-600-650_grey-suite-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Mohamed-Essam-600-650_grey-suite-277x300.jpg"
+    },
+    {
+      "slug": "mohammed-aljumah",
+      "name": "Professor Mohammed Al Jumah",
+      "filename": "Mohammed-AlJumah-Headshot-600-650-277x300.png",
+      "imageUrl": "https://taraniscapital.com/images/team/Mohammed-AlJumah-Headshot-600-650-277x300.png"
+    },
+    {
+      "slug": "nicholas-bingham",
+      "name": "Nicholas S. Bingham",
+      "filename": "Nicholas-Bingham-600x650-2-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Nicholas-Bingham-600x650-2-277x300.jpg"
+    },
+    {
+      "slug": "osama-al-thanon",
+      "name": "Osama Al-Thanon",
+      "filename": "Osama-Al-Thanon-Profile-600-650-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Osama-Al-Thanon-Profile-600-650-277x300.jpg"
+    },
+    {
+      "slug": "osama-al-zamil",
+      "name": "HE Eng. Osama Al-Zamil",
+      "filename": "His-Excellency-Eng.-Osama-Abdulaziz-Al-Zamil-Joins-600x650-1-277x300.png",
+      "imageUrl": "https://taraniscapital.com/images/team/His-Excellency-Eng.-Osama-Abdulaziz-Al-Zamil-Joins-600x650-1-277x300.png"
+    },
+    {
+      "slug": "osama-bukhari",
+      "name": "Osama Ben Saleh Bukhari",
+      "filename": "OB-Headshot-600x650-1-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/OB-Headshot-600x650-1-277x300.jpg"
+    },
+    {
+      "slug": "rayan-al-karawi",
+      "name": "Rayan Al-Karawi",
+      "filename": "Rayan-AI-Karawi-600x650-1-277x300.png",
+      "imageUrl": "https://taraniscapital.com/images/team/Rayan-AI-Karawi-600x650-1-277x300.png"
+    },
+    {
+      "slug": "sarah-sinclair",
+      "name": "Sarah Sinclair",
+      "filename": "Sarah-Sinclair-600x650-1-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Sarah-Sinclair-600x650-1-277x300.jpg"
+    },
+    {
+      "slug": "svitlana-burlakova",
+      "name": "Svitlana Burlakova, ICA, TEP",
+      "filename": "Svitlana-Burlakova-ICA-TEP-600x650-1-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Svitlana-Burlakova-ICA-TEP-600x650-1-277x300.jpg"
+    },
+    {
+      "slug": "tarek-el-mans",
+      "name": "Dr Tarek El Mansy",
+      "filename": "Dr-Tarek-El-Mans-Headshot-600-650-277x300.jpg",
+      "imageUrl": "https://taraniscapital.com/images/team/Dr-Tarek-El-Mans-Headshot-600-650-277x300.jpg"
+    }
+  ]
+}

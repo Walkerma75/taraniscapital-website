@@ -318,6 +318,113 @@ Rebuilt property, datacentre, and disruptive-tech subdomain sites to match finte
 - ESG: 3 items (Pre-Investment Assessment, Post-Investment Monitoring, Portfolio Company Support)
 - Largest rebuild of the three — most structurally different from fintech template
 
+### Weekly Automated Sync — 9 April 2026 (Run 2)
+
+**Scheduled task: Weekly Taranis Capital People & Website Sync**
+
+**XLSX → JSON Conversion**
+- ⚠ Taranis-People-Data-Collection.xlsx is still corrupted (truncated — sharedStrings.xml partial; only 12,896 of 17,265 compressed bytes are present, yielding 313 of 454 unique strings)
+- 27 of 36 people fully readable from xlsx; remaining 9 fall in the truncated string-index range
+- Readable xlsx data compared against existing `taranis-people-data.json`: NO meaningful changes detected (only minor HTML-entity encoding artefacts, `&amp;` vs `&`, and one trailing punctuation difference in two bios — not actioned)
+- **Action required:** Mark to re-save `Taranis-People-Data-Collection.xlsx` (File → Save As, overwrite) to flush the corrupted write from the network mount, then re-run this task
+
+**HTML Fixes Applied**
+
+Two discrepancies found between `taranis-people-data.json` and `who-we-are.html`:
+
+1. **Professor Mohammed Al Jumah** — who-we-are.html had the card displaying:
+   - Old name: `Mohammed AlJumah` → Updated to `Professor Mohammed Al Jumah`
+   - Old role: `Board Adviser` → Updated to `Senior Advisor`
+   - Alt text on avatar image also updated to match
+2. **HE Eng. Osama Al-Zamil** — who-we-are.html had the card role displaying:
+   - Old role: `Board Adviser` → Updated to `Chairman of the Advisory Board`
+
+Subdomain fund sites, individual profile pages, and all image paths verified — no further discrepancies found.
+
+**Outstanding Data Gaps (require human input — unchanged from previous run)**
+- LinkedIn missing: Dr Amer Mahmood, Mark Walker, Ghassan Najmeddin, Osama Al-Thanon, Dr Tarek El Mansy, Daniel Roubeni, Professor Mohammed Al Jumah, HE Eng. Osama Al-Zamil, Rayan Al-Karawi
+- Email missing: Daniel Roubeni, Professor Mohammed Al Jumah, HE Eng. Osama Al-Zamil, Rayan Al-Karawi
+- Profile images missing: Jehanzeb Awan, Mustafa Mahmood Khan CFA, Dr Abdulaziz Al Sayyari, Kuyoung Chung, Dr Sebastian Vaughan, Prof. Arjumand Warsy, Dr Junaid Kashir, Dr Abdullah Alawad, Dr Qaisar Hamed Metawea
+
+---
+
+### Weekly Automated Sync — 9 April 2026 (Run 1)
+
+**Scheduled task: Weekly Taranis Capital People & Website Sync**
+
+**XLSX → JSON Conversion**
+- ⚠ Taranis-People-Data-Collection.xlsx could not be parsed (file is a valid zip/xlsx header but missing End-of-Central-Directory record — likely a partial/corrupted write from the network mount)
+- Existing `taranis-people-data.json` (last updated 2026-04-09) used as source of truth for this run
+- **Action required:** Mark to re-save the xlsx to force a clean write, then re-run the sync
+
+**Comparison: JSON vs HTML**
+- 27 core people (Team + Board) — all profile pages present and in sync ✓
+- All profile images for core Team/Board members confirmed present in `/images/team/` ✓
+- 9 new people in JSON (type: Partner, Advisor, Service Provider) — no profile pages yet (expected; flagged below)
+- Sector pages (fintech.html, property.html, datacentres.html, disruptive-tech.html, biotech.html) confirmed as sector-overview pages without people sections — no action needed
+
+**Subdomain Fund Sites — People Added**
+
+All four fund subdomain sites were out of sync with the JSON. Missing people added:
+
+- `subdomains/fintech/index.html`: Added 5 people — Osama Bukhari (CTO, exec team), Asim Chohan, Daniel Roubeni, Joel Blake OBE, Sarah Sinclair (board of advisers)
+- `subdomains/property/index.html`: Added 5 people — Mark Walker, Mohamed Essam (exec team), Asim Chohan, Bruno Martorano, Michael Boevink (board of advisers)
+- `subdomains/datacentre/index.html`: Added 16 people — Mark Walker, Osama Bukhari, Mohamed Essam (exec team); Amit Varma, Asim Chohan, Bruno Martorano, David Grunfeld, Emad Zowawi, Ghassan Najmeddin, Leif Hesse, Michael Boevink, Osama Al-Thanon, Rayan Al-Karawi (board of advisers); Jehanzeb Awan, Mustafa Mahmood Khan CFA, Dr Qaisar Hamed Metawea (fund manager & key counsel section — new section added)
+- `subdomains/disruptive-tech/index.html`: Added 10 people — Milan Radia, Svitlana Burlakova, Dr Tarek El Mansy, Mohamed Essam (exec team); Asim Chohan, Bruno Martorano, Daniel Roubeni, David Parker, Jack Hollander, Sarah Sinclair (board of advisers)
+
+Post-update verification: all 4 subdomain pages confirmed in sync with JSON ✓
+
+### Manual Data Entry Sync — 9 April 2026 (15:40)
+
+**Source:** Taranis-People-Data-Collection-KB.xlsx (saved by Mark Walker, 15:39)
+**Note:** Original xlsx (Taranis-People-Data-Collection.xlsx) still corrupted on mount — KB copy used as workaround
+
+**JSON regenerated** from KB xlsx. **19 field updates** applied:
+
+LinkedIn URLs added: Dr Amer Mahmood, Mark Walker, Rayan Al-Karawi, Dr Tarek El Mansy, Jehanzeb Awan, Kuyoung Chung, Dr Sebastian Vaughan
+
+Emails added: Daniel Roubeni, HE Eng. Osama Al-Zamil, Rayan Al-Karawi, Jehanzeb Awan, Mustafa Mahmood Khan CFA, Dr Abdulaziz Al Sayyari, Kuyoung Chung, Dr Sebastian Vaughan, Prof. Arjumand Warsy, Dr Junaid Kashir, Dr Abdullah Alawad, Dr Qaisar Hamed Metawea
+
+**HTML profile pages updated (7 files):**
+- `board/amer-mahmood.html` — LinkedIn link updated
+- `team/mark-walker.html` — LinkedIn link updated
+- `board/rayan-al-karawi.html` — LinkedIn + email updated
+- `board/tarek-el-mans.html` — LinkedIn link updated
+- `board/daniel-roubeni.html` — email updated
+- `board/osama-al-zamil.html` — email updated
+
+All changes verified ✓
+
+### Partner Category & New Profile Pages — 9 April 2026
+
+**New /partners/ folder created** — profile pages for Partner-type people separate from /board/
+
+**9 new profile pages created:**
+- `partners/jehanzeb-awan.html` — Jehanzeb Awan, CEO J. Awan Capital
+- `partners/mustafa-mahmood-khan.html` — Mustafa Mahmood Khan CFA, Head of Asset Management J. Awan Capital
+- `partners/qaisar-hamed-metawea.html` — Dr Qaisar Hamed Metawea, Managing Partner QHM Law Firm
+- `board/abdulaziz-al-sayyari.html` — Dr Abdulaziz Al Sayyari (reclassified from Advisor to Board)
+- `board/kuyoung-chung.html` — Kuyoung Chung (reclassified from Advisor to Board)
+- `board/sebastian-vaughan.html` — Dr Sebastian Vaughan (reclassified from Partner to Board)
+- `board/arjumand-warsy.html` — Prof. Arjumand Warsy (reclassified from Advisor to Board)
+- `board/junaid-kashir.html` — Dr Junaid Kashir (reclassified from Advisor to Board)
+- `board/abdullah-alawad.html` — Dr Abdullah Alawad (reclassified from Advisor to Board)
+- All pages built with initials placeholder — swap in photo when available
+
+**who-we-are.html updated:**
+- Added new "Fund Partners" section between Team and Board of Advisers (3 Partner cards)
+- Added 6 new Board cards for reclassified people
+- Renamed existing company-logos section from "Our Partners" → "Strategic Partnerships" to avoid ambiguity
+
+**JSON + sitemap:** profileUrls set for all 9 new pages; sitemap expanded to 49 URLs
+
+**Outstanding Data Gaps (require human input)**
+- LinkedIn missing: Dr Amer Mahmood, Ghassan Najmeddin, Osama Al-Thanon, Dr Tarek El Mansy, Daniel Roubeni, Mark Walker, Professor Mohammed Al Jumah, HE Eng. Osama Al-Zamil, Rayan Al-Karawi
+- Email missing: Daniel Roubeni, Professor Mohammed Al Jumah, HE Eng. Osama Al-Zamil, Rayan Al-Karawi
+- Profile images missing: Jehanzeb Awan, Mustafa Mahmood Khan CFA, Dr Abdulaziz Al Sayyari, Kuyoung Chung, Dr Sebastian Vaughan, Prof. Arjumand Warsy, Dr Junaid Kashir, Dr Abdullah Alawad, Dr Qaisar Hamed Metawea
+- No HTML profile pages for: Jehanzeb Awan, Mustafa Mahmood Khan CFA, Dr Abdulaziz Al Sayyari, Kuyoung Chung, Dr Sebastian Vaughan, Prof. Arjumand Warsy, Dr Junaid Kashir, Dr Abdullah Alawad, Dr Qaisar Hamed Metawea (Partner/Advisor/Service Provider types — await instructions on whether these need individual pages)
+- 10 board member bios still needed — see MISSING-PROFILE-INFO.md
+
 ---
 
 ## Pending / To Do
