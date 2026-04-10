@@ -425,6 +425,158 @@ All changes verified ✓
 - No HTML profile pages for: Jehanzeb Awan, Mustafa Mahmood Khan CFA, Dr Abdulaziz Al Sayyari, Kuyoung Chung, Dr Sebastian Vaughan, Prof. Arjumand Warsy, Dr Junaid Kashir, Dr Abdullah Alawad, Dr Qaisar Hamed Metawea (Partner/Advisor/Service Provider types — await instructions on whether these need individual pages)
 - 10 board member bios still needed — see MISSING-PROFILE-INFO.md
 
+### Session 9 — 10 April 2026 (GSC Validation)
+
+**Google Search Console — Post-Fix Validation**
+Walked through GSC with Mark to validate the SEO fixes pushed on 7 April.
+
+- **Sitemap confirmed live:** sitemap.xml last read 09/04/2026, Status: Success, 49 discovered pages (matches current count exactly)
+- **Page indexing report state (last update 06/04/2026 — pre-fix data):** 281 indexed, 180 not indexed across 6 reasons:
+  1. Not found (404) — 48 pages (old numeric WP URLs /2/, /3/, /30/, /67/ etc — not covered by our redirect rules)
+  2. Page with redirect — 38 pages (expected: these are our new 301s from the CloudFront Function)
+  3. Alternative page with proper canonical tag — 11 pages (expected: our canonicals working as designed)
+  4. Blocked due to other 4xx issue — 1 page (first detected 07/04/2026)
+  5. Blocked by robots.txt — 1 page (first detected 07/04/2026)
+  6. Crawled - currently not indexed — 81 pages (first detected 15/03/2025 — the main one our sitemap/canonical fixes address)
+
+- **Decision on numeric 404 URLs (e.g. /2/, /3/, /67/, /70/):** Option A — leave as 404. These are old WordPress post-ID/pagination URLs that have no content value to redirect to. 404 is the correct SEO response and Google will drop them on re-crawl.
+
+- **Validate Fix clicked on 3 reasons** (10/04/2026):
+  - Blocked by robots.txt ✅
+  - Crawled - currently not indexed ✅
+  - Blocked due to other 4xx issue ✅
+- **Skipped:** Not found (404), Page with redirect, Alternative page with proper canonical tag (all either intentional per Option A or expected states, not errors)
+
+- **Live URL Inspection spot-checks (10/04/2026 11:36):**
+  - `/privacy-policy` — URL is available to Google ✅, Page can be indexed ✅, live-tested (confirms the canonical + meta description we added on 7 Apr are now visible to Googlebot)
+  - `/team/nicholas-bingham` — URL is on Google ✅, Page is indexed (confirms new team profile pages from the sitemap expansion are being picked up)
+
+Validation runs take ~14-28 days. Next check: week of 24 April to confirm pass/fail.
+
+---
+
+### Session 10 — 10 April 2026 (Biotech Subdomain Page)
+
+**Built new `subdomains/biotech/index.html` matching the Disruptive Tech / Datacentre subdomain visual template.** Purpose: give Mark a locally-previewable version of biotech.taraniscapital.com before DNS is cut over from the old externally-designed page.
+
+**Source of fund content:** Taranis_BioTech_Growth_Fund_KSA_PPM_Combined_Apr2026.docx (Mark uploaded for this session). All figures, team, fund structure, and strategy copy derived from the PPM.
+
+**Page structure (mirrors disruptive-tech subdomain):**
+- Hero: "Taranis Biotech Growth Fund" — CMA-registered Private Investment Fund, Vision 2030 aligned
+- Fund Overview: USD 400M target (with USD 100M Green Shoe → USD 500M max), 25–35% net IRR, 3.0–4.0x MoIC, 10-year term + 2yr extension, 20–25 portfolio cos, USD 5–20M tickets, 25% reserve
+- Why Taranis: Specialist biotech expertise / Vision 2030 alignment / Localisation framework / Regulatory & government access
+- Market Opportunity: USD 65B Vision 2030 healthcare, USD 34.6B biotech GDP by 2040, USD 25B+ global biotech VC, 60% of population under 30
+- Investment Focus: Therapeutics 60–70% / Devices 15–25% / Digital Health / Biomanufacturing
+- Fund Leadership & Advisers: split into 5 groups — Fund Manager (J.AWAN CAPITAL: Jehanzeb Awan, Mustafa Mahmood Khan), Technical Services Advisor (Bingham, Walker, Bukhari, El Mansy, Al-Rahim, Essam, Metawea, Burlakova), Investment Committee (Bingham, Bukhari, Al Sayyari, Chung, Vaughan), Scientific Advisory Board (Warsy, Kashir, Alawad, Mahmood, Al Jumah), Advisory Board (Al-Zamil, Chohan, Martorano, Boevink, Al-Thanon)
+- Strategic Partners: Helix8 + WISE Initiative (per Mark's direction)
+- ESG: Environmental / Social / Governance
+- CTA + footer with CMA + DFSA regulatory disclosure
+
+**All 26 team image references verified to exist in `images/team/`** — page will render correctly when deployed.
+
+**Preview method:** Local HTML preview (Mark's choice). File opens directly from the repo at `subdomains/biotech/index.html`. Images load from the live taraniscapital.com main site, so the preview is visually accurate.
+
+**Partners consistency check:** Helix8 and WISE Initiative already referenced in the footer ecosystem block of all main-site pages (who-we-are, fintech, disruptive-tech, all team profile pages). No main-site updates required.
+
+**Not yet done — pending Mark's sign-off on the preview:**
+- Create S3 bucket `biotech.taraniscapital.com`
+- Create CloudFront distribution (add to wildcard cert SANs)
+- Add Route 53 CNAME to point biotech.taraniscapital.com to the new CloudFront distribution (this is the "cut the DNS" step)
+- Add biotech deploy step to GitHub Actions `.github/workflows/deploy.yml`
+- Update SUBDOMAIN-SETUP.md to include biotech in the loops/tables
+
+**Saved memory:** feedback_subdomain_partners.md — any strategic partner added to a fund subdomain must also be referenced on the main site; the two must never get out of sync.
+
+### Session 10b — 10 April 2026 (Footer Partners Cleanup)
+
+**Scope change from Mark after the biotech subdomain was delivered:** strategic/ecosystem partners must live in ONE place only — the Strategic Partnerships grid on `who-we-are.html`. Partners are to be removed from every footer across the site and the "Ecosystem" footer column removed entirely.
+
+**Changes made:**
+
+1. **Removed the `<h4>Ecosystem</h4>` footer block from 44 HTML files** — every file containing the Helix8 + WISE Initiative + Biotech Fund footer column. Affected files: all main site pages (`index.html`, `who-we-are.html`, `our-approach.html`, `our-funds.html`, `insights.html`, `contact.html`, `biotech.html`, `fintech.html`, `disruptive-tech.html`, `datacentres.html`, `property.html`, `privacy-policy.html`, `cookie-policy.html`, `404.html`), all 12 team profile pages under `team/`, all 18 board profile pages under `board/`, plus three legacy `Documents/mockup-*.html` files. Done with a regex-based Python sweep to guarantee consistent removal.
+
+2. **Updated `css/styles.css`** — changed `.footer-grid` from `grid-template-columns: 2fr 1fr 1fr 1fr` to `2fr 1fr 1fr`. Mobile breakpoints already use `1fr 1fr` and `1fr`, so no mobile change required. The footer now has three columns on desktop: Brand / Navigation / Head Office.
+
+3. **Expanded the Strategic Partnerships grid on `who-we-are.html`** — added Helix8 ("Biotech accelerator & infrastructure") and WISE Initiative ("Women in STEM & entrepreneurship") as two new cards alongside the existing The Fintech Times, The Biotech Times, Disrupts, Change Gap cards. This is now the single canonical home for all Taranis Capital strategic partners.
+
+4. **Updated memory** — `feedback_subdomain_partners.md` rewritten and `MEMORY.md` index entry updated. New rule:
+   - All partners live in ONE place only: the Strategic Partnerships section on `who-we-are.html` (single source of truth).
+   - Partners shown on any fund subdomain's "Strategic Partners" section must also appear on who-we-are.html (no subdomain introduces a partner the main site doesn't acknowledge).
+   - Partners must NEVER appear in any page footer (main site or subdomains), and the `<h4>Ecosystem</h4>` column must never be reintroduced.
+   - Footer grid is locked at 3 columns: Brand / Navigation / Head Office.
+
+**Verification:**
+- `grep '<h4>Ecosystem</h4>'` across the repo returns zero hits.
+- `grep 'helix-8.com\|wiseinit'` now returns only `who-we-are.html` (Strategic Partnerships grid) and `subdomains/biotech/index.html` (Strategic Partners section on the biotech subdomain) — which is exactly the desired state.
+
+**Biotech subdomain page itself untouched** — Mark said he will review `subdomains/biotech/index.html` locally and revert separately.
+
+**Not yet pushed to main branch.** All changes are staged on local repo only (files in `C:\Users\mark\Claude Cowork\Taranis Capital Website`). Next push will need to include this footer cleanup plus the new biotech subdomain page.
+
+### Session 10c — 10 April 2026 (Biotech Exec Team Merge + New Partners)
+
+**Follow-up to biotech subdomain from Mark:**
+
+1. **Merged Fund Manager (J.AWAN CAPITAL) + Technical Services Advisor (Taranis Capital) into a single "Executive Team" section on `subdomains/biotech/index.html`** — matches the "Executive Team" pattern used on the datacentre subdomain. Order per Mark's instruction: all Technical Services Advisors first (Bingham, Walker, Bukhari, El Mansy, Al-Rahim, Essam, Metawea, Burlakova), then Jehanzeb Awan and Mustafa Mahmood Khan from J.AWAN CAPITAL. Each title now includes the parent entity so the CMA/Fund Manager relationship remains clear. Intro copy updated to explain the combined team construct. Investment Committee / Scientific Advisory Board / Advisory Board sections untouched.
+
+2. **Added two new Strategic Partners to `subdomains/biotech/index.html`:**
+   - **BOYD Consultants** (`boydconsultants.com`) — the Fund's primary technical and regulatory partner per PPM Section 15. Handles mandatory technical feasibility study, CASS framework validation, and validation sign-off before any investment disbursement. Copy drawn from PPM.
+   - **Phytome Life Sciences** (`phytomelife.com`) — bio-pharmaceutical technology platform combining AI, plant science, natural product chemistry, formulation and sustainable biomanufacturing. Dr Sebastian Vaughan (Fund Investment Committee member) is CEO of Phytome Life Sciences per the PPM, which makes this a direct fit. Description created from the Phytome homepage, opened via Claude in Chrome (direct WebFetch blocked by egress proxy for this domain).
+   - Final Strategic Partners order on the biotech subdomain is now: BOYD Consultants, Helix8, Phytome Life Sciences, WISE Initiative.
+   - Helix8 description expanded slightly to reference the HELIX8 questionnaire + CASS scoring per PPM (previously a generic accelerator blurb).
+
+3. **Added BOYD Consultants and Phytome Life Sciences to the Strategic Partnerships grid on `who-we-are.html`** — the canonical partner list now contains The Fintech Times, The Biotech Times, Disrupts, Change Gap, Helix8, WISE Initiative, BOYD Consultants, Phytome Life Sciences (8 partners).
+
+**Validation:** `subdomains/biotech/index.html` is 1,275 lines / 55.5 KB; HTML parser passes with no unclosed tags and no errors. All team image references continue to resolve from the live main site.
+
+**Still untouched:** no main-site team profile page exists for the two J.AWAN CAPITAL staff or the new partners — they are only referenced on subdomain/Strategic Partnerships, which matches existing patterns.
+
+**Still not pushed.** Changes accumulated locally pending Mark's review.
+
+### Session 11 — 10 April 2026 (GSC Weekly Check)
+
+**Automated weekly Google Search Console health check — taraniscapital.com**
+
+**1. Sitemaps**
+- sitemap.xml — Status: **Success** ✅
+- Last read: 9 Apr 2026
+- Discovered pages: **49** — matches local sitemap.xml exactly ✅ (no mismatch)
+
+**2. Page Indexing**
+- Last update: **06/04/2026** — data has not refreshed since pre-fix baseline (expected; validation runs take 14–28 days)
+- Indexed: **281** (no change vs Session 9 baseline)
+- Not indexed: **180** (6 reasons — no change vs Session 9 baseline)
+- No new reason categories; no page counts increased
+
+| Reason | Pages | Validation | vs Baseline |
+|---|---|---|---|
+| Not found (404) | 48 | Not Started | No change ✅ |
+| Page with redirect | 38 | Not Started | No change ✅ |
+| Alternative page with proper canonical tag | 11 | Not Started | No change ✅ |
+| Blocked due to other 4xx issue | 1 | **Started** | No change ✅ |
+| Blocked by robots.txt | 1 | **Started** | No change ✅ |
+| Crawled – currently not indexed | 81 | **Started** | No change ✅ |
+
+- The three validation runs started on 10/04/2026 (Blocked by robots.txt, Blocked due to other 4xx issue, Crawled – currently not indexed) are all showing **Started** — in progress, not yet Passed or Failed. Expected given the 14–28 day window.
+
+**3. Performance (last 7 days: ~4–10 Apr 2026)**
+- Total clicks: **33**
+- Total impressions: **3,730**
+- Average CTR: **0.9%**
+- Average position: **7.1**
+- No prior 7-day period available for comparison — first week of data post-launch
+
+**4. Manual Actions & Security Issues**
+- Manual actions: **No issues detected** ✅
+- Security issues: **No issues detected** ✅
+
+**5. Core Web Vitals**
+- Mobile: Not enough usage data (last 90 days) — expected for new site, no Poor/Needs improvement URLs
+- Desktop: Not enough usage data (last 90 days) — expected for new site, no Poor/Needs improvement URLs
+
+**Issues to raise with Mark**
+Nothing to flag this week. All indexing counts are identical to the Session 9 baseline, the three validation runs are in progress as expected, no new reason categories have appeared, and manual actions and security are clean. The 7-day performance figures (33 clicks, 3,730 impressions, pos 7.1) are a reasonable baseline for a newly launched site. Next meaningful check is the week of 24 April when validation run outcomes (Pass/Fail) should be visible.
+
 ---
 
 ## Pending / To Do

@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Taranis Biotech Growth Fund — a closed-ended CMA-registered Private Investment Fund investing in high-growth biotechnology companies aligned with Saudi Arabia's Vision 2030 and National Biotechnology Strategy.">
+    <link rel="icon" href="https://taraniscapital.com/images/logo-gold.png" type="image/png">
+    <title>Biotech Growth Fund | Taranis Capital</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLN31RRY1V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JLN31RRY1V');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #374047;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        /* Colour palette */
+        :root {
+            --tc-green-dark: #2c3e35;
+            --tc-green-mid: #3a5247;
+            --tc-gold: #c9a84c;
+            --tc-gold-light: #d4b65e;
+            --tc-charcoal: #374047;
+            --tc-grey-dark: #606e79;
+            --tc-off-white: #f5f6f7;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--tc-green-dark);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--tc-gold);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--tc-green-dark) 0%, var(--tc-green-mid) 100%);
+            color: #ffffff;
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23ffffff" opacity="0.03" width="1200" height="600"/><circle cx="100" cy="100" r="200" fill="%23c9a84c" opacity="0.05"/><circle cx="1100" cy="500" r="150" fill="%23c9a84c" opacity="0.05"/></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        section.alt {
+            background: var(--tc-off-white);
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--tc-green-dark);
+        }
+
+        section .intro-text {
+            font-size: 1.1rem;
+            color: var(--tc-grey-dark);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+
+        /* Fund Overview */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .overview-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--tc-charcoal);
+            margin-bottom: 1.5rem;
+        }
+
+        .overview-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: var(--tc-charcoal);
+        }
+
+        .overview-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .highlight {
+            padding: 1.5rem;
+            background: var(--tc-off-white);
+            border-left: 4px solid var(--tc-gold);
+            border-radius: 4px;
+        }
+
+        .highlight strong {
+            color: var(--tc-green-dark);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Why Taranis */
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-card {
+            padding: 2rem;
+            border-radius: 8px;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .why-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .why-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--tc-green-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .why-card-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--tc-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--tc-green-dark);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .why-card p {
+            color: var(--tc-charcoal);
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Market Opportunity */
+        .opportunity-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .opportunity-item {
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .opportunity-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--tc-green-dark);
+            margin-bottom: 1rem;
+        }
+
+        .opportunity-item p {
+            color: var(--tc-charcoal);
+            line-height: 1.8;
+        }
+
+        .stat {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--tc-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .opportunity-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Investment Focus */
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .focus-card {
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--tc-green-dark) 0%, var(--tc-green-mid) 100%);
+            color: #ffffff;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .focus-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(44, 62, 53, 0.2);
+        }
+
+        .focus-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--tc-gold-light);
+        }
+
+        .focus-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .focus-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Team & Advisers */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background-color: var(--tc-off-white);
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 3px solid var(--tc-gold);
+            text-align: center;
+        }
+
+        .team-member h3 {
+            font-size: 1.2rem;
+            color: var(--tc-green-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member .title {
+            font-size: 0.85rem;
+            color: var(--tc-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .team-member p {
+            color: var(--tc-grey-dark);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            text-align: left;
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 1rem;
+        }
+
+        .team-section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--tc-charcoal);
+            line-height: 1.7;
+        }
+
+        .team-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--tc-green-dark);
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--tc-gold);
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Partners */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .partner-card {
+            padding: 2.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--tc-off-white) 100%);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .partner-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--tc-green-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .partner-card .website {
+            color: var(--tc-gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .partner-card .website:hover {
+            text-decoration: underline;
+        }
+
+        .partner-card p {
+            color: var(--tc-charcoal);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ESG Section */
+        .esg-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .esg-item {
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .esg-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--tc-green-dark);
+            margin-bottom: 1rem;
+        }
+
+        .esg-item p {
+            color: var(--tc-charcoal);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .esg-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--tc-green-dark) 0%, var(--tc-green-mid) 100%);
+            color: #ffffff;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin: 4rem 0;
+        }
+
+        .cta-section h2 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--tc-gold);
+            color: var(--tc-green-dark);
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--tc-gold);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--tc-gold);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--tc-green-dark);
+            color: #ffffff;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--tc-gold);
+        }
+
+        .footer-section p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--tc-gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #ffffff;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--tc-gold);
+            color: var(--tc-green-dark);
+        }
+
+        .footer-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .regulatory-text {
+            font-size: 0.75rem;
+            margin-top: 1rem;
+            line-height: 1.6;
+            opacity: 0.75;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: var(--tc-gold);
+            color: var(--tc-green-dark);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: var(--tc-green-dark);
+            color: var(--tc-gold);
+            transform: translateY(-4px);
+        }
+
+        /* Cookie Consent Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--tc-green-dark);
+            color: #ffffff;
+            padding: 1.5rem 2rem;
+            z-index: 998;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .cookie-banner.show {
+            transform: translateY(0);
+        }
+
+        .cookie-text {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .cookie-text a {
+            color: var(--tc-gold);
+            text-decoration: none;
+        }
+
+        .cookie-text a:hover {
+            text-decoration: underline;
+        }
+
+        .cookie-button {
+            background: var(--tc-gold);
+            color: var(--tc-green-dark);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .cookie-button:hover {
+            background: var(--tc-gold-light);
+        }
+
+        @media (max-width: 768px) {
+            .cookie-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .cookie-button {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="https://taraniscapital.com" class="nav-logo">
+                <img src="https://taraniscapital.com/images/logo-gold.png" alt="Taranis Capital Logo">
+                <span class="nav-logo-text">Taranis Capital</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="https://taraniscapital.com">Home</a></li>
+                <li><a href="https://taraniscapital.com/contact" target="_blank">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Taranis Biotech Growth Fund</h1>
+            <p>A CMA-registered Private Investment Fund investing in high-growth biotechnology companies aligned with the Kingdom of Saudi Arabia's Vision 2030 and National Biotechnology Strategy</p>
+        </div>
+    </section>
+
+    <!-- Fund Overview -->
+    <section id="fund-overview">
+        <div class="container">
+            <h2>Fund Overview</h2>
+            <p class="intro-text">Taranis Biotech Growth Fund is a closed-ended Private Investment Fund established in the Kingdom of Saudi Arabia and registered with the Capital Market Authority (CMA), managed by J.AWAN CAPITAL with Taranis Capital Ltd. as Technical Services Advisor.</p>
+
+            <div class="overview-grid">
+                <div class="overview-text">
+                    <h3>Venture Capital for Biotechnology &amp; Life Sciences</h3>
+                    <p>The Fund invests in biotechnology companies across development stages — from early-stage innovators through to growth-stage companies with proven commercial potential. The strategy spans therapeutic innovation, medical devices and diagnostics, digital health, and biomanufacturing infrastructure, with a deliberate focus on knowledge transfer and capability building inside the Kingdom.</p>
+                    <p>We seek breakthrough science with strong IP, commercially viable business models, ESG alignment, regional relevance, and a credible path to establishing meaningful operations in Saudi Arabia.</p>
+                </div>
+                <div class="overview-highlights">
+                    <div class="highlight">
+                        <strong>Target AUM: USD 400M</strong>
+                        <p>Plus a USD 100M Green Shoe Option — maximum fund size USD 500M</p>
+                    </div>
+                    <div class="highlight">
+                        <strong>Target Returns</strong>
+                        <p>25–35% net IRR to Limited Partners and a 3.0–4.0x target MoIC</p>
+                    </div>
+                    <div class="highlight">
+                        <strong>Fund Term</strong>
+                        <p>10-year term with 5-year investment period; extendable by up to 2 years</p>
+                    </div>
+                    <div class="highlight">
+                        <strong>Portfolio Construction</strong>
+                        <p>20–25 portfolio companies; initial tickets USD 5–20M; 25% reserved for follow-ons</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Taranis -->
+    <section class="alt">
+        <div class="container">
+            <h2>Why Taranis</h2>
+            <p class="intro-text">We bring specialist biotech expertise, deep regulatory relationships across the Kingdom, a differentiated localisation framework, and a Scientific Advisory Board of leading Saudi and international biotech experts.</p>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <h3>
+                        <span class="why-card-icon">&#x1F52C;</span>
+                        Specialist Biotech Expertise
+                    </h3>
+                    <p>A combined investment team with decades of experience across therapeutics, biomanufacturing, clinical development, genomics, stem cell science, and digital health — supported by a dedicated Scientific Advisory Board drawn from KAUST, King Saud University, and leading international research institutions.</p>
+                </div>
+                <div class="why-card">
+                    <h3>
+                        <span class="why-card-icon">&#x1F1F8;&#x1F1E6;</span>
+                        Vision 2030 Alignment
+                    </h3>
+                    <p>The Fund is structured around the Kingdom's National Biotechnology Strategy. Its investment committee includes the former SFDA Executive Director and leading Saudi healthcare figures, ensuring every portfolio company contributes to Vision 2030's biotech ambitions.</p>
+                </div>
+                <div class="why-card">
+                    <h3>
+                        <span class="why-card-icon">&#x1F3ED;</span>
+                        Localisation Framework
+                    </h3>
+                    <p>A dedicated localisation team — including a Director of Localisation and Director of Local Manufacturing — coupled with gating mechanisms that require verified localisation plans, SFDA pathway confirmation, and independent technical validation before any capital is released.</p>
+                </div>
+                <div class="why-card">
+                    <h3>
+                        <span class="why-card-icon">&#x1F3DB;&#xFE0F;</span>
+                        Regulatory &amp; Government Access
+                    </h3>
+                    <p>Established relationships with the CMA, SFDA, MoH, NUPCO, and SNIH — enabling coordinated CMA licensing and SFDA approval timelines, and access to Breakthrough Medical Designation fast-track pathways for qualified therapies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section>
+        <div class="container">
+            <h2>The Market Opportunity</h2>
+            <p class="intro-text">The Kingdom of Saudi Arabia is investing at unprecedented scale in biotechnology, positioning the sector as a cornerstone of its post-oil economic transformation.</p>
+
+            <div class="opportunity-grid">
+                <div class="opportunity-item">
+                    <div class="stat">USD 65B</div>
+                    <h3>Vision 2030 Healthcare Investment</h3>
+                    <p>The Kingdom plans to deploy USD 65 billion to enhance healthcare systems and encourage domestic manufacturing under Vision 2030 — creating sustained demand for biotech innovation, infrastructure, and clinical capacity.</p>
+                </div>
+                <div class="opportunity-item">
+                    <div class="stat">USD 34.6B</div>
+                    <h3>Biotech GDP Contribution by 2040</h3>
+                    <p>Saudi Arabia's biotech sector is targeted to contribute USD 34.6 billion (SAR 130 billion) to non-oil GDP by 2040, representing around 3% of total GDP, with 55,000 sector jobs created by the same date.</p>
+                </div>
+                <div class="opportunity-item">
+                    <div class="stat">USD 25B+</div>
+                    <h3>Global Biotech VC Funding</h3>
+                    <p>2024 global venture capital funding into biotechnology exceeded USD 25 billion, with average deal sizes growing 15% year-on-year across precision medicine, AI drug discovery, and regenerative medicine.</p>
+                </div>
+                <div class="opportunity-item">
+                    <div class="stat">60%</div>
+                    <h3>Young, Growing Demand Base</h3>
+                    <p>60% of the Saudi population is under 30, combined with rising chronic disease burden and healthcare spend per capita — creating large, persistent demand for innovative therapies, diagnostics, and digital health solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Focus -->
+    <section class="alt">
+        <div class="container">
+            <h2>Investment Focus</h2>
+            <p class="intro-text">The Fund targets four core biotechnology sub-sectors, with a deliberate weighting towards therapeutics and medical technology aligned to regional disease burden and manufacturing priorities.</p>
+
+            <div class="focus-grid">
+                <div class="focus-card">
+                    <h3>Therapeutics &amp; Pharmaceuticals</h3>
+                    <p>Oncology, metabolic disease, rare diseases prevalent in MENA populations, infectious disease treatments and vaccines, and regenerative medicine including cell and gene therapies. Target allocation 60–70%.</p>
+                </div>
+                <div class="focus-card">
+                    <h3>Medical Devices &amp; Diagnostics</h3>
+                    <p>Precision medicine and genomics platforms, point-of-care diagnostics for underserved regions, advanced medical imaging, and wearable health technology for continuous monitoring. Target allocation 15–25%.</p>
+                </div>
+                <div class="focus-card">
+                    <h3>Digital Health &amp; AI</h3>
+                    <p>AI-powered drug discovery and target identification, clinical trial optimisation, telemedicine platforms, and population health data analytics serving the Kingdom's healthcare transformation.</p>
+                </div>
+                <div class="focus-card">
+                    <h3>Biomanufacturing &amp; Infrastructure</h3>
+                    <p>Local pharmaceutical and biologics production, regional supply-chain and logistics infrastructure, R&amp;D laboratory build-out, and regulatory and quality-system technologies supporting KSA's localisation objectives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fund Leadership & Advisers -->
+    <section>
+        <div class="container">
+            <h2>Fund Leadership &amp; Advisers</h2>
+            <p class="intro-text">Led by a combined executive team from Taranis Capital (Technical Services Advisor) and J.AWAN CAPITAL (CMA-licensed Fund Manager), supported by an Investment Committee and Scientific Advisory Board comprising the Kingdom's most respected biotech, clinical, and regulatory leaders.</p>
+
+            <div class="team-section-title">Executive Team</div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Nicholas-Bingham-600x650-2-277x300.jpg" alt="Nicholas S. Bingham">
+                    <h3>Nicholas S. Bingham</h3>
+                    <p class="title">Founding Partner &amp; CEO — Taranis Capital</p>
+                    <p>25+ years in investment banking, asset management and venture capital. Leads fund strategy across Taranis Capital's fintech, biotech and AI-focused funds. Deep expertise in fund structuring, capital deployment and LP relationship management.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Mark-Walker-Profile-A71V3159-600x650-1-277x300.png" alt="Mark Walker">
+                    <h3>Mark Walker</h3>
+                    <p class="title">Co-Founder &amp; Managing Partner — Taranis Capital</p>
+                    <p>Global multi-sector entrepreneur with extensive operational experience. Specialist in operations, growth strategy and strategic execution. Track record of building, scaling and exiting ventures across fintech, technology and healthcare.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/OB-Headshot-600x650-1-277x300.jpg" alt="Osama BenSaleh Bukhari">
+                    <h3>Osama BenSaleh Bukhari</h3>
+                    <p class="title">Chief Technology Officer — Taranis Capital</p>
+                    <p>Seasoned Saudi entrepreneur and King Saud University graduate. CEO of AlFaris International Group and Head of the ICC Banking Committee. Pioneer of internet banking and e-wallets in the Kingdom. Named by Arabian Business as one of the '50 People You Need to Know'.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Dr-Tarek-El-Mans-Headshot-600-650-277x300.jpg" alt="Dr Tarek El Mansy">
+                    <h3>Dr Tarek El Mansy</h3>
+                    <p class="title">Director of Localisation — Taranis Capital</p>
+                    <p>Biotech growth architect with 25+ years in KSA and MENA. Expert in localisation strategy, NUPCO tenders, and SFDA pathways. Proven track record building profitable entities, scaling revenue and driving end-to-end commercialisation for biologics and pharmaceuticals.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Mazen-Al-Rahim-600x650-2-277x300.jpg" alt="Mazen Al-Rahim">
+                    <h3>Mazen Al-Rahim</h3>
+                    <p class="title">Director of Local Manufacturing — Taranis Capital</p>
+                    <p>Petrochemicals and supply chain executive with 30+ years' experience. Former SABIC Director leading Asia Pacific operations and joint ventures with ARAMCO and Exxon. Expert in manufacturing, risk, and strategic sourcing. Chemical Engineer and MBA.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Mohamed-Essam-600-650_grey-suite-277x300.jpg" alt="Mohamed Essam">
+                    <h3>Mohamed Essam</h3>
+                    <p class="title">Legal Counsel — Matouk Bassiouny</p>
+                    <p>Partner at Matouk Bassiouny; Head of Corporate and M&amp;A (UAE) and Head of Emerging Companies and Venture Capital. Solicitor of the Senior Courts of England and Wales. Advised on 100+ transactions including leading fintech and M&amp;A deals across MENA.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Qaisar-Hamed-Metawea-600x650-277x300.jpg" alt="Dr Qaisar Hamed Metawea">
+                    <h3>Dr Qaisar Hamed Metawea</h3>
+                    <p class="title">Local KSA Counsel — QHM Law Firm</p>
+                    <p>Saudi lawyer and founding partner of QHM Law Firm. Licensed attorney by the Saudi Ministry of Justice with over 15 years of practice. SJD and LLM in International Intellectual Property Law from Indiana University. Extensive experience in legal opinions, business transactions, and regulatory matters.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Svitlana-Burlakova-ICA-TEP-600x650-1-277x300.jpg" alt="Svitlana Burlakova, ICA, TEP">
+                    <h3>Svitlana Burlakova, ICA, TEP</h3>
+                    <p class="title">Compliance Officer &amp; MLRO — Taranis Capital</p>
+                    <p>DFSA-regulated Compliance Officer and Money Laundering Reporting Officer for Taranis Capital. Ensures compliance with DFSA Conduct of Business Rules, AML/KYC regulations and investor protection requirements.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Jehanzeb-Awan-600x650-277x300.jpg" alt="Jehanzeb Awan">
+                    <h3>Jehanzeb Awan</h3>
+                    <p class="title">Founder &amp; CEO — J.AWAN CAPITAL</p>
+                    <p>Founding Partner and CEO of J.AWAN CAPITAL, the CMA-licensed Fund Manager. Former Regional Head of Compliance for Morgan Stanley MENA and Head of Compliance for National Bank of Dubai (now Emirates NBD). Strong regulatory relationships across the Kingdom and wider region.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Mustafa-Mahmood-Khan-600x650-277x300.jpg" alt="Mustafa Mahmood Khan, CFA">
+                    <h3>Mustafa Mahmood Khan, CFA</h3>
+                    <p class="title">Head of Asset Management — J.AWAN CAPITAL</p>
+                    <p>CMA-registered with over 15 years of experience in asset management and financial consulting. Has successfully managed portfolios for high-net-worth individuals, institutional investors, and treasury funds, delivering multi-million-dollar mandates and bespoke investment strategies.</p>
+                </div>
+            </div>
+
+            <div class="team-section-title">Investment Committee</div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Nicholas-Bingham-600x650-2-277x300.jpg" alt="Nicholas S. Bingham">
+                    <h3>Nicholas S. Bingham</h3>
+                    <p class="title">Chair — Founder &amp; CEO</p>
+                    <p>Global investor and entrepreneur with 25 years in finance. Former investment banker, now CIO for GCC venture capital funds and advisor to global boards.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/OB-Headshot-600x650-1-277x300.jpg" alt="Osama BenSaleh Bukhari">
+                    <h3>Osama BenSaleh Bukhari</h3>
+                    <p class="title">Investment Committee Member</p>
+                    <p>Senior Saudi entrepreneur and CEO of AlFaris International Group. Head of the ICC Banking Committee. Drives innovation across education, medical, and IT sectors in the Kingdom.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Abdulaziz-Al-Sayyari-600x650-277x300.jpg" alt="Dr Abdulaziz Al Sayyari">
+                    <h3>Dr Abdulaziz Al Sayyari</h3>
+                    <p class="title">Investment Committee Member</p>
+                    <p>BiSynergic Managing Partner and former SFDA Executive Director. Global expert in regulatory biotech and cell &amp; gene therapy, serving on ICH bodies. Shaped the Kingdom's national frameworks for advanced therapies. PhD Bioprocessing and IMD MBA.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/KuYoung-Chung-600x650-277x300.jpg" alt="Kuyoung Chung">
+                    <h3>Kuyoung Chung</h3>
+                    <p class="title">Investment Committee Member</p>
+                    <p>Managing Director driving healthcare venture creation and digital strategy. Expert in AI commercialisation with 3 patents and 10 publications. Previously led innovation for Samsung and LG. IMD MBA and ETH Zurich alumnus.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Sebastian-Vaughan-600x650-277x300.jpg" alt="Dr Sebastian Vaughan">
+                    <h3>Dr Sebastian Vaughan</h3>
+                    <p class="title">Investment Committee Member</p>
+                    <p>CEO of Phytome Life Sciences and serial healthcare entrepreneur. PhD in Biochemistry (Leeds) and MBA (Imperial College). Former Imperial College post-doctoral researcher — discovered novel cancer gene functions, published in Nature and Cancer Discovery.</p>
+                </div>
+            </div>
+
+            <div class="team-section-title">Scientific Advisory Board</div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Arjumand-Warsy-600x650-277x300.jpg" alt="Prof. Arjumand Warsy">
+                    <h3>Prof. Arjumand Warsy</h3>
+                    <p class="title">Scientific Advisory Board</p>
+                    <p>Distinguished retired King Saud University biochemistry professor. Leading expert in genetic diseases and molecular genetics research. Former Senior Scientist at the Central Laboratory, Female Medical Centre. Multiple teaching and research excellence awards.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Junaid-Kashir-600x650-277x300.jpg" alt="Dr Junaid Kashir">
+                    <h3>Dr Junaid Kashir</h3>
+                    <p class="title">Scientific Advisory Board</p>
+                    <p>Reproductive biology expert at Khalifa University. Associate Professor specialising in PLC&zeta; and embryonic development research. Leads groundbreaking lab-grown halal meat and FBS alternatives research programmes. Previous positions at Oxford, Cardiff, NHS, and Alfaisal University.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Abdullah-Alawad-600x650-277x300.jpg" alt="Dr Abdullah Alawad">
+                    <h3>Dr Abdullah Alawad</h3>
+                    <p class="title">Scientific Advisory Board</p>
+                    <p>PhD in Stem Cell Biology (Sheffield). Founded the National Center for Stem Cell Technology at KACST and served on the Saudi Human Genome Program founding team. Expert in biotech, genetics and healthcare transformation.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Dr-Amer-Mahmood-headshot-600-650-277x300.jpg" alt="Dr Amer Mahmood">
+                    <h3>Dr Amer Mahmood</h3>
+                    <p class="title">Scientific Advisory Board</p>
+                    <p>Senior Scientist at King Saud University Stem Cell Unit. Directs comprehensive regenerative medicine and gene therapy research programmes. Develops novel treatments for chronic diseases and injuries. Maintains strong international collaboration networks.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Mohammed-AlJumah-Headshot-600-650-277x300.png" alt="Prof. Mohamed Al Jumah">
+                    <h3>Prof. Mohamed Al Jumah</h3>
+                    <p class="title">Scientific Advisory Board</p>
+                    <p>Founder and CEO of Itkan Health Consulting. Former KAIMRC Executive Director and 25+ year neurologist. Serves on SNIH and MoH national biotech committees and pharma advisory boards. Led multiple national health projects with CHI, PHA and SHC.</p>
+                </div>
+            </div>
+
+            <div class="team-section-title">Advisory Board</div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/His-Excellency-Eng.-Osama-Abdulaziz-Al-Zamil-Joins-600x650-1-277x300.png" alt="H.E. Eng. Osama bin Abdul Aziz Al-Zamil">
+                    <h3>H.E. Eng. Osama Al-Zamil</h3>
+                    <p class="title">Advisory Board</p>
+                    <p>Vision 2030 and economic development expert. Former Vice Minister of Industry and Mineral Resources of the Kingdom of Saudi Arabia. Strategic adviser on GCC technology policy, government relationships, and regional opportunities.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Asim-Chohan-600x650-1-277x300.jpg" alt="Asim Chohan">
+                    <h3>Asim Chohan</h3>
+                    <p class="title">Advisory Board</p>
+                    <p>SVP Global Operations and COO at a top US investment bank. 21 years driving Fortune 100 growth. Expert in AI, business intelligence, and global transformation across three continents. Harvard, MIT and Cambridge educated.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Bruno-600x650-1-277x300.jpg" alt="Bruno Martorano">
+                    <h3>Bruno Martorano</h3>
+                    <p class="title">Advisory Board</p>
+                    <p>35-year banking and fintech executive. Former CEO of a major Abu Dhabi bank and a European neobank. Hands-on leader driving digital transformation in finance, health, and energy sectors.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Michael-Boevink-600-650-277x300.jpg" alt="Michael Boevink">
+                    <h3>Michael Boevink</h3>
+                    <p class="title">Advisory Board</p>
+                    <p>Tech, telecom and finance executive with 15+ years scaling global operations. Expert in international expansion, capital raises and go-to-market strategy. Bradford MBA with a worldwide network.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://taraniscapital.com/images/team/Osama-Al-Thanon-Profile-600-650-277x300.jpg" alt="Osama Al-Thanon">
+                    <h3>Osama Al-Thanon</h3>
+                    <p class="title">Advisory Board</p>
+                    <p>Tech pioneer with 40+ years in leadership and cybersecurity. Former ABB C-level executive and serial entrepreneur. Expert in digital transformation, white-hat hacking and AI ventures. Member of the Saudi Council of Engineers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Partners -->
+    <section class="alt">
+        <div class="container">
+            <h2>Strategic Partners</h2>
+            <p class="intro-text">We work alongside sector-leading partners to drive deal sourcing, scientific due diligence, capability building, and portfolio value creation across the Kingdom's biotech ecosystem.</p>
+
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <h3>BOYD Consultants</h3>
+                    <a href="https://www.boydconsultants.com" class="website" target="_blank" rel="noopener">boydconsultants.com</a>
+                    <p>The Fund's primary technical and regulatory partner. BOYD Consultants brings deep drug development expertise across cell &amp; gene therapies, biologics, new chemical entities and orphan drugs, supporting MHRA, FDA, EMA and SFDA submissions. BOYD delivers mandatory technical feasibility assessment, CASS framework validation and validation sign-off before any investment is released.</p>
+                </div>
+                <div class="partner-card">
+                    <h3>Helix8</h3>
+                    <a href="https://helix-8.com" class="website" target="_blank" rel="noopener">helix-8.com</a>
+                    <p>Health Engineering Life Science Innovation Exchange — a biotech accelerator providing early-stage ventures with mentorship, infrastructure and market access. Helix8 co-designed the Fund's HELIX8 questionnaire, supports CASS scoring, and delivers ongoing localisation support and institutional partnerships to portfolio companies across the Kingdom's biotech ecosystem.</p>
+                </div>
+                <div class="partner-card">
+                    <h3>Phytome Life Sciences</h3>
+                    <a href="https://phytomelife.com" class="website" target="_blank" rel="noopener">phytomelife.com</a>
+                    <p>Bio-pharmaceutical technology company decoding nature's molecular chemistry to develop the next generation of plant-based medicines. Phytome's platform combines AI, plant science, natural product chemistry, formulation and sustainable biomanufacturing — a direct strategic fit for the Fund's therapeutics and biomanufacturing localisation strategy. Led by CEO Dr Sebastian Vaughan (also a member of the Fund's Investment Committee).</p>
+                </div>
+                <div class="partner-card">
+                    <h3>WISE Initiative</h3>
+                    <a href="https://wiseinit.org" class="website" target="_blank" rel="noopener">wiseinit.org</a>
+                    <p>Well-being, Innovation, Sustainability &amp; Entrepreneurship — an international initiative advancing health, sustainable development and enterprise across the Kingdom and wider region. The WISE Initiative supports the Fund's ecosystem, knowledge-transfer and workforce-development objectives for the Kingdom's emerging biotech sector.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESG Section -->
+    <section>
+        <div class="container">
+            <h2>ESG &amp; Responsible Investment</h2>
+            <p class="intro-text">The Fund integrates ESG considerations throughout the investment lifecycle, reflecting our commitment to responsible investing and alignment with Vision 2030's sustainability objectives.</p>
+
+            <div class="esg-grid">
+                <div class="esg-item">
+                    <h3>Environmental</h3>
+                    <p>Sustainable biomanufacturing, resource-efficient facility design, carbon footprint assessment, and green production standards applied consistently across the portfolio.</p>
+                </div>
+                <div class="esg-item">
+                    <h3>Social &amp; Patient Impact</h3>
+                    <p>Equitable patient access, solutions targeting regional health disparities, workforce diversity and inclusion, and active community engagement through local partnerships and capacity building.</p>
+                </div>
+                <div class="esg-item">
+                    <h3>Governance &amp; Transparency</h3>
+                    <p>Independent directors, transparent stakeholder reporting, robust compliance with CMA and SFDA requirements, and rigorous ethics reviews covering patient safety, clinical conduct and IP.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section>
+        <div class="container">
+            <div class="cta-section">
+                <h2>Interested in the Biotech Growth Fund?</h2>
+                <p>The Fund is offered on a private placement basis to Qualified Clients only. We welcome conversations with institutional investors, family offices, and strategic partners seeking exposure to Saudi Arabia's biotechnology opportunity.</p>
+                <a href="https://taraniscapital.com/contact" class="cta-button">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Taranis Capital</h4>
+                    <p>Disciplined capital deployment and knowledge leadership across emerging markets and high-growth sectors.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/taranis-capital/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">in</a>
+                        <a href="https://twitter.com/TaranisCapital" target="_blank" rel="noopener noreferrer" title="Twitter" aria-label="Twitter">&#120143;</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Head Office</h4>
+                    <p>Level 02, Innovation One,<br>Dubai International Financial Centre (DIFC),<br>Dubai, United Arab Emirates</p>
+                    <p style="margin-top:1rem;"><strong>London</strong><br>41 Luke Street, London, EC2A 4DP, UK</p>
+                    <p style="margin-top:1rem;"><strong>Geneva</strong><br>Quartier Levratte 38, Geneva, 1260, Switzerland</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="https://taraniscapital.com">Main Site</a></li>
+                        <li><a href="https://taraniscapital.com/our-funds">Our Funds</a></li>
+                        <li><a href="https://taraniscapital.com/contact">Contact Us</a></li>
+                        <li><a href="https://taraniscapital.com/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="https://taraniscapital.com/cookie-policy">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-divider">
+                <p style="text-align:center;font-size:0.8rem;opacity:0.75;margin-bottom:1.5rem;">The Taranis Biotech Growth Fund is a closed-ended Private Investment Fund established in the Kingdom of Saudi Arabia and registered with the Capital Market Authority (CMA). The Fund is managed by J.AWAN CAPITAL (CMA Licence 22242-20). Taranis Capital Ltd. acts as Technical Services Advisor and is licensed by the Dubai International Financial Centre (DIFC) and regulated by the Dubai Financial Services Authority. This website is for information purposes only and does not constitute an offer or solicitation to subscribe for units in the Fund. Units are offered on a private placement basis to Qualified Clients only, as defined in the CMA Investment Funds Regulations.</p>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Taranis Capital. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-text">
+            <p>We use cookies to enhance your experience and analyse our traffic. By continuing to browse this site, you consent to our use of cookies. <a href="https://taraniscapital.com/privacy">Learn more</a></p>
+        </div>
+        <button class="cookie-button" onclick="acceptCookies()">Accept</button>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">&#8593;</button>
+
+    <script>
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Cookie Banner
+        const cookieBanner = document.getElementById('cookieBanner');
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieBanner.classList.remove('show');
+        }
+
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                setTimeout(() => {
+                    cookieBanner.classList.add('show');
+                }, 1500);
+            }
+        }
+
+        checkCookieConsent();
+    </script>
+</body>
+</html>
