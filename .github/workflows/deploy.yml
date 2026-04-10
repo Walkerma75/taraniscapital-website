@@ -45,6 +45,9 @@ jobs:
       - name: Sync disruptive-tech subdomain to S3
         run: aws s3 sync subdomains/disruptive-tech/ s3://disruptive-tech.taraniscapital.com/ --delete
 
+      - name: Sync biotech subdomain to S3
+        run: aws s3 sync subdomains/biotech/ s3://biotech.taraniscapital.com/ --delete
+
       - name: Invalidate CloudFront caches
         run: |
           aws cloudfront create-invalidation \
@@ -61,4 +64,7 @@ jobs:
             --paths "/*"
           aws cloudfront create-invalidation \
             --distribution-id E98QNGA1O9AI0 \
+            --paths "/*"
+          aws cloudfront create-invalidation \
+            --distribution-id ESMIKURPBA41W \
             --paths "/*"

@@ -89,19 +89,19 @@ aws acm wait certificate-validated --certificate-arn YOUR_CERT_ARN --region us-e
 
 ```bash
 # Create buckets
-for SUBDOMAIN in fintech datacentre property disruptive-tech; do
+for SUBDOMAIN in fintech datacentre property disruptive-tech biotech; do
   aws s3 mb s3://${SUBDOMAIN}.taraniscapital.com --region eu-west-2
 done
 
 # Enable static website hosting
-for SUBDOMAIN in fintech datacentre property disruptive-tech; do
+for SUBDOMAIN in fintech datacentre property disruptive-tech biotech; do
   aws s3 website s3://${SUBDOMAIN}.taraniscapital.com \
     --index-document index.html \
     --error-document 404.html
 done
 
 # Set public read bucket policy
-for SUBDOMAIN in fintech datacentre property disruptive-tech; do
+for SUBDOMAIN in fintech datacentre property disruptive-tech biotech; do
   aws s3api put-bucket-policy \
     --bucket ${SUBDOMAIN}.taraniscapital.com \
     --policy "{
@@ -126,7 +126,7 @@ From the repo root (where the subdomains/ folder is):
 ```bash
 cd "C:\Users\mark\Claude Cowork\Taranis Capital Website"
 
-for SUBDOMAIN in fintech datacentre property disruptive-tech; do
+for SUBDOMAIN in fintech datacentre property disruptive-tech biotech; do
   aws s3 sync subdomains/${SUBDOMAIN}/ s3://${SUBDOMAIN}.taraniscapital.com/ --delete
 done
 ```
@@ -138,7 +138,7 @@ done
 Create one distribution per subdomain. Replace `YOUR_CERT_ARN` with the wildcard cert ARN from Step 1.
 
 ```bash
-for SUBDOMAIN in fintech datacentre property disruptive-tech; do
+for SUBDOMAIN in fintech datacentre property disruptive-tech biotech; do
   aws cloudfront create-distribution \
     --distribution-config "{
       \"CallerReference\": \"${SUBDOMAIN}-taranis-$(date +%s)\",
@@ -260,13 +260,13 @@ aws route53 change-resource-record-sets \
 
 ```bash
 # Check DNS propagation
-for SUBDOMAIN in fintech datacentre property disruptive-tech; do
+for SUBDOMAIN in fintech datacentre property disruptive-tech biotech; do
   echo "=== ${SUBDOMAIN}.taraniscapital.com ==="
   nslookup ${SUBDOMAIN}.taraniscapital.com
 done
 
 # Check HTTPS (may take 15-30 mins for CloudFront deployment)
-for SUBDOMAIN in fintech datacentre property disruptive-tech; do
+for SUBDOMAIN in fintech datacentre property disruptive-tech biotech; do
   echo "=== ${SUBDOMAIN} ==="
   curl -sI https://${SUBDOMAIN}.taraniscapital.com | head -5
 done
@@ -309,6 +309,7 @@ To auto-deploy subdomain sites on push (like the main site), add to `.github/wor
 | datacentre.taraniscapital.com | dg42m017gq950.cloudfront.net | E3EJUFMMNZLO3V |
 | property.taraniscapital.com | d3bmdcmsydjb0z.cloudfront.net | E2H8IQKJ8LPQ01 |
 | disruptive-tech.taraniscapital.com | d2us91vkabbd5i.cloudfront.net | E98QNGA1O9AI0 |
+| biotech.taraniscapital.com | d12nozf5efsxkp.cloudfront.net | ESMIKURPBA41W |
 
 Wildcard cert ARN: `arn:aws:acm:us-east-1:571600836975:certificate/fa9c7dad-94a1-4cb1-8a9e-c8e5ee64b60d`
 
@@ -321,7 +322,7 @@ Run from the repo root directory:
 ```bash
 cd "C:\Users\mark\Claude Cowork\Taranis Capital Website"
 
-for SUBDOMAIN in fintech datacentre property disruptive-tech; do
+for SUBDOMAIN in fintech datacentre property disruptive-tech biotech; do
   aws s3 sync subdomains/${SUBDOMAIN}/ s3://${SUBDOMAIN}.taraniscapital.com/ --delete
 done
 
