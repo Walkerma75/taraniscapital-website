@@ -579,6 +579,54 @@ Nothing to flag this week. All indexing counts are identical to the Session 9 ba
 
 ---
 
+### Session 12 — 10 April 2026 (Biotech Subdomain AWS Deploy)
+
+**Objective:** Stand up `biotech.taraniscapital.com` on AWS (S3 + CloudFront + Route 53) to replace the externally-hosted Replit page, matching the pattern of the other four fund subdomains.
+
+**Pre-state:** Old biotech page lived on Replit (custom domain → IP `34.111.179.208`). Route 53 had an A record for biotech pointing at Replit, plus a `replit-verify` TXT record. The local `subdomains/biotech/index.html` page had already been built in Session 10 but had nowhere to be served from.
+
+**IAM permissions**
+- Discovered `taranis-deploy` IAM user was scoped to sync/invalidate existing infra only — missing Route 53 (both list + change), S3 bucket creation, and CloudFront distribution creation.
+- Attached three AWS-managed policies to `taranis-deploy`: `AmazonS3FullAccess`, `CloudFrontFullAccess`, `AmazonRoute53FullAccess`. This widens the credential used by GitHub Actions too — a reasonable trade for a solo-owned account where the key is already protected.
+
+**S3 bucket creation (CLI)**
+- Created `biotech.taraniscapital.com` bucket in eu-west-2
+- Disabled all four "Block Public Access" settings
+- Enabled static website hosting (`index.html` / `404.html`)
+- Applied public read bucket policy (scratch file `biotech-policy.json`, written by hand rather than copied from fintech after `get-bucket-policy` endpoint blipped)
+- Synced `subdomains/biotech/` → `s3://biotech.taraniscapital.com/` — page rendered on S3 website endpoint
+
+**CloudFront distribution (CLI)**
+- New AWS console wizard for CloudFront now uses a multi-plan "packaged" flow that bundles TLS/DNS/WAF — abandoned the console path to avoid creating a distribution with different behaviour to the other four
+- Pulled fintech's exact config via `get-distribution-config --query DistributionConfig` and saved to `fintech-dist-config.json` (with `Out-File -Encoding ascii` to avoid PowerShell's BOM)
+- Hand-edited a `biotech-dist-config.json` variant — only differences: `CallerReference` (`biotech-taranis-2026`), `Aliases`, origin `Id` (`S3-biotech`), origin `DomainName`, `TargetOriginId`, `Comment`
+- Price class `PriceClass_100` (matches other four subdomains), wildcard cert `*.taraniscapital.com`, `index.html` root, HTTP→HTTPS redirect, no CloudFront Function association (fintech has none either)
+- `create-distribution` returned: **Distribution ID `ESMIKURPBA41W`**, **domain `d12nozf5efsxkp.cloudfront.net`**
+- (One transient "Could not connect to endpoint" error on the create-distribution call — clean retry worked)
+
+**Route 53 cutover**
+- In Route 53 console, edited existing biotech A record (was `34.111.179.208`) → toggled Alias ON → Alias to CloudFront distribution → us-east-1 → `d12nozf5efsxkp.cloudfront.net` → Save
+- `replit-verify` TXT record left in place until Replit is fully decommissioned (Step I below)
+
+**Verification**
+- CloudFront distribution reached `Deployed` status
+- `https://biotech.taraniscapital.com/` loads the new page in incognito with valid `*.taraniscapital.com` certificate
+
+**Repo changes (committed)**
+- `.github/workflows/deploy.yml`: added `Sync biotech subdomain to S3` step after disruptive-tech, and added `ESMIKURPBA41W` invalidation line to the Invalidate CloudFront caches step
+- `SUBDOMAIN-SETUP.md`: added biotech row to the distribution table at the bottom (`biotech.taraniscapital.com | d12nozf5efsxkp.cloudfront.net | ESMIKURPBA41W`) and added biotech to every `for SUBDOMAIN in ...` loop in the doc so future readers pick it up
+- `.gitignore`: added `*-policy.json` and `*-dist-config.json` patterns to prevent future scratch files from being accidentally committed
+
+**Scratch files deleted after deploy:** `fintech-policy.json`, `biotech-policy.json`, `fintech-dist-config.json`, `biotech-dist-config.json`
+
+**Outstanding: Step I — Decommission Replit**
+- Old biotech page still running on Replit but no longer receiving traffic (DNS moved to CloudFront)
+- Leave the old host in place for ~24–48 hours as a rollback option
+- After that: log into Replit → delete the custom domain binding → delete the Deployment/Repl → confirm
+- Then remove the `replit-verify` TXT record from Route 53 (name: `biotech.taraniscapital.com`, type: TXT, value: `"replit-verify=ef3d3295-5d3e-48c2-8c8d-e15387d68975"`)
+
+---
+
 ## Pending / To Do
 
 ### Content & Data
@@ -608,7 +656,7 @@ Nothing to flag this week. All indexing counts are identical to the Session 9 ba
 **CloudFront Distribution:** E18AUIFBUGMXSB
 **CloudFront Domain:** d1ete5r3431epc.cloudfront.net
 **CloudFront Function:** `url-rewrite` — handles 301 redirects (old WP URLs, trailing slashes, www→non-www), plus clean URL rewriting (.html append). Biotech redirect removed 2026-04-07.
-**Subdomain CloudFront Distributions:** fintech (E260FGTXCVORQ6), datacentre (E3EJUFMMNZLO3V), property (E2H8IQKJ8LPQ01), disruptive-tech (E98QNGA1O9AI0)
+**Subdomain CloudFront Distributions:** fintech (E260FGTXCVORQ6), datacentre (E3EJUFMMNZLO3V), property (E2H8IQKJ8LPQ01), disruptive-tech (E98QNGA1O9AI0), biotech (ESMIKURPBA41W)
 **Wildcard SSL Cert:** arn:aws:acm:us-east-1:571600836975:certificate/fa9c7dad-94a1-4cb1-8a9e-c8e5ee64b60d
 **Deploy Trigger:** Push to main branch → GitHub Actions → S3 sync → CloudFront invalidation
 **Route 53 Hosted Zone:** Z0680053Y587NB8B8C9S

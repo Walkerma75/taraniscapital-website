@@ -5,4 +5,8 @@ TC Logos/
 Team Images/ 
 .DS_Store 
 Thumbs.db 
-*.log 
+*.log
+
+# Scratch files from AWS CLI subdomain setup (bucket policies, distribution configs)
+*-policy.json
+*-dist-config.json
