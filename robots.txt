@@ -4,5 +4,10 @@
 User-agent: *
 Allow: /
 
+# Block legacy and non-production directories
+Disallow: /Wp-content/
+Disallow: /subdomains/
+Disallow: /Documents/
+
 # Sitemap location
 Sitemap: https://taraniscapital.com/sitemap.xml
