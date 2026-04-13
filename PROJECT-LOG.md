@@ -627,6 +627,35 @@ Nothing to flag this week. All indexing counts are identical to the Session 9 ba
 
 ---
 
+### Weekly Sync — 2026-04-13 (Automated)
+
+**Source:** Taranis-People-Data-Collection-KB.xlsx
+**People count:** 36 (9 Team, 3 Partners, 24 Board)
+
+**JSON regenerated:**
+- `taranis-people-data.json` — updated lastUpdated to 2026-04-13; fixed MISSING literal values (preserved existing image paths and emails where spreadsheet had MISSING placeholders)
+
+**Profile pages updated (2):**
+- `team/bijna-kotak-dasani.html` — h1 name updated to include "MBE, FRSA" honours
+- `team/svitlana-burlakova.html` — h1 name updated to include "ICA, TEP" qualifications
+
+**Subdomain fund pages updated (1):**
+- `subdomains/biotech/index.html` — added Emad Zowawi (KSA Legal Counsel to the CEO, Executive Team section) and Rayan Al-Karawi (Advisory Board section)
+
+**Sitemap updated:**
+- `sitemap.xml` — updated lastmod dates for bijna-kotak-dasani and svitlana-burlakova profile pages
+
+**who-we-are.html:** No changes needed — all 36 people present with correct names and roles.
+
+**Other fund pages (fintech, property, datacentre, disruptive-tech):** No changes needed — all assigned people present.
+
+**Data gaps (ongoing):**
+- Profile images: all 36 people now have images on disk (the spreadsheet still shows MISSING for 9 newer people but the actual image files exist — spreadsheet needs updating)
+- LinkedIn URLs still missing for 11 people: daniel-roubeni, ghassan-najmeddin, mohammed-aljumah, osama-al-thanon, osama-al-zamil, mustafa-mahmood-khan, abdulaziz-al-sayyari, arjumand-warsy, junaid-kashir, abdullah-alawad, qaisar-hamed-metawea
+- Note: the spreadsheet (Taranis-People-Data-Collection-KB.xlsx) is behind the actual website for image paths and some LinkedIn URLs — it should be updated to match current site data
+
+---
+
 ## Pending / To Do
 
 ### Content & Data

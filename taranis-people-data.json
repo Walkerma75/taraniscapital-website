@@ -3,7 +3,7 @@
     "description": "Taranis Capital People Directory — structured reference file for website automation",
     "sourceFile": "Taranis-People-Data-Collection-KB.xlsx",
     "generatedBy": "Automated weekly sync",
-    "lastUpdated": "2026-04-09",
+    "lastUpdated": "2026-04-13",
     "schema": "1.0"
   },
   "people": [
@@ -211,7 +211,7 @@
       "type": "Board",
       "role": "Board Adviser",
       "email": "danielr@taraniscapital.com",
-      "linkedIn": "MISSING",
+      "linkedIn": "",
       "profileImage": {
         "path": "/images/team/Daniel-Roubeni-600x650-2-277x300.jpg",
         "hasImage": true
@@ -365,7 +365,7 @@
       "type": "Board",
       "role": "Board Adviser",
       "email": "Ghassan@taraniscapital.com",
-      "linkedIn": "MISSING",
+      "linkedIn": "",
       "profileImage": {
         "path": "/images/team/Ghassan-Najmeddin-Profile-600-650-277x300.jpg",
         "hasImage": true
@@ -724,8 +724,8 @@
       "fullName": "Professor Mohammed Al Jumah",
       "type": "Board",
       "role": "Senior Advisor",
-      "email": "MISSING",
-      "linkedIn": "MISSING",
+      "email": "",
+      "linkedIn": "",
       "profileImage": {
         "path": "/images/team/Mohammed-AlJumah-Headshot-600-650-277x300.png",
         "hasImage": true
@@ -805,7 +805,7 @@
       "type": "Board",
       "role": "Board Adviser",
       "email": "skywalker@taraniscapital.com",
-      "linkedIn": "MISSING",
+      "linkedIn": "",
       "profileImage": {
         "path": "/images/team/Osama-Al-Thanon-Profile-600-650-277x300.jpg",
         "hasImage": true
@@ -843,9 +843,9 @@
       "slug": "osama-al-zamil",
       "fullName": "HE Eng. Osama Al-Zamil",
       "type": "Board",
-      "role": "Chairman of the Advisory Board",
+      "role": "Board Advisor",
       "email": "osamaalzamil@taraniscapital.com",
-      "linkedIn": "MISSING",
+      "linkedIn": "",
       "profileImage": {
         "path": "/images/team/His-Excellency-Eng.-Osama-Abdulaziz-Al-Zamil-Joins-600x650-1-277x300.png",
         "hasImage": true
@@ -1119,7 +1119,7 @@
       "type": "Partner",
       "role": "Head of Asset Management, J. Awan Capital",
       "email": "mustafa@taraniscapital.com",
-      "linkedIn": "MISSING",
+      "linkedIn": "",
       "profileImage": {
         "path": "/images/team/Mustafa-Mahmood-Khan-600x650-277x300.jpg",
         "hasImage": true
@@ -1157,7 +1157,7 @@
       "type": "Board",
       "role": "Investment Committee Member",
       "email": "abdulazia@taraniscapital.com",
-      "linkedIn": "MISSING",
+      "linkedIn": "",
       "profileImage": {
         "path": "/images/team/Abdulaziz-Al-Sayyari-600x650-277x300.jpg",
         "hasImage": true
@@ -1265,7 +1265,7 @@
       "type": "Board",
       "role": "Scientific Advisory Board Member",
       "email": "arjumand@taraniscapital.com",
-      "linkedIn": "MISSING",
+      "linkedIn": "",
       "profileImage": {
         "path": "/images/team/Arjumand-Warsy-600x650-277x300.jpg",
         "hasImage": true
@@ -1301,7 +1301,7 @@
       "type": "Board",
       "role": "Scientific Advisory Board Member",
       "email": "junaid@taraniscapital.com",
-      "linkedIn": "MISSING",
+      "linkedIn": "",
       "profileImage": {
         "path": "/images/team/Junaid-Kashir-600x650-277x300.jpg",
         "hasImage": true
@@ -1337,7 +1337,7 @@
       "type": "Board",
       "role": "Scientific Advisory Board Member",
       "email": "abdullah@taraniscapital.com",
-      "linkedIn": "MISSING",
+      "linkedIn": "",
       "profileImage": {
         "path": "/images/team/Abdullah-Alawad-600x650-277x300.jpg",
         "hasImage": true
@@ -1373,7 +1373,7 @@
       "type": "Partner",
       "role": "Managing Partner, QHM Law Firm (Local KSA Counsel)",
       "email": "qaisar@taraniscapital.com",
-      "linkedIn": "MISSING",
+      "linkedIn": "",
       "profileImage": {
         "path": "/images/team/Qaisar-Hamed-Metawea-600x650-277x300.jpg",
         "hasImage": true
@@ -1404,196 +1404,6 @@
           "bio": "Saudi lawyer and founding partner of QHM Law Firm. Licensed by the Ministry of Justice with 15+ years of practice. SJD and LLM in International IP Law from Indiana University. Provides specialist KSA legal counsel on regulatory matters and biotech IP."
         }
       }
-    }
-  ],
-  "dataGaps": [
-    {
-      "category": "Missing Email",
-      "count": 4,
-      "names": "Daniel Roubeni, Professor Mohammed Al Jumah, HE Eng. Osama Al-Zamil, Rayan Al-Karawi",
-      "actionRequired": "Obtain personal/Taranis email addresses"
-    },
-    {
-      "category": "Missing LinkedIn",
-      "count": 9,
-      "names": "Dr Amer Mahmood, Daniel Roubeni, Ghassan Najmeddin, Mark Walker, Professor Mohammed Al Jumah, Osama Al-Thanon, HE Eng. Osama Al-Zamil, Rayan Al-Karawi, Dr Tarek El Mansy",
-      "actionRequired": "Find LinkedIn profile URLs"
-    },
-    {
-      "category": "Placeholder Bios (Main Site)",
-      "count": 10,
-      "names": "Dr Amer Mahmood, Asim Chohan, Daniel Roubeni, David Grunfeld, Ghassan Najmeddin, Leif Hesse, Osama Al-Thanon, Rayan Al-Karawi, Sarah Sinclair, Dr Tarek El Mansy",
-      "actionRequired": "Write full biographical profiles"
-    },
-    {
-      "category": "Not on Any Subdomain",
-      "count": 11,
-      "names": "Dr Amer Mahmood, Asim Chohan, Dr. Bijna Kotak Dasani MBE, FRSA, Daniel Roubeni, Ghassan Najmeddin, Leif Hesse, Professor Mohammed Al Jumah, Rayan Al-Karawi, Sarah Sinclair, Svitlana Burlakova, ICA, TEP, Dr Tarek El Mansy",
-      "actionRequired": "Determine fund assignments (if applicable)"
-    }
-  ],
-  "profileImages": [
-    {
-      "slug": "amer-mahmood",
-      "name": "Dr Amer Mahmood",
-      "filename": "Dr-Amer-Mahmood-headshot-600-650-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Dr-Amer-Mahmood-headshot-600-650-277x300.jpg"
-    },
-    {
-      "slug": "amit-varma",
-      "name": "Amit Varma",
-      "filename": "Amit-Varma-600x650-1-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Amit-Varma-600x650-1-277x300.jpg"
-    },
-    {
-      "slug": "asim-chohan",
-      "name": "Asim Chohan",
-      "filename": "Asim-Chohan-600x650-1-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Asim-Chohan-600x650-1-277x300.jpg"
-    },
-    {
-      "slug": "bijna-kotak-dasani",
-      "name": "Dr. Bijna Kotak Dasani MBE, FRSA",
-      "filename": "Bijna-Kotak-D-650x600-1-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Bijna-Kotak-D-650x600-1-277x300.jpg"
-    },
-    {
-      "slug": "bruno-martorano",
-      "name": "Bruno Martorano",
-      "filename": "Bruno-600x650-1-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Bruno-600x650-1-277x300.jpg"
-    },
-    {
-      "slug": "daniel-roubeni",
-      "name": "Daniel Roubeni",
-      "filename": "Daniel-Roubeni-600x650-2-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Daniel-Roubeni-600x650-2-277x300.jpg"
-    },
-    {
-      "slug": "david-grunfeld",
-      "name": "David Grunfeld",
-      "filename": "David-Grunfeld-600x650-Headshot-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/David-Grunfeld-600x650-Headshot-277x300.jpg"
-    },
-    {
-      "slug": "david-parker",
-      "name": "David Parker",
-      "filename": "David-full-shot-konsentus-600x650-1-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/David-full-shot-konsentus-600x650-1-277x300.jpg"
-    },
-    {
-      "slug": "emad-zowawi",
-      "name": "Emad Zowawi",
-      "filename": "Emad-Zowawi-Profile-Pic-600x650-1-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Emad-Zowawi-Profile-Pic-600x650-1-277x300.jpg"
-    },
-    {
-      "slug": "ghassan-najmeddin",
-      "name": "Ghassan Najmeddin",
-      "filename": "Ghassan-Najmeddin-Profile-600-650-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Ghassan-Najmeddin-Profile-600-650-277x300.jpg"
-    },
-    {
-      "slug": "jack-hollander",
-      "name": "Jack Hollander",
-      "filename": "Jack-Hollander-600x650-1-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Jack-Hollander-600x650-1-277x300.jpg"
-    },
-    {
-      "slug": "joel-blake",
-      "name": "Joel Blake OBE",
-      "filename": "Joel-Blake-OBE-picture-600x650-1-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Joel-Blake-OBE-picture-600x650-1-277x300.jpg"
-    },
-    {
-      "slug": "leif-hesse",
-      "name": "Leif Hesse",
-      "filename": "Leif-Hesse-Headshot-600-650-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Leif-Hesse-Headshot-600-650-277x300.jpg"
-    },
-    {
-      "slug": "mark-walker",
-      "name": "Mark Walker",
-      "filename": "Mark-Walker-Profile-A71V3159-600x650-1-277x300.png",
-      "imageUrl": "https://taraniscapital.com/images/team/Mark-Walker-Profile-A71V3159-600x650-1-277x300.png"
-    },
-    {
-      "slug": "mazen-al-rahim",
-      "name": "Mazen Al-Rahim",
-      "filename": "Mazen-Al-Rahim-600x650-2-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Mazen-Al-Rahim-600x650-2-277x300.jpg"
-    },
-    {
-      "slug": "michael-boevink",
-      "name": "Michael Boevink",
-      "filename": "Michael-Boevink-600-650-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Michael-Boevink-600-650-277x300.jpg"
-    },
-    {
-      "slug": "milan-radia",
-      "name": "Milan Radia",
-      "filename": "Milan-Radia-Headshot-600-650-277x300.png",
-      "imageUrl": "https://taraniscapital.com/images/team/Milan-Radia-Headshot-600-650-277x300.png"
-    },
-    {
-      "slug": "mohamed-essam",
-      "name": "Mohamed Essam",
-      "filename": "Mohamed-Essam-600-650_grey-suite-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Mohamed-Essam-600-650_grey-suite-277x300.jpg"
-    },
-    {
-      "slug": "mohammed-aljumah",
-      "name": "Professor Mohammed Al Jumah",
-      "filename": "Mohammed-AlJumah-Headshot-600-650-277x300.png",
-      "imageUrl": "https://taraniscapital.com/images/team/Mohammed-AlJumah-Headshot-600-650-277x300.png"
-    },
-    {
-      "slug": "nicholas-bingham",
-      "name": "Nicholas S. Bingham",
-      "filename": "Nicholas-Bingham-600x650-2-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Nicholas-Bingham-600x650-2-277x300.jpg"
-    },
-    {
-      "slug": "osama-al-thanon",
-      "name": "Osama Al-Thanon",
-      "filename": "Osama-Al-Thanon-Profile-600-650-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Osama-Al-Thanon-Profile-600-650-277x300.jpg"
-    },
-    {
-      "slug": "osama-al-zamil",
-      "name": "HE Eng. Osama Al-Zamil",
-      "filename": "His-Excellency-Eng.-Osama-Abdulaziz-Al-Zamil-Joins-600x650-1-277x300.png",
-      "imageUrl": "https://taraniscapital.com/images/team/His-Excellency-Eng.-Osama-Abdulaziz-Al-Zamil-Joins-600x650-1-277x300.png"
-    },
-    {
-      "slug": "osama-bukhari",
-      "name": "Osama Ben Saleh Bukhari",
-      "filename": "OB-Headshot-600x650-1-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/OB-Headshot-600x650-1-277x300.jpg"
-    },
-    {
-      "slug": "rayan-al-karawi",
-      "name": "Rayan Al-Karawi",
-      "filename": "Rayan-AI-Karawi-600x650-1-277x300.png",
-      "imageUrl": "https://taraniscapital.com/images/team/Rayan-AI-Karawi-600x650-1-277x300.png"
-    },
-    {
-      "slug": "sarah-sinclair",
-      "name": "Sarah Sinclair",
-      "filename": "Sarah-Sinclair-600x650-1-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Sarah-Sinclair-600x650-1-277x300.jpg"
-    },
-    {
-      "slug": "svitlana-burlakova",
-      "name": "Svitlana Burlakova, ICA, TEP",
-      "filename": "Svitlana-Burlakova-ICA-TEP-600x650-1-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Svitlana-Burlakova-ICA-TEP-600x650-1-277x300.jpg"
-    },
-    {
-      "slug": "tarek-el-mans",
-      "name": "Dr Tarek El Mansy",
-      "filename": "Dr-Tarek-El-Mans-Headshot-600-650-277x300.jpg",
-      "imageUrl": "https://taraniscapital.com/images/team/Dr-Tarek-El-Mans-Headshot-600-650-277x300.jpg"
     }
   ]
 }
