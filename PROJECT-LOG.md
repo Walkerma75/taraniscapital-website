@@ -656,6 +656,30 @@ Nothing to flag this week. All indexing counts are identical to the Session 9 ba
 
 ---
 
+### Session 13 — 16 April 2026 (Team Composite Image)
+
+**Objective:** Replace `/images/team/tc-team-office.jpg` (the branded team photo used in the About/Who-We-Are intro blocks on `index.html` and `who-we-are.html`) with a composite that includes the current 9-person team, since getting everyone in the same room for a real group shoot isn't practical right now.
+
+**Approach**
+- Source: the 9 individual headshots in `Team Images/` (Amit, Bijna, Emad, Mark, Milan, Mohamed, Nicholas, OB, Svitlana)
+- Background removal with `rembg` (u2net_human_seg model, source images upscaled 2× first)
+- Per-person face detection via OpenCV Haar cascades to normalise figures by FACE height rather than overall figure height (crucial — the source crops vary wildly, so scaling by total height produced wildly different head sizes)
+- Two-row "class photo" layout on a Taranis-branded backdrop (#2A2A2A charcoal grey, soft gold uplight, thin gold divider)
+- Front row: Svitlana, Nicholas, Mark (centre), OB, Bijna
+- Back row: Emad, Amit, Milan, Mohamed
+- Nick, Mark and Bijna cropped to OB's head-and-shoulders depth so the front row reads as a uniform headshot band rather than mixed crops
+- Per-person face-height boost for Milan and Amit (+20%) because Haar's frontal face box includes glasses frames, which was making them get over-shrunk
+
+**Key file changes**
+- `images/team/tc-team-office.jpg` — REPLACED with composite (1200×900 JPEG, 117 KB). Previous was a real office group photo at 1984×2148. CSS for both `.about-image` and `.intro-image` containers enforces `aspect-ratio: 4/3` with `object-fit: cover`, so the old portrait image was being centre-cropped aggressively by the browser; the new 4:3 composite fills the container without any crop.
+- Generated masters retained in `Team Images/` as `Taranis-Team-Composite-v4.png`/`.jpg` for future edits.
+
+**Not changed** — no HTML edits needed (the file path and filename are the same), no CSS changes.
+
+**Deploy** — pushed to `main`; GitHub Actions workflow syncs to S3 and invalidates CloudFront.
+
+---
+
 ## Pending / To Do
 
 ### Content & Data
