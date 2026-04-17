@@ -680,6 +680,19 @@ Nothing to flag this week. All indexing counts are identical to the Session 9 ba
 
 ---
 
+### Session 14 — 17 April 2026 (Replit Decommission)
+
+**Objective:** Decommission the old Replit-hosted biotech.taraniscapital.com now that the AWS-hosted version (S3 + CloudFront) has been live since 10 April 2026.
+
+**Steps completed:**
+1. **Site health verified** — `https://biotech.taraniscapital.com/` confirmed loading correctly on AWS with valid `*.taraniscapital.com` certificate
+2. **Replit custom domain binding removed** — Mark removed the `biotech.taraniscapital.com` binding from the Replit project (old IP: `34.111.179.208`)
+3. **Route 53 `replit-verify` TXT record deleted** — removed `"replit-verify=ef3d3295-5d3e-48c2-8c8d-e15387d68975"` from hosted zone `Z0680053Y587NB8B8C9S` via AWS CLI (`--profile TaranisCapital`)
+
+**Old Replit infrastructure is now fully decommissioned.** All biotech.taraniscapital.com traffic serves from CloudFront distribution `ESMIKURPBA41W` (`d12nozf5efsxkp.cloudfront.net`).
+
+---
+
 ## Pending / To Do
 
 ### Content & Data
