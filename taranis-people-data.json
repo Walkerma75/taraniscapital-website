@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Taranis Capital People Directory — structured reference file for website automation",
-    "sourceFile": "Taranis-People-Data-Collection-KB.xlsx",
+    "sourceFile": "Taranis-People-Data-Collection.xlsx",
     "generatedBy": "Automated weekly sync",
     "lastUpdated": "2026-04-20",
     "schema": "1.0"
@@ -45,7 +45,7 @@
     },
     {
       "slug": "abdullah-alawad",
-      "fullName": "Dr Abdullah Alawad",
+      "fullName": "Prof. Abdullah Alawad",
       "type": "Board",
       "role": "Scientific Advisory Board Member",
       "email": "abdullah@taraniscapital.com",
@@ -75,7 +75,7 @@
         "biotech": {
           "assigned": true,
           "role": "Scientific Advisory Board",
-          "bio": "PhD in Biomedical Sciences (Sheffield). Founded National Centre for Stem Cell Technology at KACST. Saudi Human Genome Program founding team member. 20+ years spearheading transformative healthcare projects. Biotech consultant to multiple Saudi ministries."
+          "bio": "More than 20 years of experience in biotech and biomedical R&D, innovation and ecosystem development. Held senior executive leadership roles and led national initiatives, advanced technologies and industrial transformation efforts. Advisor and board member with a strong track record of scaling science-based ventures, forging strategic partnerships and delivering high-impact growth."
         }
       }
     },

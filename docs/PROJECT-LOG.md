@@ -806,6 +806,56 @@ Per Option A the news/pagination URLs stay as 404. The `/board_members/*` path p
 
 ---
 
+### Session 16 — 20 April 2026 (Weekly Profile Sync — automated)
+
+**Scheduled task run:** `weekly-profile-updates-taraniscapital-website` (automated)
+
+**Spreadsheet read**
+- Source: `Taranis-People-Data-Collection.xlsx` (the `-KB` variant no longer exists on disk; fell back to the canonical file as instructed)
+- 36 people read from the "People Directory" sheet (9 Team, 24 Board, 3 Partner)
+- No new people added or removed vs the existing JSON
+
+**JSON regenerated** — `taranis-people-data.json`
+- Cleaned 11 legacy `linkedIn: "MISSING"` entries to empty strings so downstream consumers no longer see the literal word "MISSING" in the LinkedIn field
+- Preserved all existing `profileUrl` values and `profileImage.path` values (none needed overwriting — all spreadsheet values matched existing JSON)
+- `lastUpdated` bumped to 2026-04-20
+
+**HTML profile updates (1 person)**
+- `board/abdullah-alawad.html` — renamed from **Dr Abdullah Alawad** to **Prof. Abdullah Alawad** to match the updated spreadsheet entry. Updated: page title, meta description, OG/Twitter tags, breadcrumb, page-hero h1, profile-name h1, image alt text, and opening line of bio.
+- `who-we-are.html` — Abdullah Alawad board card updated (h3 + avatar alt).
+- `subdomains/biotech/index.html` — Abdullah Alawad team-member h3 and image alt updated.
+
+**Bio-length discrepancies flagged but NOT overwritten (10 people)**
+Per the rule "do not overwrite if the JSON is empty/missing" (extended conservatively to "JSON shorter than HTML"), the following profile pages still hold hand-enriched bios that are longer than the spreadsheet versions. They have been left untouched so hand-crafted content is not destroyed:
+David Parker, Emad Zowawi, Jack Hollander, Joel Blake, Mark Walker, Mazen Al-Rahim, Michael Boevink, Milan Radia, Mohammed Aljumah, Osama Al-Zamil. (One additional match — Osama Bukhari — differed by a single trailing whitespace character; ignored.) If Mark wants the spreadsheet bios to become canonical, the HTML pages can be regenerated in a future run.
+
+**who-we-are.html**
+- All 36 people (9 Team + 24 Board + 3 Partner) have cards — no additions needed
+- Name/role/image values compared against JSON — all in sync (after the Abdullah Alawad update above)
+
+**Subdomain fund pages**
+- All four checked: fintech (13 assigned), property (11), datacentre (20), disruptive-tech (19) — every assigned person in JSON appears on the correct page. No additions required.
+
+**Sitemap**
+- All 36 profile URLs present (49 URLs total). `<lastmod>` updated to 2026-04-20 for `/who-we-are` and `/board/abdullah-alawad`.
+
+**Data gaps (unchanged from prior week)**
+- 11 people missing LinkedIn: abdulaziz-al-sayyari, abdullah-alawad, arjumand-warsy, daniel-roubeni, ghassan-najmeddin, junaid-kashir, mohammed-aljumah, mustafa-mahmood-khan, osama-al-thanon, osama-al-zamil, qaisar-hamed-metawea
+- 1 person missing email: mohammed-aljumah
+- 0 missing bios, 0 missing images
+
+**Files touched this run**
+- `taranis-people-data.json`
+- `board/abdullah-alawad.html`
+- `who-we-are.html`
+- `subdomains/biotech/index.html`
+- `sitemap.xml`
+- `docs/PROJECT-LOG.md` (this entry)
+
+**Issues encountered** — none; run completed cleanly.
+
+---
+
 ## Pending / To Do
 
 ### Content & Data
