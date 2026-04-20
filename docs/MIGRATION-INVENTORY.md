@@ -5,7 +5,7 @@
 **Risk tier:** Tier 2
 **State:** LIVE
 **Inventory created:** 20 April 2026
-**Signed off:** _pending Mark's review_
+**Signed off:** **2026-04-20 by Mark Walker** (confirmed in Cowork chat). Restore-from-nothing drill remains as a deadlined follow-up in [`TASKS.md`](TASKS.md) (deadline 2026-04-30) — by the brief's override it does not block the sign-off since this project is already running on a Claude Code workflow.
 
 This document is the single-read handover for the Taranis Capital Website. A new engineer should be able to read it in 20 minutes and take over the project with no further briefing. Where items below read `[TBD]`, they remain open pending Mark's answer — see "Questions for Mark" block.
 
