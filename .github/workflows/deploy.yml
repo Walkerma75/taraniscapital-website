@@ -26,6 +26,8 @@ jobs:
             --exclude ".git/*" \
             --exclude ".github/*" \
             --exclude ".gitignore" \
+            --exclude "*.md" \
+            --exclude "docs/*" \
             --exclude "Wp-content/*" \
             --exclude "Board of Advisors/*" \
             --exclude "Documents/*" \

@@ -13,7 +13,7 @@ This document is the single-read handover for the Taranis Capital Website. A new
 
 ## Changes made during discovery
 
-Every additive, reversible hygiene fix applied during the discovery pass is logged here. Follow the Discovery policy in `../PROJECTS-REGISTER.md` — rotations, IAM/DNS/CloudFront/CI changes are follow-ups, not inline.
+Every additive, reversible hygiene fix applied during the discovery pass is logged here. Follow the Discovery policy in `../../PROJECTS-REGISTER.md` — rotations, IAM/DNS/CloudFront/CI changes are follow-ups, not inline.
 
 | Date | Change | Why | How to revert |
 |---|---|---|---|
@@ -24,15 +24,17 @@ Every additive, reversible hygiene fix applied during the discovery pass is logg
 | 2026-04-20 | Added `Tmp Images folder/` to `.gitignore` | CLAUDE.md claimed the folder was already ignored but it wasn't. Folder exists on disk, is currently untracked — defensive addition to prevent accidental future commits | Revert the single-line edit in `.gitignore` |
 | 2026-04-20 | Created Route 53 health check + CloudWatch alarm + SNS uptime alert on `taraniscapital.com` → `mark@taraniscapital.com`. Health check is **HTTP on port 80** (not HTTPS) because Route 53 health checkers max out at TLS 1.2 and the main CloudFront distribution requires TLSv1.3_2025 — TLS handshake fails before SNI. Port 80 returns a 301 redirect to HTTPS which Route 53 treats as healthy (3xx). See TLS alignment follow-up in `TASKS.md`. Health check ID: `31616e98-9cd2-41e1-bcf8-29df51dd1d63` · CloudWatch alarm (`us-east-1`): `taraniscapital-com-uptime` · SNS topic ARN: `arn:aws:sns:us-east-1:571600836975:taraniscapital-uptime-alerts` · Email subscription confirmed by Mark. | No monitoring on the live site; outage detection was previously reactive | Route 53 → Health checks → delete `taraniscapital.com-uptime`; CloudWatch → Alarms (us-east-1) → delete `taraniscapital-com-uptime`; SNS → Topics (us-east-1) → delete `taraniscapital-uptime-alerts` (removes subscription in the same action) |
 | 2026-04-20 | **Enabled CloudTrail** — created `taranis-capital-account-trail` (multi-region, home region `us-east-1`, management events only, log file validation on, SSE-KMS disabled to avoid KMS key monthly cost). ARN: `arn:aws:cloudtrail:us-east-1:571600836975:trail/taranis-capital-account-trail`. Log S3 bucket: `aws-cloudtrail-logs-571600836975-f495d2a6`. Cost: £0/month — first management-events trail is free. | Account had no audit trail. Cheap insurance if anything unexpected happens across this account (website + Dataroom + any future project). | CloudTrail → Trails → `taranis-capital-account-trail` → Delete. Also manually delete the logs S3 bucket if no longer needed. |
+| 2026-04-20 | **Rollback drill performed** — commit `760ba1a` reverted (`7860865`), pushed, deploy succeeded, site stayed live; then revert-of-revert (`af7f867`) pushed, deploy succeeded, content restored. Rollback procedure verified end-to-end. | Tier 2 Handover checklist requires it; had never been tested before. | Rollback drill is ephemeral — no persistent change to revert. Git log retains the two revert commits as historical record. |
+| 2026-04-20 | **Moved all tracked `.md` internal docs from repo root into `docs/` subfolder and added `--exclude "*.md"` + `--exclude "docs/*"` to `.github/workflows/deploy.yml`**. Affected files: `MIGRATION-INVENTORY.md`, `MISSING-PROFILE-INFO.md`, `PROFILE-UPDATE-REPORT-2026-04-09.md`, `PROJECT-LOG.md`, `PROPOSED-REDIRECTS.md`, `SUBDOMAIN-SETUP.md`, `TASKS.md`, `Taranis Website - AWS Infrastructure Summary.md`. | **Active data exposure** discovered mid-discovery: the workflow was syncing the repo root to the public S3 bucket with only specific folder excludes, so all `.md` docs at root were being served publicly at `https://taraniscapital.com/<file>.md`. PROJECT-LOG.md (65 KB) had been publicly readable since whenever it was added; MIGRATION-INVENTORY.md became exposed today when first committed. Fix combines the S3 sync `--delete` flag (which removes the no-longer-present root docs from the bucket on the next push) with structural and belt-and-braces workflow excludes to prevent regression. This is a workflow-file change that the Discovery policy would normally require as a follow-up, but an active public exposure justifies the inline deviation. | `git mv docs/*.md .` to move docs back to root (breaks privacy again — don't do this without first reverting the workflow exclude); then revert the `.github/workflows/deploy.yml` edit to remove the `*.md` and `docs/*` excludes. |
 | 2026-04-20 | **Created new IAM user `taranis-website-deploy`** with custom policy `TaranisWebsiteDeployPolicy` scoped to only: `s3:ListBucket`/`GetBucketLocation` on the 6 website buckets, `s3:GetObject`/`PutObject`/`DeleteObject` on their contents, and `cloudfront:CreateInvalidation` on the 6 distribution ARNs. Rotated GitHub repo secrets `AWS_ACCESS_KEY_ID` + `AWS_SECRET_ACCESS_KEY` to the new user's key. Verified with an empty-commit deploy — full workflow passed end-to-end. Old `taranis-deploy` access key deactivated (step in progress; delete scheduled 2026-04-21 after 24h). | Original `taranis-deploy` was substantially over-permissive (S3/Route53/CloudFront FullAccess + ECR + ECS inline) and shared with the Taranis Dataroom project. New user is website-only, least-privilege, and isolates website CI from any Dataroom compromise. Supersedes the 4 May rotation and least-privilege follow-ups. | IAM → Users → `taranis-website-deploy` → delete access key + user; IAM → Policies → `TaranisWebsiteDeployPolicy` → delete; GitHub → repo secrets → revert `AWS_ACCESS_KEY_ID` + `AWS_SECRET_ACCESS_KEY` to the old `taranis-deploy` key values. (Reverting assumes the old key is still active or has been reactivated.) |
 
 ---
 
 ## Questions for Mark
 
-Items that can't be resolved from the repo, the brief, `../ACCOUNTS.md`, or CLI calls under `taranis-deploy`'s permission scope. Resolve in one pass, then update the inventory.
+Items that can't be resolved from the repo, the brief, `../../ACCOUNTS.md`, or CLI calls under `taranis-deploy`'s permission scope. Resolve in one pass, then update the inventory.
 
-1. **Branch protection scope.** Initial ruleset was created targeting *all branches*; recommendation was to narrow to `main` only so feature-branch deletion and rebase force-push still work. Has this been changed? Current target pattern?
+1. ~~**Branch protection scope.**~~ — **Answered** (Mark 2026-04-20): ruleset target narrowed to `main` only.
 2. ~~**CloudTrail.** Is any trail configured in the `TaranisCapital` account?~~ — **None configured** (Mark confirmed 2026-04-20). Follow-up logged in `TASKS.md` to evaluate enabling a single free trail.
 3. ~~**`taranis-deploy` policy JSON.** Paste the full JSON of every attached and inline policy.~~ — **Answered** (Mark confirmed 2026-04-20, via console): 4 AWS-managed policies + 1 customer-inline. See Section 3. Finding: over-permissive. Follow-up logged in `TASKS.md`. The `ECSDeployPolicy` inline JSON still needs capture for full least-privilege review.
 4. ~~**Full IAM user list.**~~ — **Answered** (Mark confirmed 2026-04-20): 2 users total, `taranis-deploy` and `github-deploy`. Both without MFA, no console sign-in.
@@ -40,9 +42,9 @@ Items that can't be resolved from the repo, the brief, `../ACCOUNTS.md`, or CLI 
 6. ~~**Route 53 health check IDs.**~~ — **Answered** (inline, 2026-04-20). See the "Changes made during discovery" table.
 7. ~~**e& (nic.ae) renewal.**~~ — **Answered** (Mark 2026-04-20): expires **February 2027**, auto-renewal **ON**.
 8. ~~**GA4 access.**~~ — **Answered** (Mark 2026-04-20): `mark@taraniscapital.com` only; Google Search Console linked (same account); Google Ads not linked.
-9. **Local deploy key co-tenant.** The `taranis-deploy` access key is in `~/.aws/credentials` on this machine as `[default]`, `[disruptsmedia]` and `[TaranisCapital]` profiles — the same key used in GitHub secrets. Should we create a separate `mark-admin` IAM user for local CLI work and remove the deploy key from the local machine? This would halve blast radius on that single key.
-10. **MailerLite account holder / contract.** Which login email owns the MailerLite account; any billing/contract terms worth capturing?
-11. **IAM least-privilege tightening timing.** `taranis-deploy` is the CI user for both this site and the Taranis Dataroom (ECR + ECS policies indicate that). Recommend splitting into per-project users and scoping resources. Pair with the 4 May key rotation, or handle independently?
+9. ~~**Local deploy key co-tenant.**~~ — **Resolved 2026-04-20**: old `taranis-deploy` access key deactivated today. Local CLI now rejects the old profile (verified end-to-end). Follow-up in `TASKS.md` covers creating a separate `mark-admin` IAM user for local work when Mark wants it.
+10. ~~**MailerLite account holder / contract.**~~ — **Answered** (Mark 2026-04-20): owner `mark@taraniscapital.com`. **Free tier** (up to 500 subscribers). Currently 1 subscriber — re-review before crossing the 500 limit.
+11. ~~**IAM least-privilege tightening timing.**~~ — **Resolved 2026-04-20**: paired with the rotation, done today. `taranis-website-deploy` created with `TaranisWebsiteDeployPolicy` (6 buckets + 6 distributions, no wildcards). Old `taranis-deploy` still used by Dataroom — cleaned up during Dataroom's own discovery pass.
 
 ---
 
@@ -192,7 +194,7 @@ Both certs renew automatically through ACM (RenewalEligibility = ELIGIBLE). The 
   1. **Preferred:** `git revert <bad-sha>` → `git push origin main` → Actions re-syncs, invalidates
   2. **Object-level:** S3 versioning (enabled 2026-04-20) lets you restore previous file versions via `aws s3api list-object-versions` + `copy-object`
   3. **CloudFront:** no cache rollback — only invalidation. Subsequent push overwrites.
-- **Last rollback tested:** never (tracked as follow-up — Tier 2 Handover checklist requires a restore test).
+- **Last rollback tested:** **2026-04-20** (discovery pass). `git revert 760ba1a` → pushed → CI deploy succeeded with site still serving (HTTP 200) → `git revert` of that revert → pushed → content restored. Two commits in `git log` (`7860865`, `af7f867`) document the drill. Procedure verified end-to-end.
 
 ---
 
@@ -221,7 +223,7 @@ Both certs renew automatically through ACM (RenewalEligibility = ELIGIBLE). The 
   - Present only on `contact.html`
   - **No API key in HTML** — public form ID, MailerLite validates server-side
   - MFA on account: **ON** (enabled 2026-04-20)
-  - Contract/billing holder: `[TBD — see Questions for Mark item 9]`
+  - Contract/billing: **Free tier** (≤500 subscribers). Currently 1 subscriber. Owner login: `mark@taraniscapital.com`.
 
 - **Google Analytics 4** — traffic analytics
   - Measurement ID: `G-JLN31RRY1V`
@@ -273,7 +275,7 @@ Both certs renew automatically through ACM (RenewalEligibility = ELIGIBLE). The 
   2. Create S3 buckets + CloudFront distributions + Route 53 records per `SUBDOMAIN-SETUP.md` (or re-use existing if they still exist)
   3. Configure `taranis-deploy` IAM user + GitHub repo secrets
   4. `git push origin main` — Actions workflow syncs everything
-- **Last restore test:** never. Tier 2 Handover checklist requires a restore test; this is a follow-up.
+- **Last restore test:** never — **scheduled for 2026-04-30** in `TASKS.md`. Tier 2 Handover checklist requires a full restore-from-nothing drill (stand up a scratch S3 bucket + distribution, confirm the pipeline rebuilds the site end-to-end). Rollback (smaller scope) was tested 2026-04-20; the restore-from-nothing is a ~30-minute exercise best done in an unhurried window.
 
 ---
 
@@ -305,7 +307,8 @@ Both certs renew automatically through ACM (RenewalEligibility = ELIGIBLE). The 
 | No lifecycle policy on S3 versioning → old versions accumulate | Low | Follow-up — add 30-day expiry on noncurrent versions once we have confidence in the backup chain |
 | Distribution drift between main (TLS 1.3 + WAF + Function) and subdomains (TLS 1.2, no WAF, no Function) | Low | Review if a consistency pass is warranted |
 | 10 board bios missing, 11 LinkedIn URLs missing | Low (content, not infra) | Tracked in `MISSING-PROFILE-INFO.md` |
-| No restore-from-nothing drill has ever been run | Medium | Tier 2 Handover checklist — follow-up to schedule one dry-run |
+| No restore-from-nothing drill has ever been run | Medium | **Scheduled 2026-04-30** in `TASKS.md`. Rollback drill itself was performed 2026-04-20. |
+| **Active data exposure pre-2026-04-20: internal `.md` docs (including 65 KB `PROJECT-LOG.md`) were publicly readable** at `https://taraniscapital.com/<file>.md` because the workflow's S3 sync excluded specific folders but not `.md` files at root | Medium — historical. Resolved 2026-04-20 by moving docs to `docs/` + adding `*.md`/`docs/*` excludes to the workflow. Content that was exposed is now gone from the live bucket, but may have been indexed by search engines — Google cache / Wayback Machine retention is outside our control. | Resolved inline 2026-04-20. Follow-up consideration: Google search `site:taraniscapital.com filetype:md` to see if any pages were indexed, and request removal via Search Console if so |
 
 ---
 
@@ -313,8 +316,8 @@ Both certs renew automatically through ACM (RenewalEligibility = ELIGIBLE). The 
 
 - `MIGRATION-BRIEF.md`
 - `CLAUDE.md`
-- `../PROJECTS-REGISTER.md` (Discovery policy + inventory template)
-- `../ACCOUNTS.md` (Taranis rows, grep only)
+- `../../PROJECTS-REGISTER.md` (Discovery policy + inventory template)
+- `../../ACCOUNTS.md` (Taranis rows, grep only)
 - `Taranis Website - AWS Infrastructure Summary.md`
 - `SUBDOMAIN-SETUP.md` (skimmed Step 0 re url-rewrite Function)
 - `TASKS.md`
