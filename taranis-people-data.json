@@ -3,10 +3,82 @@
     "description": "Taranis Capital People Directory — structured reference file for website automation",
     "sourceFile": "Taranis-People-Data-Collection-KB.xlsx",
     "generatedBy": "Automated weekly sync",
-    "lastUpdated": "2026-04-13",
+    "lastUpdated": "2026-04-20",
     "schema": "1.0"
   },
   "people": [
+    {
+      "slug": "abdulaziz-al-sayyari",
+      "fullName": "Dr Abdulaziz Al Sayyari",
+      "type": "Board",
+      "role": "Investment Committee Member",
+      "email": "abdulazia@taraniscapital.com",
+      "linkedIn": "",
+      "profileImage": {
+        "path": "/images/team/Abdulaziz-Al-Sayyari-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Dr Abdulaziz Al Sayyari is an Investment Committee member for Taranis Capital's BioTech Growth Fund. He is the Managing Partner of BiSynergic and a former Executive Director of the Saudi Food and Drug Authority (SFDA).\n\nHe is a globally recognised expert in regulatory biotech and cell and gene therapy (CGT), serving on International Council for Harmonisation (ICH) bodies. He played a pivotal role in shaping the Kingdom of Saudi Arabia's national frameworks for advanced therapies, bridging policy and commercial objectives to localise innovation.\n\nDr Al Sayyari holds a PhD in Bioprocessing and an MBA from IMD Business School.",
+        "profileUrl": "taraniscapital.com/board/abdulaziz-al-sayyari"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Investment Committee Member",
+          "bio": "BiSynergic Managing Partner and former SFDA Executive Director. Global expert in regulatory biotech and CGT, serving on ICH bodies. Shaped KSA's national frameworks for advanced therapies. PhD Bioprocessing and IMD MBA. Bridges policy and commercial goals to localise innovation."
+        }
+      }
+    },
+    {
+      "slug": "abdullah-alawad",
+      "fullName": "Dr Abdullah Alawad",
+      "type": "Board",
+      "role": "Scientific Advisory Board Member",
+      "email": "abdullah@taraniscapital.com",
+      "linkedIn": "",
+      "profileImage": {
+        "path": "/images/team/Abdullah-Alawad-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Dr Abdullah Alawad is a Scientific Advisory Board member for Taranis Capital's BioTech Growth Fund. He holds a PhD in Biomedical Sciences and Biotechnology from the University of Sheffield, an MSc in Developmental Cell Biology from the University of Sussex, and a BSc in Biology from King Saud University.\n\nWith over 20 years of experience, he has spearheaded transformative projects enhancing healthcare delivery, developing next-generation researchers, and driving impactful solutions for critical health challenges. He founded the National Centre for Stem Cell Technology at KACST and served on the Saudi Human Genome Program founding team.\n\nDr Alawad is a biotech consultant to the Ministry of Defence Health Services, Ministry of Health, Ministry of Investment, and the Science and Technology Park at KACST. He holds certifications from Imperial College Business School and Valeric Business School.",
+        "profileUrl": "taraniscapital.com/board/abdullah-alawad"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Scientific Advisory Board",
+          "bio": "PhD in Biomedical Sciences (Sheffield). Founded National Centre for Stem Cell Technology at KACST. Saudi Human Genome Program founding team member. 20+ years spearheading transformative healthcare projects. Biotech consultant to multiple Saudi ministries."
+        }
+      }
+    },
     {
       "slug": "amer-mahmood",
       "fullName": "Dr Amer Mahmood",
@@ -80,6 +152,42 @@
         },
         "biotech": {
           "assigned": false
+        }
+      }
+    },
+    {
+      "slug": "arjumand-warsy",
+      "fullName": "Prof. Arjumand Warsy",
+      "type": "Board",
+      "role": "Scientific Advisory Board Member",
+      "email": "arjumand@taraniscapital.com",
+      "linkedIn": "",
+      "profileImage": {
+        "path": "/images/team/Arjumand-Warsy-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Prof. Arjumand Warsy is a Scientific Advisory Board member for Taranis Capital's BioTech Growth Fund. She is a distinguished retired King Saud University biochemistry professor with a multi-decade tenure.\n\nShe is a leading expert in genetic diseases and molecular genetics research, and a recipient of multiple teaching and research excellence awards. She served as Senior Scientist at the Central Laboratory Female Medical Centre and held positions as Postdoctoral Research Fellow at Birmingham University and Professor of Biochemistry at King Saud University's College of Medicine and College of Science.\n\nHer involvement in the WISE Initiative underscores her dedication to leveraging research on genetic diseases and molecular genetics to foster innovations addressing pressing health challenges in the region.",
+        "profileUrl": "taraniscapital.com/board/arjumand-warsy"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Scientific Advisory Board",
+          "bio": "Distinguished retired King Saud University biochemistry professor. Leading expert in genetic diseases and molecular genetics research. Multiple teaching and research excellence awards. Former Senior Scientist at Central Laboratory Female Medical Centre."
         }
       }
     },
@@ -434,6 +542,44 @@
       }
     },
     {
+      "slug": "jehanzeb-awan",
+      "fullName": "Jehanzeb Awan",
+      "type": "Partner",
+      "role": "CEO, J. Awan Capital (Fund Manager)",
+      "email": "jehanzeb@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/jehanzeb-awan-56b08430/",
+      "profileImage": {
+        "path": "/images/team/Jehanzeb-Awan-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Jehanzeb Awan is the Founding Partner and Chief Executive Officer of J. Awan Capital, the CMA-licensed Fund Manager for Taranis Capital's KSA fund vehicles. He brings over 25 years of experience in financial services regulation, compliance, and governance across the MENA region.\n\nHe established the compliance function at National Bank of Dubai (now Emirates NBD), served as Executive Director and Head of Compliance for Morgan Stanley's MENA business for approximately seven years, and founded J. Awan & Partners (an award-winning regulatory advisory firm) and Azakaw (a global regtech company). He is Chairman of the Middle East, Africa, and Asia Crypto and Blockchain Association.\n\nJehanzeb holds a Bachelor of Applied Science from the University of Arizona (Magna Cum Laude) and is a member of the International Compliance Association and the Association of Certified Anti-Money Laundering Specialists.",
+        "profileUrl": "taraniscapital.com/partners/jehanzeb-awan"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "CEO, J. Awan Capital (Fund Manager)",
+          "bio": "Founder and CEO of J. Awan Capital, the CMA-licensed Fund Manager for the Datacentre Fund. Over 25 years in financial services regulation and compliance across MENA. Investment Committee voting member."
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "CEO, J. Awan Capital (Fund Manager)",
+          "bio": "Founder and CEO of J. Awan Capital, the CMA-licensed Fund Manager. Former Regional Head of Compliance for Morgan Stanley MENA. 25+ years in financial services regulation, compliance, and governance. Provides strategic leadership for Fund Manager operations, regulatory compliance, and investor relations."
+        }
+      }
+    },
+    {
       "slug": "joel-blake",
       "fullName": "Joel Blake OBE",
       "type": "Board",
@@ -470,6 +616,78 @@
         },
         "biotech": {
           "assigned": false
+        }
+      }
+    },
+    {
+      "slug": "junaid-kashir",
+      "fullName": "Dr Junaid Kashir",
+      "type": "Board",
+      "role": "Scientific Advisory Board Member",
+      "email": "junaid@taraniscapital.com",
+      "linkedIn": "",
+      "profileImage": {
+        "path": "/images/team/Junaid-Kashir-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Dr Junaid Kashir is a Scientific Advisory Board member for Taranis Capital's BioTech Growth Fund and an Associate Professor at the Department of Biological Sciences, Khalifa University, Abu Dhabi.\n\nHe is a reproductive biology expert specialising in PLCζ (phospholipase C zeta) and embryonic development research. He leads groundbreaking lab-grown halal meat and FBS (fetal bovine serum) alternatives research programmes. His previous positions include roles at Oxford, Cardiff, the NHS, and Alfaisal University.\n\nHis pioneering research contributes directly to the WISE Initiative's mission of leveraging scientific advances for commercial and governmental applications in the GCC.",
+        "profileUrl": "taraniscapital.com/board/junaid-kashir"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Scientific Advisory Board",
+          "bio": "Associate Professor at Khalifa University. Reproductive biology expert specialising in PLCζ and embryonic development. Leads groundbreaking lab-grown halal meat and FBS alternatives research. Previous positions at Oxford, Cardiff, NHS, and Alfaisal University."
+        }
+      }
+    },
+    {
+      "slug": "kuyoung-chung",
+      "fullName": "Kuyoung Chung",
+      "type": "Board",
+      "role": "Investment Committee Member",
+      "email": "kuyoung@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/ku-young-chung/",
+      "profileImage": {
+        "path": "/images/team/KuYoung-Chung-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Kuyoung Chung is an Investment Committee member for Taranis Capital's BioTech Growth Fund. He is a Managing Director driving healthcare venture creation and digital strategy.\n\nHe is an expert in AI commercialisation with three patents and ten publications, having led innovation programmes for Samsung and LG. His expertise combines deep R&D capabilities, M&A due diligence, and global partnership strategy.\n\nKuyoung holds an MBA from IMD Business School and is an ETH Zurich alumnus.",
+        "profileUrl": "taraniscapital.com/board/kuyoung-chung"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Investment Committee Member",
+          "bio": "Managing Director driving healthcare venture creation and digital strategy. Expert in AI commercialisation with 3 patents and 10 publications. Led innovation for Samsung and LG. IMD MBA and ETH Zurich alumnus. Combines deep R&D, M&A due diligence, and global partnership strategy."
         }
       }
     },
@@ -756,6 +974,44 @@
       }
     },
     {
+      "slug": "mustafa-mahmood-khan",
+      "fullName": "Mustafa Mahmood Khan, CFA",
+      "type": "Partner",
+      "role": "Head of Asset Management, J. Awan Capital",
+      "email": "mustafa@taraniscapital.com",
+      "linkedIn": "",
+      "profileImage": {
+        "path": "/images/team/Mustafa-Mahmood-Khan-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Mustafa Mahmood Khan, CFA, leads the Asset Management division of J. Awan Capital with over 15 years of experience in portfolio management and financial consulting. He is a CMA-registered professional who has successfully advised and managed portfolios for high-net-worth individuals, institutional investors, and treasury funds.\n\nHe has delivered multi-million-dollar mandates and developed bespoke investment strategies tailored to client objectives and risk profiles. His experience spans multiple asset classes and investment strategies. Prior roles include Portfolio Manager at Al Meezan Investment Management and Head of Research and Fund Manager at HBL Asset Management.\n\nMustafa is an ACCA-qualified professional and CFA Charterholder, reflecting his commitment to the highest standards of investment analysis and portfolio management.",
+        "profileUrl": "taraniscapital.com/partners/mustafa-mahmood-khan"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Head of Asset Management, J. Awan Capital",
+          "bio": "CFA Charterholder and CMA-registered professional leading J. Awan Capital's Asset Management division. 15+ years in portfolio management. Investment Committee voting member."
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Head of Asset Management, J. Awan Capital",
+          "bio": "CFA Charterholder leading J. Awan Capital's Asset Management division. 15+ years in portfolio management and financial consulting. CMA-registered. Oversees fund operations, portfolio monitoring, and investor reporting."
+        }
+      }
+    },
+    {
       "slug": "nicholas-bingham",
       "fullName": "Nicholas S. Bingham",
       "type": "Team",
@@ -926,6 +1182,44 @@
       }
     },
     {
+      "slug": "qaisar-hamed-metawea",
+      "fullName": "Dr Qaisar Hamed Metawea",
+      "type": "Partner",
+      "role": "Managing Partner, QHM Law Firm (Local KSA Counsel)",
+      "email": "qaisar@taraniscapital.com",
+      "linkedIn": "",
+      "profileImage": {
+        "path": "/images/team/Qaisar-Hamed-Metawea-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Dr Qaisar Hamed Metawea is the Managing Partner and founding partner of QHM Law Firm, serving as Local KSA Counsel for Taranis Capital's fund vehicles. He is a Saudi lawyer licensed by the Ministry of Justice with over 15 years of practice.\n\nHe holds an SJD and LLM in International Intellectual Property Law from Indiana University, bringing deep expertise in Saudi commercial law, regulatory matters, and cross-border transactions. His practice encompasses legal opinions, business transactions, company structuring, litigation, and regulatory matters within the Kingdom.\n\nDr Metawea provides specialised knowledge relevant to biotechnology investments and intellectual property considerations, supporting portfolio company localisation activities and ensuring compliance with Kingdom-specific requirements.",
+        "profileUrl": "taraniscapital.com/partners/qaisar-hamed-metawea"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": true,
+          "role": "Local KSA Counsel (QHM Law Firm)",
+          "bio": "Saudi lawyer and founding partner of QHM Law Firm. Licensed by the Ministry of Justice with 15+ years of practice. SJD and LLM in International IP Law from Indiana University. Deep expertise in Saudi commercial law and regulatory matters."
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Local KSA Counsel (QHM Law Firm)",
+          "bio": "Saudi lawyer and founding partner of QHM Law Firm. Licensed by the Ministry of Justice with 15+ years of practice. SJD and LLM in International IP Law from Indiana University. Provides specialist KSA legal counsel on regulatory matters and biotech IP."
+        }
+      }
+    },
+    {
       "slug": "rayan-al-karawi",
       "fullName": "Rayan Al-Karawi",
       "type": "Board",
@@ -1002,6 +1296,42 @@
       }
     },
     {
+      "slug": "sebastian-vaughan",
+      "fullName": "Dr Sebastian Vaughan",
+      "type": "Board",
+      "role": "Investment Committee Member / CEO, Phytome Life Sciences",
+      "email": "sabastian@taraniscapital.com",
+      "linkedIn": "https://www.linkedin.com/in/dr-sebastian-vaughan-51365a18/",
+      "profileImage": {
+        "path": "/images/team/Sebastian-Vaughan-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Dr Sebastian Vaughan is an Investment Committee member for Taranis Capital's BioTech Growth Fund and the CEO of Phytome Life Sciences. He is also the Technical Services Adviser for the Green Biotech Fund.\n\nA serial healthcare entrepreneur, Dr Vaughan holds a PhD in Biochemistry from the University of Leeds and an MBA from Imperial College London. He is a former Imperial College post-doctoral researcher who discovered novel cancer gene functions, with research published in Nature and Cancer Discovery.\n\nHis deep scientific and commercial expertise across life sciences makes him uniquely positioned to evaluate biotech investment opportunities and support portfolio company development.",
+        "profileUrl": "taraniscapital.com/board/sebastian-vaughan"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Investment Committee Member",
+          "bio": "CEO of Phytome Life Sciences and serial healthcare entrepreneur. PhD in Biochemistry (Leeds) and MBA (Imperial College). Former Imperial College researcher published in Nature and Cancer Discovery. Deep scientific and commercial expertise across life sciences."
+        }
+      }
+    },
+    {
       "slug": "svitlana-burlakova",
       "fullName": "Svitlana Burlakova, ICA, TEP",
       "type": "Team",
@@ -1072,336 +1402,6 @@
           "assigned": true,
           "role": "Director of Localisation / Scientific Advisory Board",
           "bio": "Biotech growth architect with 25+ years in KSA and MENA. Expert in localisation strategy, NUPCO tenders, and SFDA pathways. Proven track record building profitable entities, scaling revenue, and driving end-to-end commercialisation for biologics and pharmaceuticals."
-        }
-      }
-    },
-    {
-      "slug": "jehanzeb-awan",
-      "fullName": "Jehanzeb Awan",
-      "type": "Partner",
-      "role": "CEO, J. Awan Capital (Fund Manager)",
-      "email": "jehanzeb@taraniscapital.com",
-      "linkedIn": "https://www.linkedin.com/in/jehanzeb-awan-56b08430/",
-      "profileImage": {
-        "path": "/images/team/Jehanzeb-Awan-600x650-277x300.jpg",
-        "hasImage": true
-      },
-      "mainSite": {
-        "bioStatus": "Complete",
-        "bio": "Jehanzeb Awan is the Founding Partner and Chief Executive Officer of J. Awan Capital, the CMA-licensed Fund Manager for Taranis Capital's KSA fund vehicles. He brings over 25 years of experience in financial services regulation, compliance, and governance across the MENA region.\n\nHe established the compliance function at National Bank of Dubai (now Emirates NBD), served as Executive Director and Head of Compliance for Morgan Stanley's MENA business for approximately seven years, and founded J. Awan & Partners (an award-winning regulatory advisory firm) and Azakaw (a global regtech company). He is Chairman of the Middle East, Africa, and Asia Crypto and Blockchain Association.\n\nJehanzeb holds a Bachelor of Applied Science from the University of Arizona (Magna Cum Laude) and is a member of the International Compliance Association and the Association of Certified Anti-Money Laundering Specialists.",
-        "profileUrl": "taraniscapital.com/partners/jehanzeb-awan"
-      },
-      "funds": {
-        "fintech": {
-          "assigned": false
-        },
-        "property": {
-          "assigned": false
-        },
-        "datacentre": {
-          "assigned": true,
-          "role": "CEO, J. Awan Capital (Fund Manager)",
-          "bio": "Founder and CEO of J. Awan Capital, the CMA-licensed Fund Manager for the Datacentre Fund. Over 25 years in financial services regulation and compliance across MENA. Investment Committee voting member."
-        },
-        "disruptiveTech": {
-          "assigned": false
-        },
-        "biotech": {
-          "assigned": true,
-          "role": "CEO, J. Awan Capital (Fund Manager)",
-          "bio": "Founder and CEO of J. Awan Capital, the CMA-licensed Fund Manager. Former Regional Head of Compliance for Morgan Stanley MENA. 25+ years in financial services regulation, compliance, and governance. Provides strategic leadership for Fund Manager operations, regulatory compliance, and investor relations."
-        }
-      }
-    },
-    {
-      "slug": "mustafa-mahmood-khan",
-      "fullName": "Mustafa Mahmood Khan, CFA",
-      "type": "Partner",
-      "role": "Head of Asset Management, J. Awan Capital",
-      "email": "mustafa@taraniscapital.com",
-      "linkedIn": "",
-      "profileImage": {
-        "path": "/images/team/Mustafa-Mahmood-Khan-600x650-277x300.jpg",
-        "hasImage": true
-      },
-      "mainSite": {
-        "bioStatus": "Complete",
-        "bio": "Mustafa Mahmood Khan, CFA, leads the Asset Management division of J. Awan Capital with over 15 years of experience in portfolio management and financial consulting. He is a CMA-registered professional who has successfully advised and managed portfolios for high-net-worth individuals, institutional investors, and treasury funds.\n\nHe has delivered multi-million-dollar mandates and developed bespoke investment strategies tailored to client objectives and risk profiles. His experience spans multiple asset classes and investment strategies. Prior roles include Portfolio Manager at Al Meezan Investment Management and Head of Research and Fund Manager at HBL Asset Management.\n\nMustafa is an ACCA-qualified professional and CFA Charterholder, reflecting his commitment to the highest standards of investment analysis and portfolio management.",
-        "profileUrl": "taraniscapital.com/partners/mustafa-mahmood-khan"
-      },
-      "funds": {
-        "fintech": {
-          "assigned": false
-        },
-        "property": {
-          "assigned": false
-        },
-        "datacentre": {
-          "assigned": true,
-          "role": "Head of Asset Management, J. Awan Capital",
-          "bio": "CFA Charterholder and CMA-registered professional leading J. Awan Capital's Asset Management division. 15+ years in portfolio management. Investment Committee voting member."
-        },
-        "disruptiveTech": {
-          "assigned": false
-        },
-        "biotech": {
-          "assigned": true,
-          "role": "Head of Asset Management, J. Awan Capital",
-          "bio": "CFA Charterholder leading J. Awan Capital's Asset Management division. 15+ years in portfolio management and financial consulting. CMA-registered. Oversees fund operations, portfolio monitoring, and investor reporting."
-        }
-      }
-    },
-    {
-      "slug": "abdulaziz-al-sayyari",
-      "fullName": "Dr Abdulaziz Al Sayyari",
-      "type": "Board",
-      "role": "Investment Committee Member",
-      "email": "abdulazia@taraniscapital.com",
-      "linkedIn": "",
-      "profileImage": {
-        "path": "/images/team/Abdulaziz-Al-Sayyari-600x650-277x300.jpg",
-        "hasImage": true
-      },
-      "mainSite": {
-        "bioStatus": "Complete",
-        "bio": "Dr Abdulaziz Al Sayyari is an Investment Committee member for Taranis Capital's BioTech Growth Fund. He is the Managing Partner of BiSynergic and a former Executive Director of the Saudi Food and Drug Authority (SFDA).\n\nHe is a globally recognised expert in regulatory biotech and cell and gene therapy (CGT), serving on International Council for Harmonisation (ICH) bodies. He played a pivotal role in shaping the Kingdom of Saudi Arabia's national frameworks for advanced therapies, bridging policy and commercial objectives to localise innovation.\n\nDr Al Sayyari holds a PhD in Bioprocessing and an MBA from IMD Business School.",
-        "profileUrl": "taraniscapital.com/board/abdulaziz-al-sayyari"
-      },
-      "funds": {
-        "fintech": {
-          "assigned": false
-        },
-        "property": {
-          "assigned": false
-        },
-        "datacentre": {
-          "assigned": false
-        },
-        "disruptiveTech": {
-          "assigned": false
-        },
-        "biotech": {
-          "assigned": true,
-          "role": "Investment Committee Member",
-          "bio": "BiSynergic Managing Partner and former SFDA Executive Director. Global expert in regulatory biotech and CGT, serving on ICH bodies. Shaped KSA's national frameworks for advanced therapies. PhD Bioprocessing and IMD MBA. Bridges policy and commercial goals to localise innovation."
-        }
-      }
-    },
-    {
-      "slug": "kuyoung-chung",
-      "fullName": "Kuyoung Chung",
-      "type": "Board",
-      "role": "Investment Committee Member",
-      "email": "kuyoung@taraniscapital.com",
-      "linkedIn": "https://www.linkedin.com/in/ku-young-chung/",
-      "profileImage": {
-        "path": "/images/team/KuYoung-Chung-600x650-277x300.jpg",
-        "hasImage": true
-      },
-      "mainSite": {
-        "bioStatus": "Complete",
-        "bio": "Kuyoung Chung is an Investment Committee member for Taranis Capital's BioTech Growth Fund. He is a Managing Director driving healthcare venture creation and digital strategy.\n\nHe is an expert in AI commercialisation with three patents and ten publications, having led innovation programmes for Samsung and LG. His expertise combines deep R&D capabilities, M&A due diligence, and global partnership strategy.\n\nKuyoung holds an MBA from IMD Business School and is an ETH Zurich alumnus.",
-        "profileUrl": "taraniscapital.com/board/kuyoung-chung"
-      },
-      "funds": {
-        "fintech": {
-          "assigned": false
-        },
-        "property": {
-          "assigned": false
-        },
-        "datacentre": {
-          "assigned": false
-        },
-        "disruptiveTech": {
-          "assigned": false
-        },
-        "biotech": {
-          "assigned": true,
-          "role": "Investment Committee Member",
-          "bio": "Managing Director driving healthcare venture creation and digital strategy. Expert in AI commercialisation with 3 patents and 10 publications. Led innovation for Samsung and LG. IMD MBA and ETH Zurich alumnus. Combines deep R&D, M&A due diligence, and global partnership strategy."
-        }
-      }
-    },
-    {
-      "slug": "sebastian-vaughan",
-      "fullName": "Dr Sebastian Vaughan",
-      "type": "Board",
-      "role": "Investment Committee Member / CEO, Phytome Life Sciences",
-      "email": "sabastian@taraniscapital.com",
-      "linkedIn": "https://www.linkedin.com/in/dr-sebastian-vaughan-51365a18/",
-      "profileImage": {
-        "path": "/images/team/Sebastian-Vaughan-600x650-277x300.jpg",
-        "hasImage": true
-      },
-      "mainSite": {
-        "bioStatus": "Complete",
-        "bio": "Dr Sebastian Vaughan is an Investment Committee member for Taranis Capital's BioTech Growth Fund and the CEO of Phytome Life Sciences. He is also the Technical Services Adviser for the Green Biotech Fund.\n\nA serial healthcare entrepreneur, Dr Vaughan holds a PhD in Biochemistry from the University of Leeds and an MBA from Imperial College London. He is a former Imperial College post-doctoral researcher who discovered novel cancer gene functions, with research published in Nature and Cancer Discovery.\n\nHis deep scientific and commercial expertise across life sciences makes him uniquely positioned to evaluate biotech investment opportunities and support portfolio company development.",
-        "profileUrl": "taraniscapital.com/board/sebastian-vaughan"
-      },
-      "funds": {
-        "fintech": {
-          "assigned": false
-        },
-        "property": {
-          "assigned": false
-        },
-        "datacentre": {
-          "assigned": false
-        },
-        "disruptiveTech": {
-          "assigned": false
-        },
-        "biotech": {
-          "assigned": true,
-          "role": "Investment Committee Member",
-          "bio": "CEO of Phytome Life Sciences and serial healthcare entrepreneur. PhD in Biochemistry (Leeds) and MBA (Imperial College). Former Imperial College researcher published in Nature and Cancer Discovery. Deep scientific and commercial expertise across life sciences."
-        }
-      }
-    },
-    {
-      "slug": "arjumand-warsy",
-      "fullName": "Prof. Arjumand Warsy",
-      "type": "Board",
-      "role": "Scientific Advisory Board Member",
-      "email": "arjumand@taraniscapital.com",
-      "linkedIn": "",
-      "profileImage": {
-        "path": "/images/team/Arjumand-Warsy-600x650-277x300.jpg",
-        "hasImage": true
-      },
-      "mainSite": {
-        "bioStatus": "Complete",
-        "bio": "Prof. Arjumand Warsy is a Scientific Advisory Board member for Taranis Capital's BioTech Growth Fund. She is a distinguished retired King Saud University biochemistry professor with a multi-decade tenure.\n\nShe is a leading expert in genetic diseases and molecular genetics research, and a recipient of multiple teaching and research excellence awards. She served as Senior Scientist at the Central Laboratory Female Medical Centre and held positions as Postdoctoral Research Fellow at Birmingham University and Professor of Biochemistry at King Saud University's College of Medicine and College of Science.\n\nHer involvement in the WISE Initiative underscores her dedication to leveraging research on genetic diseases and molecular genetics to foster innovations addressing pressing health challenges in the region.",
-        "profileUrl": "taraniscapital.com/board/arjumand-warsy"
-      },
-      "funds": {
-        "fintech": {
-          "assigned": false
-        },
-        "property": {
-          "assigned": false
-        },
-        "datacentre": {
-          "assigned": false
-        },
-        "disruptiveTech": {
-          "assigned": false
-        },
-        "biotech": {
-          "assigned": true,
-          "role": "Scientific Advisory Board",
-          "bio": "Distinguished retired King Saud University biochemistry professor. Leading expert in genetic diseases and molecular genetics research. Multiple teaching and research excellence awards. Former Senior Scientist at Central Laboratory Female Medical Centre."
-        }
-      }
-    },
-    {
-      "slug": "junaid-kashir",
-      "fullName": "Dr Junaid Kashir",
-      "type": "Board",
-      "role": "Scientific Advisory Board Member",
-      "email": "junaid@taraniscapital.com",
-      "linkedIn": "",
-      "profileImage": {
-        "path": "/images/team/Junaid-Kashir-600x650-277x300.jpg",
-        "hasImage": true
-      },
-      "mainSite": {
-        "bioStatus": "Complete",
-        "bio": "Dr Junaid Kashir is a Scientific Advisory Board member for Taranis Capital's BioTech Growth Fund and an Associate Professor at the Department of Biological Sciences, Khalifa University, Abu Dhabi.\n\nHe is a reproductive biology expert specialising in PLCζ (phospholipase C zeta) and embryonic development research. He leads groundbreaking lab-grown halal meat and FBS (fetal bovine serum) alternatives research programmes. His previous positions include roles at Oxford, Cardiff, the NHS, and Alfaisal University.\n\nHis pioneering research contributes directly to the WISE Initiative's mission of leveraging scientific advances for commercial and governmental applications in the GCC.",
-        "profileUrl": "taraniscapital.com/board/junaid-kashir"
-      },
-      "funds": {
-        "fintech": {
-          "assigned": false
-        },
-        "property": {
-          "assigned": false
-        },
-        "datacentre": {
-          "assigned": false
-        },
-        "disruptiveTech": {
-          "assigned": false
-        },
-        "biotech": {
-          "assigned": true,
-          "role": "Scientific Advisory Board",
-          "bio": "Associate Professor at Khalifa University. Reproductive biology expert specialising in PLCζ and embryonic development. Leads groundbreaking lab-grown halal meat and FBS alternatives research. Previous positions at Oxford, Cardiff, NHS, and Alfaisal University."
-        }
-      }
-    },
-    {
-      "slug": "abdullah-alawad",
-      "fullName": "Dr Abdullah Alawad",
-      "type": "Board",
-      "role": "Scientific Advisory Board Member",
-      "email": "abdullah@taraniscapital.com",
-      "linkedIn": "",
-      "profileImage": {
-        "path": "/images/team/Abdullah-Alawad-600x650-277x300.jpg",
-        "hasImage": true
-      },
-      "mainSite": {
-        "bioStatus": "Complete",
-        "bio": "Dr Abdullah Alawad is a Scientific Advisory Board member for Taranis Capital's BioTech Growth Fund. He holds a PhD in Biomedical Sciences and Biotechnology from the University of Sheffield, an MSc in Developmental Cell Biology from the University of Sussex, and a BSc in Biology from King Saud University.\n\nWith over 20 years of experience, he has spearheaded transformative projects enhancing healthcare delivery, developing next-generation researchers, and driving impactful solutions for critical health challenges. He founded the National Centre for Stem Cell Technology at KACST and served on the Saudi Human Genome Program founding team.\n\nDr Alawad is a biotech consultant to the Ministry of Defence Health Services, Ministry of Health, Ministry of Investment, and the Science and Technology Park at KACST. He holds certifications from Imperial College Business School and Valeric Business School.",
-        "profileUrl": "taraniscapital.com/board/abdullah-alawad"
-      },
-      "funds": {
-        "fintech": {
-          "assigned": false
-        },
-        "property": {
-          "assigned": false
-        },
-        "datacentre": {
-          "assigned": false
-        },
-        "disruptiveTech": {
-          "assigned": false
-        },
-        "biotech": {
-          "assigned": true,
-          "role": "Scientific Advisory Board",
-          "bio": "PhD in Biomedical Sciences (Sheffield). Founded National Centre for Stem Cell Technology at KACST. Saudi Human Genome Program founding team member. 20+ years spearheading transformative healthcare projects. Biotech consultant to multiple Saudi ministries."
-        }
-      }
-    },
-    {
-      "slug": "qaisar-hamed-metawea",
-      "fullName": "Dr Qaisar Hamed Metawea",
-      "type": "Partner",
-      "role": "Managing Partner, QHM Law Firm (Local KSA Counsel)",
-      "email": "qaisar@taraniscapital.com",
-      "linkedIn": "",
-      "profileImage": {
-        "path": "/images/team/Qaisar-Hamed-Metawea-600x650-277x300.jpg",
-        "hasImage": true
-      },
-      "mainSite": {
-        "bioStatus": "Complete",
-        "bio": "Dr Qaisar Hamed Metawea is the Managing Partner and founding partner of QHM Law Firm, serving as Local KSA Counsel for Taranis Capital's fund vehicles. He is a Saudi lawyer licensed by the Ministry of Justice with over 15 years of practice.\n\nHe holds an SJD and LLM in International Intellectual Property Law from Indiana University, bringing deep expertise in Saudi commercial law, regulatory matters, and cross-border transactions. His practice encompasses legal opinions, business transactions, company structuring, litigation, and regulatory matters within the Kingdom.\n\nDr Metawea provides specialised knowledge relevant to biotechnology investments and intellectual property considerations, supporting portfolio company localisation activities and ensuring compliance with Kingdom-specific requirements.",
-        "profileUrl": "taraniscapital.com/partners/qaisar-hamed-metawea"
-      },
-      "funds": {
-        "fintech": {
-          "assigned": false
-        },
-        "property": {
-          "assigned": false
-        },
-        "datacentre": {
-          "assigned": true,
-          "role": "Local KSA Counsel (QHM Law Firm)",
-          "bio": "Saudi lawyer and founding partner of QHM Law Firm. Licensed by the Ministry of Justice with 15+ years of practice. SJD and LLM in International IP Law from Indiana University. Deep expertise in Saudi commercial law and regulatory matters."
-        },
-        "disruptiveTech": {
-          "assigned": false
-        },
-        "biotech": {
-          "assigned": true,
-          "role": "Local KSA Counsel (QHM Law Firm)",
-          "bio": "Saudi lawyer and founding partner of QHM Law Firm. Licensed by the Ministry of Justice with 15+ years of practice. SJD and LLM in International IP Law from Indiana University. Provides specialist KSA legal counsel on regulatory matters and biotech IP."
         }
       }
     }

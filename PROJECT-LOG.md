@@ -693,6 +693,119 @@ Nothing to flag this week. All indexing counts are identical to the Session 9 ba
 
 ---
 
+### Weekly Sync — 2026-04-20 (Automated)
+
+**Source:** Taranis-People-Data-Collection-KB.xlsx
+**People count:** 36 (9 Team, 3 Partners, 24 Board)
+
+**JSON regenerated:**
+- `taranis-people-data.json` — `lastUpdated` bumped to 2026-04-20. Linked-in values sanitised: the literal string `"MISSING"` was previously stored for 11 people; those are now normalised to empty strings. Existing non-empty image paths and `profileUrl` values preserved where the spreadsheet cell was empty/MISSING.
+
+**Profile pages updated (8):**
+- `team/bijna-kotak-dasani.html` — inner `profile-name` h1 updated from "Dr. Bijna Kotak Dasani" to "Dr. Bijna Kotak Dasani MBE, FRSA" (hero h1 was already correct)
+- `team/svitlana-burlakova.html` — inner `profile-name` h1 updated from "Svitlana Burlakova" to "Svitlana Burlakova, ICA, TEP"
+- `board/ghassan-najmeddin.html` — bio expanded from 1 para (28 words) to 2 paras (83 words) with richer content on Emirates NBD Saudi Arabia role
+- `board/leif-hesse.html` — bio expanded from 1 para (23 words) to 3 paras (92 words) covering cybersecurity architecture, sovereign-grade infrastructure expertise, and KSA Vision 2030 digital sovereignty
+- `board/osama-al-thanon.html` — bio expanded from 1 para (44 words) to 3 paras (112 words) covering ABB career, digital transformation, and white-hat security
+- `board/rayan-al-karawi.html` — bio expanded from 1 para (28 words) to 3 paras (116 words) covering Central Bank of Kuwait start, Razeen Capital chairmanship, and Saudi capital markets depth
+- `board/sarah-sinclair.html` — bio expanded from 1 para (22 words) to 3 paras (128 words) covering ChangeGap, Co-Labs collaboration initiative, and ESG strategy expertise
+- `board/tarek-el-mans.html` — bio expanded from 1 para (23 words) to 3 paras (114 words) covering Director of Localisation role, biotech growth architecture, and MENA portfolio work
+
+**Policy note:** Bio updates are only applied where the JSON version has equal or greater word count than the HTML — this prevents richer hand-written HTML bios from being overwritten by shorter spreadsheet summaries.
+
+**Sitemap updated:**
+- `sitemap.xml` — `lastmod` dates refreshed to 2026-04-20 for all 8 pages above. All 36 profile URLs already listed; no additions needed.
+
+**who-we-are.html:** No changes needed — all 36 people present with correct names, roles, and images in the Team, Fund Partners, and Board of Advisers sections.
+
+**Subdomain fund pages (fintech, property, datacentre, disruptive-tech):** No changes needed — all assigned people present on their respective pages (HE Eng. Osama Al-Zamil is listed as "H.E. Eng. Osama Al-Zamil" across subdomains, minor punctuation variance vs JSON; left as-is this run).
+
+**Data gaps (ongoing):**
+- **11 people still missing LinkedIn URLs in the spreadsheet:** daniel-roubeni, ghassan-najmeddin, mohammed-aljumah, osama-al-thanon, osama-al-zamil, mustafa-mahmood-khan, abdulaziz-al-sayyari, arjumand-warsy, junaid-kashir, abdullah-alawad, qaisar-hamed-metawea
+- **1 person missing email:** mohammed-aljumah
+- **All 36 people have profile images on disk**, and all 36 have profile HTML pages that exist
+
+---
+
+### Session 15 — 20 April 2026 (GSC Weekly Check)
+
+**Automated weekly Google Search Console health check — taraniscapital.com**
+
+**1. Sitemaps**
+- sitemap.xml — Status: **Success** ✅
+- Last read: 18 Apr 2026
+- Discovered pages: **49** — matches local sitemap.xml exactly ✅ (no mismatch)
+
+**2. Page Indexing**
+- Last update: **17/04/2026** — data has now refreshed (previous weekly check was still on the 06/04/2026 pre-fix snapshot, so this is the first post-validation dataset)
+- Indexed: **142** (was 281 at baseline) — DOWN 139
+- Not indexed: **370** (was 180 at baseline) — UP 190
+- 9 reasons total (2 new categories since baseline, plus 1 "Passed")
+
+| Reason | Pages | Validation | vs Baseline (Sessions 9/11) |
+|---|---|---|---|
+| Not found (404) | 242 | Not Started | was 48 — **UP 194** 🚨 (still all old WP URLs — see spot-check below) |
+| Page with redirect | 30 | Not Started | was 38 — DOWN 8 ✅ |
+| Alternative page with proper canonical tag | 9 | Not Started | was 11 — DOWN 2 ✅ |
+| Excluded by 'noindex' tag | 4 | Not Started | **NEW category** 🆕 (see below) |
+| Discovered – currently not indexed | 24 | Not Started | **NEW category** 🆕 (see below) |
+| Blocked due to other 4xx issue | 1 | Started | was 1 — No change |
+| Blocked by robots.txt | 1 | Started | was 1 — No change |
+| Crawled - currently not indexed | 59 | Started | was 81 — **DOWN 22** ✅ (validation making progress) |
+| Duplicate, Google chose different canonical than user | 0 | **Passed** ✅ | (Passed since last check) |
+
+**Validation run status (started 10/04/2026 — day 10 of the 14–28 day window):**
+- Crawled – currently not indexed: Started, trending down (81 → 59) ✅
+- Blocked by robots.txt: Started, 1 page unchanged
+- Blocked due to other 4xx issue: Started, 1 page unchanged
+- No runs have flipped to Passed or Failed yet — still within window. Next meaningful check: week of 24 April.
+
+**404 spot-check (10 sample URLs inspected):** Pattern is consistent with Option A decision — all old WordPress content, none are legitimate current pages.
+- Old Disrupts-style news articles (7 of 10): `/arch-labs-raises-13m-to-bring-smart-contracts-to-bitcoin/`, `/qanooni-raises-2m-to-transform-legal-ai-in-uae-uk/`, `/unravel-raises-7m-series-a-...`, `/opentrade-raises-7m-...`, `/olea-secures-30m-...`, `/tamara-secures-2-4b-...`, `/fuse-secures-6-6m-...`
+- Old WP pagination (2 of 10): `/page/45/`, `/page/55/`
+- Old WP board path (1 of 10): `/board_members/asim-chohan-acp-ccp-mcp-pmp/`
+
+Per Option A the news/pagination URLs stay as 404. The `/board_members/*` path pattern is not covered by the existing CloudFront Function redirect table — worth considering a pattern redirect to `/board/{slug}` if more of these surface in future audits.
+
+**New category — "Excluded by 'noindex' tag" (4 pages):**
+- `fintech.taraniscapital.com`
+- `disruptive-tech.taraniscapital.com`
+- `property.taraniscapital.com`
+- `datacentre.taraniscapital.com`
+- Verified locally: all 5 fund subdomain `index.html` files (including biotech) carry `<meta name="robots" content="noindex, follow">`. This appears intentional — the subdomains are DFSA-regulated fund marketing material, appropriately kept out of general search. Biotech hasn't joined this bucket yet simply because the CloudFront distribution only went live on 10 April and Google hasn't fully processed it; expect it to appear in next week's list.
+- **Action:** Confirm this is the desired state (likely yes given regulatory context). If subdomain homepages should be indexable, the meta tag needs removing across all 5 subdomains.
+
+**New category — "Discovered – currently not indexed" (24 pages):**
+- All are new `/board/` profile pages (abdulaziz-al-sayyari, abdullah-alawad, amer-mahmood, arjumand-warsy, asim-chohan, bruno-martorano, david-grunfeld, ghassan-najmeddin, and others)
+- Last crawled: N/A — Google has discovered these via sitemap but not yet allocated crawl budget
+- Expected state for recently-added pages; should resolve naturally as Google works through the sitemap.
+
+**3. Performance (last 7 days: 12–18 Apr 2026)**
+- Total clicks: **52** (prev 7-day period 33 — **+58%**)
+- Total impressions: **3,920** (prev 3,730 — +5%)
+- Average CTR: **1.3%** (prev 0.9%)
+- Average position: **6.9** (prev 7.1 — improved by 0.2)
+- Strong week-on-week improvement across all four metrics.
+
+**4. Manual Actions & Security Issues**
+- Manual actions: **No issues detected** ✅
+- Security issues: **No issues detected** ✅
+
+**5. Core Web Vitals**
+- Source: Chrome UX report, last updated 18/04/2026
+- Mobile: Not enough usage data (last 90 days) — no Poor/Needs improvement URLs
+- Desktop: Not enough usage data (last 90 days) — no Poor/Needs improvement URLs
+
+**Issues to raise with Mark**
+
+1. **404 count up from 48 → 242.** All sampled URLs are historical WordPress content (old Disrupts-style news articles, `/page/N/` pagination, one `/board_members/` path). Per the Option A decision these stay as 404. No action required unless you'd like a pattern redirect added for `/board_members/*` → `/board/{slug}` (only 1 example seen this week so probably not worth the effort yet).
+2. **"Excluded by 'noindex' tag" is a new category, 4 pages.** These are the 4 fund subdomain homepages (fintech / datacentre / property / disruptive-tech). All 5 subdomain index pages (incl. biotech) contain an intentional `<meta name="robots" content="noindex, follow">` tag. Please confirm this is desired; if the fund subdomains should be appearing in Google Search, the meta tag needs removing.
+3. **"Discovered – currently not indexed" is a new category, 24 pages.** All are new `/board/` profile pages awaiting Google's crawl. Expected state — no action needed.
+4. **Validation progress is positive.** Crawled-not-indexed is trending down (81 → 59) while still in the Started state, which is the outcome we want. Next meaningful check is week of 24 April when Pass/Fail outcomes should appear.
+5. **Performance up sharply** — clicks +58% week-on-week, CTR up from 0.9% to 1.3%, average position improved from 7.1 to 6.9.
+
+---
+
 ## Pending / To Do
 
 ### Content & Data
