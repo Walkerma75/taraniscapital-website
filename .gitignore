@@ -2,8 +2,9 @@ Wp-content/
 Board of Advisors/ 
 Documents/ 
 TC Logos/ 
-Team Images/ 
-.DS_Store 
+Team Images/
+Tmp Images folder/
+.DS_Store
 Thumbs.db 
 *.log
 
