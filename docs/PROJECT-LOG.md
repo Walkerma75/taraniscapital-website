@@ -856,6 +856,62 @@ David Parker, Emad Zowawi, Jack Hollander, Joel Blake, Mark Walker, Mazen Al-Rah
 
 ---
 
+### Session 17 — 22 April 2026 (Weekly Profile Sync — automated)
+
+**Scheduled task run:** `weekly-profile-updates-taraniscapital-website` (automated)
+
+**Spreadsheet read**
+- Source: `Taranis-People-Data-Collection.xlsx` (the `-KB` variant is no longer on disk; fell back to the canonical file as instructed)
+- 36 people read from the "People Directory" sheet (now 10 Team, 23 Board, 3 Partner — one person moved Team/Board this week; see below)
+- No new people added or removed vs the existing JSON
+
+**JSON regenerated** — `taranis-people-data.json`
+- One person changed this week: **Osama Al-Thanon** — reclassified from **Board → Team**, role updated from "Board Adviser" → "Chief Cybersecurity Officer", and he is now assigned to the **Fintech Fund** ("Fund Governance Board")
+- Existing bios left intact where the HTML version is longer than the spreadsheet (continuing the 2026-04-20 "preserve hand-enriched content" convention)
+- `profileUrl` values are now derived from Type (`taraniscapital.com/team/<slug>` / `/board/<slug>` / `/partners/<slug>`); this auto-corrected Osama Al-Thanon's URL from `/board/…` to `/team/…`. All other profileUrls unchanged.
+- `lastUpdated` bumped to 2026-04-22
+
+**Profile pages**
+- **Created** `team/osama-al-thanon.html` — new Team profile page using the standard Taranis template (GA4, nav, page-hero, profile-grid, footer, Playfair Display / Inter, dark green / gold scheme). Bio text matches spreadsheet; opening sentence updated from "is a Board Adviser at Taranis Capital" to "is Chief Cybersecurity Officer at Taranis Capital" to match his new role. Canonical, OG and Twitter meta tags all set to `/team/osama-al-thanon`.
+- **Left in place** `board/osama-al-thanon.html` — the old Board-section page still exists on disk but is no longer the canonical page for this person. It has been removed from the sitemap. **Recommended follow-up:** Mark to delete the file locally (`git rm board/osama-al-thanon.html`) or add a CloudFront 301 from `/board/osama-al-thanon` → `/team/osama-al-thanon` in a future session.
+
+**Bio-length discrepancies flagged but NOT overwritten (11 people)**
+Per the rule "do not overwrite if the JSON is empty/missing" (extended conservatively to "JSON shorter than HTML"), the following profile pages still hold hand-enriched bios that are longer than the spreadsheet versions. They have been left untouched so hand-crafted content is not destroyed:
+David Parker, Emad Zowawi, Jack Hollander, Joel Blake, Mark Walker, Mazen Al-Rahim, Michael Boevink, Milan Radia, Mohammed Aljumah, Osama Al-Zamil, Osama Bukhari. (Also abdullah-alawad differed by 3 whitespace characters and osama-bukhari by 3 characters — both ignored.) If Mark wants the spreadsheet bios to become canonical, the HTML pages can be regenerated in a future run.
+
+**who-we-are.html**
+- Moved Osama Al-Thanon's card from Board of Advisers section to Leadership Team section; updated role from "Board Adviser" to "Chief Cybersecurity Officer"; updated link from `/board/osama-al-thanon` → `/team/osama-al-thanon`
+- Card counts: 10 Team cards (was 9) + 23 Board cards (was 24) + 3 Partner cards = 36 total, still matches JSON
+- All other names/roles/images verified in sync with JSON (no further changes)
+
+**Subdomain fund pages**
+- **Added** Osama Al-Thanon to `subdomains/fintech/index.html` Board of Advisers section (he is now assigned to the Fintech Fund with role "Fund Governance Board" and the spreadsheet bio text). Fintech adviser count: 9 (was 8). Executive Team count unchanged at 5.
+- Datacentre (already had him as "Fund Governance Board"), Disruptive Tech (as "Board Adviser") and Biotech (as "Advisory Board") all unchanged — the reclassification from Board → Team on the main site does not affect how he is framed on the fund pages, where fund role is what matters.
+- Property subdomain unchanged — Osama Al-Thanon is not assigned to Property.
+
+**Sitemap**
+- Added new entry: `https://taraniscapital.com/team/osama-al-thanon` (lastmod 2026-04-22)
+- Removed duplicate entry: `https://taraniscapital.com/board/osama-al-thanon` (old Board-section URL — no longer canonical)
+- Bumped `/who-we-are` lastmod to 2026-04-22
+- Total URLs: 49 (unchanged: net +1 team, -1 board)
+
+**Data gaps (unchanged from prior week)**
+- 11 people still missing LinkedIn: abdulaziz-al-sayyari, abdullah-alawad, arjumand-warsy, daniel-roubeni, ghassan-najmeddin, junaid-kashir, mohammed-aljumah, mustafa-mahmood-khan, osama-al-thanon, osama-al-zamil, qaisar-hamed-metawea
+- 1 person still missing email: mohammed-aljumah
+- 0 missing bios, 0 missing images
+
+**Files touched this run**
+- `taranis-people-data.json`
+- `team/osama-al-thanon.html` (new)
+- `who-we-are.html`
+- `subdomains/fintech/index.html`
+- `sitemap.xml`
+- `docs/PROJECT-LOG.md` (this entry)
+
+**Issues encountered** — none; run completed cleanly. One housekeeping follow-up flagged for Mark: manually delete or redirect `board/osama-al-thanon.html` when convenient.
+
+---
+
 ## Pending / To Do
 
 ### Content & Data

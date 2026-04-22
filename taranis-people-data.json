@@ -3,7 +3,7 @@
     "description": "Taranis Capital People Directory — structured reference file for website automation",
     "sourceFile": "Taranis-People-Data-Collection.xlsx",
     "generatedBy": "Automated weekly sync",
-    "lastUpdated": "2026-04-20",
+    "lastUpdated": "2026-04-22",
     "schema": "1.0"
   },
   "people": [
@@ -1058,8 +1058,8 @@
     {
       "slug": "osama-al-thanon",
       "fullName": "Osama Al-Thanon",
-      "type": "Board",
-      "role": "Board Adviser",
+      "type": "Team",
+      "role": "Chief Cybersecurity Officer",
       "email": "skywalker@taraniscapital.com",
       "linkedIn": "",
       "profileImage": {
@@ -1069,11 +1069,13 @@
       "mainSite": {
         "bioStatus": "Complete",
         "bio": "Osama Al-Thanon is a Board Adviser at Taranis Capital, bringing over 40 years of experience in executive leadership, entrepreneurship, and cybersecurity. A former C-level executive at ABB, one of the world's leading technology multinationals, Osama has been a serial entrepreneur since the 1980s.\n\nHe is an expert in digital transformation, white-hat security, and AI ventures, with deep practical knowledge spanning enterprise technology, operational security, and innovation strategy. He is a longstanding member of the Saudi Council of Engineers, driving innovation and operational excellence across the Kingdom's technology landscape.\n\nHis combination of corporate leadership, entrepreneurial experience, and cybersecurity expertise provides Taranis Capital with critical perspective on technology risk, digital transformation, and enterprise-grade security.",
-        "profileUrl": "taraniscapital.com/board/osama-al-thanon"
+        "profileUrl": "taraniscapital.com/team/osama-al-thanon"
       },
       "funds": {
         "fintech": {
-          "assigned": false
+          "assigned": true,
+          "role": "Fund Governance Board",
+          "bio": "Over 40 years in executive leadership and cybersecurity. Former ABB C-level executive with deep expertise in digital transformation, white-hat security, and AI ventures. Saudi Council of Engineers member."
         },
         "property": {
           "assigned": false

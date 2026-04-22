@@ -9,7 +9,7 @@
   </url>
   <url>
     <loc>https://taraniscapital.com/who-we-are</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -125,6 +125,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://taraniscapital.com/team/osama-al-thanon</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 
   <!-- Board of advisers profiles -->
   <url>
@@ -207,12 +213,6 @@
   </url>
   <url>
     <loc>https://taraniscapital.com/board/tarek-el-mans</loc>
-    <lastmod>2026-04-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://taraniscapital.com/board/osama-al-thanon</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
