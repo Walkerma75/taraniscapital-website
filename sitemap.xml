@@ -38,14 +38,18 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Press releases (individual release URLs are added per release; the
-       placeholder at /press/2026-05-01-press-section-launch is deliberately
-       omitted and carries noindex until replaced) -->
+  <!-- Press releases -->
   <url>
     <loc>https://taraniscapital.com/press</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://taraniscapital.com/press/2026-04-27-taranis-eec-saudi-data-centre-partnership</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <!-- Fund pages -->
