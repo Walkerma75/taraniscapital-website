@@ -885,9 +885,18 @@ David Parker, Emad Zowawi, Jack Hollander, Joel Blake, Mark Walker, Mazen Al-Rah
 - All other names/roles/images verified in sync with JSON (no further changes)
 
 **Subdomain fund pages**
-- **Added** Osama Al-Thanon to `subdomains/fintech/index.html` Board of Advisers section (he is now assigned to the Fintech Fund with role "Fund Governance Board" and the spreadsheet bio text). Fintech adviser count: 9 (was 8). Executive Team count unchanged at 5.
-- Datacentre (already had him as "Fund Governance Board"), Disruptive Tech (as "Board Adviser") and Biotech (as "Advisory Board") all unchanged — the reclassification from Board → Team on the main site does not affect how he is framed on the fund pages, where fund role is what matters.
-- Property subdomain unchanged — Osama Al-Thanon is not assigned to Property.
+- Initial run placed Osama only in `subdomains/fintech/index.html` Board of Advisers, on the assumption that the Board→Team change on the main site did not need to flow through to the fund pages. Mark corrected this during the run: when a person's Type changes Board↔Team in the spreadsheet, their card must be **moved between sections on every subdomain they appear on** — from Advisers/Board into the Executive Team section (or vice versa). All four affected subdomain pages were re-edited to reflect this.
+- **fintech** — Osama removed from Board of Advisers; added to Executive Team after Osama Bukhari with title "Chief Cybersecurity Officer / Fund Governance Board".
+- **datacentre** — Osama moved from Board of Advisers to Executive Team (after Mohamed Essam) with title "Chief Cybersecurity Officer / Fund Governance Board".
+- **disruptive-tech** — Osama moved from Board of Advisers to Executive Team (after Mohamed Essam) with title "Chief Cybersecurity Officer" (generic "Board Adviser" fund role dropped per convention below).
+- **biotech** — Osama moved from Advisory Board to Executive Team (after Mustafa Mahmood Khan, CFA) with title "Chief Cybersecurity Officer — Taranis Capital" (matching the subdomain's existing "— Taranis Capital" suffix convention). The hand-enriched biotech bio ("Tech pioneer… white-hat hacking…") was preserved.
+- **property** — unchanged; Osama is not assigned to the Property Fund.
+- Placements verified programmatically post-edit: Osama appears in exactly one section (Executive Team) on all four subdomains.
+
+**Conventions captured for future runs** *(now encoded in STEP 4 of the scheduled-task prompt)*
+- When a person's Type changes Board↔Team in the spreadsheet, their subdomain placement must be reassigned to match — this is not optional and not limited to the main site.
+- Role-title on a moved subdomain card: use the main-site role as the primary title; append the fund-specific role after a slash **only** if it is substantive (e.g. "Fund Governance Board", "Investment Committee Member", "Scientific Advisory Board"); drop generic fund roles (e.g. "Board Adviser", "Advisory Board", "Board Member") when promoting into Executive Team.
+- Match each subdomain's existing title-formatting conventions (e.g. biotech appends "— Taranis Capital"; the others don't).
 
 **Sitemap**
 - Added new entry: `https://taraniscapital.com/team/osama-al-thanon` (lastmod 2026-04-22)
@@ -905,10 +914,67 @@ David Parker, Emad Zowawi, Jack Hollander, Joel Blake, Mark Walker, Mazen Al-Rah
 - `team/osama-al-thanon.html` (new)
 - `who-we-are.html`
 - `subdomains/fintech/index.html`
+- `subdomains/datacentre/index.html`
+- `subdomains/disruptive-tech/index.html`
+- `subdomains/biotech/index.html`
 - `sitemap.xml`
 - `docs/PROJECT-LOG.md` (this entry)
 
-**Issues encountered** — none; run completed cleanly. One housekeeping follow-up flagged for Mark: manually delete or redirect `board/osama-al-thanon.html` when convenient.
+**Issues encountered** — initial subdomain handling was too narrow (see "Subdomain fund pages" above). Corrected during the run and the Board↔Team section-reassignment rule has been added to STEP 4 of the scheduled-task prompt so future runs follow it automatically. One housekeeping follow-up still flagged for Mark: manually delete or redirect `board/osama-al-thanon.html` when convenient.
+
+---
+
+### Session 18 — 24 April 2026 (Press Releases Section)
+
+**Objective:** Add a manually curated first-party press section so Taranis can publish announcements. The existing `/insights` page aggregates third-party RSS and is not suitable for first-party content.
+
+**Decisions taken up-front** (answered before implementation, per `PRESS-RELEASE-PLAN.md` §17):
+- Fonts: Playfair Display / Inter (match live site; flag brand-doc drift separately)
+- Nav placement: between Insights and Contact
+- First release: placeholder only — `noindex` + visible red dev banner; Mark replaces before launch
+- Category tags on cards: deferred until volume justifies filtering
+- Subdomain press pages: apex only; no per-subdomain press
+
+**New files**
+- `press.html` — listing page. Hero (`page-hero`), `.press-grid` with `.press-card` article. One card pointing to the placeholder release. Empty-state markup commented out for future use.
+- `press/_template.html` — future-release template. Carries `noindex`, tokenised `{{…}}` placeholders, full SEO/OG/schema.org `NewsArticle` JSON-LD, boilerplate + media-contact blocks.
+- `press/2026-05-01-press-section-launch.html` — placeholder seed release. Carries `noindex` + a sticky red "PLACEHOLDER — NOT FOR PUBLICATION" banner (`.dev-banner` class) so it can't be missed. **Deliberately omitted from the sitemap.**
+- `docs/ADD-PRESS-RELEASE.md` — step-by-step workflow for publishing future releases (copy template → fill tokens → remove `noindex` → add card + sitemap entry → commit → push).
+
+**Modified files**
+- `css/styles.css` — added `/* PRESS */` section: `.press-section`, `.press-grid` (2-col → 1-col ≤768px), `.press-card` with hover lift, `.press-article` (centred 760px max, white-on-off-white), `.press-dateline`, `.press-quote` (gold border-left + Playfair italic), `.press-divider`, `.press-boilerplate`, `.press-contact`, `.press-backlink`, and `.dev-banner`. Responsive rules added to both 1024px and 768px breakpoints.
+- `infra/cloudfront-url-rewrite.js` — added `/press` + `/press.html` to `EXACT_ALLOW`, added `/press/` to `PREFIX_ALLOW`, bumped `Last updated` comment. **Manual republish required via AWS Console** (IAM deploy user has no Functions permission) — flagged in PR description.
+- `sitemap.xml` — added `/press` URL (priority 0.7, monthly). Total 50 URLs. Placeholder release deliberately excluded until replaced with real content.
+- Nav + footer updated across **52 HTML files** (all top-level pages + every team/board/partners profile page). `<li><a href="/press">Press</a></li>` inserted between Insights and Contact in both `nav-links` and `footer-links`. Executed via a single `sed` pass using a backreference to preserve each context's indentation (6 spaces in nav, 10 in footer); `insights.html`'s `class="active"` variant handled with a second targeted pass. Subdomain pages intentionally not touched (apex-only decision).
+- `press.html` itself post-sed needed a manual cleanup: sed saw the in-file `/insights` footer link and added a duplicate `/press` line, which was then adjacent to the intentional `class="active"` link. Duplicates removed by hand in both nav and footer.
+- `CLAUDE.md` — bumped sitemap URL count from 49 → 50; added known-outstanding line about the placeholder; bumped `Last updated` to 24 April 2026.
+
+**Files NOT changed (intentional)**
+- `subdomains/**/*` — per answered Q5, press is apex-only.
+- `robots.txt` — already `Allow: /` with no Disallow matching `/press`. No change needed.
+- `main.js` — mobile menu toggle is JS-agnostic of link count; no change needed.
+
+**Post-merge action required (cannot be automated from this PR)**
+1. AWS Console → CloudFront → Functions → `url-rewrite` → paste the contents of `infra/cloudfront-url-rewrite.js` → Save → Publish → ensure attached to distribution `E18AUIFBUGMXSB`
+2. Wait ~5 minutes for propagation
+3. Verify with:
+   ```
+   curl -sI https://taraniscapital.com/press                                  # expect 200
+   curl -sI https://taraniscapital.com/press/2026-05-01-press-section-launch  # expect 200
+   curl -sI https://taraniscapital.com/press/                                 # expect 301 → /press
+   ```
+
+**QA checks performed locally**
+- `sitemap.xml` parses as valid XML; URL count = 50
+- All 52 non-press top-level HTML files show exactly 2 Press links (nav + footer); `press.html` shows 1 (footer; nav has `class="active"` variant not caught by the plain-text count)
+- No stray `computer://` or absolute Windows paths introduced (`grep -r 'computer://\\|C:\\\\Users' --include='*.html' .` → 0)
+- No off-brand yellow/light-blue added in the new CSS section
+- No files staged from `.gitignore`'d directories
+
+**Branch + PR**
+- Feature branch: `feat/press-section` (off `main`)
+- PR target: `main`
+- Scope is self-contained to press feature + nav/footer wiring + CloudFront function + sitemap + CLAUDE.md/PROJECT-LOG.md updates.
 
 ---
 
