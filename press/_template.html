@@ -2,14 +2,16 @@
 <!--
   TARANIS CAPITAL — PRESS RELEASE TEMPLATE
   ========================================
-  Do NOT link to this file. Do NOT add it to the sitemap.
-  To create a new release:
-    1. Copy this file to press/YYYY-MM-DD-kebab-case-slug.html
-    2. Replace every {{…}} token below with real content
-    3. Remove this comment block
-    4. Add a card entry to press.html (.press-grid, newest first)
-    5. Add a <url> entry to sitemap.xml
-  See docs/ADD-PRESS-RELEASE.md for full workflow.
+  This template is rendered by tools/add-press-release.py.
+  Do NOT edit individual release files by hand — edit the source markdown in
+  content/press/<slug>.md and re-run the generator.
+
+  Tokens replaced by the generator:
+    {{HEADLINE}}, {{HEADLINE_SHORT}}, {{SLUG}}, {{ISO_DATE}}, {{HUMAN_DATE}},
+    {{META_DESCRIPTION}}, {{OG_IMAGE}}, {{STRAPLINE_BLOCK}}, {{BODY_HTML}}
+
+  The {{NOINDEX_META}} token renders as a noindex meta tag for the bare
+  template and is removed for real releases.
 -->
 <html lang="en">
 <head>
@@ -23,17 +25,17 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="{{META_DESCRIPTION — first ~155 chars of the release summary}}">
+  {{NOINDEX_META}}
+  <meta name="description" content="{{META_DESCRIPTION}}">
   <meta property="og:title" content="{{HEADLINE}} | Taranis Capital">
   <meta property="og:description" content="{{META_DESCRIPTION}}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://taraniscapital.com/press/{{SLUG}}">
-  <meta property="og:image" content="https://taraniscapital.com/images/logo-gold.png">
+  <meta property="og:image" content="{{OG_IMAGE}}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{HEADLINE}} | Taranis Capital">
   <meta name="twitter:description" content="{{META_DESCRIPTION}}">
-  <meta name="twitter:image" content="https://taraniscapital.com/images/logo-gold.png">
+  <meta name="twitter:image" content="{{OG_IMAGE}}">
   <link rel="canonical" href="https://taraniscapital.com/press/{{SLUG}}">
   <link rel="icon" href="/images/logo-gold.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,6 +50,7 @@
     "headline": "{{HEADLINE}}",
     "datePublished": "{{ISO_DATE}}",
     "dateModified": "{{ISO_DATE}}",
+    "image": "{{OG_IMAGE}}",
     "author": {
       "@type": "Organization",
       "name": "Taranis Capital",
@@ -104,6 +107,7 @@
     <div class="page-hero-content">
       <div class="breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/press">Press</a> &nbsp;/&nbsp; {{HEADLINE_SHORT}}</div>
       <h1>{{HEADLINE}}</h1>
+{{STRAPLINE_BLOCK}}
       <p class="subtitle"><time datetime="{{ISO_DATE}}">{{HUMAN_DATE}}</time></p>
     </div>
   </div>
@@ -113,41 +117,7 @@
 <section class="press-article-section">
   <div class="container">
     <article class="press-article">
-
-      <p class="press-dateline"><strong>{{CITY}}, {{COUNTRY}}</strong> &mdash; {{OPENING_PARAGRAPH}}</p>
-
-      <p>{{PARAGRAPH_2}}</p>
-
-      <h2>{{OPTIONAL_SUBHEAD}}</h2>
-
-      <p>{{PARAGRAPH_3}}</p>
-
-      <blockquote class="press-quote">
-        &ldquo;{{QUOTE_BODY}}&rdquo;
-        <cite>&mdash; {{QUOTE_ATTRIBUTION}}</cite>
-      </blockquote>
-
-      <p>{{PARAGRAPH_4}}</p>
-
-      <hr class="press-divider">
-
-      <div class="press-boilerplate">
-        <h3>About Taranis Capital</h3>
-        <p>Taranis Capital is a Dubai-based investment firm licensed by the Dubai International Financial Centre (DIFC) and regulated by the Dubai Financial Services Authority. The firm deploys disciplined capital and knowledge leadership across emerging markets and high-growth sectors including fintech, biotech, datacentres, disruptive technology, and real estate.</p>
-      </div>
-
-      <div class="press-contact">
-        <h3>Media Contact</h3>
-        <p>
-          Taranis Capital<br>
-          Level 02, Innovation One, Dubai International Financial Centre (DIFC), Dubai, United Arab Emirates<br>
-          Email: <a href="mailto:info@taraniscapital.com">info@taraniscapital.com</a><br>
-          Tel: +971 (0) 44 573232
-        </p>
-      </div>
-
-      <p class="press-backlink"><a href="/press">&larr; All press releases</a></p>
-
+{{BODY_HTML}}
     </article>
   </div>
 </section>
