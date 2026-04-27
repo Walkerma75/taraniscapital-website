@@ -4,7 +4,6 @@ date: 2026-04-27
 headline: Taranis Capital and Emaar Executive Company Sign Strategic Partnership to Develop Next-Generation Data Centre Infrastructure in Saudi Arabia
 headline_short: Taranis &amp; EEC Saudi Data Centre Partnership
 strapline: Partnership supported by the Saudi Investment Promotion Authority (SIPA), targeting carrier-neutral, hyperscaler-ready data centres aligned with Vision 2030.
-dateline_city: "Dubai, UAE / Riyadh, KSA"
 excerpt: Taranis Capital and EEC sign an MOU to develop carrier-neutral, hyperscaler-ready data centre infrastructure across Saudi Arabia, with facilitation support from SIPA and alignment to Vision 2030.
 meta_description: Taranis Capital and EEC sign MOU to develop carrier-neutral data centre infrastructure across Saudi Arabia, supported by SIPA and aligned with Vision 2030.
 hero_image: images/press/eec-taranis-partnership.jpg
