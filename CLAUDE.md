@@ -57,9 +57,12 @@ There is no build step — the site deploys as-is.
 - **Do** follow the canonical workflow in `../WORKFLOW.md`
 - **Do** stage files specifically (`git add contact.html`), not `git add .`
 - **Do** respect the Taranis brand: Georgia for headings (dark green `#2C3E35`), Calibri body (`#374047`)
+- **Do** self-merge PRs you opened once the diff is clean, CI is green, and you've verified the work — no need to wait for human review. Use `gh pr merge <n> --squash --delete-branch`. Still go via a PR (not direct push to main) so CI runs and history is reviewable.
+  - Exceptions that still warrant a human OK: anything touching secrets, deletes/destructive changes, or work that depends on a manual post-merge step the user must run (e.g. CloudFront Function republish — flag it, don't merge silently). When in doubt, ask.
 - **Don't** commit anything from `Board of Advisors/`, `Documents/`, `TC Logos/`, `Team Images/`, `Tmp Images folder` — these are excluded in `.gitignore`
 - **Don't** use bold yellow/light-blue tables — they're off-brand
 - **Don't** put `computer://` or absolute paths into HTML — use site-relative paths
+- **Don't** push directly to `main` — `main` auto-deploys to production. Always go through a PR, even if you're going to merge it yourself.
 
 ## Known gotchas
 
