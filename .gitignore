@@ -11,3 +11,6 @@ Thumbs.db
 # Scratch files from AWS CLI subdomain setup (bucket policies, distribution configs)
 *-policy.json
 *-dist-config.json
+
+# Claude Code local settings (machine-specific permissions, env, etc.)
+.claude/
