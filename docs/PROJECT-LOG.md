@@ -978,6 +978,55 @@ David Parker, Emad Zowawi, Jack Hollander, Joel Blake, Mark Walker, Mazen Al-Rah
 
 ---
 
+### Session 19 — 26 April 2026 (Weekly Profile Sync — automated)
+
+**Scheduled task run:** `weekly-profile-updates-taraniscapital-website` (automated)
+
+**Spreadsheet read**
+- Source: `Taranis-People-Data-Collection.xlsx`
+- 36 people read from the "People Directory" sheet — composition unchanged: 10 Team, 23 Board, 3 Partner
+- No new people, none removed, no Type changes vs the existing JSON
+
+**JSON regenerated** — `taranis-people-data.json`
+- Field-level diff against last week's JSON: **0 changes** to person records — only `_meta.lastUpdated` bumped from `2026-04-22` to `2026-04-26`
+- All existing image paths, bios, fund assignments and role titles preserved unchanged
+
+**Profile pages — verification only**
+- All 36 profile pages programmatically verified against the JSON: name in `<h1>`, role in `<p class="subtitle">`, photo in `.profile-photo > img`, LinkedIn in any `linkedin.com` href, email in `mailto:` href all match. **0 mismatches**, **0 pages created**, **0 pages edited**.
+- Type-change leftover still on disk (carried over from Session 17): `board/osama-al-thanon.html` still exists alongside the canonical `team/osama-al-thanon.html`. Recommended follow-up unchanged — `git rm board/osama-al-thanon.html` or add a CloudFront 301 from `/board/osama-al-thanon` → `/team/osama-al-thanon`.
+
+**who-we-are.html — no changes**
+- 36 profile links scanned: 10 Team / 23 Board / 3 Partner — matches JSON exactly. All names, roles and photo paths in sync.
+
+**Subdomain fund pages — no changes**
+- Verified all 5 subdomain index pages (`fintech`, `property`, `datacentre`, `disruptive-tech`, `biotech`). Every person whose fund column is `Y` in the spreadsheet is present on the corresponding subdomain page in the expected section. No moves required (no Board↔Team/Partner Type changes this week).
+- **One pre-existing discrepancy flagged but NOT changed:** `subdomains/biotech/index.html` has a card for Svitlana Burlakova in the Executive Team section, but the spreadsheet has her `Biotech Fund = No`. This was already true going into this run and the task spec for this scheduled job is to add missing assigned people / update existing cards, not to remove cards. Mark to decide: either (a) flip the spreadsheet `Biotech Fund` cell to `Yes` (and add a fund role / fund bio), or (b) remove the card from the biotech subdomain in a future manual edit.
+
+**Sitemap — file restored + no listing change**
+- Pre-run check via `git diff sitemap.xml` showed the working tree had been corrupted at some point since Session 18: file truncated mid-tag at byte 8909 / line 302 (last entry cut off mid-`</url`, missing the final two URL entries and the closing `</urlset>` tag). The two missing entries were `/board/junaid-kashir` and `/board/abdullah-alawad`.
+- File rewritten in full to match the last-committed version (50 URLs, `</urlset>` closer, 9281 bytes, 316 lines). All `<lastmod>` values left as they were in the committed copy — no HTML profile pages, fund pages, or `who-we-are.html` were modified this week, so no `<lastmod>` bumps are warranted.
+- After fix, `git diff sitemap.xml` is empty (clean working tree against `HEAD`).
+
+**PROJECT-LOG.md — file also restored before append**
+- `git diff docs/PROJECT-LOG.md` showed the same pattern of corruption: working tree truncated mid-Session 18 at line 947 (bullet ending `Executed via a single sed pass usi` — no terminating newline, no Pending / To Do or Technical Reference sections). File rewritten from `git show HEAD:docs/PROJECT-LOG.md` (1016 lines) and this Session 19 entry appended before the `## Pending / To Do` section. End-of-file structure (Pending / Technical Reference) preserved.
+
+**Data gaps (unchanged from prior week)**
+- 11 people still missing LinkedIn: abdulaziz-al-sayyari, abdullah-alawad, arjumand-warsy, daniel-roubeni, ghassan-najmeddin, junaid-kashir, mohammed-aljumah, mustafa-mahmood-khan, osama-al-thanon, osama-al-zamil, qaisar-hamed-metawea
+- 1 person still missing email: mohammed-aljumah
+- 0 missing bios, 0 missing images
+
+**Files touched this run**
+- `taranis-people-data.json` — `_meta.lastUpdated` bumped to 2026-04-26 (no person-record changes)
+- `sitemap.xml` — restored from corrupted truncated working-tree copy (no listing change vs `HEAD`)
+- `docs/PROJECT-LOG.md` — restored from `HEAD` and this Session 19 entry appended
+
+**Issues encountered**
+- The Linux mount that bash sees and the Windows path that the Read/Write/Edit tools see drifted: bash + git both saw `sitemap.xml` and `docs/PROJECT-LOG.md` as truncated in the working tree, while the Read tool showed a properly-closed copy. Fix is to write through bash (Python `open(... , "w")`) so git's view matches the canonical file. Worth keeping in mind for future runs: trust `git diff` over the Read tool when investigating mid-file truncation.
+- Branch is `feat/press-section`, **not** `main` — this carries forward many uncommitted changes from Session 18 and earlier (52 modified HTML files, etc.) that are unrelated to this profile-sync run. The git commands at the end of this entry only stage the three files this run actually changed; anything else in the working tree is left for Mark to handle separately.
+
+---
+
+
 ## Pending / To Do
 
 ### Content & Data
