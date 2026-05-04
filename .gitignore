@@ -1,12 +1,15 @@
-Wp-content/ 
-Board of Advisors/ 
-Documents/ 
-TC Logos/ 
+Wp-content/
+Board of Advisors/
+Documents/
+TC Logos/
 Team Images/
 Tmp Images folder/
 .DS_Store
-Thumbs.db 
+Thumbs.db
 *.log
+
+# Local Claude Code settings (per-user, per-machine)
+.claude/
 
 # Scratch files from AWS CLI subdomain setup (bucket policies, distribution configs)
 *-policy.json
