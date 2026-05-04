@@ -77,7 +77,7 @@ There is no build step — the site deploys as-is.
 
 - 10 board member bios missing (see `MISSING-PROFILE-INFO.md`)
 - 11 people missing LinkedIn URLs
-- Sitemap now lists 50 URLs; keep it synchronised when new pages added
+- Sitemap now lists 51 URLs; keep it synchronised when new pages added
 - Press section shipped behind a placeholder release (`press/2026-05-01-press-section-launch.html`); replace with a real first release when ready. See `docs/ADD-PRESS-RELEASE.md`.
 
 ## Last updated
