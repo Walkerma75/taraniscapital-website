@@ -316,11 +316,13 @@ def update_press_listing(meta):
         flags=re.DOTALL,
     )
 
-    # Remove existing card for this slug (idempotent re-runs)
+    # Remove existing card for this slug (idempotent re-runs).
+    # Tempered token (?:(?!</article>).)*? prevents the match from spanning
+    # across adjacent cards if this slug appears later in the listing.
     slug = meta["slug"]
     html = re.sub(
-        r'\n      <article class="press-card">[^<]*<div class="press-card-meta">.*?<a href="/press/'
-        + re.escape(slug) + r'".*?</article>\n',
+        r'\n      <article class="press-card">(?:(?!</article>).)*?<a href="/press/'
+        + re.escape(slug) + r'"(?:(?!</article>).)*?</article>\n',
         "",
         html,
         flags=re.DOTALL,
@@ -328,8 +330,25 @@ def update_press_listing(meta):
 
     iso_date = meta["date"] if isinstance(meta["date"], str) else meta["date"].isoformat()
     h_date = human_date(iso_date)
+
+    # Optional thumbnail using the hero image
+    thumb_block = ""
+    hero = meta.get("hero_image")
+    if hero:
+        alt = (meta.get("hero_alt") or "Press release illustration").strip()
+        dims = image_dimensions(REPO_ROOT / hero.lstrip("/"))
+        size_attrs = ""
+        if dims:
+            size_attrs = f' width="{dims[0]}" height="{dims[1]}"'
+        thumb_block = (
+            f'        <a href="/press/{slug}" class="press-card-thumb" aria-hidden="true" tabindex="-1">\n'
+            f'          <img src="/{hero.lstrip("/")}" alt="{alt}" loading="lazy"{size_attrs}>\n'
+            f'        </a>\n'
+        )
+
     card = (
         f'      <article class="press-card">\n'
+        + thumb_block +
         f'        <div class="press-card-meta">\n'
         f'          <time datetime="{iso_date}">{h_date}</time>\n'
         f'        </div>\n'
