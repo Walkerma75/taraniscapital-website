@@ -978,6 +978,27 @@ David Parker, Emad Zowawi, Jack Hollander, Joel Blake, Mark Walker, Mazen Al-Rah
 
 ---
 
+### Session 19 — 4 May 2026 (GSC Weekly Check — SKIPPED)
+
+**Automated weekly Google Search Console health check — taraniscapital.com**
+
+**Run status: NOT COMPLETED.** The check could not be performed because the Claude in Chrome extension was unreachable for the duration of this run. Multiple connection attempts (with waits of 10s, 20s, 30s, and 45s in between) all returned "Claude in Chrome is not connected". GSC is an authenticated JavaScript app that cannot be observed via plain HTTP fetches, so without the browser bridge there is no way for the scheduled task to read sitemap status, page indexing breakdowns, validation run state, performance numbers, manual actions, or Core Web Vitals.
+
+**Pre-flight context (gathered locally before the browser failure):**
+- Local `sitemap.xml` now lists **51 URLs** (counted by `<loc>` tags). This is up by 2 since the Session 15 GSC reading on 18 Apr 2026 (49 URLs discovered). The growth is from the press-section work in Session 18 — `/press` and `/press/2026-04-27-taranis-eec-saudi-data-centre-partnership` were added on 27 Apr. Note: `CLAUDE.md` still records the count as 50; this should be bumped to 51 when convenient (it shifted from 50 to 51 when the new press release page was committed without a corresponding doc bump).
+- Last successful GSC read of the sitemap was 18 Apr 2026 (49 URLs). With Google's normal recrawl cadence the next sitemap fetch should pick up the press URLs and increment "Discovered pages" to 51. If next week's check still shows 49, that is worth flagging.
+- Validation runs from Session 9 (started 10 Apr 2026: Blocked by robots.txt, Crawled – currently not indexed, Blocked due to other 4xx issue) are now at day **24** of the 14–28 day window. Next week's check should land at day 31, which is just past the window — Pass/Fail outcomes should be visible by then if they are not already.
+- No site changes have shipped that would alter SEO posture since the last successful check (Session 15 on 20 Apr — although the press section in Session 18 added two new indexable URLs, both with full meta/canonical and JSON-LD, so they should index cleanly when crawled).
+
+**Issues to raise with Mark**
+
+1. **GSC check did not run this week.** The Chrome extension was offline throughout the scheduled window. Either (a) re-run this task manually with Chrome + the extension active so the check completes, or (b) accept the gap and let next Monday's run pick it up. The site has not changed in a way that would normally produce a same-week regression, so option (b) is low-risk.
+2. **No data this week** for: sitemap status, indexed/not-indexed counts, validation outcomes, performance figures, manual actions/security, Core Web Vitals.
+3. **Sitemap URL count drift in CLAUDE.md.** `CLAUDE.md` records "50 URLs" but the file now contains 51 (the second press release URL was added without a doc bump). Worth a one-line fix next time a commit touches CLAUDE.md.
+4. **Validation runs are now past day 24.** Whenever the next check runs, the three Started runs (Blocked by robots.txt, Crawled – currently not indexed, Blocked due to other 4xx issue) should have flipped to Pass or Fail. Mark may want to look ahead of the next scheduled run if these outcomes matter for any decision pending.
+
+---
+
 ## Pending / To Do
 
 ### Content & Data
@@ -1014,3 +1035,59 @@ David Parker, Emad Zowawi, Jack Hollander, Joel Blake, Mark Walker, Mazen Al-Rah
 **Route 53 Nameservers:** ns-1539.awsdns-00.co.uk, ns-942.awsdns-53.net, ns-399.awsdns-49.com, ns-1261.awsdns-29.org
 **Domain Registrar:** e& (formerly Etisalat) — nic.ae
 **Live URL:** https://taraniscapital.com (live as of 2026-04-07)
+
+
+---
+
+### Session 20 — 4 May 2026 (Weekly Profile Sync — automated)
+
+**Automated weekly people-data sync run from `Taranis-People-Data-Collection-KB.xlsx`.**
+
+**Source file note.** CLAUDE.md states the canonical filename is `Taranis-People-Data-Collection.xlsx` (renamed from the `-KB` suffix on 20 Apr 2026), but only the `-KB` suffixed version is present in the workspace. This run fell back to it as the spec allows. Suggest verifying which name should be canonical going forward.
+
+**Type changes detected**
+- **`osama-al-thanon`: Team → Board.** Main-site role in the spreadsheet changed from "Chief Cybersecurity Officer" to "Board Adviser". His `profileUrl` in `taranis-people-data.json` is now `taraniscapital.com/board/osama-al-thanon`.
+  - **New canonical page:** `/board/osama-al-thanon.html` (already existed in the correct folder from a prior run with the correct "Board Adviser" role and bio — left as-is).
+  - **Old page flagged, not deleted:** `/team/osama-al-thanon.html` is still on disk with the old "Chief Cybersecurity Officer" content. Mark to clean up or add a redirect (recommend a 301 in the CloudFront URL-rewrite Function from `/team/osama-al-thanon` → `/board/osama-al-thanon`).
+  - **who-we-are.html section move:** card removed from `Our Team` and added to `Board of Advisers`. Card counts before/after — Team 10 → 9, Board 23 → 24, Partners 3 → 3.
+  - **Subdomain section moves:** he was already in the Board-equivalent section on every subdomain where he appears, so no card-section moves were needed. Only role-title formatting was updated to follow the main-role-plus-fund-role convention:
+    - `subdomains/fintech/index.html` (Board of Advisers): `Fund Governance Board` → `Board Adviser / Fund Governance Board`
+    - `subdomains/datacentre/index.html` (Board of Advisers): `Fund Governance Board` → `Board Adviser / Fund Governance Board`
+    - `subdomains/disruptive-tech/index.html` (Board of Advisers): `Board Adviser` (no change — already matches)
+    - `subdomains/biotech/index.html` (Advisory Board): `Advisory Board` → `Board Adviser` (generic fund role dropped)
+  - Note: he currently appears on the fintech subdomain page even though the spreadsheet has Fintech Fund = No for him. Card was left in place rather than removed (sync spec only mandates additions for fund=Y; removals for fund=N are out of scope of this run). Worth deciding whether to prune.
+
+**Other profile updates**
+- `board/abdullah-alawad.html` — name updated from `Prof. Abdullah Alawad` to `Dr Abdullah Alawad` to match the spreadsheet (which has "Dr Abdullah Alawad" as the canonical Full Name; existing bio text already uses "Dr Alawad"). Note: the who-we-are.html card still says `Prof. Abdullah Alawad` and was not changed in this run because the audit focus was the Type-change. Worth aligning in the next run if Mark prefers `Dr` — flag.
+- `team/mark-walker.html`, `team/nicholas-bingham.html`, `team/svitlana-burlakova.html` — initial regex pass would have replaced `&amp;` with `&` in role lines (corrupting the entity); reverted to `&amp;` form. Net change for these three files: none.
+- All other 32 profile pages: no changes.
+- No new profile pages needed creating.
+
+**JSON regenerated**
+- `taranis-people-data.json` — `_meta.lastUpdated` bumped to `2026-05-04`; 36 people; `osama-al-thanon` re-keyed to `type: "Board"`, `role: "Board Adviser"`, `profileUrl: taraniscapital.com/board/osama-al-thanon`.
+
+**Sitemap**
+- Removed `/team/osama-al-thanon` entry; added `/board/osama-al-thanon` entry (lastmod 2026-05-04, yearly, priority 0.5).
+- `/who-we-are` lastmod bumped to 2026-05-04.
+- Total `<url>` entries: 51 (unchanged — one removed, one added).
+
+**Data gaps logged**
+- Missing email (1): `mohammed-aljumah`.
+- Missing LinkedIn (11): `daniel-roubeni`, `ghassan-najmeddin`, `mohammed-aljumah`, `osama-al-thanon`, `osama-al-zamil`, `mustafa-mahmood-khan`, `abdulaziz-al-sayyari`, `arjumand-warsy`, `junaid-kashir`, `abdullah-alawad`, `qaisar-hamed-metawea`. (Spreadsheet column literally contains `MISSING` — treated as empty string in JSON.)
+- Missing image: 0.
+- Missing bio: 0.
+
+**Files modified**
+- `taranis-people-data.json`
+- `who-we-are.html`
+- `sitemap.xml`
+- `board/abdullah-alawad.html`
+- `subdomains/fintech/index.html`
+- `subdomains/datacentre/index.html`
+- `subdomains/biotech/index.html`
+- `docs/PROJECT-LOG.md`
+
+**Files deliberately not modified**
+- `team/osama-al-thanon.html` (left for Mark to clean up — see flag above).
+- `subdomains/disruptive-tech/index.html` (his card already had the correct title `Board Adviser`).
+- `subdomains/property/index.html` (he does not appear there).
