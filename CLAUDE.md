@@ -67,7 +67,7 @@ There is no build step — the site deploys as-is.
 ## Known gotchas
 
 - Two GitHub accounts on this machine (`Walkerma75` + `markwalker-pcs`) — Windows Credential Manager has triggered auth conflicts when pushing. If git prompts for credentials unexpectedly, confirm the git config user email matches the account with repo access.
-- `Taranis-People-Data-Collection.xlsx` is the source of truth (previously `-KB` suffix, renamed 20 Apr 2026 after the earlier corrupted original was replaced).
+- `Taranis-People-Data-Collection.xlsx` is **Cowork's** source of truth and is read from Google Drive, not from this repo. The xlsx checked into this repo is a periodic snapshot — never edit it locally. For data corrections, edit `taranis-people-data.json` and the affected HTML directly, and flag spreadsheet inconsistencies for the user to fix in Drive (otherwise the next Cowork sync re-applies the old state).
 
 ## Scheduled tasks
 
@@ -77,9 +77,9 @@ There is no build step — the site deploys as-is.
 
 - 10 board member bios missing (see `MISSING-PROFILE-INFO.md`)
 - 11 people missing LinkedIn URLs
-- Sitemap now lists 50 URLs; keep it synchronised when new pages added
-- Press section shipped behind a placeholder release (`press/2026-05-01-press-section-launch.html`); replace with a real first release when ready. See `docs/ADD-PRESS-RELEASE.md`.
+- Sitemap now lists 51 URLs; keep it synchronised when new pages added
+- Press section live with first release (Taranis × EEC Saudi data centre partnership, 27 Apr). New releases via `python tools/add-press-release.py content/press/<slug>.md` — see `docs/ADD-PRESS-RELEASE.md`.
 
 ## Last updated
 
-24 April 2026 (press release section added — listing at /press, per-release pages at /press/&lt;slug&gt;)
+4 May 2026 (press card thumbnails + 4-across grid; Cowork profile sync re-landed; xlsx source-of-truth note clarified)
