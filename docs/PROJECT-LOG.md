@@ -1028,24 +1028,66 @@ David Parker, Emad Zowawi, Jack Hollander, Joel Blake, Mark Walker, Mazen Al-Rah
 
 ---
 
-### Session 20 — 4 May 2026 (GSC Weekly Check — SKIPPED)
+### Session 20 — 4 May 2026 (GSC Weekly Check)
 
 **Automated weekly Google Search Console health check — taraniscapital.com**
 
-**Run status: NOT COMPLETED.** The check could not be performed because the Claude in Chrome extension was unreachable for the duration of this run. Multiple connection attempts (with waits of 10s, 20s, 30s, and 45s in between) all returned "Claude in Chrome is not connected". GSC is an authenticated JavaScript app that cannot be observed via plain HTTP fetches, so without the browser bridge there is no way for the scheduled task to read sitemap status, page indexing breakdowns, validation run state, performance numbers, manual actions, or Core Web Vitals.
+(An earlier scheduled run on this date returned with Claude in Chrome offline; reran on Mark's request once the extension was reachable. No site changes between attempts, so this is a single coherent snapshot.)
 
-**Pre-flight context (gathered locally before the browser failure):**
-- Local `sitemap.xml` now lists **51 URLs** (counted by `<loc>` tags). This is up by 2 since the Session 15 GSC reading on 18 Apr 2026 (49 URLs discovered). The growth is from the press-section work in Session 18 — `/press` and `/press/2026-04-27-taranis-eec-saudi-data-centre-partnership` were added on 27 Apr. Note: `CLAUDE.md` still records the count as 50; this should be bumped to 51 when convenient (it shifted from 50 to 51 when the new press release page was committed without a corresponding doc bump).
-- Last successful GSC read of the sitemap was 18 Apr 2026 (49 URLs). With Google's normal recrawl cadence the next sitemap fetch should pick up the press URLs and increment "Discovered pages" to 51. If next week's check still shows 49, that is worth flagging.
-- Validation runs from Session 9 (started 10 Apr 2026: Blocked by robots.txt, Crawled – currently not indexed, Blocked due to other 4xx issue) are now at day **24** of the 14–28 day window. Next week's check should land at day 31, which is just past the window — Pass/Fail outcomes should be visible by then if they are not already.
-- No site changes have shipped that would alter SEO posture since the last successful check (Session 15 on 20 Apr — although the press section in Session 18 added two new indexable URLs, both with full meta/canonical and JSON-LD, so they should index cleanly when crawled).
+**1. Sitemaps**
+- sitemap.xml — Status: **Success** ✅
+- Last read: **2 May 2026**
+- Discovered pages: **51** — matches local sitemap.xml exactly ✅ (up from 49 at last successful read on 18 Apr — Google has now picked up the two new `/press` URLs from Session 18)
+
+**2. Page Indexing**
+- Last update: **27/04/2026**
+- Indexed: **121** (was 142 at Session 15, 281 at baseline) — **DOWN 21 vs S15**
+- Not indexed: **393** (was 370 at S15, 180 at baseline) — **UP 23 vs S15**
+- 9 reason rows (no new reason categories vs S15)
+
+| Reason | Pages | Validation | vs Session 15 |
+|---|---|---|---|
+| Crawled – currently not indexed | 83 | **Failed** 🚨 | was 59 Started — UP 24, validation flipped to Failed |
+| Not found (404) | 277 | Not Started | was 242 — UP 35 (still all old WP content per Option A) |
+| Page with redirect | 21 | Not Started | was 30 — DOWN 9 ✅ |
+| Alternative page with proper canonical tag | 7 | Not Started | was 9 — DOWN 2 ✅ |
+| Excluded by 'noindex' tag | 4 | Not Started | was 4 — no change (the 4 fund subdomain homepages, intentional) |
+| Blocked due to other 4xx issue | 1 | Started | was 1 Started — no change, still in window |
+| Blocked by robots.txt | 0 | **Passed** ✅ | was 1 Started — validation flipped to Passed |
+| Duplicate, Google chose different canonical than user | 0 | Passed | was 0 Passed — unchanged |
+| Discovered – currently not indexed | 0 | N/A | was 24 — DOWN 24 ✅ (the new `/board/` profile pages have all been crawled) |
+
+Total: 83 + 277 + 21 + 7 + 4 + 1 + 0 + 0 + 0 = 393 ✅ (matches summary).
+
+**Validation run status (started 10/04/2026 — day 24 of the 14–28 day window):**
+- **Blocked by robots.txt: PASSED** ✅ — completed within window.
+- **Crawled – currently not indexed: FAILED** 🚨 — completed within window. At the time Google reassessed, the affected URLs still couldn't be indexed. Page count is now 83 (was 81 at start of validation, 59 at S15).
+- **Blocked due to other 4xx issue: still Started** (1 page unchanged) — unusual to still be Started at day 24, but only 1 page involved.
+
+**3. Performance (last 7 days: ~26 Apr – 2 May 2026)**
+- Total clicks: **82** (was 52 at S15) — **+58%**
+- Total impressions: **2,050** (was 3,920 at S15) — **−48%**
+- Average CTR: **4%** (was 1.3% at S15) — roughly tripled
+- Average position: **6.8** (was 6.9 at S15) — slight improvement
+- Pattern: smaller but much more relevant search footprint. Likely connected to indexed-page count dropping (142 → 121) — fewer pages in results, but those that remain are more on-target, so CTR rises sharply while impressions fall. Clicks growth is real and continued from S15.
+
+**4. Manual Actions & Security Issues**
+- Manual actions: **No issues detected** ✅
+- Security issues: **No issues detected** ✅
+
+**5. Core Web Vitals**
+- Source: Chrome UX report, last updated 03/05/2026
+- Mobile: Not enough usage data (last 90 days) — no Poor/Needs improvement URLs
+- Desktop: Not enough usage data (last 90 days) — no Poor/Needs improvement URLs
 
 **Issues to raise with Mark**
 
-1. **GSC check did not run this week.** The Chrome extension was offline throughout the scheduled window. Either (a) re-run this task manually with Chrome + the extension active so the check completes, or (b) accept the gap and let next Monday's run pick it up. The site has not changed in a way that would normally produce a same-week regression, so option (b) is low-risk.
-2. **No data this week** for: sitemap status, indexed/not-indexed counts, validation outcomes, performance figures, manual actions/security, Core Web Vitals.
-3. **Sitemap URL count drift in CLAUDE.md.** `CLAUDE.md` records "50 URLs" but the file now contains 51 (the second press release URL was added without a doc bump). Worth a one-line fix next time a commit touches CLAUDE.md.
-4. **Validation runs are now past day 24.** Whenever the next check runs, the three Started runs (Blocked by robots.txt, Crawled – currently not indexed, Blocked due to other 4xx issue) should have flipped to Pass or Fail. Mark may want to look ahead of the next scheduled run if these outcomes matter for any decision pending.
+1. **"Crawled – currently not indexed" validation FAILED** 🚨 — biggest signal of the week. The validation run started 10/04 with 81 pages, trended down to 59 at S15, but has now ended in **Failed** at 83 pages. Google's view is that the underlying issue (whatever stopped them indexing those URLs) was not resolved by our 7 April canonical/sitemap/redirect work. The bucket is also slowly creeping up. Worth a manual sample inspection of 5–10 URLs in this bucket via URL Inspection to understand the pattern before deciding whether to (a) re-trigger validation, (b) ship a code change first, or (c) accept and move on.
+2. **Indexed page count dropped 142 → 121.** Likely related to point 1. Worth inspecting which pages have moved out of "Indexed" to understand whether anything important (team profiles, press, fund pages) has fallen out vs. mostly tail/legacy pages.
+3. **404 count up 242 → 277 (+35).** Still consistent with Option A — old WordPress content. Spot-check a sample to confirm no legitimate current pages have crept into this bucket.
+4. **"Blocked by robots.txt" validation Passed ✅** and **"Discovered – currently not indexed" cleared from 24 → 0 ✅** — both positive outcomes.
+5. **Performance is mixed but net positive.** Clicks +58%, position +0.1, CTR up sharply. Impressions down 48% — explainable but worth keeping an eye on next week to confirm it stabilises rather than continuing to decline.
+6. **`/press` URLs picked up by Google.** Sitemap discovered count moved 49 → 51 — Google has registered the press-section URLs from Session 18. The placeholder release at `/press/2026-05-01-press-section-launch` carries `noindex` and is excluded from sitemap, so it should not appear anywhere in the indexing reports.
 
 ---
 ## Pending / To Do
