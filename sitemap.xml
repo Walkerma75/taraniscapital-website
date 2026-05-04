@@ -9,7 +9,7 @@
   </url>
   <url>
     <loc>https://taraniscapital.com/who-we-are</loc>
-    <lastmod>2026-05-04</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -41,7 +41,7 @@
   <!-- Press releases -->
   <url>
     <loc>https://taraniscapital.com/press</loc>
-    <lastmod>2026-05-04</lastmod>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -139,14 +139,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://taraniscapital.com/team/osama-al-thanon</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 
   <!-- Board of advisers profiles -->
-  <url>
-    <loc>https://taraniscapital.com/board/osama-al-thanon</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
   <url>
     <loc>https://taraniscapital.com/board/jack-hollander</loc>
     <lastmod>2026-04-02</lastmod>
