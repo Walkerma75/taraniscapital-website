@@ -41,9 +41,15 @@
   <!-- Press releases -->
   <url>
     <loc>https://taraniscapital.com/press</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://taraniscapital.com/press/2026-02-26-taranis-iye-global-due-diligence-partnership</loc>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://taraniscapital.com/press/2026-04-27-taranis-eec-saudi-data-centre-partnership</loc>
