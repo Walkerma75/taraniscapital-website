@@ -1,6 +1,6 @@
 ---
-slug: 2026-02-26-taranis-iye-global-due-diligence-partnership
-date: 2026-02-26
+slug: 2026-05-01-taranis-iye-global-due-diligence-partnership
+date: 2026-05-01
 headline: Taranis Capital Announces Strategic Partnership with IYE Global to Strengthen Risk, Integrity, and Institutional Due Diligence Framework
 headline_short: Taranis &amp; IYE Global Due Diligence Partnership
 strapline: Specialist investigative firm appointed to support enhanced pre-investment due diligence, counterparty assessments, governance reviews, and ongoing risk monitoring across Taranis Capital&rsquo;s multi-jurisdictional investment activities.
