@@ -1089,6 +1089,36 @@ Total: 83 + 277 + 21 + 7 + 4 + 1 + 0 + 0 + 0 = 393 ✅ (matches summary).
 5. **Performance is mixed but net positive.** Clicks +58%, position +0.1, CTR up sharply. Impressions down 48% — explainable but worth keeping an eye on next week to confirm it stabilises rather than continuing to decline.
 6. **`/press` URLs picked up by Google.** Sitemap discovered count moved 49 → 51 — Google has registered the press-section URLs from Session 18. The placeholder release at `/press/2026-05-01-press-section-launch` carries `noindex` and is excluded from sitemap, so it should not appear anywhere in the indexing reports.
 
+**"Crawled – currently not indexed" — URL sample (4 May, 30 of 83 inspected)**
+
+Pulled the first three pages of URLs (sorted by Last crawled, descending) directly from the GSC drilldown.
+
+Pattern (30/83 ≈ 36% of bucket): the bucket is overwhelmingly **legacy WordPress URLs** that no longer correspond to content on the new site:
+- ~24/30 (80%) are old WP news/article URLs with trailing slashes — `/african-development-bank-strengthens-...`, `/uae-company-natify-raises-350k-...`, `/paraglide-raises-5-million-seed-...`, `/toko-signs-agreement-with-pwc/`, `/aazzur-raises-2m-...`, `/dc-blox-secures-1-15b-...`, `/papara-acquires-rebellion-...`, `/fintech-awards-london-2025-...`, `/ryft-raises-5-7m-...`, `/middle-east-sustainable-bond-issuance-...`, `/felix-secures-75m-...`, `/addleshaw-goddard-advises-...`, `/fidelity-raises-110m-...` and similar
+- ~4/30 (13%) are old WP pagination — `/page/39/`, `/page/32/`, `/page/47/`, `/page/42/`, `/page/66/`, `/page/36/`, `/insights/page/22/`, `/insights/page/5/`, `/insights/page/17/`, `/insights/page/11/`
+- 1/30: `/embed/` (legacy WP oEmbed endpoint)
+- 1/30: `/partners/disrupts/` (no longer exists; partners path is now used for individuals only)
+- 1/30: **`/team/mark-walker`** — the only currently-live, sitemap'd page in the sample. Inspected separately (see below).
+
+**URL Inspection of `/team/mark-walker`:**
+- URL is on Google ✅
+- Page indexing: Page is indexed ✅
+- Last crawl: **28 Apr 2026, 10:19:56** (one day after the 27/04 page-indexing report snapshot)
+- Crawl allowed: Yes / Page fetch: Successful / Indexing allowed: Yes
+- User-declared canonical: `https://taraniscapital.com/team/mark-walker`
+- Google-selected canonical: Inspected URL (matches — no canonical conflict)
+
+**Interpretation.** The Page Indexing report we read this week is the **27/04 snapshot**, but URL Inspection runs against **live state**. `/team/mark-walker` was in the "Crawled – currently not indexed" bucket as of 27/04, then re-crawled on 28/04, and is now indexed. So the bucket is partly a *stale snapshot artefact*: pages move in and out as Google reprocesses them on its own schedule.
+
+**What this means for the Failed validation:**
+- The "Failed" verdict reflects state at the time of validation (21/04). Many of the 83 pages have since been re-crawled and may already be indexed (as `/team/mark-walker` was). Re-running validation today would likely produce a different result for the legitimate-current subset.
+- The dominant content of the bucket (~28 of 30 sampled) is **old WordPress content that should not be on Google at all** — these URLs aren't in our sitemap, aren't linked from anywhere on the new site, and have no canonical equivalent. The fact that Google still has them in a "Crawled" bucket rather than dropping them suggests they may still be returning content or a soft-404 rather than a hard `HTTP 404`. That is the lever to pull.
+
+**Recommended next steps (for Mark to choose from, not actioned this run):**
+1. **Spot-check the HTTP status for 3–4 of the old WP URLs** (e.g. `curl -sI https://taraniscapital.com/page/39/` and `curl -sI https://taraniscapital.com/african-development-bank-strengthens-strategic-partnership-with-congo-securing-1-5-million-grants-for-energy-projects-and-advancing-digital-infrastructure/`). If they return 200 with the homepage HTML (soft-404), that explains why Google keeps them crawled-not-indexed instead of dropping them. The fix would be to extend the CloudFront `url-rewrite` Function to return a real 404 for known-dead WP path patterns (`/page/N/`, `/insights/page/N/`, the long news slugs, `/embed/`, `/partners/disrupts/`).
+2. **Don't re-trigger validation yet** — wait until either (a) the underlying soft-404 issue is fixed, or (b) we accept the bucket as historical noise and stop tracking it.
+3. **No action needed for `/team/mark-walker`** — it's already indexed; the snapshot is just lagging.
+
 ---
 ## Pending / To Do
 
