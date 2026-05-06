@@ -123,7 +123,7 @@
 
       <!-- Right Column: Contact Form -->
       <div class="contact-form">
-        <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2240915/forms/183664557068125464/subscribe" data-code="" method="post" target="_blank">
+        <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2240915/forms/183664557068125464/subscribe" data-code="" method="post">
           <div class="form-row">
             <div>
               <label for="ml-first-name">First Name *</label>
@@ -167,9 +167,9 @@
           <button type="submit">Send Enquiry</button>
         </form>
 
-        <div class="form-success" id="mlFormSuccess" style="display:none;">
-          <h3>Thank you</h3>
-          <p>Your enquiry has been submitted. We will be in touch shortly.</p>
+        <div class="form-success" id="mlFormSuccess" role="status" aria-live="polite" style="display:none;">
+          <h3>Thank you for your enquiry</h3>
+          <p>We've received your message and will respond within 24&ndash;48 hours.</p>
         </div>
       </div>
     </div>
@@ -251,13 +251,46 @@
   </div>
 </div>
 
-<!-- MailerLite scripts -->
-<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
+<!-- Contact form: post to MailerLite via fetch and show in-page thank-you -->
 <script>
-  function ml_webform_success_39376731() {
-    document.querySelector('.ml-block-form').style.display = 'none';
-    document.getElementById('mlFormSuccess').style.display = 'block';
-  }
+(function() {
+  var form = document.querySelector('.ml-block-form');
+  var successMsg = document.getElementById('mlFormSuccess');
+  if (!form || !successMsg) return;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse() === '') {
+      alert('Please complete the reCAPTCHA before sending your enquiry.');
+      return;
+    }
+
+    var button = form.querySelector('button[type="submit"]');
+    var originalText = button.textContent;
+    button.disabled = true;
+    button.textContent = 'Sending…';
+
+    var params = new URLSearchParams();
+    new FormData(form).forEach(function(value, key) {
+      params.append(key, value);
+    });
+
+    fetch(form.action, {
+      method: 'POST',
+      body: params,
+      mode: 'no-cors'
+    }).then(function() {
+      form.style.display = 'none';
+      successMsg.style.display = 'block';
+      successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }).catch(function() {
+      button.disabled = false;
+      button.textContent = originalText;
+      alert('Something went wrong sending your enquiry. Please email info@taraniscapital.com directly.');
+    });
+  });
+})();
 </script>
 
 <script src="/js/main.js" defer></script>
