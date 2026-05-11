@@ -1212,3 +1212,75 @@ Pattern (30/83 ≈ 36% of bucket): the bucket is overwhelmingly **legacy WordPre
 - `team/osama-al-thanon.html` (left for Mark to clean up — see flag above).
 - `subdomains/disruptive-tech/index.html` (his card already had the correct title `Board Adviser`).
 - `subdomains/property/index.html` (he does not appear there).
+
+---
+
+### Session 21 — 11 May 2026 (Weekly Profile Sync — automated)
+
+**Automated weekly people-data sync run from `Taranis-People-Data-Collection.xlsx` (canonical filename — `-KB` suffix is no longer present).**
+
+**Type changes detected:** none. Every person in the JSON remains in the same Type (Team / Board / Partner) as the previous run, with their profile page in the correct folder.
+
+**Spreadsheet-vs-JSON discrepancy flagged**
+- **`bruno-martorano` is missing from the spreadsheet** but is fully populated in `taranis-people-data.json` and has a live profile page at `/board/bruno-martorano.html`, a card on `who-we-are.html`, and entries on all five subdomain pages (Fintech / Property / Datacentre / Disruptive-Tech / Biotech). Following the CLAUDE.md guidance ("flag spreadsheet inconsistencies for the user to fix in Drive — otherwise the next Cowork sync re-applies the old state"), Bruno was **preserved in the regenerated JSON** rather than silently dropped. **Action for Mark:** re-add Bruno's row to `Taranis-People-Data-Collection.xlsx` in Google Drive (Board, Board Adviser, all five fund flags = Y) so future runs don't keep flagging this. The xlsx in the repo is a snapshot — the master lives in Drive.
+
+**JSON regenerated**
+- `taranis-people-data.json` — `_meta.lastUpdated` bumped to `2026-05-11`; 36 people retained (35 from xlsx + 1 preserved). Schema unchanged. All other field values, bios, fund assignments and roles match the spreadsheet exactly (with `MISSING` sentinels normalised to empty strings for the 11 board members without LinkedIn URLs).
+- Net diff vs. previous JSON: only the `lastUpdated` date.
+
+**Profile pages**
+- All 36 profile pages audited against the regenerated JSON for name, role, image src, LinkedIn URL and email. **No discrepancies found — no profile pages modified.**
+
+**who-we-are.html**
+- All 36 expected hrefs present (10 Team / 23 Board / 3 Partners). Names and roles match the JSON. **Not modified.**
+
+**Subdomain fund pages**
+- Audited every person flagged Y for each fund against the corresponding subdomain `index.html`. All expected names appear on each page in their correct section. **None of the five subdomain pages modified.**
+  - Fintech: 14 expected, all present.
+  - Property: 11 expected, all present.
+  - Datacentre: 20 expected, all present.
+  - Disruptive Tech: 19 expected, all present.
+  - Biotech: 24 expected, all present.
+
+**Sitemap**
+- 52 URLs total. All 36 profile URLs (10 Team / 23 Board / 3 Partners) present. No extras. No `lastmod` bumps required because no HTML files changed in this run. **Not modified.**
+
+**Data gaps**
+- Missing email (1): `mohammed-aljumah`.
+- Missing LinkedIn (11): `abdulaziz-al-sayyari`, `abdullah-alawad`, `arjumand-warsy`, `daniel-roubeni`, `ghassan-najmeddin`, `junaid-kashir`, `mohammed-aljumah`, `mustafa-mahmood-khan`, `osama-al-thanon`, `osama-al-zamil`, `qaisar-hamed-metawea`. Spreadsheet column literally contains `MISSING` for these rows — normalised to empty strings in JSON.
+- Missing image: 0.
+- Missing bio: 0.
+
+**Files modified**
+- `taranis-people-data.json` (only `_meta.lastUpdated`).
+- `docs/PROJECT-LOG.md` (this entry).
+
+**Files deliberately not modified**
+- All 36 profile HTML pages — already in sync.
+- `who-we-are.html` — already in sync.
+- All five `subdomains/*/index.html` — already in sync.
+- `sitemap.xml` — already in sync.
+
+**Open items carried forward**
+- Re-add `bruno-martorano` to the Drive spreadsheet (see flag above).
+- 11 LinkedIn URLs still outstanding (no change since previous run).
+- 1 email still outstanding (`mohammed-aljumah`).
+
+**Follow-up — Bruno Martorano removal (11 May 2026, same-day update)**
+
+Mark confirmed Bruno Martorano is no longer a board member (his row was deliberately removed from the spreadsheet). The earlier preservation logic in this run has been undone and Bruno has been fully removed from the site.
+
+Removed from:
+- `taranis-people-data.json` — entry deleted; people count now 35.
+- `who-we-are.html` — board card removed (Board count: 23 → 22; Team 10, Partners 3, Total 35).
+- `subdomains/fintech/index.html` — Board of Advisers card removed.
+- `subdomains/property/index.html` — Advisory Board card removed.
+- `subdomains/datacentre/index.html` — Advisory Board card removed.
+- `subdomains/disruptive-tech/index.html` — Advisory Board card removed.
+- `subdomains/biotech/index.html` — Advisory Board card removed.
+- `board/bruno-martorano.html` — file deleted.
+- `sitemap.xml` — `/board/bruno-martorano` `<url>` entry removed; `/who-we-are` lastmod bumped to 2026-05-11. Total URLs: 52 → 51.
+
+**Recommended follow-up — 301 redirect.** The page `/board/bruno-martorano` will 404 on the live site once deployed. Consider adding a 301 redirect in `infra/cloudfront-url-rewrite.js` (e.g. `/board/bruno-martorano` → `/who-we-are`) and republishing the CloudFront Function. Flagged for Mark — not done in this run as it requires manual publish.
+
+**Image asset.** `images/team/Bruno-600x650-1-277x300.jpg` is now orphaned. Left in place (the previous convention is not to prune orphaned images automatically). Worth a cleanup pass at some point.

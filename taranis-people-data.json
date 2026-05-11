@@ -3,7 +3,7 @@
     "description": "Taranis Capital People Directory — structured reference file for website automation",
     "sourceFile": "Taranis-People-Data-Collection.xlsx",
     "generatedBy": "Automated weekly sync",
-    "lastUpdated": "2026-05-04",
+    "lastUpdated": "2026-05-11",
     "schema": "1.0"
   },
   "people": [
@@ -266,50 +266,6 @@
         },
         "biotech": {
           "assigned": false
-        }
-      }
-    },
-    {
-      "slug": "bruno-martorano",
-      "fullName": "Bruno Martorano",
-      "type": "Board",
-      "role": "Board Adviser",
-      "email": "bruno@taraniscapital.com",
-      "linkedIn": "https://www.linkedin.com/in/bruno-martorano-1a96a818/",
-      "profileImage": {
-        "path": "/images/team/Bruno-600x650-1-277x300.jpg",
-        "hasImage": true
-      },
-      "mainSite": {
-        "bioStatus": "Complete",
-        "bio": "Bruno Martorano is a Board Adviser at Taranis Capital with 35 years of experience in banking, fintech, and financial services across the Middle East, Africa, Europe, and Asia. His career spans establishing banking operations in emerging markets, building and scaling fintech ventures, developing regulatory frameworks, and advising on complex cross-border transactions.\nBruno has served in senior executive roles at major international banks, fintech platforms, and investment firms. His expertise encompasses retail and corporate banking, payments infrastructure, digital assets, and emerging market expansion strategies.\nThroughout his career, Bruno has been instrumental in navigating complex regulatory environments and building ethical, sustainable financial institutions. He has advised governments on fintech policy and led teams across multiple jurisdictions.\nHe is particularly focused on identifying investment opportunities that combine technological innovation with strong governance, ethical business practices, and positive social impact. Bruno believes that sustainable growth in financial services requires aligning profit motives with ethical standards and community benefit.\nHis track record includes scaling operations in challenging emerging markets, building diverse and inclusive teams, and creating long-term value through disciplined capital deployment.",
-        "profileUrl": "taraniscapital.com/board/bruno-martorano"
-      },
-      "funds": {
-        "fintech": {
-          "assigned": true,
-          "role": "Board Adviser",
-          "bio": "35 years in international banking, fintech, and finance. Executive roles in neobanks, commercial banking, private banking, and FDI across New York, Paris, Hong Kong, Dubai, and London."
-        },
-        "property": {
-          "assigned": true,
-          "role": "Advisory Board",
-          "bio": "35-year banking and fintech executive. Former CEO of a major Abu Dhabi bank and a European neobank. Expert in turnarounds, FDI, and cross-border deals across New York, Paris, Hong Kong, and Dubai."
-        },
-        "datacentre": {
-          "assigned": true,
-          "role": "Advisory Board",
-          "bio": "35-year banking and fintech executive. Former CEO of a major Abu Dhabi bank and a European neobank. Expert in institutional turnarounds and foreign direct investment across the Middle East and Europe."
-        },
-        "disruptiveTech": {
-          "assigned": true,
-          "role": "Advisory Board",
-          "bio": "35-year banking and fintech executive. Former CEO of a major Abu Dhabi bank and a European neobank. Hands-on leader driving digital transformation in finance, health, and energy sectors."
-        },
-        "biotech": {
-          "assigned": true,
-          "role": "Advisory Board",
-          "bio": "35-year banking and fintech executive. Former CEO of a major Abu Dhabi bank and a European neobank. Expert in turnarounds, FDI, and cross-border deals. Hands-on leader driving digital transformation in finance, health, and energy."
         }
       }
     },
