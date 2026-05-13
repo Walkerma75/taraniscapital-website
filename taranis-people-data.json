@@ -3,7 +3,7 @@
     "description": "Taranis Capital People Directory — structured reference file for website automation",
     "sourceFile": "Taranis-People-Data-Collection.xlsx",
     "generatedBy": "Automated weekly sync",
-    "lastUpdated": "2026-05-11",
+    "lastUpdated": "2026-05-13",
     "schema": "1.0"
   },
   "people": [
@@ -498,44 +498,6 @@
       }
     },
     {
-      "slug": "jehanzeb-awan",
-      "fullName": "Jehanzeb Awan",
-      "type": "Partner",
-      "role": "CEO, J. Awan Capital (Fund Manager)",
-      "email": "jehanzeb@taraniscapital.com",
-      "linkedIn": "https://www.linkedin.com/in/jehanzeb-awan-56b08430/",
-      "profileImage": {
-        "path": "/images/team/Jehanzeb-Awan-600x650-277x300.jpg",
-        "hasImage": true
-      },
-      "mainSite": {
-        "bioStatus": "Complete",
-        "bio": "Jehanzeb Awan is the Founding Partner and Chief Executive Officer of J. Awan Capital, the CMA-licensed Fund Manager for Taranis Capital's KSA fund vehicles. He brings over 25 years of experience in financial services regulation, compliance, and governance across the MENA region.\n\nHe established the compliance function at National Bank of Dubai (now Emirates NBD), served as Executive Director and Head of Compliance for Morgan Stanley's MENA business for approximately seven years, and founded J. Awan & Partners (an award-winning regulatory advisory firm) and Azakaw (a global regtech company). He is Chairman of the Middle East, Africa, and Asia Crypto and Blockchain Association.\n\nJehanzeb holds a Bachelor of Applied Science from the University of Arizona (Magna Cum Laude) and is a member of the International Compliance Association and the Association of Certified Anti-Money Laundering Specialists.",
-        "profileUrl": "taraniscapital.com/partners/jehanzeb-awan"
-      },
-      "funds": {
-        "fintech": {
-          "assigned": false
-        },
-        "property": {
-          "assigned": false
-        },
-        "datacentre": {
-          "assigned": true,
-          "role": "CEO, J. Awan Capital (Fund Manager)",
-          "bio": "Founder and CEO of J. Awan Capital, the CMA-licensed Fund Manager for the Datacentre Fund. Over 25 years in financial services regulation and compliance across MENA. Investment Committee voting member."
-        },
-        "disruptiveTech": {
-          "assigned": false
-        },
-        "biotech": {
-          "assigned": true,
-          "role": "CEO, J. Awan Capital (Fund Manager)",
-          "bio": "Founder and CEO of J. Awan Capital, the CMA-licensed Fund Manager. Former Regional Head of Compliance for Morgan Stanley MENA. 25+ years in financial services regulation, compliance, and governance. Provides strategic leadership for Fund Manager operations, regulatory compliance, and investor relations."
-        }
-      }
-    },
-    {
       "slug": "joel-blake",
       "fullName": "Joel Blake OBE",
       "type": "Board",
@@ -930,44 +892,6 @@
       }
     },
     {
-      "slug": "mustafa-mahmood-khan",
-      "fullName": "Mustafa Mahmood Khan, CFA",
-      "type": "Partner",
-      "role": "Head of Asset Management, J. Awan Capital",
-      "email": "mustafa@taraniscapital.com",
-      "linkedIn": "",
-      "profileImage": {
-        "path": "/images/team/Mustafa-Mahmood-Khan-600x650-277x300.jpg",
-        "hasImage": true
-      },
-      "mainSite": {
-        "bioStatus": "Complete",
-        "bio": "Mustafa Mahmood Khan, CFA, leads the Asset Management division of J. Awan Capital with over 15 years of experience in portfolio management and financial consulting. He is a CMA-registered professional who has successfully advised and managed portfolios for high-net-worth individuals, institutional investors, and treasury funds.\n\nHe has delivered multi-million-dollar mandates and developed bespoke investment strategies tailored to client objectives and risk profiles. His experience spans multiple asset classes and investment strategies. Prior roles include Portfolio Manager at Al Meezan Investment Management and Head of Research and Fund Manager at HBL Asset Management.\n\nMustafa is an ACCA-qualified professional and CFA Charterholder, reflecting his commitment to the highest standards of investment analysis and portfolio management.",
-        "profileUrl": "taraniscapital.com/partners/mustafa-mahmood-khan"
-      },
-      "funds": {
-        "fintech": {
-          "assigned": false
-        },
-        "property": {
-          "assigned": false
-        },
-        "datacentre": {
-          "assigned": true,
-          "role": "Head of Asset Management, J. Awan Capital",
-          "bio": "CFA Charterholder and CMA-registered professional leading J. Awan Capital's Asset Management division. 15+ years in portfolio management. Investment Committee voting member."
-        },
-        "disruptiveTech": {
-          "assigned": false
-        },
-        "biotech": {
-          "assigned": true,
-          "role": "Head of Asset Management, J. Awan Capital",
-          "bio": "CFA Charterholder leading J. Awan Capital's Asset Management division. 15+ years in portfolio management and financial consulting. CMA-registered. Oversees fund operations, portfolio monitoring, and investor reporting."
-        }
-      }
-    },
-    {
       "slug": "nicholas-bingham",
       "fullName": "Nicholas S. Bingham",
       "type": "Team",
@@ -1136,44 +1060,6 @@
           "assigned": true,
           "role": "Investment Committee Member / CTO",
           "bio": "Chief Technology Officer and Investment Committee member. Seasoned Saudi entrepreneur and King Saud University graduate. CEO of AlFaris International Group and Head of ICC Banking Committee. Pioneer of internet banking and e-wallets in KSA. Drives innovation across education, medical, and IT sectors."
-        }
-      }
-    },
-    {
-      "slug": "qaisar-hamed-metawea",
-      "fullName": "Dr Qaisar Hamed Metawea",
-      "type": "Partner",
-      "role": "Managing Partner, QHM Law Firm (Local KSA Counsel)",
-      "email": "qaisar@taraniscapital.com",
-      "linkedIn": "",
-      "profileImage": {
-        "path": "/images/team/Qaisar-Hamed-Metawea-600x650-277x300.jpg",
-        "hasImage": true
-      },
-      "mainSite": {
-        "bioStatus": "Complete",
-        "bio": "Dr Qaisar Hamed Metawea is the Managing Partner and founding partner of QHM Law Firm, serving as Local KSA Counsel for Taranis Capital's fund vehicles. He is a Saudi lawyer licensed by the Ministry of Justice with over 15 years of practice.\n\nHe holds an SJD and LLM in International Intellectual Property Law from Indiana University, bringing deep expertise in Saudi commercial law, regulatory matters, and cross-border transactions. His practice encompasses legal opinions, business transactions, company structuring, litigation, and regulatory matters within the Kingdom.\n\nDr Metawea provides specialised knowledge relevant to biotechnology investments and intellectual property considerations, supporting portfolio company localisation activities and ensuring compliance with Kingdom-specific requirements.",
-        "profileUrl": "taraniscapital.com/partners/qaisar-hamed-metawea"
-      },
-      "funds": {
-        "fintech": {
-          "assigned": false
-        },
-        "property": {
-          "assigned": false
-        },
-        "datacentre": {
-          "assigned": true,
-          "role": "Local KSA Counsel (QHM Law Firm)",
-          "bio": "Saudi lawyer and founding partner of QHM Law Firm. Licensed by the Ministry of Justice with 15+ years of practice. SJD and LLM in International IP Law from Indiana University. Deep expertise in Saudi commercial law and regulatory matters."
-        },
-        "disruptiveTech": {
-          "assigned": false
-        },
-        "biotech": {
-          "assigned": true,
-          "role": "Local KSA Counsel (QHM Law Firm)",
-          "bio": "Saudi lawyer and founding partner of QHM Law Firm. Licensed by the Ministry of Justice with 15+ years of practice. SJD and LLM in International IP Law from Indiana University. Provides specialist KSA legal counsel on regulatory matters and biotech IP."
         }
       }
     },

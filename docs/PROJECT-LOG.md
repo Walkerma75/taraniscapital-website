@@ -1284,3 +1284,38 @@ Removed from:
 **Recommended follow-up — 301 redirect.** The page `/board/bruno-martorano` will 404 on the live site once deployed. Consider adding a 301 redirect in `infra/cloudfront-url-rewrite.js` (e.g. `/board/bruno-martorano` → `/who-we-are`) and republishing the CloudFront Function. Flagged for Mark — not done in this run as it requires manual publish.
 
 **Image asset.** `images/team/Bruno-600x650-1-277x300.jpg` is now orphaned. Left in place (the previous convention is not to prune orphaned images automatically). Worth a cleanup pass at some point.
+
+---
+
+### Session — 13 May 2026 (Cowork weekly profile sync + Partner removals)
+
+**Context.** Mark asked mid-run to remove three Fund Partners (Jehanzeb Awan, Mustafa Mahmood Khan CFA, Dr Qaisar Hamed Metawea) from the website immediately. They were the only entries with `Type = Partner`. After this run the site has 32 people: 10 Team, 22 Board, 0 Partners.
+
+**Spreadsheet read.** First read of `Taranis-People-Data-Collection.xlsx` succeeded and showed 35 rows (incl. the three partners). Subsequent reads in this run failed (`BadZipFile`) — file appeared in the cache without an EOCD record despite being unchanged on disk. The xlsx mtime is still 11 May, so the spreadsheet was not re-saved during the session. I proceeded by basing the regenerated JSON on the prior week's complete JSON and removing the three partners by slug. No other data fields needed updating from xlsx — the prior sync was complete.
+
+**Partner removals — files changed:**
+- `taranis-people-data.json` — three Partner records deleted; people count 35 → 32; `_meta.lastUpdated` → 2026-05-13.
+- `partners/jehanzeb-awan.html`, `partners/mustafa-mahmood-khan.html`, `partners/qaisar-hamed-metawea.html` — files deleted (folder now empty).
+- `who-we-are.html` — entire **Fund Partners** section removed (no remaining partners). Section moved from layout (Team → Partners → Board) to (Team → Board).
+- `subdomains/biotech/index.html` — the three partner cards removed from the Executive Team grid (Dr Qaisar Hamed Metawea, Jehanzeb Awan, Mustafa Mahmood Khan).
+- `subdomains/datacentre/index.html` — entire **Fund Manager & Key Counsel** section deleted (it contained only the three partners).
+- `sitemap.xml` — three `/partners/...` `<url>` entries removed; `/who-we-are` `<lastmod>` bumped to 2026-05-13. Total URLs: 51 → 48.
+
+**Verification (post-edits, automated):**
+- `grep -r` across `*.html`/`*.xml` returns no remaining references to any of the three partners outside `Documents/` archival material.
+- All 32 remaining people are present in `who-we-are.html` under the correct section (10 Team cards, 22 Board cards).
+- Each subdomain page's set of cards still matches `funds.{fund}.assigned == true` in the JSON (fintech 13, property 10, datacentre 16, disruptive-tech 18, biotech 20).
+- Each of the 32 profile pages exists in the correct `/team`, `/board` folder; name / role / LinkedIn / email / profile image src all match the JSON.
+
+**Data gaps (no change from previous run unless noted):**
+- Missing email (1): `mohammed-aljumah`.
+- Missing LinkedIn (9, ↓ from 11 because the two LinkedIn-less partners were removed): `abdulaziz-al-sayyari`, `abdullah-alawad`, `arjumand-warsy`, `daniel-roubeni`, `ghassan-najmeddin`, `junaid-kashir`, `mohammed-aljumah`, `osama-al-thanon`, `osama-al-zamil`.
+- Missing images / bios: 0.
+
+**Open items carried forward.**
+- 9 LinkedIn URLs still outstanding.
+- 1 email still outstanding (`mohammed-aljumah`).
+- Spreadsheet `Taranis-People-Data-Collection.xlsx` still contains the three partner rows (Mark may not have saved the deletion in Excel). The xlsx and JSON are now out of sync. **Mark should delete those three rows in the Drive spreadsheet** so the next scheduled run doesn't re-add them.
+- Orphaned image assets — `Jehanzeb-Awan-600x650-277x300.jpg`, `Mustafa-Mahmood-Khan-600x650-277x300.jpg`, `Qaisar-Hamed-Metawea-600x650-277x300.jpg` — left in `images/team/` (matching prior convention not to auto-prune).
+- **Recommended follow-up — 301 redirects.** The three `/partners/<slug>` URLs will 404 on the live site once deployed. Consider adding 301s in `infra/cloudfront-url-rewrite.js` (e.g. all three → `/who-we-are`) and republishing the CloudFront Function. Flagged for Mark — not done in this run.
+
