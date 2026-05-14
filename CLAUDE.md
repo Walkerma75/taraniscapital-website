@@ -4,6 +4,21 @@
 **State:** LIVE
 **Owner entity:** Taranis Capital
 
+## Session start — check Cowork folders first
+
+**Rule:** Before making substantive changes or replying to a non-trivial request in a new session, scan the Cowork folders for any briefings, plans, specs, code briefs, PROJECT-LOG-style notes, `TASKS.md`, or session memos that may have landed since the last code-side activity.
+
+**Cowork folders to check:**
+
+- `C:\Users\mark\Claude Cowork\Taranis Capital Website`
+- `C:\Users\mark\Claude Cowork\Taranis Capital Shared`
+- `C:\Users\mark\Claude Cowork\Taranis Fund Info`
+- `C:\Users\mark\Documents\Claude\Projects\Taranis Capital`
+
+**Why:** Cowork (a separate Claude environment operating in the fund-paperwork and corporate folders) and Code (this environment, the website repo) have been drifting out of sync. Cowork writes briefings, plans, specs and code briefs that don't always reflect what the code has shipped, and the code side ships changes without picking up the latest Cowork briefings. The symmetric rule is installed on the Cowork side so each environment picks up the other's latest state.
+
+**How to apply:** Most important when the request relates to site content, the press release pipeline, the people-data sync, profile data, brand updates, redirects, subdomain setup, or anything cross-cutting between paperwork and the live site. Less important for narrow internal refactors with no paperwork-side dependency. If a Cowork folder isn't currently accessible from this environment, flag it to the user and ask whether to proceed without checking or wait for the mount.
+
 ## Tech stack
 
 - Frontend: HTML, CSS, vanilla JS (no framework, no build step)
@@ -82,4 +97,4 @@ There is no build step — the site deploys as-is.
 
 ## Last updated
 
-4 May 2026 (press card thumbnails + 4-across grid; Cowork profile sync re-landed; xlsx source-of-truth note clarified)
+14 May 2026 (added Cowork-folder check rule)
