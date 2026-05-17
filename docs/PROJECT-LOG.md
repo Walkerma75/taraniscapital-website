@@ -1317,5 +1317,4 @@ Removed from:
 - 1 email still outstanding (`mohammed-aljumah`).
 - Spreadsheet `Taranis-People-Data-Collection.xlsx` still contains the three partner rows (Mark may not have saved the deletion in Excel). The xlsx and JSON are now out of sync. **Mark should delete those three rows in the Drive spreadsheet** so the next scheduled run doesn't re-add them.
 - Orphaned image assets — `Jehanzeb-Awan-600x650-277x300.jpg`, `Mustafa-Mahmood-Khan-600x650-277x300.jpg`, `Qaisar-Hamed-Metawea-600x650-277x300.jpg` — left in `images/team/` (matching prior convention not to auto-prune).
-- **Recommended follow-up — 301 redirects.** The three `/partners/<slug>` URLs will 404 on the live site once deployed. Consider adding 301s in `infra/cloudfront-url-rewrite.js` (e.g. all three → `/who-we-are`) and republishing the CloudFront Function. Flagged for Mark — not done in this run.
-
+- **Recommended follow-up — 301 redirects.** The three `/partners/<slug>` URLs will 404 on the live site once deployed. Consider adding 301s in `infra/cloudfront-url-rewrite.js` (e.g. all three → `/who-we-are`) and republishing the CloudFront F
