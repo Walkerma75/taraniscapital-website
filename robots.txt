@@ -3,6 +3,10 @@
 
 User-agent: *
 Allow: /
+# Be polite — limit hits per crawler to one every 10s.
+# AI bots, search engines and aggregators are all welcome to index;
+# this just stops any single crawler from hammering the CDN edge.
+Crawl-delay: 10
 
 # Block legacy and non-production directories
 Disallow: /Wp-content/
