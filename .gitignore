@@ -14,3 +14,7 @@ Thumbs.db
 # Scratch files from AWS CLI subdomain setup (bucket policies, distribution configs)
 *-policy.json
 *-dist-config.json
+
+# NOTE: Taranis-People-Data-Collection.xlsx and its .bak ARE tracked deliberately —
+# every weekly sync commits the new xlsx and the prior .bak so any future overwrite
+# is recoverable via git. Do not add either to this ignore list.

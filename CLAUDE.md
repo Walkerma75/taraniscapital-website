@@ -82,11 +82,12 @@ There is no build step — the site deploys as-is.
 ## Known gotchas
 
 - Two GitHub accounts on this machine (`Walkerma75` + `markwalker-pcs`) — Windows Credential Manager has triggered auth conflicts when pushing. If git prompts for credentials unexpectedly, confirm the git config user email matches the account with repo access.
-- `Taranis-People-Data-Collection.xlsx` is **Cowork's** source of truth and is read from Google Drive, not from this repo. The xlsx checked into this repo is a periodic snapshot — never edit it locally. For data corrections, edit `taranis-people-data.json` and the affected HTML directly, and flag spreadsheet inconsistencies for the user to fix in Drive (otherwise the next Cowork sync re-applies the old state).
+- `Taranis-People-Data-Collection.xlsx` — the **Google Drive copy is the source of truth**. The scheduled sync reads from Drive and writes to this repo. Edits made *only* to the local xlsx (not Drive) will be silently rolled back by the next sync run. **Always make data edits in the Drive copy first** — this is what 25 May 2026's data-loss incident was caused by (see PROJECT-LOG). The local xlsx and its `.bak` are now both tracked in git as a recovery safety net.
 
 ## Scheduled tasks
 
-- `taranis-people-sync` (Cowork scheduled task) — runs 09:00 local on the 1st and 15th of each month. Reads `Taranis-People-Data-Collection.xlsx`, diffs against `taranis-people-data.json`, and opens a PR on branch `sync/profiles-YYYY-MM-DD` if profile fields have changed. Never commits to `main` directly. Manage from the Scheduled sidebar.
+- `taranis-people-sync` (Cowork scheduled task) — runs 09:00 local on the 1st and 15th of each month. Reads `Taranis-People-Data-Collection.xlsx` from Drive, diffs against `taranis-people-data.json`, and opens a PR on branch `sync/profiles-YYYY-MM-DD` if profile fields have changed. Never commits to `main` directly. Manage from the Scheduled sidebar.
+- **Sync safety guard** (`tools/xlsx-sync-guard.py`) — the scheduled task should invoke this before overwriting the local xlsx. Three subcommands: `--check` (refuse to overwrite when the local xlsx differs from HEAD), `--bak` (snapshot current xlsx → `.bak`), `--snapshot` (commit current xlsx + `.bak` to a `xlsx-snapshot/YYYY-MM-DD-HHMM` branch). The scheduled task SKILL.md should be amended to call these.
 
 ## Known outstanding
 
@@ -97,4 +98,4 @@ There is no build step — the site deploys as-is.
 
 ## Last updated
 
-14 May 2026 (added Cowork-folder check rule)
+25 May 2026 (added xlsx-sync-guard, documented Drive-is-source-of-truth, tracked .bak in git after 25 May data-loss)
