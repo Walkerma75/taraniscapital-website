@@ -5,12 +5,19 @@ on:
     branches:
       - main
 
+env:
+  CACHE_LONG: "public, max-age=31536000, immutable"
+  CACHE_HTML: "public, max-age=300, must-revalidate"
+  CACHE_META: "public, max-age=3600"
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout code (full history for diff)
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -43,6 +50,51 @@ jobs:
             --exclude "Team Images/*" \
             --exclude "subdomains/*"
 
+      # ---- Cache-Control tiering -----------------------------------------
+      # The sync above does not set Cache-Control, so CloudFront falls back
+      # to its default minimum TTL. Re-tag objects with explicit headers
+      # so static assets stay at the edge for a year and HTML for 5 min.
+      # Server-side copy — no upload bandwidth.
+
+      - name: Apply long Cache-Control to static assets (css/js/images/fonts)
+        run: |
+          for d in css js images fonts; do
+            if aws s3 ls "s3://${{ secrets.S3_BUCKET }}/$d/" >/dev/null 2>&1; then
+              aws s3 cp \
+                "s3://${{ secrets.S3_BUCKET }}/$d/" \
+                "s3://${{ secrets.S3_BUCKET }}/$d/" \
+                --recursive \
+                --metadata-directive REPLACE \
+                --cache-control "$CACHE_LONG"
+            fi
+          done
+
+      - name: Apply short Cache-Control to HTML
+        run: |
+          aws s3 cp \
+            "s3://${{ secrets.S3_BUCKET }}/" \
+            "s3://${{ secrets.S3_BUCKET }}/" \
+            --recursive \
+            --exclude "*" \
+            --include "*.html" \
+            --metadata-directive REPLACE \
+            --content-type "text/html; charset=utf-8" \
+            --cache-control "$CACHE_HTML"
+
+      - name: Apply medium Cache-Control to metadata files
+        run: |
+          for f in robots.txt sitemap.xml llms.txt humans.txt security.txt taranis-people-data.json; do
+            if aws s3 ls "s3://${{ secrets.S3_BUCKET }}/$f" >/dev/null 2>&1; then
+              aws s3 cp \
+                "s3://${{ secrets.S3_BUCKET }}/$f" \
+                "s3://${{ secrets.S3_BUCKET }}/$f" \
+                --metadata-directive REPLACE \
+                --cache-control "$CACHE_META"
+            fi
+          done
+
+      # ---- Subdomain syncs (each their own bucket + distribution) --------
+
       - name: Sync fintech subdomain to S3
         run: aws s3 sync subdomains/fintech/ s3://fintech.taraniscapital.com/ --delete
 
@@ -58,23 +110,43 @@ jobs:
       - name: Sync biotech subdomain to S3
         run: aws s3 sync subdomains/biotech/ s3://biotech.taraniscapital.com/ --delete
 
-      - name: Invalidate CloudFront caches
+      # ---- Targeted CloudFront invalidation -------------------------------
+      # Replace the previous blanket "/*" invalidation across all six
+      # distributions with a per-file plan derived from the actual diff.
+      # This is the single biggest lever for CloudFront request volume:
+      # blanket "/*" forces every subsequent crawler/visitor request to
+      # miss the edge cache and re-hit S3.
+
+      - name: Compute invalidation plan
         run: |
-          aws cloudfront create-invalidation \
-            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/*"
-          aws cloudfront create-invalidation \
-            --distribution-id E260FGTXCVORQ6 \
-            --paths "/*"
-          aws cloudfront create-invalidation \
-            --distribution-id E3EJUFMMNZLO3V \
-            --paths "/*"
-          aws cloudfront create-invalidation \
-            --distribution-id E2H8IQKJ8LPQ01 \
-            --paths "/*"
-          aws cloudfront create-invalidation \
-            --distribution-id E98QNGA1O9AI0 \
-            --paths "/*"
-          aws cloudfront create-invalidation \
-            --distribution-id ESMIKURPBA41W \
-            --paths "/*"
+          BEFORE="${{ github.event.before }}"
+          AFTER="${{ github.sha }}"
+          bash infra/compute-invalidations.sh "$BEFORE" "$AFTER" \
+            | tee /tmp/invals.txt
+          echo "Plan summary:"
+          cut -d: -f1 /tmp/invals.txt | sort | uniq -c
+
+      - name: Invalidate CloudFront caches (per-distribution, per-file)
+        run: |
+          set -e
+          declare -A DIST_IDS=(
+            [APEX]="${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}"
+            [FINTECH]="E260FGTXCVORQ6"
+            [DATACENTRE]="E3EJUFMMNZLO3V"
+            [PROPERTY]="E2H8IQKJ8LPQ01"
+            [DISRUPTIVE_TECH]="E98QNGA1O9AI0"
+            [BIOTECH]="ESMIKURPBA41W"
+          )
+          for dist in "${!DIST_IDS[@]}"; do
+            paths=$(grep "^${dist}:" /tmp/invals.txt | cut -d: -f2- || true)
+            if [ -z "$paths" ]; then
+              echo "[$dist] no changes — skipping invalidation"
+              continue
+            fi
+            echo "[$dist] invalidating $(echo "$paths" | wc -l) path(s):"
+            echo "$paths" | sed 's/^/  /'
+            # shellcheck disable=SC2086
+            aws cloudfront create-invalidation \
+              --distribution-id "${DIST_IDS[$dist]}" \
+              --paths $paths
+          done
