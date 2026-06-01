@@ -38,7 +38,8 @@ jobs:
             --include "*.md" \
             --include "*.xlsx" \
             --include "*.xls" \
-            --include "*.bak"
+            --include "*.bak" \
+            --include "*.py"
 
       # The prefixes below are .gitignore'd and excluded from the sync, but
       # `aws s3 sync --delete` never removes excluded prefixes — so objects
@@ -55,15 +56,42 @@ jobs:
 
       - name: Sync main site to S3
         run: |
+          # ALLOWLIST sync: publish ONLY known web-asset file types, so a stray
+          # internal file at the repo root (.xlsx/.csv/.zip/.docx/.py/.bak/...)
+          # can never be served. S3 CLI filters apply in order, LAST match wins:
+          #   1. --exclude "*"             nothing is published by default
+          #   2. --include "*.<webtype>"  re-include web-asset types
+          #   3. --exclude "<dir>/*"      re-exclude internal dirs whose files DO
+          #      match a web type (subdomains/ go to their own buckets; the rest
+          #      are internal) — listed LAST so they override the type includes.
+          # .pdf is intentionally NOT allowlisted: the only PDFs live in the
+          # excluded Documents/ folder. Add --include "*.pdf" if a public PDF is
+          # ever needed. The per-type/prefix purge steps above remain the second
+          # layer that removes anything already in the bucket.
           aws s3 sync . s3://${{ secrets.S3_BUCKET }} \
             --delete \
+            --exclude "*" \
+            --include "*.html" \
+            --include "*.css" \
+            --include "*.js" \
+            --include "*.json" \
+            --include "*.xml" \
+            --include "*.txt" \
+            --include "*.jpg" \
+            --include "*.jpeg" \
+            --include "*.png" \
+            --include "*.gif" \
+            --include "*.svg" \
+            --include "*.webp" \
+            --include "*.avif" \
+            --include "*.ico" \
+            --include "*.woff" \
+            --include "*.woff2" \
+            --include "*.ttf" \
+            --include "*.otf" \
+            --include "*.eot" \
             --exclude ".git/*" \
             --exclude ".github/*" \
-            --exclude ".gitignore" \
-            --exclude "*.md" \
-            --exclude "*.xlsx" \
-            --exclude "*.xls" \
-            --exclude "*.bak" \
             --exclude "docs/*" \
             --exclude "infra/*" \
             --exclude "Wp-content/*" \
@@ -223,4 +251,6 @@ jobs:
               "/Taranis-People-Data-Collection.xlsx" \
               "/Board%20of%20Advisors/*" \
               "/TC%20Logos/*" \
-              "/Team%20Images/*"
+              "/Team%20Images/*" \
+              "/tools/add-press-release.py" \
+              "/tools/xlsx-sync-guard.py"
