@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+  # Manual trigger: re-tags every object's metadata and (because the dispatch
+  # event carries no "before" SHA) flushes the whole CDN — see the invalidation
+  # step. Use this to recover from a bad cache/content-type state at the edge.
+  workflow_dispatch:
 
 env:
   CACHE_LONG: "public, max-age=31536000, immutable"
@@ -55,18 +59,33 @@ jobs:
       # to its default minimum TTL. Re-tag objects with explicit headers
       # so static assets stay at the edge for a year and HTML for 5 min.
       # Server-side copy — no upload bandwidth.
+      #
+      # IMPORTANT: --metadata-directive REPLACE wipes ALL metadata, including
+      # Content-Type. With --recursive the CLI cannot re-guess per-file MIME
+      # types, so omitting --content-type defaults every object to
+      # binary/octet-stream — and standards-mode browsers refuse to apply a
+      # stylesheet that isn't served as text/css (the page renders unstyled).
+      # We therefore set --content-type explicitly, one MIME type per pass.
 
-      - name: Apply long Cache-Control to static assets (css/js/images/fonts)
+      - name: Apply long Cache-Control + Content-Type to static assets
         run: |
-          for d in css js images fonts; do
-            if aws s3 ls "s3://${{ secrets.S3_BUCKET }}/$d/" >/dev/null 2>&1; then
-              aws s3 cp \
-                "s3://${{ secrets.S3_BUCKET }}/$d/" \
-                "s3://${{ secrets.S3_BUCKET }}/$d/" \
-                --recursive \
-                --metadata-directive REPLACE \
-                --cache-control "$CACHE_LONG"
-            fi
+          set -e
+          # include-glob : content-type  (server-side re-tag, one MIME per pass)
+          declare -A ASSET_TYPES=(
+            ["*.css"]="text/css; charset=utf-8"
+            ["*.js"]="application/javascript; charset=utf-8"
+            ["*.jpg"]="image/jpeg"
+            ["*.png"]="image/png"
+          )
+          for glob in "${!ASSET_TYPES[@]}"; do
+            aws s3 cp \
+              "s3://${{ secrets.S3_BUCKET }}/" \
+              "s3://${{ secrets.S3_BUCKET }}/" \
+              --recursive \
+              --exclude "*" --include "$glob" \
+              --metadata-directive REPLACE \
+              --content-type "${ASSET_TYPES[$glob]}" \
+              --cache-control "$CACHE_LONG"
           done
 
       - name: Apply short Cache-Control to HTML
@@ -81,14 +100,25 @@ jobs:
             --content-type "text/html; charset=utf-8" \
             --cache-control "$CACHE_HTML"
 
-      - name: Apply medium Cache-Control to metadata files
+      - name: Apply medium Cache-Control + Content-Type to metadata files
         run: |
-          for f in robots.txt sitemap.xml llms.txt humans.txt security.txt taranis-people-data.json; do
+          set -e
+          # filename : content-type  (REPLACE wipes Content-Type — set it back)
+          declare -A META_TYPES=(
+            ["robots.txt"]="text/plain; charset=utf-8"
+            ["sitemap.xml"]="application/xml"
+            ["llms.txt"]="text/plain; charset=utf-8"
+            ["humans.txt"]="text/plain; charset=utf-8"
+            ["security.txt"]="text/plain; charset=utf-8"
+            ["taranis-people-data.json"]="application/json"
+          )
+          for f in "${!META_TYPES[@]}"; do
             if aws s3 ls "s3://${{ secrets.S3_BUCKET }}/$f" >/dev/null 2>&1; then
               aws s3 cp \
                 "s3://${{ secrets.S3_BUCKET }}/$f" \
                 "s3://${{ secrets.S3_BUCKET }}/$f" \
                 --metadata-directive REPLACE \
+                --content-type "${META_TYPES[$f]}" \
                 --cache-control "$CACHE_META"
             fi
           done
@@ -121,6 +151,10 @@ jobs:
         run: |
           BEFORE="${{ github.event.before }}"
           AFTER="${{ github.sha }}"
+          # Manual workflow_dispatch runs carry no "before" SHA. Default it to
+          # the zero SHA so compute-invalidations.sh emits "/*" for every
+          # distribution — a deliberate full CDN flush for recovery runs.
+          : "${BEFORE:=0000000000000000000000000000000000000000}"
           bash infra/compute-invalidations.sh "$BEFORE" "$AFTER" \
             | tee /tmp/invals.txt
           echo "Plan summary:"
