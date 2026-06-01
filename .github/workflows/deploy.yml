@@ -182,6 +182,13 @@ jobs:
       - name: Invalidate CloudFront caches (per-distribution, per-file)
         run: |
           set -e
+          # Paths are passed UNQUOTED below (SC2086) so a multi-path string
+          # word-splits into separate --paths args. Disable globbing so a
+          # literal "/*" stays "/*" instead of pathname-expanding against the
+          # runner's filesystem — without this, a full-flush invalidation
+          # silently submitted /bin /etc /usr ... instead of /*, so the edge
+          # cache was never cleared.
+          set -f
           declare -A DIST_IDS=(
             [APEX]="${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}"
             [FINTECH]="E260FGTXCVORQ6"
