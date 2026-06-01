@@ -1318,3 +1318,94 @@ Removed from:
 - Spreadsheet `Taranis-People-Data-Collection.xlsx` still contains the three partner rows (Mark may not have saved the deletion in Excel). The xlsx and JSON are now out of sync. **Mark should delete those three rows in the Drive spreadsheet** so the next scheduled run doesn't re-add them.
 - Orphaned image assets — `Jehanzeb-Awan-600x650-277x300.jpg`, `Mustafa-Mahmood-Khan-600x650-277x300.jpg`, `Qaisar-Hamed-Metawea-600x650-277x300.jpg` — left in `images/team/` (matching prior convention not to auto-prune).
 - **Recommended follow-up — 301 redirects.** The three `/partners/<slug>` URLs will 404 on the live site once deployed. Consider adding 301s in `infra/cloudfront-url-rewrite.js` (e.g. all three → `/who-we-are`) and republishing the CloudFront F
+
+---
+
+### Session 22 — 1 June 2026 (GSC Weekly Check)
+
+**Automated weekly Google Search Console health check — taraniscapital.com**
+
+(First GSC check since Session 20 on 4 May 2026 — a four-week gap, so deltas below cover ~4 weeks rather than the usual 7 days.)
+
+**1. Sitemaps**
+- sitemap.xml — Status: **Success** ✅
+- Last read: **31 May 2026**
+- Discovered pages: **48** — matches local sitemap.xml exactly ✅ (down from 51 at S20, consistent with the 13 May partner removals that dropped three `/partners/<slug>` URLs from the sitemap)
+
+**2. Page Indexing**
+- Last update: **29/05/2026**
+- Indexed: **90** (was 121 at S20, 142 at S15, 281 at baseline) — **DOWN 31 vs S20**
+- Not indexed: **410** (was 393 at S20, 370 at S15, 180 at baseline) — **UP 17 vs S20**
+- 6 active reason categories (+ 3 zero-page rows). No new categories vs S20.
+
+| Reason | Pages | Validation | vs Session 20 |
+|---|---|---|---|
+| Not found (404) | 301 | Not Started | was 277 — UP 24 (still all old WP content per Option A) |
+| Crawled – currently not indexed | 83 | **Failed** 🚨 | was 83 Failed — no change |
+| Page with redirect | 17 | Not Started | was 21 — DOWN 4 ✅ |
+| Excluded by 'noindex' tag | 4 | Not Started | was 4 — no change (4 fund subdomain homepages, intentional) |
+| Alternative page with proper canonical tag | 4 | Not Started | was 7 — DOWN 3 ✅ |
+| Blocked due to other 4xx issue | 1 | Started | was 1 Started — **still Started at ~day 52** (well past the 14–28 day window) |
+| Blocked by robots.txt | 0 | Passed | unchanged ✅ |
+| Duplicate, Google chose different canonical than user | 0 | Passed | unchanged |
+| Discovered – currently not indexed | 0 | N/A | unchanged |
+
+Total: 301 + 83 + 17 + 4 + 4 + 1 + 0 + 0 + 0 = 410 ✅ (matches summary).
+
+**Validation run status (started 10/04/2026 — day ~52):**
+- **Blocked by robots.txt: Passed** ✅ (unchanged from S20).
+- **Crawled – currently not indexed: Failed** 🚨 (unchanged from S20; page count flat at 83). No new validation triggered — per Session 20 recommendation we are not re-running until the soft-404 root cause is addressed or accepted as historical noise.
+- **Blocked due to other 4xx issue: still Started** at ~day 52 — long overdue the 14–28 day window, but only 1 page involved so impact is negligible. No action.
+
+**3. Performance (last 7 days: 24–30 May 2026)**
+- Total clicks: **36** (was 82 at S20) — **−56%**
+- Total impressions: **1,590** (was 2,050 at S20) — **−22%**
+- Average CTR: **2.3%** (was 4% at S20)
+- Average position: **8.4** (was 6.8 at S20) — **worse by 1.6**
+- Direct S20 → S22 comparison spans 4 weeks (not 1), so some of the drop is expected variance; even so, all four metrics moved the wrong way. Top branded query (`taranis capital`) still leads with 15 clicks / 24 impressions; long tail looking thinner.
+
+**4. Manual Actions & Security Issues**
+- Manual actions: **No issues detected** ✅
+- Security issues: **No issues detected** ✅
+
+**5. Core Web Vitals**
+- Mobile: Not enough usage data (last 90 days) — no Poor/Needs improvement URLs
+- Desktop: Not enough usage data (last 90 days) — no Poor/Needs improvement URLs
+
+**Issues to raise with Mark**
+
+1. **Performance declined across the board over the 4-week gap.** Clicks 82 → 36 (−56%), impressions 2,050 → 1,590 (−22%), CTR 4% → 2.3%, average position 6.8 → 8.4. Some of this is likely the result of fewer pages in the index (121 → 90) so smaller search footprint, but worth watching whether next week stabilises or continues to slide.
+2. **Indexed page count continues to fall: 281 → 142 → 121 → 90.** Worth a manual URL Inspection of 5–10 currently-indexed legitimate pages (team profiles, fund pages, press releases) to confirm none have dropped out of the index. The Session 20 hypothesis (stale snapshot artefact + legacy WP noise) still holds, but the trend deserves attention.
+3. **404 count keeps climbing: 277 → 301 (+24).** Consistent with Option A — old WordPress URLs continuing to surface. No action required unless we choose to harden the soft-404 issue identified at S20 (extend CloudFront `url-rewrite` Function to return hard 404s for known-dead WP path patterns).
+4. **"Crawled – currently not indexed" stable at 83 (Failed).** No improvement, no deterioration. Decision remains as per S20: don't re-trigger validation until the soft-404 root cause is fixed or accepted.
+5. **"Blocked due to other 4xx issue" validation still Started** at ~day 52 (started 10/04). Only 1 page, so low priority — but unusual. Could be manually re-triggered if cleanup is desired.
+6. **Sitemap discovered count moved 51 → 48** in line with the 13 May partner removals. Healthy alignment between local sitemap and what Google sees.
+7. **Suggested cadence reminder:** the last GSC check was 4 May. The scheduled task should be running weekly — worth confirming on the Scheduled sidebar that `gsc-weekly-health-check` is still active (this run was triggered as a scheduled task, so the cadence appears to be operating now).
+
+---
+
+### Session 23 — 1 June 2026 (Live site outage — unstyled rendering — diagnosed & fixed)
+
+**Reported by Mark:** "the website seems to be down and not rendering correctly."
+
+**Symptom:** the site returned HTTP 200 with intact HTML but rendered **completely unstyled** — no CSS applied.
+
+**Root cause — two latent bugs in `.github/workflows/deploy.yml`, both introduced 25 May in the perf rework (`6c7ae58`, #21):**
+
+1. **Content-Type clobbering.** The cache-tiering steps re-tagged S3 objects with `aws s3 cp --recursive --metadata-directive REPLACE` but no `--content-type`. `REPLACE` wipes all metadata and `--recursive` can't re-guess per-file MIME types, so every CSS/JS/image/metadata object was rewritten as `binary/octet-stream`. Standards-mode browsers refuse to apply a stylesheet that isn't `text/css`, so the page rendered unstyled. (HTML was unaffected — its step already set `--content-type`.)
+2. **Invalidation glob bug.** The CloudFront invalidation step passes `$paths` unquoted (intentional, to split multiple paths into separate `--paths` args). When the path is `/*` (every full-flush case), bash pathname-expanded the unquoted `/*` against the CI runner's filesystem, so the "full flush" submitted `/bin /etc /usr …` (27 bogus paths) instead of `/*` — the edge cache was never cleared.
+
+**Why it surfaced 1 June, not 25 May:** CloudFront kept serving the previously-cached, correctly-typed CSS (`max-age=1yr, immutable`); the diff-based invalidation never touched `/css/*`. As edges evicted that copy over the following days, a cache Miss pulled the broken `octet-stream` object from S3. Bug #2 then stopped the recovery flush from working until it was fixed.
+
+**Fixes (all merged to main):**
+- **#22** — set `--content-type` explicitly per file type in both re-tag steps (css→`text/css`, js→`application/javascript`, jpg/png, sitemap→`application/xml`, robots/llms/humans/security→`text/plain`, json→`application/json`); added a `workflow_dispatch` trigger that performs a full CDN flush for recovery.
+- **#24** — added `set -f` to the invalidate step so a literal `/*` is no longer glob-expanded against the runner filesystem.
+- **#25** — bumped `actions/checkout` and `aws-actions/configure-aws-credentials` to `@v6` (Node 24), clearing the deprecation warning ahead of GitHub's 16 June 2026 Node 20 cut-off.
+- **#23** (concurrent security task, spawned from this session) — stopped publishing internal files (`*.xlsx/*.xls/*.bak` + stale `Board of Advisors/`, `TC Logos/`, `Team Images/`, `Documents/` prefixes) to the public bucket. The internal `Taranis-People-Data-Collection.xlsx` is now `404` (was publicly downloadable).
+
+**Verification:** S3 origin confirmed `text/css` via direct path-style read (`https://s3.eu-west-2.amazonaws.com/taraniscapital.com/css/styles.css`). After merging #24 and running the full flush, the apex edge flipped to `text/css` (cache Miss → corrected object). Final sweep — `/css/styles.css`=`text/css`, `/js/main.js`=`application/javascript`, `/sitemap.xml`=`application/xml`, `/robots.txt`=`text/plain`, homepage `200`. Fund subdomains healthy and never affected (separate buckets/distributions, plain `sync`, no re-tag step). Post-#25 deploy verified green with the Node 20 deprecation annotation gone.
+
+**Operational notes / lessons:**
+- A full CDN recovery flush is now `gh workflow run deploy.yml --ref main` (workflow_dispatch → empty `before` SHA → `/*` across all six distributions).
+- A deploy can be green and S3 correct while the **CloudFront edge** still serves a broken copy for ~a week — verify content-types at the edge, not just CI status. (Diagnostic playbook saved to Claude memory.)
+- **Coordination caution:** the #23 branch was created from *pre-#22* `main` by the spawned task and could have reverted #22; verified afterward that main retained the content-type fix. Concurrent agents should branch from current `main`.
