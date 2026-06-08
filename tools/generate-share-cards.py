@@ -3,26 +3,30 @@
 generate-share-cards.py — Open Graph share-card generator for Taranis Capital.
 
 Creates 1200x630 branded share images (used as og:image / twitter:image) so that
-sharing a team profile link unfurls with that person's photo, name and title
-instead of the bare logo.
+sharing a team or board profile link unfurls with that person's photo, name and
+title instead of the bare logo.
 
 Run from the website repo root (or anywhere — paths are resolved relative to this
 file's parent directory).
 
 Usage:
-    python tools/generate-share-cards.py            # generate cards MISSING for any team page
-    python tools/generate-share-cards.py --all      # (re)generate every team card, overwrite
+    python tools/generate-share-cards.py            # generate cards MISSING for any team/board page
+    python tools/generate-share-cards.py --all      # (re)generate every team & board card, overwrite
     python tools/generate-share-cards.py --default  # also (re)generate the sitewide default card
-    python tools/generate-share-cards.py --check     # list team pages with no card / no og:image (exit 1 if any)
+    python tools/generate-share-cards.py --check     # list team/board pages with no card / logo og:image (exit 1 if any)
 
-Inputs  : team/*.html  (name from <h1 class="profile-name">, role from
-          <div class="profile-role">, headshot from the profile-photo <img src>)
-Outputs : images/team/<slug>-share.jpg  per person
+Inputs  : team/*.html and board/*.html  (name from <h1 class="profile-name">, role
+          from <div class="profile-role">, headshot from the profile-photo <img src>)
+Outputs : images/team/<slug>-share.jpg   per team member
+          images/board/<slug>-share.jpg  per board member
           images/share-default.jpg       sitewide default (with --default)
 
-After generating, commit the new JPGs and point each page's og:image at its card
-(see docs/ADD-SHARE-CARD.md). New team member => add their page as usual, then run
-this script with no args; it will produce only the missing card.
+A page whose headshot file is missing/placeholder gets NO card; point its og:image
+at images/share-default.jpg instead (a broken per-person card is worse than the
+branded default). After generating, commit the new JPGs and point each page's
+og:image at its card (see docs/ADD-SHARE-CARD.md). New team/board member => add
+their page as usual, then run this script with no args; it produces only the
+missing card.
 
 Dependencies: Pillow  (pip install pillow)
 """
@@ -119,6 +123,7 @@ def parse_page(path):
         "role": html.unescape(r.group(1)).strip(),
         "img":  m.group(1).lstrip("/"),
         "has_og_logo": bool(re.search(r'og:image"\s+content="[^"]*logo-gold\.png"', t)),
+        "has_og_default": bool(re.search(r'og:image"\s+content="[^"]*share-default\.jpg"', t)),
     }
 
 def make_person_card(info, out_path):
@@ -171,56 +176,81 @@ def make_default_card(out_path):
 def slug(page_path):
     return os.path.splitext(os.path.basename(page_path))[0]
 
+# Profile sections that get per-person cards. Each globs <section>/*.html and
+# writes images/<section>/<slug>-share.jpg.
+SECTIONS = ("team", "board")
+
+def headshot_exists(info):
+    """True when the page's referenced headshot file is actually on disk. A
+    missing/placeholder headshot => no per-person card; the page should fall back
+    to images/share-default.jpg as its og:image (a broken card is worse)."""
+    return info is not None and os.path.exists(os.path.join(ROOT, info["img"]))
+
 def main():
     args = set(sys.argv[1:])
     do_all = "--all" in args
     do_default = "--default" in args
     do_check = "--check" in args
 
-    pages = sorted(glob.glob(os.path.join(ROOT, "team", "*.html")))
-    out_dir = os.path.join(ROOT, "images", "team")
-    os.makedirs(out_dir, exist_ok=True)
+    def pages_in(section):
+        return sorted(glob.glob(os.path.join(ROOT, section, "*.html")))
 
     if do_check:
         problems = []
-        for p in pages:
-            info = parse_page(p)
-            card = os.path.join(out_dir, slug(p) + "-share.jpg")
-            if info is None:
-                problems.append(f"{slug(p)}: could not parse name/role/photo")
-                continue
-            if not os.path.exists(card):
-                problems.append(f"{slug(p)}: no share card ({slug(p)}-share.jpg missing)")
-            if info["has_og_logo"]:
-                problems.append(f"{slug(p)}: og:image still points at logo-gold.png")
+        for section in SECTIONS:
+            for p in pages_in(section):
+                info = parse_page(p)
+                tag = f"{section}/{slug(p)}"
+                if info is None:
+                    problems.append(f"{tag}: could not parse name/role/photo")
+                    continue
+                if info["has_og_logo"]:
+                    problems.append(f"{tag}: og:image still points at logo-gold.png")
+                card = os.path.join(ROOT, "images", section, slug(p) + "-share.jpg")
+                if headshot_exists(info):
+                    if not os.path.exists(card):
+                        problems.append(f"{tag}: no share card (images/{section}/{slug(p)}-share.jpg missing)")
+                elif not info["has_og_default"]:
+                    # No headshot on disk: the page must fall back to the branded
+                    # default rather than point at a per-person card that can't exist.
+                    problems.append(f"{tag}: headshot {info['img']} missing/placeholder and og:image is not images/share-default.jpg")
         if problems:
             print("Share-card issues:")
             for x in problems:
                 print("  -", x)
             sys.exit(1)
-        print("All team pages have a share card and a non-logo og:image.")
+        print("All team & board pages have a card (or default fallback) and a non-logo og:image.")
         return
 
-    made, skipped = [], []
-    for p in pages:
-        info = parse_page(p)
-        if info is None:
-            print(f"  ! skipped {slug(p)} (could not parse)")
-            continue
-        card = os.path.join(out_dir, slug(p) + "-share.jpg")
-        if os.path.exists(card) and not do_all:
-            skipped.append(slug(p))
-            continue
-        make_person_card(info, card)
-        made.append(slug(p))
-        print(f"  + {slug(p)}-share.jpg  ({info['name']})")
+    made, skipped, defaulted = [], [], []
+    for section in SECTIONS:
+        out_dir = os.path.join(ROOT, "images", section)
+        os.makedirs(out_dir, exist_ok=True)
+        for p in pages_in(section):
+            info = parse_page(p)
+            tag = f"{section}/{slug(p)}"
+            if info is None:
+                print(f"  ! skipped {tag} (could not parse)")
+                continue
+            if not headshot_exists(info):
+                defaulted.append(tag)
+                print(f"  ~ {tag}: headshot missing ({info['img']}) — point og:image at images/share-default.jpg, no card")
+                continue
+            card = os.path.join(out_dir, slug(p) + "-share.jpg")
+            if os.path.exists(card) and not do_all:
+                skipped.append(tag)
+                continue
+            make_person_card(info, card)
+            made.append(tag)
+            print(f"  + images/{section}/{slug(p)}-share.jpg  ({info['name']})")
 
     if do_default:
         make_default_card(os.path.join(ROOT, "images", "share-default.jpg"))
         print("  + images/share-default.jpg (sitewide default)")
 
     print(f"\nGenerated {len(made)} card(s); {len(skipped)} already existed"
-          + (" (use --all to overwrite)" if skipped else "") + ".")
+          + (" (use --all to overwrite)" if skipped else "")
+          + (f"; {len(defaulted)} use the default card (missing headshot)" if defaulted else "") + ".")
     if made:
         print("Remember: set each page's og:image to its card and commit the JPG(s). See docs/ADD-SHARE-CARD.md")
 
