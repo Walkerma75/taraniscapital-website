@@ -23,6 +23,20 @@ jobs:
         with:
           fetch-depth: 0
 
+      # Block a team page shipping with a missing share card or a logo-only
+      # og:image (transparent PNG => blank LinkedIn/WhatsApp unfurl). --check
+      # renders nothing, so it needs only Pillow, no system fonts. Runs before
+      # any S3 mutation so a failure stops the deploy early.
+      - name: Set up Python (share-card check)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verify team share cards (block logo-only link previews)
+        run: |
+          python -m pip install --quiet pillow
+          python tools/generate-share-cards.py --check
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v6
         with:
