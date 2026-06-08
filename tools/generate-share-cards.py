@@ -125,22 +125,31 @@ def make_person_card(info, out_path):
     resolve_fonts()
     img = gradient()
     d = ImageDraw.Draw(img)
+    def ctr(txt, font, y, fill):
+        w = d.textlength(txt, font=font)
+        d.text(((W - w) // 2, y), txt, font=font, fill=fill)
+
+    # Brand logo in the top-left corner, kept clear of the centred portrait so it
+    # doesn't read as an ornament sitting on top of the circle.
+    logo = logo_img(48)
+    img.paste(logo, (56, 48), logo)
+
+    # Large, CENTRED headshot. The old card put a small photo on the right third,
+    # which WhatsApp / iMessage crop to a centred square thumbnail that cut the
+    # face off entirely. A big centred face stays recognisable in that square crop
+    # and still reads well in the full 1.91:1 banner (LinkedIn, Slack, X).
+    D = 410
     photo = Image.open(os.path.join(ROOT, info["img"])).convert("RGB")
-    ph = ImageOps.fit(photo, (360, 360), Image.LANCZOS, centering=(0.5, 0.32))
-    mask = Image.new("L", (360, 360), 0)
-    ImageDraw.Draw(mask).ellipse((0, 0, 360, 360), fill=255)
-    px, py = W - 360 - 90, (H - 360) // 2
-    d.ellipse((px - 8, py - 8, px + 368, py + 368), outline=GOLD, width=6)
+    ph = ImageOps.fit(photo, (D, D), Image.LANCZOS, centering=(0.5, 0.30))
+    mask = Image.new("L", (D, D), 0)
+    ImageDraw.Draw(mask).ellipse((0, 0, D, D), fill=255)
+    px, py = (W - D) // 2, 72
+    d.ellipse((px - 7, py - 7, px + D + 7, py + D + 7), outline=GOLD, width=6)
     img.paste(ph, (px, py), mask)
 
-    lx = 90
-    max_w = px - 40 - lx
-    d.rectangle((lx, 150, lx + 70, 156), fill=GOLD)
-    d.text((lx, 180), info["name"], font=fit_font(d, info["name"], SERIF_BOLD, max_w, 76, 44), fill=WHITE)
-    d.text((lx, 290), info["role"], font=fit_font(d, info["role"], SANS, max_w, 34, 22), fill=GREY)
-    d.text((lx, 470), "TARANIS CAPITAL", font=ImageFont.truetype(SANS_BOLD, 26), fill=GOLD)
-    d.text((lx, 508), "Disciplined capital. Knowledge leadership.", font=ImageFont.truetype(SERIF, 30), fill=GREY)
-    img.paste(logo_img(64), (lx, 70), logo_img(64))
+    # Name + role, centred below the photo.
+    ctr(info["name"], fit_font(d, info["name"], SERIF_BOLD, W - 120, 62, 40), 500, WHITE)
+    ctr(info["role"], fit_font(d, info["role"], SANS, W - 300, 30, 22), 570, GOLD)
     img.save(out_path, "JPEG", quality=90)
 
 def make_default_card(out_path):
