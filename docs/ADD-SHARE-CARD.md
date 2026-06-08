@@ -63,5 +63,13 @@ sync, so the build fails if any team **or board** page lacks a card or still has
 - Long names with credentials (e.g. "Dr. Bijna Kotak Dasani MBE, FRSA") auto-shrink
   to fit. Headshots are centre-cropped slightly high (centering 0.5/0.32) to keep
   faces in frame.
+- **Headshot source resolution matters.** The photo is cropped into a 410 px
+  circle, so a source smaller than ~600 px on the short side gets upscaled and
+  looks soft. The generator applies an unsharp mask (scaled to the upscale factor —
+  strong when upscaling, light on real ≥600 px masters) to recover crispness, but
+  that only goes so far: the real fix is a bigger source image. Many headshots on
+  file are 277×300 WordPress thumbnails (the `-277x300` suffix, or a misleading
+  `…600x650…-277x300` name that is *actually* 277×300) — drop in the full-size
+  master and rerun with `--all` for a genuinely sharp card.
 
 Generator: `tools/generate-share-cards.py`.

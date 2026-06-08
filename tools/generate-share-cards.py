@@ -33,7 +33,7 @@ Dependencies: Pillow  (pip install pillow)
 import os, re, sys, glob, html
 
 try:
-    from PIL import Image, ImageDraw, ImageFont, ImageOps
+    from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageFilter
 except ImportError:
     sys.exit("Pillow is required: pip install pillow")
 
@@ -146,6 +146,18 @@ def make_person_card(info, out_path):
     D = 410
     photo = Image.open(os.path.join(ROOT, info["img"])).convert("RGB")
     ph = ImageOps.fit(photo, (D, D), Image.LANCZOS, centering=(0.5, 0.30))
+    # Most headshots on file are 277x300 WordPress thumbnails that get upscaled
+    # into this 410px circle, which looks soft. An unsharp mask restores apparent
+    # crispness. Scale the strength to the upscale factor so the handful of real
+    # 600x650 masters (which are downscaled here) get only a light touch and don't
+    # look over-sharpened. The real fix is a higher-res source headshot.
+    upscale = D / min(photo.size)
+    if upscale >= 1.25:
+        ph = ph.filter(ImageFilter.UnsharpMask(radius=2.2, percent=155, threshold=2))
+    elif upscale >= 1.0:
+        ph = ph.filter(ImageFilter.UnsharpMask(radius=1.5, percent=110, threshold=2))
+    else:
+        ph = ph.filter(ImageFilter.UnsharpMask(radius=1.0, percent=70, threshold=2))
     mask = Image.new("L", (D, D), 0)
     ImageDraw.Draw(mask).ellipse((0, 0, D, D), fill=255)
     px, py = (W - D) // 2, 72
@@ -155,7 +167,7 @@ def make_person_card(info, out_path):
     # Name + role, centred below the photo.
     ctr(info["name"], fit_font(d, info["name"], SERIF_BOLD, W - 120, 62, 40), 500, WHITE)
     ctr(info["role"], fit_font(d, info["role"], SANS, W - 300, 30, 22), 570, GOLD)
-    img.save(out_path, "JPEG", quality=90)
+    img.save(out_path, "JPEG", quality=92)
 
 def make_default_card(out_path):
     resolve_fonts()
