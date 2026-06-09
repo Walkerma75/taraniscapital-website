@@ -62,6 +62,7 @@ There is no build step — the site deploys as-is.
 - `SUBDOMAIN-SETUP.md` — how to add a new subdomain (S3 + CloudFront + Route 53)
 - `PROPOSED-REDIRECTS.md` — URL redirect map for old WordPress paths
 - `MISSING-PROFILE-INFO.md` — outstanding team/board data
+- `taranis-partners-data.json` / `Taranis-Partners-Data-Collection.xlsx` — strategic-partners data; drives partner cards via `tools/build-partners.py` (see `docs/MANAGE-PARTNERS.md`)
 - `Taranis Website - AWS Infrastructure Summary.md` — infra overview
 - `Documents/AWS-Setup-Guide.md`, `GitHub-Setup-Guide.md`, `GitHub-Actions-Setup-Guide.md` — setup references
 - Brand guidance lives in `../Taranis Capital Shared/Brand/taranis-brand-SKILL.md` (Georgia headings dark green `#2C3E35`, Calibri body `#374047`)
@@ -95,7 +96,10 @@ There is no build step — the site deploys as-is.
 - 11 people missing LinkedIn URLs
 - Sitemap now lists 51 URLs; keep it synchronised when new pages added
 - Press section live with first release (Taranis × EEC Saudi data centre partnership, 27 Apr). New releases via `python tools/add-press-release.py content/press/<slug>.md` — see `docs/ADD-PRESS-RELEASE.md`.
+- Strategic Partners are data-driven: edit `taranis-partners-data.json` then run `python tools/build-partners.py` to regenerate cards on who-we-are + the 5 fund subdomains — see `docs/MANAGE-PARTNERS.md`. No Drive sync yet; the JSON is hand-edited (source of truth). Ordering rule: Disrupts Media brand first, then alphabetical.
 
 ## Last updated
+
+9 June 2026 (added data-driven Strategic Partners model — `taranis-partners-data.json` + `tools/build-partners.py`, see `docs/MANAGE-PARTNERS.md`)
 
 25 May 2026 (added xlsx-sync-guard, documented Drive-is-source-of-truth, tracked .bak in git after 25 May data-loss)
