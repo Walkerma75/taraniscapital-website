@@ -41,9 +41,33 @@
   <!-- Press releases -->
   <url>
     <loc>https://taraniscapital.com/press</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://taraniscapital.com/press/2026-03-26-taranis-gcc-global-epicentre-data-centres-biotech</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://taraniscapital.com/press/2026-03-05-taranis-global-investor-newsletter</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://taraniscapital.com/press/2026-02-06-taranis-dfsa-acknowledgement-disruptive-tech-fund</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://taraniscapital.com/press/2025-03-05-taranis-dfsa-licence-cio-appointment</loc>
+    <lastmod>2025-03-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://taraniscapital.com/press/2026-05-01-taranis-iye-global-due-diligence-partnership</loc>
