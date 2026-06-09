@@ -173,6 +173,7 @@ jobs:
             ["humans.txt"]="text/plain; charset=utf-8"
             ["security.txt"]="text/plain; charset=utf-8"
             ["taranis-people-data.json"]="application/json"
+            ["taranis-partners-data.json"]="application/json"
           )
           for f in "${!META_TYPES[@]}"; do
             if aws s3 ls "s3://${{ secrets.S3_BUCKET }}/$f" >/dev/null 2>&1; then
