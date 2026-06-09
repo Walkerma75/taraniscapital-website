@@ -35,25 +35,19 @@
           "shown": true,
           "brand": "The Biotech Times",
           "url": "https://biotech.disruptsmedia.com/",
-          "description": "Biotech and life-sciences media title covering therapeutics, biomanufacturing and life-science innovation. Provides sector intelligence and early visibility of emerging companies to inform the Fund's deal sourcing and thesis development.",
-          "_proposed": true,
-          "_note": "NEW placement — biotech subdomain does not currently carry a Disrupts brand. Added so every fund carries one brand per the agreed model."
+          "description": "Biotech and life-sciences media title covering therapeutics, biomanufacturing and life-science innovation. Provides sector intelligence and early visibility of emerging companies to inform the Fund's deal sourcing and thesis development."
         },
         "datacentre": {
           "shown": true,
           "brand": "The Datatech Times",
           "url": "https://datatech.disruptsmedia.com/",
-          "description": "Data-infrastructure and digital-infrastructure media title covering data centres, connectivity and enterprise technology. Provides market intelligence and company tracking to inform the Fund's investment strategy.",
-          "_proposed": true,
-          "_note": "NEW placement — datacentre subdomain currently has no Strategic Partners section. Brief adds a full section seeded with this brand."
+          "description": "Data-infrastructure and digital-infrastructure media title covering data centres, connectivity and enterprise technology. Provides market intelligence and company tracking to inform the Fund's investment strategy."
         },
         "property": {
           "shown": true,
           "brand": "Disrupts",
           "url": "https://disrupts.disruptsmedia.com/",
-          "description": "Technology and innovation media platform tracking emerging companies and disruptive trends. Provides market coverage and company tracking to inform the Fund's investment strategy.",
-          "_proposed": true,
-          "_note": "NEW placement — property subdomain currently has no Strategic Partners section. Brief adds a full section seeded with this brand."
+          "description": "Technology and innovation media platform tracking emerging companies and disruptive trends. Provides market coverage and company tracking to inform the Fund's investment strategy."
         },
         "disruptiveTech": {
           "shown": true,
