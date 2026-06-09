@@ -1,0 +1,169 @@
+{
+  "_meta": {
+    "description": "Taranis Capital Strategic Partners directory — structured reference file that drives partner cards on the main site (who-we-are) and the fund subdomains. Mirrors the taranis-people-data.json pattern.",
+    "sourceFile": "Taranis-Partners-Data-Collection.xlsx",
+    "generatedBy": "Manual seed (2026-06-09) — to be replaced by automated sync once Drive copy is established",
+    "lastUpdated": "2026-06-09",
+    "schema": "1.0",
+    "funds": ["fintech", "biotech", "datacentre", "property", "disruptiveTech"],
+    "notes": [
+      "MAIN SITE: a partner appears on who-we-are if mainSite.shown is true. The card uses name/url/description.",
+      "SUBDOMAIN: a partner appears on a fund if funds.<fund>.shown is true. Each fund entry MAY override brand (display name), url and description; if an override is blank/absent the card falls back to the main-site name/url/description.",
+      "DISRUPTS MEDIA SPECIAL CASE: isGroup=true. ONE corporate card ('Disrupts Media') on the main site, but a DIFFERENT brand on each fund subdomain via the per-fund 'brand' override. Per the agreed design, subdomain cards show the brand only with no 'Disrupts Media group' label.",
+      "RULE: at most ONE Disrupts Media brand card per subdomain."
+    ]
+  },
+  "partners": [
+    {
+      "slug": "disrupts-media",
+      "name": "Disrupts Media",
+      "url": "https://corporate.disruptsmedia.com/",
+      "description": "Corporate media group behind The Fintech Times, The Biotech Times, The Datatech Times and Disrupts — providing market intelligence, sector coverage and deal-sourcing insight across Taranis Capital's investment themes.",
+      "isGroup": true,
+      "mainSite": {
+        "shown": true,
+        "order": 1
+      },
+      "funds": {
+        "fintech": {
+          "shown": true,
+          "brand": "The Fintech Times",
+          "url": "https://thefintechtimes.com",
+          "description": "Global fintech media brand reaching 250,000+ subscribers. Provides unparalleled market intelligence, industry analysis, and early access to emerging fintech companies. Our proprietary insights fuel deal sourcing and investment thesis development."
+        },
+        "biotech": {
+          "shown": true,
+          "brand": "The Biotech Times",
+          "url": "https://biotech.disruptsmedia.com/",
+          "description": "Biotech and life-sciences media title covering therapeutics, biomanufacturing and life-science innovation. Provides sector intelligence and early visibility of emerging companies to inform the Fund's deal sourcing and thesis development.",
+          "_proposed": true,
+          "_note": "NEW placement — biotech subdomain does not currently carry a Disrupts brand. Added so every fund carries one brand per the agreed model."
+        },
+        "datacentre": {
+          "shown": true,
+          "brand": "The Datatech Times",
+          "url": "https://datatech.disruptsmedia.com/",
+          "description": "Data-infrastructure and digital-infrastructure media title covering data centres, connectivity and enterprise technology. Provides market intelligence and company tracking to inform the Fund's investment strategy.",
+          "_proposed": true,
+          "_note": "NEW placement — datacentre subdomain currently has no Strategic Partners section. Brief adds a full section seeded with this brand."
+        },
+        "property": {
+          "shown": true,
+          "brand": "Disrupts",
+          "url": "https://disrupts.disruptsmedia.com/",
+          "description": "Technology and innovation media platform tracking emerging companies and disruptive trends. Provides market coverage and company tracking to inform the Fund's investment strategy.",
+          "_proposed": true,
+          "_note": "NEW placement — property subdomain currently has no Strategic Partners section. Brief adds a full section seeded with this brand."
+        },
+        "disruptiveTech": {
+          "shown": true,
+          "brand": "Disrupts",
+          "url": "https://disrupts.disruptsmedia.com/",
+          "description": "Technology media platform tracking emerging companies across artificial intelligence, fintech, enterprise software, and media technology. Provides market coverage and company tracking to inform investment strategy."
+        }
+      }
+    },
+    {
+      "slug": "change-gap",
+      "name": "Change Gap",
+      "url": "https://www.changegap.co/",
+      "description": "Social impact & innovation",
+      "isGroup": false,
+      "mainSite": {
+        "shown": true,
+        "order": 2
+      },
+      "funds": {
+        "fintech": { "shown": false },
+        "biotech": { "shown": false },
+        "datacentre": { "shown": false },
+        "property": { "shown": false },
+        "disruptiveTech": { "shown": false }
+      }
+    },
+    {
+      "slug": "helix8",
+      "name": "Helix8",
+      "url": "https://helix-8.com",
+      "description": "Biotech accelerator & infrastructure",
+      "isGroup": false,
+      "mainSite": {
+        "shown": true,
+        "order": 3
+      },
+      "funds": {
+        "fintech": { "shown": false },
+        "biotech": {
+          "shown": true,
+          "description": "Health Engineering Life Science Innovation Exchange — a biotech accelerator providing early-stage ventures with mentorship, infrastructure and market access. Helix8 co-designed the Fund's HELIX8 questionnaire, supports CASS scoring, and delivers ongoing localisation support and institutional partnerships to portfolio companies across the Kingdom's biotech ecosystem."
+        },
+        "datacentre": { "shown": false },
+        "property": { "shown": false },
+        "disruptiveTech": { "shown": false }
+      }
+    },
+    {
+      "slug": "wise-initiative",
+      "name": "WISE Initiative",
+      "url": "https://wiseinit.org",
+      "description": "Well-being, Innovation, Sustainability & Entrepreneurship",
+      "isGroup": false,
+      "mainSite": {
+        "shown": true,
+        "order": 4
+      },
+      "funds": {
+        "fintech": { "shown": false },
+        "biotech": {
+          "shown": true,
+          "description": "Well-being, Innovation, Sustainability & Entrepreneurship — an international initiative advancing health, sustainable development and enterprise across the Kingdom and wider region. The WISE Initiative supports the Fund's ecosystem, knowledge-transfer and workforce-development objectives for the Kingdom's emerging biotech sector."
+        },
+        "datacentre": { "shown": false },
+        "property": { "shown": false },
+        "disruptiveTech": { "shown": false }
+      }
+    },
+    {
+      "slug": "boyd-consultants",
+      "name": "BOYD Consultants",
+      "url": "https://www.boydconsultants.com",
+      "description": "Drug development & regulatory advisory",
+      "isGroup": false,
+      "mainSite": {
+        "shown": true,
+        "order": 5
+      },
+      "funds": {
+        "fintech": { "shown": false },
+        "biotech": {
+          "shown": true,
+          "description": "The Fund's primary technical and regulatory partner. BOYD Consultants brings deep drug development expertise across cell & gene therapies, biologics, new chemical entities and orphan drugs, supporting MHRA, FDA, EMA and SFDA submissions. BOYD delivers mandatory technical feasibility assessment, CASS framework validation and validation sign-off before any investment is released."
+        },
+        "datacentre": { "shown": false },
+        "property": { "shown": false },
+        "disruptiveTech": { "shown": false }
+      }
+    },
+    {
+      "slug": "phytome-life-sciences",
+      "name": "Phytome Life Sciences",
+      "url": "https://phytomelife.com",
+      "description": "Plant-based bio-pharmaceutical platform",
+      "isGroup": false,
+      "mainSite": {
+        "shown": true,
+        "order": 6
+      },
+      "funds": {
+        "fintech": { "shown": false },
+        "biotech": {
+          "shown": true,
+          "description": "Bio-pharmaceutical technology company decoding nature's molecular chemistry to develop the next generation of plant-based medicines. Phytome's platform combines AI, plant science, natural product chemistry, formulation and sustainable biomanufacturing — a direct strategic fit for the Fund's therapeutics and biomanufacturing localisation strategy. Led by CEO Dr Sebastian Vaughan (also a member of the Fund's Investment Committee)."
+        },
+        "datacentre": { "shown": false },
+        "property": { "shown": false },
+        "disruptiveTech": { "shown": false }
+      }
+    }
+  ]
+}
