@@ -1409,3 +1409,138 @@ Total: 301 + 83 + 17 + 4 + 4 + 1 + 0 + 0 + 0 = 410 ✅ (matches summary).
 - A full CDN recovery flush is now `gh workflow run deploy.yml --ref main` (workflow_dispatch → empty `before` SHA → `/*` across all six distributions).
 - A deploy can be green and S3 correct while the **CloudFront edge** still serves a broken copy for ~a week — verify content-types at the edge, not just CI status. (Diagnostic playbook saved to Claude memory.)
 - **Coordination caution:** the #23 branch was created from *pre-#22* `main` by the spawned task and could have reverted #22; verified afterward that main retained the content-type fix. Concurrent agents should branch from current `main`.
+
+---
+
+### Session 24 — 7 June 2026 (Weekly people-sync — HALTED at pre-flight, no changes made)
+
+**Trigger:** scheduled `weekly-profile-updates` run.
+
+**Outcome: HALTED at STEP 0.** The xlsx git-snapshot recovery anchor could not be created, so per the STEP 0 safety rule the sync did **not** proceed. No JSON was regenerated, no profile/who-we-are/subdomain pages were touched, and the local `.xlsx` was **not** overwritten. No data lost.
+
+**Blocker:** `git` commit/checkout is impossible from the sandbox because `.git/index.lock` (0 bytes, created 06:10) is held by the Windows host and the mount refuses to unlink it — `rm` returns `Operation not permitted`. A stale lock from the first snapshot attempt therefore can't be cleared from this environment. (Contributing: git `user.email`/`user.name` were unset in the repo; I set them locally, but the lock is the hard blocker.)
+
+**Side effects left for cleanup (all benign):**
+- Repo is parked on branch `xlsx-snapshot/2026-06-07-0610` (NOT `main`). Working-tree file *content* is unchanged.
+- Two stray local snapshot branches exist: `xlsx-snapshot/2026-06-07-0609` and `…-0610`. Neither was pushed to origin.
+- A fresh `Taranis-People-Data-Collection.xlsx.bak` was written (harmless copy).
+
+**Additional finding (action needed):** `xlsx-sync-guard.py --check` REFUSES — the local `Taranis-People-Data-Collection.xlsx` (modified 1 June) differs from HEAD, i.e. there are uncommitted local spreadsheet edits. Per the Drive-is-source-of-truth rule (25 May incident), these must be committed or re-applied to the Drive copy before the next sync, or they're at risk.
+
+**Remediation (run on Mark's Windows machine):**
+1. `cd "C:\Users\mark\Claude Cowork\Taranis Capital Website"`
+2. `del .git\index.lock`
+3. `git checkout main`
+4. `git branch -D xlsx-snapshot/2026-06-07-0609 xlsx-snapshot/2026-06-07-0610`
+5. Resolve the uncommitted local xlsx (commit it, or confirm Drive has the same edits).
+6. Re-run the weekly sync.
+
+---
+
+### Session 25 — 8 June 2026 (GSC Weekly Check)
+
+**Automated weekly Google Search Console health check — taraniscapital.com**
+
+(One week since Session 22 on 1 June. Page-indexing data in GSC has not refreshed since then — last update still 29/05/2026 — so the indexing figures below are unchanged. Performance and sitemap data are fresh.)
+
+**1. Sitemaps**
+- sitemap.xml — Status: **Success** ✅
+- Last read: **4 June 2026**
+- Discovered pages: **48** — matches local sitemap.xml exactly (48 `<loc>` entries) ✅
+
+**2. Page Indexing**
+- Last update: **29/05/2026** (unchanged from S22 — Google has not re-processed the index report this week)
+- Indexed: **90** (unchanged vs S22)
+- Not indexed: **410** (unchanged vs S22)
+- 6 active reason categories (+ 3 zero-page rows). No new categories vs S22 or vs the S9 baseline.
+
+| Reason | Pages | Validation | vs Session 22 |
+|---|---|---|---|
+| Not found (404) | 301 | Not Started | 301 — no change (all old WP content per Option A) |
+| Crawled – currently not indexed | 83 | **Failed** 🚨 | 83 Failed — no change |
+| Page with redirect | 17 | Not Started | 17 — no change |
+| Excluded by 'noindex' tag | 4 | Not Started | 4 — no change (4 fund subdomain homepages, intentional) |
+| Alternative page with proper canonical tag | 4 | Not Started | 4 — no change |
+| Blocked due to other 4xx issue | 1 | Started | 1 Started — **still Started at ~day 59** (well past the 14–28 day window) |
+| Blocked by robots.txt | 0 | Passed | unchanged ✅ |
+| Duplicate, Google chose different canonical than user | 0 | Passed | unchanged |
+| Discovered – currently not indexed | 0 | N/A | unchanged |
+
+Total: 301 + 83 + 17 + 4 + 4 + 1 = 410 ✅ (matches summary).
+
+**Validation run status (started 10/04/2026 — day ~59):**
+- **Blocked by robots.txt: Passed** ✅ (unchanged).
+- **Crawled – currently not indexed: Failed** 🚨 (unchanged; page count flat at 83). Per the S20 decision, no re-validation until the soft-404 root cause is addressed or accepted as historical noise.
+- **Blocked due to other 4xx issue: still Started** at ~day 59 — long overdue the window, but only 1 page so impact is negligible. No action.
+
+**3. Performance (last 7 days: 30 May – 5 June 2026)**
+- Total clicks: **45** (was 36 at S22) — **+25%** ✅
+- Total impressions: **1,320** (was 1,590 at S22) — **−17%**
+- Average CTR: **3.4%** (was 2.3% at S22) — improved ✅
+- Average position: **8.9** (was 8.4 at S22) — worse by 0.5
+- Mixed but broadly stabilising after the four-week-gap dip reported at S22: clicks and CTR recovered, impressions and average position eased slightly. Top branded query `taranis capital` still leads (14 clicks / 21 impressions).
+
+**4. Manual Actions & Security Issues**
+- Manual actions: **No issues detected** ✅
+- Security issues: **No issues detected** ✅
+
+**5. Core Web Vitals**
+- Mobile: Not enough usage data (last 90 days) — no Poor/Needs improvement URLs (source: Chrome UX report, last updated 06/06/2026)
+- Desktop: Not enough usage data (last 90 days) — no Poor/Needs improvement URLs
+
+**Issues to raise with Mark**
+
+1. **Page-indexing report has not refreshed this week** — last update still 29/05/2026, so all indexing counts are carried over from S22 unchanged. Not a problem in itself (Google re-processes on its own cadence), but means there is no fresh signal on whether the indexed-page slide (281 → … → 90) has bottomed out. Worth re-checking next week once the report updates.
+2. **Performance is stabilising.** Clicks 36 → 45 (+25%) and CTR 2.3% → 3.4% both recovered week-on-week; impressions and average position drifted slightly the wrong way but within normal variance. The sharp S22 decline looks to have been mostly the four-week measurement gap rather than a sustained slide.
+3. **No new indexing problems.** No new reason categories, no reason count up more than +5, and the three carried-over validation states (robots.txt Passed, Crawled-not-indexed Failed, 4xx Started) are unchanged. The "Crawled – currently not indexed: Failed" bucket (83) and the climbing 404 count remain the long-running items from S20/S22 — decision unchanged: leave per Option A unless we choose to harden the soft-404 handling.
+4. **Carry-over (not GSC):** the Session 24 weekly people-sync is still parked — repo on branch `xlsx-snapshot/2026-06-07-0610` with a stale `.git/index.lock`, and uncommitted local xlsx edits flagged by the sync guard. Unrelated to this GSC check, but outstanding (see S24 remediation steps).
+
+*Note: this entry was written to the local working tree only. The repo is currently parked on a snapshot branch (S24 blocker), so it has not been committed/pushed — fold it into the next commit once `main` is restored.*
+
+---
+
+### Session 26 — 9 June 2026 (Weekly people-sync — HALTED at pre-flight; git index corrupted then contained)
+
+**Trigger:** scheduled `weekly-profile-updates` run.
+
+**Outcome: HALTED at STEP 0. No sync performed.** No JSON regenerated, no profile/who-we-are/subdomain pages edited, local `.xlsx` not overwritten. Per the STEP 0 rule (no recovery snapshot ⇒ do not overwrite data), the sync did not proceed.
+
+**What happened:**
+- Started on `main` (S24 remediation had been applied: locks cleared, repo back on main, git user set to Taranis Sync Bot). Good.
+- Found the **entire working tree flipped to CRLF** while HEAD is LF — ~68 files show as "modified" but `git diff --ignore-all-space` confirms they are line-ending-only churn. Only two files have real changes: `Taranis-People-Data-Collection.xlsx` (binary, updated today) and `docs/PROJECT-LOG.md` (uncommitted S24+S25 entries).
+- Attempted to restore the eol-only files to LF with `git checkout -- <file>`. The Windows host holds the tracked files, so git's `unlink` returned **"Operation not permitted"**, git crashed mid-operation, and left **`.git/index` corrupt ("bad signature 0x00000000")** plus a stale 0-byte **`.git/index.lock`** (06:07) that cannot be removed from the sandbox.
+
+**Damage assessment (contained):** Object DB intact (`git cat-file -p HEAD` works). All working-tree file **content** intact (verified deploy.yml, who-we-are.html, JSON). Only `.git/index` + the stale lock need repair — recoverable on the Windows host, no data lost.
+
+**Pending sync work (read-only diff, xlsx vs live `taranis-people-data.json`):** small.
+- Role typo fix — `emad-zowawi`: "KSA Legal **Consul** to the CEO" → "KSA Legal **Counsel** to the CEO".
+- Role typo fix — `mohamed-essam`: "Legal **Consul**" → "Legal **Counsel**".
+- ⚠️ Email change — `osama-al-thanon`: `osama-althanon@taraniscapital.com` → **`skywalker@taraniscapital.com`**. Looks like a test/erroneous edit; do NOT push to the live site without confirming with the owner.
+- No Type changes, no new people, no removed-people deltas (the 4 in the "Removed People" sheet are already absent from the JSON). Zero data gaps (0 missing LinkedIn/email/image in the active set).
+
+**Root cause (recurring):** git write operations are not possible from the sandbox mount — the Windows host locks files and the mount denies `unlink`, so any git op that rewrites a tracked file (`checkout`, `reset --hard`, `commit` touching the index) crashes and can corrupt the index / strand a lock. This is the same class of failure as S24. There is also no `.gitattributes`, so line endings are not normalised.
+
+**Remediation (run on Mark's Windows machine):**
+1. `cd "C:\Users\mark\Claude Cowork\Taranis Capital Website"`
+2. `del .git\index.lock`
+3. `del .git\index`  (then rebuild from HEAD next step)
+4. `git reset`  (rebuilds a clean index from HEAD; working-tree content is preserved)
+5. `git status`  (should now show only real changes once line endings are sorted)
+6. Fix the line-ending churn at root: add a `.gitattributes` with `* text=auto eol=lf`, then `git add --renormalize .`
+7. Clean up stray local branches: `git branch -D xlsx-snapshot/2026-06-07-0609 xlsx-snapshot/2026-06-07-0610`
+8. Confirm the `osama-al-thanon` email (skywalker@ looks wrong); correct the Drive copy of the xlsx if needed.
+9. Re-run the weekly sync **with git operations executed on the host** (not the sandbox), or after `.gitattributes` is in place.
+
+*Note: this entry was written to the local working tree only and is uncommitted (git index is corrupt at time of writing — see remediation). Fold it into the next commit once the index is rebuilt.*
+
+**Addendum (correction to pending-changes list above):** My initial diff compared the xlsx against `taranis-people-data.json`, which does **not** store bios — so bio edits were invisible to it. Re-diffing this morning's xlsx against the 1 June `.bak` snapshot shows **this morning's update changed exactly one field**:
+- `osama-al-zamil` — Main Site Bio, first sentence: "Osama Al-Zamil is **Chairman of the Advisory Board** at Taranis Capital" → "Osama Al-Zamil is **a Board Adviser** at Taranis Capital." (Remainder of the bio unchanged.) His Role field ("Board Advisor"), Type ("Board") and the JSON are unchanged and already consistent with the new wording. **Note for sync:** his enriched HTML page bio (`board/osama-al-zamil.html`) still asserts "Chairman of Taranis Capital's Advisory Board" — this edit deliberately walks that title back, so when the sync runs that phrase on the page should be updated too (his separate "Chairman of OAAZ Consulting" title is legitimate and stays).
+- The earlier-noted items (`emad-zowawi` & `mohamed-essam` Consul→Counsel; `osama-al-thanon` email → skywalker@) were already present in the 1 June `.bak` (pending vs the ~17 May JSON) and are confirmed real by Mark. Full pending set to apply on the host re-run: these three **plus** the Osama Al-Zamil bio edit.
+- Lesson: the weekly diff should compare the xlsx against the previous xlsx snapshot (`.bak`/git), not against the bio-less JSON, or bio edits will be missed.
+
+**Applied (same session, after host index repair).** Once Mark cleared the stale lock and rebuilt the index on the Windows host (`del .git\index.lock` / `del .git\index` / `git reset` — confirming the CRLF "churn" was a sandbox-only artefact of Linux git lacking `autocrlf`, not a real change), the four confirmed changes were applied as targeted edits (no full JSON regeneration, to keep the diff minimal and reviewable):
+1. `emad-zowawi` — "Legal Consul" → "Legal Counsel" (role + bio + meta): `taranis-people-data.json`, `team/emad-zowawi.html`, `who-we-are.html`.
+2. `mohamed-essam` — "Legal Consul" → "Legal Counsel" (role + meta): `taranis-people-data.json`, `team/mohamed-essam.html`, `who-we-are.html`.
+3. `osama-al-thanon` — email → `skywalker@taraniscapital.com`: `taranis-people-data.json`, `team/osama-al-thanon.html` (mailto + visible text).
+4. `osama-al-zamil` — bio title walk-back "Chairman of the Advisory Board" → "a Board Adviser": `taranis-people-data.json` + `board/osama-al-zamil.html` (enriched bio). Role field/subtitle already "Board Advisor"; subdomain pages carry no Chairman-of-Advisory-Board phrasing, so none needed editing.
+Also: `taranis-people-data.json` `_meta.lastUpdated` → 2026-06-09; `sitemap.xml` `<lastmod>` bumped to 2026-06-09 for the five touched URLs (who-we-are, team/mohamed-essam, team/emad-zowawi, team/osama-al-thanon, board/osama-al-zamil). Subdomain fund pages already showed "Legal Counsel" and needed no change. JSON re-validated (parses). Commit/push to be run by Mark from the host (sandbox cannot do git writes).

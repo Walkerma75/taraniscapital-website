@@ -3,7 +3,7 @@
     "description": "Taranis Capital People Directory — structured reference file for website automation",
     "sourceFile": "Taranis-People-Data-Collection.xlsx",
     "generatedBy": "Automated weekly sync",
-    "lastUpdated": "2026-05-17",
+    "lastUpdated": "2026-06-09",
     "schema": "1.0"
   },
   "people": [
@@ -279,7 +279,7 @@
       "slug": "emad-zowawi",
       "fullName": "Emad Zowawi",
       "type": "Team",
-      "role": "KSA Legal Consul to the CEO",
+      "role": "KSA Legal Counsel to the CEO",
       "email": "emad@taraniscapital.com",
       "linkedIn": "https://www.linkedin.com/in/emad-a-zowawi-%D8%B9%D9%85%D8%A7%D8%AF-%D8%A7%D9%84%D8%B2%D9%88%D8%A7%D9%88%D9%8A-77503010/",
       "profileImage": {
@@ -288,7 +288,7 @@
       },
       "mainSite": {
         "bioStatus": "Complete",
-        "bio": "Emad Zowawi is KSA Legal Consul at Taranis Capital. He is a lawyer and former banker with extensive experience in corporate law, banking regulation, and investment advisory across the GCC region and internationally.",
+        "bio": "Emad Zowawi is KSA Legal Counsel at Taranis Capital. He is a lawyer and former banker with extensive experience in corporate law, banking regulation, and investment advisory across the GCC region and internationally.",
         "profileUrl": "taraniscapital.com/team/emad-zowawi"
       },
       "funds": {
@@ -635,7 +635,7 @@
       "slug": "mohamed-essam",
       "fullName": "Mohamed Essam",
       "type": "Team",
-      "role": "Legal Consul",
+      "role": "Legal Counsel",
       "email": "mohamed@taraniscapital.com",
       "linkedIn": "https://www.linkedin.com/in/mohamed-essam-a20470101/",
       "profileImage": {
@@ -760,7 +760,7 @@
       "fullName": "Osama Al-Thanon",
       "type": "Team",
       "role": "Chief Strategy Officer",
-      "email": "osama-althanon@taraniscapital.com",
+      "email": "skywalker@taraniscapital.com",
       "linkedIn": "https://www.linkedin.com/in/osama-skywalker/",
       "profileImage": {
         "path": "/images/team/Osama-Al-Thanon-Profile-600-650-277x300.jpg",
@@ -810,7 +810,7 @@
       },
       "mainSite": {
         "bioStatus": "Complete",
-        "bio": "Osama Al-Zamil is Chairman of the Advisory Board at Taranis Capital. He is a distinguished Saudi industrial leader with a remarkable career spanning multiple decades in business, government, and strategic advisory roles.\nHis extensive experience includes senior government positions, including former Vice Minister of Industry, as well as leadership roles in major Saudi industrial and commercial enterprises. He brings unparalleled expertise in MENA markets, industrial development, international trade, and strategic capital deployment.",
+        "bio": "Osama Al-Zamil is a Board Adviser at Taranis Capital. He is a distinguished Saudi industrial leader with a remarkable career spanning multiple decades in business, government, and strategic advisory roles.\nHis extensive experience includes senior government positions, including former Vice Minister of Industry, as well as leadership roles in major Saudi industrial and commercial enterprises. He brings unparalleled expertise in MENA markets, industrial development, international trade, and strategic capital deployment.",
         "profileUrl": "taraniscapital.com/board/osama-al-zamil"
       },
       "funds": {
