@@ -156,6 +156,11 @@ document.addEventListener('DOMContentLoaded', function() {
       { url: 'https://www.fiercebiotech.com/rss/xml', source: 'FierceBiotech', categories: ['biotech'] },
       { url: 'https://www.genengnews.com/feed/', source: 'GEN', categories: ['biotech'] },
       { url: 'https://biopharmadive.com/feeds/news/', source: 'BioPharma Dive', categories: ['biotech'] },
+      { url: 'https://biotech.disruptsmedia.com/news/rss.xml', source: 'The Biotech Times', categories: ['biotech'] },
+      // Data Centres
+      { url: 'https://datatech.disruptsmedia.com/news/rss.xml', source: 'The Datatech Times', categories: ['datacentre'] },
+      // Disruptive Tech
+      { url: 'https://disrupts.disruptsmedia.com/news/rss.xml', source: 'Disrupts', categories: ['disruptive'] },
       // MENA
       { url: 'https://waya.media/feed/', source: 'Waya Media', categories: ['mena'] },
       { url: 'https://www.zawya.com/en/rss/latest-news.xml', source: 'Zawya', categories: ['mena'] },
@@ -172,6 +177,8 @@ document.addEventListener('DOMContentLoaded', function() {
       vc: { label: 'Venture Capital', cssClass: 'feed-tag--vc' },
       fintech: { label: 'Fintech', cssClass: 'feed-tag--fintech' },
       biotech: { label: 'Biotech', cssClass: 'feed-tag--biotech' },
+      datacentre: { label: 'Data Centres', cssClass: 'feed-tag--datacentre' },
+      disruptive: { label: 'Disruptive Tech', cssClass: 'feed-tag--disruptive' },
       mena: { label: 'MENA', cssClass: 'feed-tag--mena' },
       crypto: { label: 'Crypto & Digital', cssClass: 'feed-tag--crypto' }
     };
