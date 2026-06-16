@@ -868,6 +868,7 @@ a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
 
 .feed-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
   list-style: none;
 }
@@ -1013,6 +1014,8 @@ a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
 .feed-tag--vc { background: var(--tc-gold-muted); color: #9a7d2e; }
 .feed-tag--mena { background: #fce4ec; color: #c0392b; }
 .feed-tag--crypto { background: #f3e5f5; color: #8e44ad; }
+.feed-tag--datacentre { background: #eef2f7; color: #34495e; }
+.feed-tag--disruptive { background: #fff3e0; color: #d35400; }
 
 .feed-read-more {
   font-size: 13px;
