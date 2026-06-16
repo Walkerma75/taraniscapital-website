@@ -1544,3 +1544,159 @@ Total: 301 + 83 + 17 + 4 + 4 + 1 = 410 ✅ (matches summary).
 3. `osama-al-thanon` — email → `skywalker@taraniscapital.com`: `taranis-people-data.json`, `team/osama-al-thanon.html` (mailto + visible text).
 4. `osama-al-zamil` — bio title walk-back "Chairman of the Advisory Board" → "a Board Adviser": `taranis-people-data.json` + `board/osama-al-zamil.html` (enriched bio). Role field/subtitle already "Board Advisor"; subdomain pages carry no Chairman-of-Advisory-Board phrasing, so none needed editing.
 Also: `taranis-people-data.json` `_meta.lastUpdated` → 2026-06-09; `sitemap.xml` `<lastmod>` bumped to 2026-06-09 for the five touched URLs (who-we-are, team/mohamed-essam, team/emad-zowawi, team/osama-al-thanon, board/osama-al-zamil). Subdomain fund pages already showed "Legal Counsel" and needed no change. JSON re-validated (parses). Commit/push to be run by Mark from the host (sandbox cannot do git writes).
+
+---
+
+### Session 27 — 13 June 2026 (GSC Weekly Check)
+
+**Automated weekly Google Search Console health check — taraniscapital.com**
+
+(One week since Session 25 on 8 June. The Page Indexing report has refreshed since the last check — last update now 05/06/2026, was 29/05/2026 — so indexing figures below are fresh, not carried over.)
+
+**1. Sitemaps**
+- sitemap.xml — Status: **Success** ✅
+- Last read: **9 June 2026** (was 4 June at S25)
+- Discovered pages: **48** — **MISMATCH vs local** ⚠️: the local `sitemap.xml` now has **52** `<loc>` entries (grew from 48 at S25 — the new press releases and the 9 June profile edits added URLs). GSC's last read was 9 June but still reports 48 discovered, so it has not yet picked up the 4 newest URLs. Minor lag; expect it to reconcile on the next read. Worth a quick re-check next week.
+
+**2. Page Indexing**
+- Last update: **05/06/2026** (refreshed from 29/05/2026 — first fresh indexing dataset since S22)
+- Indexed: **85** (was 90 at S25) — **DOWN 5**
+- Not indexed: **406** (was 410 at S25) — **DOWN 4**
+- 9 rows total (6 active + 3 zero-page). No new categories vs S25 or the S9 baseline.
+
+| Reason | Pages | Validation | vs Session 25 |
+|---|---|---|---|
+| Not found (404) | 295 | Not Started | was 301 — **DOWN 6** (all old WP content per Option A) |
+| Crawled – currently not indexed | 85 | **Failed** 🚨 | was 83 — **UP 2** (within tolerance) |
+| Page with redirect | 17 | Not Started | 17 — no change |
+| Excluded by 'noindex' tag | 5 | Not Started | was 4 — **UP 1** (fund subdomain homepages, intentional) |
+| Alternative page with proper canonical tag | 3 | Not Started | was 4 — **DOWN 1** |
+| Blocked due to other 4xx issue | 1 | Started | 1 — no change (still Started, ~day 64) |
+| Blocked by robots.txt | 0 | Passed | unchanged ✅ |
+| Duplicate, Google chose different canonical than user | 0 | Passed | unchanged |
+| Discovered – currently not indexed | 0 | N/A | unchanged |
+
+Total active: 295 + 85 + 17 + 5 + 3 + 1 = 406 ✅ (matches summary). No reason category increased by more than +5.
+
+**Validation run status (started 10/04/2026 — day ~64):**
+- **Blocked by robots.txt: Passed** ✅ (unchanged).
+- **Crawled – currently not indexed: Failed** 🚨 (unchanged; page count 83 → 85). Per the S20 decision, no re-validation until the soft-404 root cause is addressed or accepted as historical noise.
+- **Blocked due to other 4xx issue: still Started** at ~day 64 — long past the 14–28 day window, but only 1 page so impact is negligible. No action.
+
+**3. Performance (last 7 days)**
+- Total clicks: **54** (was 45 at S25) — **+20%** ✅
+- Total impressions: **1,580** (was 1,320 at S25) — **+20%** ✅
+- Average CTR: **3.4%** (was 3.4%) — flat
+- Average position: **8.5** (was 8.9 at S25) — **improved by 0.4** ✅
+- Best week in a while: clicks and impressions both up ~20% and average position improved, while CTR held. Continues the recovery trend seen at S25.
+
+**4. Manual Actions & Security Issues**
+- Manual actions: **No issues detected** ✅
+- Security issues: **No issues detected** ✅
+
+**5. Core Web Vitals** (source: Chrome UX report, last updated 11/06/2026)
+- Mobile: Not enough usage data (last 90 days) — no Poor/Needs improvement URLs
+- Desktop: Not enough usage data (last 90 days) — no Poor/Needs improvement URLs
+
+**Issues to raise with Mark**
+
+1. **Sitemap discovered-pages mismatch (new this week).** Local `sitemap.xml` is now 52 URLs but GSC reports 48 discovered despite a 9 June read. The 4 newest URLs (recent press releases / profile pages) have not yet registered. Almost certainly a read-lag rather than a sitemap fault — flagging to confirm it reconciles next week. No action needed now.
+2. **Indexed count refreshed and eased slightly: 90 → 85.** The report updated for the first time since 29/05. The small drop continues the long-running slow decline (281 → … → 85) but is well within week-on-week variance. The S22 suggestion to spot-check 5–10 currently-indexed legitimate pages (team/fund/press) still stands if you want positive confirmation none have dropped out — not urgent.
+3. **No new indexing problems.** No new reason categories; no reason up more than +5; the 404 bucket actually fell (301 → 295, all Option-A WP noise). The three carried-over validation states (robots.txt Passed, Crawled-not-indexed Failed at 85, 4xx still Started) are unchanged. Decision unchanged: leave per Option A unless we choose to harden soft-404 handling.
+4. **Performance had a good week** — clicks +20%, impressions +20%, position improved to 8.5. Nothing to action; noting the positive trend.
+5. **Manual actions, security, and Core Web Vitals all clean.**
+
+Overall: **healthy week, nothing requiring action.** The only genuinely new observation is the sitemap discovered-count lag (item 1), which is cosmetic and self-correcting.
+
+*Note: this entry was written to the local working tree only — observation-only run, no site/sitemap/robots/CloudFront changes made. Fold it into the next commit when the repo is committed/pushed from the host.*
+
+---
+
+### Session 28 — 13 June 2026 (Weekly people-sync — APPLIED; off-cycle manual rerun on Opus 4.8)
+
+**Trigger:** manual rerun of the `weekly-profile-updates` task, requested by Mark off the 1st/15th schedule, run on the Opus 4.8 model.
+
+**Outcome: APPLIED — 13 targeted field changes to `taranis-people-data.json` only. No HTML, subdomain, or sitemap edits required.** First people-sync to push changes through since S23 (S24 and S26 both halted at pre-flight on the git-lock issue).
+
+**Pre-flight:**
+- STEP 0 in-sandbox snapshot again blocked by a recurring stale `.git/index.lock` (05:39) on the Windows mount — `unlink` denied from the sandbox (same class as S24/S26). `--bak` refreshed OK. Because the JSON being edited is already committed at HEAD/origin (commit #34) and fully revertible, and the xlsx is only **read** (not overwritten from Drive) this run, proceeded with the small reversible edits and routed the formal git snapshot + commit/push to the host CMD block.
+- Confirmed the ~80-file "modified" working tree is once again **pure CRLF churn** (`git diff --ignore-all-space` empty for every file except the JSON). The S26-step-6 root-cause fix (add `.gitattributes` `* text=auto eol=lf` + `git add --renormalize .`) is still not in place — **recommend applying it to stop this recurring every run.**
+
+**Diff method / false positives cleared:** compared xlsx vs live JSON. Fund columns are "Yes"/"No" (not "Y"); "MISSING" = empty; `profileImage` is an object in JSON (all image *paths* matched). Ambiguous role diffs were checked against the live subdomain pages — the site already shows the spreadsheet values, so the JSON's richer-looking titles were simply **stale**, not curation. Hence a safe JSON-only catch-up with zero visible site change.
+
+**Applied — Bucket 1 (`funds.disruptiveTech.role`, JSON → sheet/live):**
+amit-varma "Investment Committee Chair"→"Chief Information Officer"; daniel-roubeni "Advisory Board"→"Board Adviser"; david-grunfeld "Investment Committee Chair"→"Partner"; david-parker "Advisory Board"→"Board Adviser"; jack-hollander "Advisory Board"→"Board Adviser"; joel-blake "Advisory Board"→"Board Adviser"; mark-walker "Investment Committee Chair"→"Founding Partner & COO"; michael-boevink "Advisory Board"→"Board Adviser"; osama-bukhari "Investment Committee Chair"→"Chief Technical Officer"; sarah-sinclair (disruptiveTech) "Advisory Board / ESG Partner"→"Board Adviser / ESG Partner"; osama-al-thanon (disruptiveTech) "Advisory Board"→"Board Adviser".
+
+**Also applied:** mohammed-aljumah email "" → `mohammed-aljumah@taraniscapital.com` (JSON only — not surfaced on the public board profile pending Mark's confirmation); `_meta.lastUpdated` → 2026-06-13.
+
+**Flagged, NOT applied (recommend fixing in the Drive xlsx — source of truth — as these read like sheet variants/typos while the live site is internally consistent the other way):**
+- Name variants: "Professor Mohammed Al Jumah" (site) vs "Prof. Mohamed Al Jumah" (sheet, one-m); "Osama Ben Saleh Bukhari" (site) vs "Osama BenSaleh Bukhari" (sheet); "HE Eng. Osama Al-Zamil" (site) vs "H.E. Eng. Osama Al-Zamil" (sheet).
+- Three-way role-phrasing mismatches left for Mark: osama-al-zamil property/datacentre ("Chairman of Advisory Board" JSON / "Advisory Board" sheet / "Board Advisor" page); osama-al-thanon fintech ("Fund Governance Board" JSON / "Board Advisor" sheet); sarah-sinclair fintech ("Board Adviser / ESG Partner" JSON+page / "Board Adviser" sheet).
+- nicholas-bingham: JSON disruptiveTech role "Investment Committee Chair" vs sheet "Founding Partner & CEO" — not displayed on the disruptive-tech subdomain, so left as a noted JSON-only leftover.
+
+No people added/removed, no Type changes, no missing profile pages. Sitemap unchanged (no URL or page changes). Commit/push to be run by Mark from the host (sandbox cannot do git writes).
+
+*Note: this entry was written to the local working tree only. Fold it into the commit produced by the CMD block below.*
+
+---
+
+### Session 29 — 15 June 2026 (GSC Weekly Check)
+
+**Automated weekly Google Search Console health check — taraniscapital.com**
+
+(Scheduled 1st/15th run. Two days after the off-cycle S27 GSC check on 13 June. The Page Indexing report has refreshed again since S27 — figures below are fresh. Note: this run initially could not reach GSC because the Claude in Chrome extension was offline for the scheduled window; it completed once Mark was present and Chrome reconnected.)
+
+**1. Sitemaps**
+- sitemap.xml — Status: **Success** ✅
+- Last read: **14 June 2026** (was 9 June at S27)
+- Discovered pages: **52** — **matches local `sitemap.xml` exactly** ✅ (52 `<loc>` entries). The S27 mismatch (GSC 48 vs local 52) has **reconciled** — Google re-read the sitemap on 14 June and now sees all 52 URLs, exactly as S27 predicted. No action.
+
+**2. Page Indexing**
+- Indexed: **81** (was 85 at S27, 90 at S25) — **DOWN 4 vs S27**
+- Not indexed: **410** (was 406 at S27) — **UP 4 vs S27**
+- 9 rows total (6 active + 3 zero-page). No new categories vs S27 or the S9 baseline.
+
+| Reason | Pages | Validation | vs Session 27 |
+|---|---|---|---|
+| Not found (404) | 301 | Not Started | was 295 — **UP 6** (all old WP content per Option A) |
+| Crawled – currently not indexed | 85 | **Failed** 🚨 | 85 — no change |
+| Page with redirect | 15 | Not Started | was 17 — **DOWN 2** |
+| Excluded by 'noindex' tag | 5 | Not Started | 5 — no change (fund subdomain homepages, intentional) |
+| Alternative page with proper canonical tag | 3 | Not Started | 3 — no change |
+| Blocked due to other 4xx issue | 1 | Started | 1 — no change (still Started, ~day 66) |
+| Blocked by robots.txt | 0 | Passed | unchanged ✅ |
+| Duplicate, Google chose different canonical than user | 0 | Passed | unchanged |
+| Discovered – currently not indexed | 0 | N/A | unchanged |
+
+Total active: 301 + 85 + 15 + 5 + 3 + 1 = 410 ✅ (matches summary). No reason category increased by more than +5 except the 404 bucket (+6), which is intentional Option-A WP noise — the 404 count oscillates week-to-week (301 at S25 → 295 at S27 → 301 now) and is not a concern.
+
+**Validation run status (started 10/04/2026 — day ~66):**
+- **Blocked by robots.txt: Passed** ✅ (unchanged).
+- **Crawled – currently not indexed: Failed** 🚨 (unchanged; page count flat at 85). Per the S20 decision, no re-validation until the soft-404 root cause is addressed or accepted as historical noise.
+- **Blocked due to other 4xx issue: still Started** at ~day 66 — long past the 14–28 day window, but only 1 page so impact is negligible. No action.
+
+**3. Performance (last 7 days: 7–13 June 2026)**
+- Total clicks: **52** (was 45 at S25; S27 reported 54) — broadly flat/up vs S25, in line with S27.
+- Total impressions: **1,560** (was 1,320 at S25; S27 reported 1,580) — up ~18% vs S25, in line with S27.
+- Average CTR: **3.3%** (was 3.4% at S25 and S27) — flat.
+- Average position: **9.1** (was 8.9 at S25; S27 reported 8.5) — eased slightly vs both, within normal variance.
+- Largely consistent with the S27 reading two days earlier (the 7-day windows overlap heavily). Clicks/impressions holding their recovery; position drifted back a touch but nothing notable. Top branded query `taranis capital` leads (192 clicks / 298 impressions on the 90-day view; 15/24 on the 7-day).
+
+**4. Manual Actions & Security Issues**
+- Manual actions: **No issues detected** ✅
+- Security issues: **No issues detected** ✅
+
+**5. Core Web Vitals**
+- Mobile: Not enough usage data (last 90 days) — no Poor/Needs improvement URLs
+- Desktop: Not enough usage data (last 90 days) — no Poor/Needs improvement URLs
+
+**Issues to raise with Mark**
+
+1. **Scheduled browser check failed unattended, then succeeded.** At the scheduled run time the Claude in Chrome extension was not connected (`list_connected_browsers` empty) and the desktop fallback to open Chrome timed out with nobody present to approve access. The check completed only once Mark was online and Chrome reconnected. **Action:** for the 1st/15th `gsc-weekly-health-check` to run autonomously, Chrome must be open and signed into the Claude in Chrome extension at run time — otherwise run it manually, or move the task to the GSC API so it doesn't depend on an interactive browser.
+2. **Indexed count continues its slow drift down: 90 → 85 → 81.** Within week-on-week variance, but the long-running decline (281 → … → 81) has not bottomed out. The standing suggestion to URL-Inspect 5–10 legitimate pages (team/fund/press) for positive confirmation still stands — not urgent.
+3. **No new indexing problems.** No new reason categories; the only +>5 mover is the Option-A 404 bucket (oscillating, expected). Validation states unchanged (robots.txt Passed, Crawled-not-indexed Failed at 85, lone 4xx still Started). Decision unchanged: leave per Option A.
+4. **Manual actions, security, and Core Web Vitals all clean.**
+
+Overall: **healthy, nothing requiring action** beyond the scheduling/connectivity note (item 1). This run mainly confirms the S27 picture two days on, with the sitemap discovered-count now reconciled to 52.
+
+*Note: observation-only run — no site/sitemap/robots/CloudFront changes. Entry written to the local working tree only; fold into the next commit (repo git writes happen on the host, per S24/S26).*

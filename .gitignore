@@ -15,6 +15,18 @@ Thumbs.db
 *-policy.json
 *-dist-config.json
 
+# Secrets — service-account keys, tokens. NEVER commit. The GSC API service
+# account key lives at secrets/gsc-service-account.json (see docs/GSC-API-SETUP.md).
+secrets/
+
+# GSC API check outputs (dated scratch files written by tools/gsc-weekly-check.py)
+gsc-check-*.md
+gsc-check-*.json
+
+# Python bytecode cache (compiled by tools/*.py such as gsc-weekly-check.py)
+__pycache__/
+*.pyc
+
 # NOTE: Taranis-People-Data-Collection.xlsx and its .bak ARE tracked deliberately —
 # every weekly sync commits the new xlsx and the prior .bak so any future overwrite
 # is recoverable via git. Do not add either to this ignore list.
