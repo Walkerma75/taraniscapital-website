@@ -10,9 +10,9 @@
 
 **Cowork folders to check:**
 
-- `C:\Users\mark\Claude Cowork\Taranis Capital Website`
-- `C:\Users\mark\Claude Cowork\Taranis Capital Shared`
-- `C:\Users\mark\Claude Cowork\Taranis Fund Info`
+- `C:\Users\mark\Claude Cowork\Taranis Capital\Code\Taranis Capital Website`
+- `C:\Users\mark\Claude Cowork\Taranis Capital\Documents\Taranis Capital Shared`
+- `C:\Users\mark\Claude Cowork\Taranis Capital\Documents\Taranis Fund Info`
 - `C:\Users\mark\Documents\Claude\Projects\Taranis Capital`
 
 **Why:** Cowork (a separate Claude environment operating in the fund-paperwork and corporate folders) and Code (this environment, the website repo) have been drifting out of sync. Cowork writes briefings, plans, specs and code briefs that don't always reflect what the code has shipped, and the code side ships changes without picking up the latest Cowork briefings. The symmetric rule is installed on the Cowork side so each environment picks up the other's latest state.
@@ -65,12 +65,12 @@ There is no build step — the site deploys as-is.
 - `taranis-partners-data.json` / `Taranis-Partners-Data-Collection.xlsx` — strategic-partners data; drives partner cards via `tools/build-partners.py` (see `docs/MANAGE-PARTNERS.md`)
 - `Taranis Website - AWS Infrastructure Summary.md` — infra overview
 - `Documents/AWS-Setup-Guide.md`, `GitHub-Setup-Guide.md`, `GitHub-Actions-Setup-Guide.md` — setup references
-- Brand guidance lives in `../Taranis Capital Shared/Brand/taranis-brand-SKILL.md` (Georgia headings dark green `#2C3E35`, Calibri body `#374047`)
+- Brand guidance lives in `C:\Users\mark\Claude Cowork\Taranis Capital\Documents\Taranis Capital Shared\Brand\taranis-brand-SKILL.md` (Georgia headings dark green `#2C3E35`, Calibri body `#374047`)
 - `Documents/Taranis-Capital-Overview.md`, `IBEM-Partnership-Overview-DRAFT.md` — content
 
 ## Do / don't
 
-- **Do** follow the canonical workflow in `../WORKFLOW.md`
+- **Do** follow the canonical workflow in `C:\Users\mark\Claude Cowork\Other\Admin\WORKFLOW.md`
 - **Do** stage files specifically (`git add contact.html`), not `git add .`
 - **Do** respect the Taranis brand: Georgia for headings (dark green `#2C3E35`), Calibri body (`#374047`)
 - **Do** self-merge PRs you opened once the diff is clean, CI is green, and you've verified the work — no need to wait for human review. Use `gh pr merge <n> --squash --delete-branch`. Still go via a PR (not direct push to main) so CI runs and history is reviewable.
