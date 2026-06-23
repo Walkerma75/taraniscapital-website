@@ -1,0 +1,36 @@
+# Normalise line endings across the repo.
+# Root cause fix for the recurring "~90 files modified" CRLF churn seen by the
+# sandbox-side weekly people-sync (see docs/PROJECT-LOG.md S26 step 6, S28, S30).
+# Text files are stored LF in the repo and checked out LF.
+
+* text=auto eol=lf
+
+# Explicit text types (defensive; covered by text=auto but pinned for clarity)
+*.html  text eol=lf
+*.css   text eol=lf
+*.js    text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+*.xml   text eol=lf
+*.txt   text eol=lf
+*.svg   text eol=lf
+*.py    text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+
+# Binary assets — never normalise or diff as text
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.pdf   binary
+*.xlsx  binary
+*.xls   binary
+*.bak   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.eot   binary
+*.otf   binary
