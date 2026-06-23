@@ -69,7 +69,7 @@
             },
             {
               "slug": "sarah-sinclair",
-              "title": "Board Adviser / ESG Partner"
+              "title": "Board Adviser"
             }
           ]
         }
@@ -83,33 +83,32 @@
           "members": [
             {
               "slug": "nicholas-bingham",
-              "title": "Founding Partner & CEO — Taranis Capital",
+              "title": "Founding Partner & CEO",
               "bio": "25+ years in investment banking, asset management and venture capital. Leads fund strategy across Taranis Capital's fintech, biotech and AI-focused funds. Deep expertise in fund structuring, capital deployment and LP relationship management."
             },
             {
               "slug": "mark-walker",
-              "title": "Co-Founder & Managing Partner — Taranis Capital",
+              "title": "Co-Founder & Managing Partner",
               "bio": "Global multi-sector entrepreneur with extensive operational experience. Specialist in operations, growth strategy and strategic execution. Track record of building, scaling and exiting ventures across fintech, technology and healthcare."
             },
             {
               "slug": "osama-bukhari",
-              "name": "Osama BenSaleh Bukhari",
-              "title": "Chief Technology Officer — Taranis Capital",
+              "title": "Chief Technology Officer",
               "bio": "Seasoned Saudi entrepreneur and King Saud University graduate. CEO of AlFaris International Group and Head of the ICC Banking Committee. Pioneer of internet banking and e-wallets in the Kingdom. Named by Arabian Business as one of the '50 People You Need to Know'."
             },
             {
               "slug": "tarek-el-mans",
-              "title": "Director of Localisation — Taranis Capital",
+              "title": "Director of Localisation",
               "bio": "Biotech growth architect with 25+ years in KSA and MENA. Expert in localisation strategy, NUPCO tenders, and SFDA pathways. Proven track record building profitable entities, scaling revenue and driving end-to-end commercialisation for biologics and pharmaceuticals."
             },
             {
               "slug": "mazen-al-rahim",
-              "title": "Director of Local Manufacturing — Taranis Capital",
+              "title": "Director of Local Manufacturing",
               "bio": "Petrochemicals and supply chain executive with 30+ years' experience. Former SABIC Director leading Asia Pacific operations and joint ventures with ARAMCO and Exxon. Expert in manufacturing, risk, and strategic sourcing. Chemical Engineer and MBA."
             },
             {
               "slug": "mohamed-essam",
-              "title": "Legal Counsel — Matouk Bassiouny",
+              "title": "Legal Counsel",
               "bio": "Partner at Matouk Bassiouny; Head of Corporate and M&A (UAE) and Head of Emerging Companies and Venture Capital. Solicitor of the Senior Courts of England and Wales. Advised on 100+ transactions including leading fintech and M&A deals across MENA."
             },
             {
@@ -119,7 +118,7 @@
             },
             {
               "slug": "osama-al-thanon",
-              "title": "Chief Strategy Officer — Taranis Capital",
+              "title": "Chief Strategy Officer",
               "bio": "Tech pioneer with 40+ years in leadership and cybersecurity. Former ABB C-level executive and serial entrepreneur. Expert in digital transformation, white-hat hacking and AI ventures. Member of the Saudi Council of Engineers."
             }
           ]
@@ -129,12 +128,11 @@
           "members": [
             {
               "slug": "nicholas-bingham",
-              "title": "Chair — Founder & CEO",
+              "title": "Investment Committee Chair",
               "bio": "Global investor and entrepreneur with 25 years in finance. Former investment banker, now CIO for GCC venture capital funds and advisor to global boards."
             },
             {
               "slug": "osama-bukhari",
-              "name": "Osama BenSaleh Bukhari",
               "title": "Investment Committee Member",
               "bio": "Senior Saudi entrepreneur and CEO of AlFaris International Group. Head of the ICC Banking Committee. Drives innovation across education, medical, and IT sectors in the Kingdom."
             },
@@ -180,7 +178,6 @@
             },
             {
               "slug": "mohammed-aljumah",
-              "name": "Prof. Mohamed Al Jumah",
               "title": "Scientific Advisory Board",
               "bio": "Founder and CEO of Itkan Health Consulting. Former KAIMRC Executive Director and 25+ year neurologist. Serves on SNIH and MoH national biotech committees and pharma advisory boards. Led multiple national health projects with CHI, PHA and SHC."
             }
@@ -191,23 +188,22 @@
           "members": [
             {
               "slug": "osama-al-zamil",
-              "name": "H.E. Eng. Osama Al-Zamil",
-              "title": "Board Advisor",
+              "title": "Board Adviser",
               "bio": "Vision 2030 and economic development expert. Former Vice Minister of Industry and Mineral Resources of the Kingdom of Saudi Arabia. Strategic adviser on GCC technology policy, government relationships, and regional opportunities."
             },
             {
               "slug": "asim-chohan",
-              "title": "Advisory Board",
+              "title": "Board Adviser",
               "bio": "SVP Global Operations and COO at a top US investment bank. 21 years driving Fortune 100 growth. Expert in AI, business intelligence, and global transformation across three continents. Harvard, MIT and Cambridge educated."
             },
             {
               "slug": "michael-boevink",
-              "title": "Advisory Board",
+              "title": "Board Adviser",
               "bio": "Tech, telecom and finance executive with 15+ years scaling global operations. Expert in international expansion, capital raises and go-to-market strategy. Bradford MBA with a worldwide network."
             },
             {
               "slug": "rayan-al-karawi",
-              "title": "Advisory Board",
+              "title": "Board Adviser",
               "bio": "Financial industry veteran with 30+ years. Career began at SAMA, evolved into senior roles at Dar Al-Arkan and Razeen Capital. Chairman of Razeen Capital and founding member of MEIRA Saudi Arabia. Expert in investor relations, IPOs, and corporate restructuring."
             }
           ]
@@ -252,44 +248,43 @@
           "members": [
             {
               "slug": "osama-al-zamil",
-              "name": "H.E. Eng. Osama Al-Zamil",
-              "title": "Board Advisor"
+              "title": "Board Adviser"
             },
             {
               "slug": "mazen-al-rahim",
-              "title": "Board of Advisers"
+              "title": "Board Adviser"
             },
             {
               "slug": "amit-varma",
-              "title": "Advisory Board"
+              "title": "Board Adviser"
             },
             {
               "slug": "asim-chohan",
-              "title": "Advisory Board"
+              "title": "Board Adviser"
             },
             {
               "slug": "david-grunfeld",
-              "title": "Advisory Board"
+              "title": "Board Adviser"
             },
             {
               "slug": "emad-zowawi",
-              "title": "Advisory Board / Legal Advisor"
+              "title": "Board Adviser"
             },
             {
               "slug": "ghassan-najmeddin",
-              "title": "Fund Governance Board"
+              "title": "Board Adviser"
             },
             {
               "slug": "leif-hesse",
-              "title": "Senior Advisor (Cybersecurity & Operations)"
+              "title": "Board Adviser"
             },
             {
               "slug": "michael-boevink",
-              "title": "Advisory Board"
+              "title": "Board Adviser"
             },
             {
               "slug": "rayan-al-karawi",
-              "title": "Advisory Board"
+              "title": "Board Adviser"
             }
           ]
         }
@@ -329,24 +324,23 @@
           "members": [
             {
               "slug": "osama-al-zamil",
-              "name": "H.E. Eng. Osama Al-Zamil",
-              "title": "Board Advisor"
+              "title": "Board Adviser"
             },
             {
               "slug": "mazen-al-rahim",
-              "title": "Board of Advisers"
+              "title": "Board Adviser"
             },
             {
               "slug": "joel-blake",
-              "title": "Board of Advisers"
+              "title": "Board Adviser"
             },
             {
               "slug": "asim-chohan",
-              "title": "Advisory Board"
+              "title": "Board Adviser"
             },
             {
               "slug": "michael-boevink",
-              "title": "Advisory Board"
+              "title": "Board Adviser"
             }
           ]
         }
@@ -380,7 +374,7 @@
             },
             {
               "slug": "milan-radia",
-              "title": "Partner — Technology & Infrastructure Strategy"
+              "title": "Partner"
             },
             {
               "slug": "svitlana-burlakova",
@@ -414,12 +408,11 @@
             },
             {
               "slug": "osama-al-zamil",
-              "name": "H.E. Eng. Osama Al-Zamil",
-              "title": "Board Advisor"
+              "title": "Board Adviser"
             },
             {
               "slug": "asim-chohan",
-              "title": "Advisory Board",
+              "title": "Board Adviser",
               "bio": "SVP Global Operations and COO at a leading US investment bank. 21 years driving Fortune 100 growth. Expert in artificial intelligence, business intelligence, and global digital transformation across three continents."
             },
             {
@@ -438,7 +431,7 @@
             },
             {
               "slug": "sarah-sinclair",
-              "title": "Board Adviser / ESG Partner"
+              "title": "Board Adviser"
             }
           ]
         }
