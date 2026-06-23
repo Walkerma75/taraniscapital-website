@@ -1,0 +1,448 @@
+{
+  "_meta": {
+    "description": "Taranis Capital fund-team roster - authoritative per-fund team-card content (sections, ordered members, curated titles). Identity (name, image) and non-overridden bios resolve from taranis-people-data.json by slug. Rendered to the subdomain pages by tools/build-people.py. See docs/MANAGE-PEOPLE-TEAMS.md.",
+    "sourceOfTruth": "This file is hand-edited and is the source of truth for the per-fund team cards. The person directory (taranis-people-data.json) is Drive-synced and owns identity only.",
+    "schema": "1.0"
+  },
+  "funds": {
+    "fintech": {
+      "page": "subdomains/fintech/index.html",
+      "sections": [
+        {
+          "title": "Executive Team",
+          "members": [
+            {
+              "slug": "nicholas-bingham",
+              "title": "Founding Partner & CEO"
+            },
+            {
+              "slug": "mark-walker",
+              "title": "Founding Partner & COO"
+            },
+            {
+              "slug": "amit-varma",
+              "title": "Chief Information Officer"
+            },
+            {
+              "slug": "mohamed-essam",
+              "title": "Legal Counsel"
+            },
+            {
+              "slug": "osama-bukhari",
+              "title": "Chief Technical Officer",
+              "bio": "Pioneer of internet banking and e-wallets in the Kingdom of Saudi Arabia. CEO of AlFaris International Group. Named by Arabian Business as one of '50 People You Need to Know in KSA'."
+            },
+            {
+              "slug": "osama-al-thanon",
+              "title": "Chief Strategy Officer / Fund Governance Board"
+            }
+          ]
+        },
+        {
+          "title": "Board of Advisers",
+          "members": [
+            {
+              "slug": "david-parker",
+              "title": "Board Adviser"
+            },
+            {
+              "slug": "michael-boevink",
+              "title": "Board Adviser"
+            },
+            {
+              "slug": "jack-hollander",
+              "title": "Board Adviser",
+              "bio": "Extensive capital markets experience. Raised over $3 billion in alternative investment capital. Deep expertise in fund structuring and cross-border investment strategy."
+            },
+            {
+              "slug": "asim-chohan",
+              "title": "Board Adviser",
+              "bio": "SVP Global Operations and COO at a leading US investment bank. 21 years driving Fortune 100 growth across AI, business intelligence, and global transformation. Harvard, MIT, and Cambridge educated."
+            },
+            {
+              "slug": "daniel-roubeni",
+              "title": "Board Adviser"
+            },
+            {
+              "slug": "joel-blake",
+              "title": "Board Adviser"
+            },
+            {
+              "slug": "sarah-sinclair",
+              "title": "Board Adviser / ESG Partner"
+            }
+          ]
+        }
+      ]
+    },
+    "biotech": {
+      "page": "subdomains/biotech/index.html",
+      "sections": [
+        {
+          "title": "Executive Team",
+          "members": [
+            {
+              "slug": "nicholas-bingham",
+              "title": "Founding Partner & CEO — Taranis Capital",
+              "bio": "25+ years in investment banking, asset management and venture capital. Leads fund strategy across Taranis Capital's fintech, biotech and AI-focused funds. Deep expertise in fund structuring, capital deployment and LP relationship management."
+            },
+            {
+              "slug": "mark-walker",
+              "title": "Co-Founder & Managing Partner — Taranis Capital",
+              "bio": "Global multi-sector entrepreneur with extensive operational experience. Specialist in operations, growth strategy and strategic execution. Track record of building, scaling and exiting ventures across fintech, technology and healthcare."
+            },
+            {
+              "slug": "osama-bukhari",
+              "name": "Osama BenSaleh Bukhari",
+              "title": "Chief Technology Officer — Taranis Capital",
+              "bio": "Seasoned Saudi entrepreneur and King Saud University graduate. CEO of AlFaris International Group and Head of the ICC Banking Committee. Pioneer of internet banking and e-wallets in the Kingdom. Named by Arabian Business as one of the '50 People You Need to Know'."
+            },
+            {
+              "slug": "tarek-el-mans",
+              "title": "Director of Localisation — Taranis Capital",
+              "bio": "Biotech growth architect with 25+ years in KSA and MENA. Expert in localisation strategy, NUPCO tenders, and SFDA pathways. Proven track record building profitable entities, scaling revenue and driving end-to-end commercialisation for biologics and pharmaceuticals."
+            },
+            {
+              "slug": "mazen-al-rahim",
+              "title": "Director of Local Manufacturing — Taranis Capital",
+              "bio": "Petrochemicals and supply chain executive with 30+ years' experience. Former SABIC Director leading Asia Pacific operations and joint ventures with ARAMCO and Exxon. Expert in manufacturing, risk, and strategic sourcing. Chemical Engineer and MBA."
+            },
+            {
+              "slug": "mohamed-essam",
+              "title": "Legal Counsel — Matouk Bassiouny",
+              "bio": "Partner at Matouk Bassiouny; Head of Corporate and M&A (UAE) and Head of Emerging Companies and Venture Capital. Solicitor of the Senior Courts of England and Wales. Advised on 100+ transactions including leading fintech and M&A deals across MENA."
+            },
+            {
+              "slug": "emad-zowawi",
+              "title": "KSA Legal Counsel to the CEO",
+              "bio": "New York and Washington DC licensed corporate lawyer and former banker. Over 20 years across international law firms and financial institutions. Provides specialist KSA legal counsel to the CEO on fund structuring, regulatory compliance, and cross-border transactions."
+            },
+            {
+              "slug": "osama-al-thanon",
+              "title": "Chief Strategy Officer — Taranis Capital",
+              "bio": "Tech pioneer with 40+ years in leadership and cybersecurity. Former ABB C-level executive and serial entrepreneur. Expert in digital transformation, white-hat hacking and AI ventures. Member of the Saudi Council of Engineers."
+            }
+          ]
+        },
+        {
+          "title": "Investment Committee",
+          "members": [
+            {
+              "slug": "nicholas-bingham",
+              "title": "Chair — Founder & CEO",
+              "bio": "Global investor and entrepreneur with 25 years in finance. Former investment banker, now CIO for GCC venture capital funds and advisor to global boards."
+            },
+            {
+              "slug": "osama-bukhari",
+              "name": "Osama BenSaleh Bukhari",
+              "title": "Investment Committee Member",
+              "bio": "Senior Saudi entrepreneur and CEO of AlFaris International Group. Head of the ICC Banking Committee. Drives innovation across education, medical, and IT sectors in the Kingdom."
+            },
+            {
+              "slug": "abdulaziz-al-sayyari",
+              "title": "Investment Committee Member",
+              "bio": "BiSynergic Managing Partner and former SFDA Executive Director. Global expert in regulatory biotech and cell & gene therapy, serving on ICH bodies. Shaped the Kingdom's national frameworks for advanced therapies. PhD Bioprocessing and IMD MBA."
+            },
+            {
+              "slug": "kuyoung-chung",
+              "title": "Investment Committee Member",
+              "bio": "Managing Director driving healthcare venture creation and digital strategy. Expert in AI commercialisation with 3 patents and 10 publications. Previously led innovation for Samsung and LG. IMD MBA and ETH Zurich alumnus."
+            },
+            {
+              "slug": "sebastian-vaughan",
+              "title": "Investment Committee Member",
+              "bio": "CEO of Phytome Life Sciences and serial healthcare entrepreneur. PhD in Biochemistry (Leeds) and MBA (Imperial College). Former Imperial College post-doctoral researcher — discovered novel cancer gene functions, published in Nature and Cancer Discovery."
+            }
+          ]
+        },
+        {
+          "title": "Scientific Advisory Board",
+          "members": [
+            {
+              "slug": "arjumand-warsy",
+              "title": "Scientific Advisory Board",
+              "bio": "Distinguished retired King Saud University biochemistry professor. Leading expert in genetic diseases and molecular genetics research. Former Senior Scientist at the Central Laboratory, Female Medical Centre. Multiple teaching and research excellence awards."
+            },
+            {
+              "slug": "junaid-kashir",
+              "title": "Scientific Advisory Board",
+              "bio": "Reproductive biology expert at Khalifa University. Associate Professor specialising in PLCζ and embryonic development research. Leads groundbreaking lab-grown halal meat and FBS alternatives research programmes. Previous positions at Oxford, Cardiff, NHS, and Alfaisal University."
+            },
+            {
+              "slug": "abdullah-alawad",
+              "title": "Scientific Advisory Board",
+              "bio": "PhD in Stem Cell Biology (Sheffield). Founded the National Center for Stem Cell Technology at KACST and served on the Saudi Human Genome Program founding team. Expert in biotech, genetics and healthcare transformation."
+            },
+            {
+              "slug": "amer-mahmood",
+              "title": "Scientific Advisory Board",
+              "bio": "Senior Scientist at King Saud University Stem Cell Unit. Directs comprehensive regenerative medicine and gene therapy research programmes. Develops novel treatments for chronic diseases and injuries. Maintains strong international collaboration networks."
+            },
+            {
+              "slug": "mohammed-aljumah",
+              "name": "Prof. Mohamed Al Jumah",
+              "title": "Scientific Advisory Board",
+              "bio": "Founder and CEO of Itkan Health Consulting. Former KAIMRC Executive Director and 25+ year neurologist. Serves on SNIH and MoH national biotech committees and pharma advisory boards. Led multiple national health projects with CHI, PHA and SHC."
+            }
+          ]
+        },
+        {
+          "title": "Advisory Board",
+          "members": [
+            {
+              "slug": "osama-al-zamil",
+              "name": "H.E. Eng. Osama Al-Zamil",
+              "title": "Board Advisor",
+              "bio": "Vision 2030 and economic development expert. Former Vice Minister of Industry and Mineral Resources of the Kingdom of Saudi Arabia. Strategic adviser on GCC technology policy, government relationships, and regional opportunities."
+            },
+            {
+              "slug": "asim-chohan",
+              "title": "Advisory Board",
+              "bio": "SVP Global Operations and COO at a top US investment bank. 21 years driving Fortune 100 growth. Expert in AI, business intelligence, and global transformation across three continents. Harvard, MIT and Cambridge educated."
+            },
+            {
+              "slug": "michael-boevink",
+              "title": "Advisory Board",
+              "bio": "Tech, telecom and finance executive with 15+ years scaling global operations. Expert in international expansion, capital raises and go-to-market strategy. Bradford MBA with a worldwide network."
+            },
+            {
+              "slug": "rayan-al-karawi",
+              "title": "Advisory Board",
+              "bio": "Financial industry veteran with 30+ years. Career began at SAMA, evolved into senior roles at Dar Al-Arkan and Razeen Capital. Chairman of Razeen Capital and founding member of MEIRA Saudi Arabia. Expert in investor relations, IPOs, and corporate restructuring."
+            }
+          ]
+        }
+      ]
+    },
+    "datacentre": {
+      "page": "subdomains/datacentre/index.html",
+      "sections": [
+        {
+          "title": "Executive Team",
+          "members": [
+            {
+              "slug": "nicholas-bingham",
+              "title": "Founding Partner & CEO"
+            },
+            {
+              "slug": "milan-radia",
+              "title": "Senior Partner"
+            },
+            {
+              "slug": "mark-walker",
+              "title": "Founding Partner & COO",
+              "bio": "Founding Partner & COO and Investment Committee member. Over two decades of operational and entrepreneurial experience across enterprise technology, fintech media, and government trade advisory. Responsible for day-to-day fund operations and regulatory coordination with J."
+            },
+            {
+              "slug": "osama-bukhari",
+              "title": "Chief Technical Officer / Fund Governance Board"
+            },
+            {
+              "slug": "mohamed-essam",
+              "title": "Legal Counsel"
+            },
+            {
+              "slug": "osama-al-thanon",
+              "title": "Chief Strategy Officer / Fund Governance Board"
+            }
+          ]
+        },
+        {
+          "title": "Board of Advisers",
+          "members": [
+            {
+              "slug": "osama-al-zamil",
+              "name": "H.E. Eng. Osama Al-Zamil",
+              "title": "Board Advisor"
+            },
+            {
+              "slug": "mazen-al-rahim",
+              "title": "Board of Advisers"
+            },
+            {
+              "slug": "amit-varma",
+              "title": "Advisory Board"
+            },
+            {
+              "slug": "asim-chohan",
+              "title": "Advisory Board"
+            },
+            {
+              "slug": "david-grunfeld",
+              "title": "Advisory Board"
+            },
+            {
+              "slug": "emad-zowawi",
+              "title": "Advisory Board / Legal Advisor"
+            },
+            {
+              "slug": "ghassan-najmeddin",
+              "title": "Fund Governance Board"
+            },
+            {
+              "slug": "leif-hesse",
+              "title": "Senior Advisor (Cybersecurity & Operations)"
+            },
+            {
+              "slug": "michael-boevink",
+              "title": "Advisory Board"
+            },
+            {
+              "slug": "rayan-al-karawi",
+              "title": "Advisory Board"
+            }
+          ]
+        }
+      ]
+    },
+    "property": {
+      "page": "subdomains/property/index.html",
+      "sections": [
+        {
+          "title": "Executive Team",
+          "members": [
+            {
+              "slug": "nicholas-bingham",
+              "title": "Founding Partner & CEO"
+            },
+            {
+              "slug": "osama-bukhari",
+              "title": "Chief Technical Officer"
+            },
+            {
+              "slug": "emad-zowawi",
+              "title": "KSA Legal Counsel to the CEO"
+            },
+            {
+              "slug": "mark-walker",
+              "title": "Founding Partner & COO"
+            },
+            {
+              "slug": "mohamed-essam",
+              "title": "Legal Counsel",
+              "bio": "Partner at Matouk Bassiouny, Head of Corporate and M&A. Solicitor of the Senior Courts of England and Wales. Over 100 transactions including M&A deals across MENA."
+            }
+          ]
+        },
+        {
+          "title": "Board of Advisers",
+          "members": [
+            {
+              "slug": "osama-al-zamil",
+              "name": "H.E. Eng. Osama Al-Zamil",
+              "title": "Board Advisor"
+            },
+            {
+              "slug": "mazen-al-rahim",
+              "title": "Board of Advisers"
+            },
+            {
+              "slug": "joel-blake",
+              "title": "Board of Advisers"
+            },
+            {
+              "slug": "asim-chohan",
+              "title": "Advisory Board"
+            },
+            {
+              "slug": "michael-boevink",
+              "title": "Advisory Board"
+            }
+          ]
+        }
+      ]
+    },
+    "disruptiveTech": {
+      "page": "subdomains/disruptive-tech/index.html",
+      "sections": [
+        {
+          "title": "Executive Team",
+          "members": [
+            {
+              "slug": "nicholas-bingham",
+              "title": "Founding Partner & CEO"
+            },
+            {
+              "slug": "mark-walker",
+              "title": "Founding Partner & COO"
+            },
+            {
+              "slug": "david-grunfeld",
+              "title": "Partner"
+            },
+            {
+              "slug": "amit-varma",
+              "title": "Chief Information Officer"
+            },
+            {
+              "slug": "osama-bukhari",
+              "title": "Chief Technical Officer"
+            },
+            {
+              "slug": "milan-radia",
+              "title": "Partner — Technology & Infrastructure Strategy"
+            },
+            {
+              "slug": "svitlana-burlakova",
+              "title": "Compliance Officer & MLRO"
+            },
+            {
+              "slug": "tarek-el-mans",
+              "title": "Director of Localisation"
+            },
+            {
+              "slug": "mohamed-essam",
+              "title": "Legal Counsel",
+              "bio": "Fintech and venture capital specialist at Matouk Bassiouny. Head of Emerging Companies and Venture Capital practice. Advised on over 100 transactions including leading fintech and M&A deals across MENA."
+            },
+            {
+              "slug": "osama-al-thanon",
+              "title": "Chief Strategy Officer"
+            }
+          ]
+        },
+        {
+          "title": "Board of Advisers",
+          "members": [
+            {
+              "slug": "michael-boevink",
+              "title": "Board Adviser"
+            },
+            {
+              "slug": "joel-blake",
+              "title": "Board Adviser"
+            },
+            {
+              "slug": "osama-al-zamil",
+              "name": "H.E. Eng. Osama Al-Zamil",
+              "title": "Board Advisor"
+            },
+            {
+              "slug": "asim-chohan",
+              "title": "Advisory Board",
+              "bio": "SVP Global Operations and COO at a leading US investment bank. 21 years driving Fortune 100 growth. Expert in artificial intelligence, business intelligence, and global digital transformation across three continents."
+            },
+            {
+              "slug": "daniel-roubeni",
+              "title": "Board Adviser"
+            },
+            {
+              "slug": "david-parker",
+              "title": "Board Adviser",
+              "bio": "20+ years in fintech and marketing. Ex Saatchi. Co-Founder of Konsentus."
+            },
+            {
+              "slug": "jack-hollander",
+              "title": "Board Adviser",
+              "bio": "30+ years in capital markets. Raised over $3 billion in alternative investment programmes. Master of Law from NYU."
+            },
+            {
+              "slug": "sarah-sinclair",
+              "title": "Board Adviser / ESG Partner"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
