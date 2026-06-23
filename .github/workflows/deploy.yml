@@ -38,6 +38,15 @@ jobs:
           python -m pip install --quiet pillow
           python tools/generate-share-cards.py --check
 
+      # Block a deploy when a data-driven card JSON was edited but the HTML was
+      # not regenerated. Both generators expose --check: they re-render in
+      # memory and exit non-zero if any page would change, writing nothing.
+      # Runs before any S3 mutation so drift stops the deploy early.
+      - name: Verify data-driven cards in sync (strategic partners + fund teams)
+        run: |
+          python tools/build-partners.py --check
+          python tools/build-people.py --check
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v6
         with:

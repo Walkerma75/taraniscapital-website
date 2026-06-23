@@ -97,8 +97,11 @@ There is no build step — the site deploys as-is.
 - Sitemap now lists 51 URLs; keep it synchronised when new pages added
 - Press section live with first release (Taranis × EEC Saudi data centre partnership, 27 Apr). New releases via `python tools/add-press-release.py content/press/<slug>.md` — see `docs/ADD-PRESS-RELEASE.md`.
 - Strategic Partners are data-driven: edit `taranis-partners-data.json` then run `python tools/build-partners.py` to regenerate cards on who-we-are + the 5 fund subdomains — see `docs/MANAGE-PARTNERS.md`. No Drive sync yet; the JSON is hand-edited (source of truth). Ordering rule: Disrupts Media brand first, then alphabetical.
+- Fund team cards (the per-fund subdomain Team & Advisers sections) are data-driven: edit `taranis-fund-teams.json` then run `python tools/build-people.py` to regenerate the section-aware cards on the 5 fund subdomains — see `docs/MANAGE-PEOPLE-TEAMS.md`. The roster is hand-edited (source of truth) for sections/order/titles; identity (name, image, bio) resolves from `taranis-people-data.json` by slug. The directory's per-fund `role` **and** `bio` fields are stale and deliberately not driven from (bios drifted on ~31 cards, carried as roster overrides) — back-fill-or-retire is a separate decision. `who-we-are.html` is out of scope (different card structure, already in sync). Phase 2 (the editorial title canon) is a separate brief.
 
 ## Last updated
+
+23 June 2026 (added data-driven fund team-cards model — `taranis-fund-teams.json` + `tools/build-people.py`, see `docs/MANAGE-PEOPLE-TEAMS.md`; Phase 1 reproduces the site with no visible change. Implements HANDOVER-CW001.)
 
 9 June 2026 (added data-driven Strategic Partners model — `taranis-partners-data.json` + `tools/build-partners.py`, see `docs/MANAGE-PARTNERS.md`)
 
