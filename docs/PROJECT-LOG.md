@@ -1700,3 +1700,80 @@ Total active: 301 + 85 + 15 + 5 + 3 + 1 = 410 ✅ (matches summary). No reason c
 Overall: **healthy, nothing requiring action** beyond the scheduling/connectivity note (item 1). This run mainly confirms the S27 picture two days on, with the sitemap discovered-count now reconciled to 52.
 
 *Note: observation-only run — no site/sitemap/robots/CloudFront changes. Entry written to the local working tree only; fold into the next commit (repo git writes happen on the host, per S24/S26).*
+
+---
+
+### Session 30 — 20 June 2026 (Weekly people-sync — clean no-op; no data changes)
+
+**Trigger:** scheduled `weekly-profile-updates` run.
+
+**Outcome: NO CHANGES. The live site is already fully in sync with the spreadsheet.** No JSON regenerated, no profile/who-we-are/subdomain/sitemap edits. Only this PROJECT-LOG entry was written. S28 (13 June) already reconciled the disruptiveTech role catch-ups + emails, so the JSON was current going in.
+
+**Environment / access:**
+- The website folder was **not connected** to the session at start (no Cowork folder mounted). Connected it via `request_cowork_directory` to `C:\Users\mark\Claude Cowork\Taranis Capital\Code\Taranis Capital Website`, then proceeded.
+
+**Pre-flight (STEP 0):**
+- In-sandbox git snapshot again **not possible** — a read-only `git status` left a stale 0-byte `.git/index.lock` that the Windows mount refuses to `unlink` ("Operation not permitted"); same recurring class as S24/S26/S28. The snapshot/commit are routed to the host CMD block below.
+- **Proceeded safely despite no in-sandbox snapshot**, because the data-loss condition STEP 0 guards against is provably absent this run: `git hash-object` of the local `Taranis-People-Data-Collection.xlsx` == HEAD blob == `.xlsx.bak`, all `0169b4ef…`. So there are no uncommitted local xlsx edits to lose, and this task only **reads** the xlsx (no Drive overwrite). Nothing is at risk.
+- The ~90-file "modified" working tree is once again **pure CRLF churn** (Linux git lacks `autocrlf` vs the LF blobs), not real changes. The S26/S28 root-cause fix — add `.gitattributes` with `* text=auto eol=lf` then `git add --renormalize .` — is **still not in place**. Re-flagging: applying it (as its own reviewed commit) would stop this recurring every run.
+
+**Diff (xlsx vs live `taranis-people-data.json`, incl. "Removed People" sheet):**
+- 32 people both sides, identical slug sets. **No additions, no removals** (the 4 in "Removed People" are already absent from the JSON).
+- **No Type changes.** No role, email, profile-image, or fund-assignment changes.
+- Verified programmatically: all 32 profiles exist in the correct `team/`|`board/`|`partners/` folder (no stray pages in other folders); `who-we-are.html` top-level roles 100% match the JSON; `sitemap.xml` lists every profile URL (none missing, no stray wrong-type URLs). **Nothing to apply.**
+
+**STEP 4 caution honored:** per `tools/_people_roster_notes.md` (paused 2026-06-18), the subdomain per-fund card titles are hand-curated and authoritative, and the JSON `funds.<fund>.role` fields are stale — a naive JSON->HTML title resync would regress the live site (e.g. nicholas-bingham "Founding Partner & CEO" -> "Investment Committee Chair"). With **no Type changes**, STEP 4 required no section moves, so no subdomain titles were touched. Correct outcome.
+
+**Residual spreadsheet-side data-quality items (unchanged since S28 — recommend fixing in the Drive xlsx, the source of truth; the live site is already the cleaner form, so do NOT push these to the site):**
+- `emad-zowawi` — sheet main bio still reads "KSA Legal **Consul**" (typo); the site/JSON were corrected to "KSA Legal **Counsel**" back in S26. Drive sheet still not fixed.
+- Name variants — "Professor Mohammed Al Jumah" (site) vs "Prof. Mohamed Al Jumah" (sheet, one-m); "Osama Ben Saleh Bukhari" (site) vs "Osama BenSaleh Bukhari" (sheet, missing space); "HE Eng. Osama Al-Zamil" (site) vs "H.E. Eng. Osama Al-Zamil" (sheet).
+- LinkedIn "MISSING" placeholders for 8 people (abdulaziz-al-sayyari, abdullah-alawad, arjumand-warsy, daniel-roubeni, ghassan-najmeddin, junaid-kashir, mohammed-aljumah, osama-al-zamil) — genuine data gaps (no LinkedIn URL), already correctly stored as empty in the JSON/site.
+
+**Decision on STEP 1 JSON write:** because the regenerated data is substantively byte-identical (zero changes), `_meta.lastUpdated` was deliberately **left at 2026-06-13** (when the data last actually changed, S28) rather than bumped to today — a date-only diff would misrepresent a data refresh. Following the repo's established no-op convention (cf. S24/S26 halts, S27/S29 observation-only): log-only, no JSON rewrite. Deliberate deviation from STEP 1's literal "set lastUpdated = today".
+
+**Files changed this run:** `docs/PROJECT-LOG.md` only (this entry).
+
+*Note: this entry was written to the local working tree only. Commit/push to be run by Mark from the host (sandbox cannot do git writes) — see the CMD block produced this run. Recurring recommendation: add `.gitattributes` to end the CRLF churn.*
+
+**Addendum (same session) — remediation pass after error audit (Mark in attendance):**
+
+After the no-op sync above, Mark paused the push and asked to verify that the errors/remediation items flagged by prior sessions were actually completed, then to fix what was fixable and hand the rest to the host. Also re-checked the handover trail: connected all four Cowork folders named in CLAUDE.md (website repo + Taranis Capital Shared + Taranis Fund Info + Documents\\Claude\\Projects\\Taranis Capital) and confirmed the authoritative website handover record is this `docs/PROJECT-LOG.md` — no separate website handover file exists in the paperwork folders.
+
+**Audit result — RESOLVED & committed:** git index corruption (S26) repaired on host; S26 snapshot branches `xlsx-snapshot/2026-06-07-0609`/`0610` deleted; `emad-zowawi` & `mohamed-essam` "Consul"->"Counsel" (PR #34, site clean); `osama-al-zamil` bio walk-back (page now only "Chairman of OAAZ Consulting"); all S24-S29 PROJECT-LOG entries committed; S28 role re-titles (PR #42).
+
+**Actioned this session (working tree only — host commit pending):**
+1. **Created `.gitattributes`** (`* text=auto eol=lf` + binary rules) — fixes the recurring ~90-file CRLF churn root cause, open since S26 step 6. **REQUIRES a one-time host `git add --renormalize .` commit** (see `docs/HANDOVER-2026-06-20.md`).
+2. **Published `mohammed-aljumah` email** on `board/mohammed-aljumah.html` — added the gold hero contact block (`mailto:mohammed-aljumah@taraniscapital.com`) matching the other board pages, per Mark's confirmation this session. The JSON already held the address; no JSON change.
+3. **`osama-al-thanon` email** (`skywalker@taraniscapital.com`): Mark re-confirmed it is correct and intentional — left as-is on the live team page + JSON.
+
+**Still pending — host git only (see `docs/HANDOVER-2026-06-20.md`):** clear stale `.git/index.lock`; delete stale local snapshot branches `xlsx-snapshot/2026-06-13-0543` & `2026-06-15-0404`; run the one-time `.gitattributes` renormalise commit; commit the S30 content changes.
+
+**Files changed this run (updated):** `docs/PROJECT-LOG.md` (this entry + addendum), `.gitattributes` (new), `board/mohammed-aljumah.html` (email published).
+
+---
+
+### Session 31 — 22 June 2026 (GSC Weekly Check — API)
+
+**Automated weekly Google Search Console health check — taraniscapital.com (API mode).**
+
+**Could not run — service-account key not present. No GSC data retrieved this week.**
+
+This was the first scheduled run under the new **API-based** weekly check (replacing the browser flow that produced S22–S29). It did not complete because the API credentials have not been set up.
+
+**What happened**
+- Connected the working tree (`C:\Users\mark\Claude Cowork\Taranis Capital\Code\Taranis Capital Website`), installed the deps (`google-api-python-client`, `google-auth`) and ran `python tools/gsc-weekly-check.py --out-dir .` from the repo root, exactly per the task.
+- The script exited with code 2: **`service-account key not found`**. Resolution order checked — `--key` (not passed), `$GSC_SA_KEY` (unset), and the default `secrets/gsc-service-account.json`.
+- The `secrets/` directory **does not exist** in the repo at all, so the key has never been placed. Per `docs/GSC-API-SETUP.md`, the one-time setup (create Cloud project + enable Search Console API → create service account + JSON key → add that service-account email as a **Full** user on the `sc-domain:taraniscapital.com` property → drop the key at `secrets/gsc-service-account.json`) has not yet been done.
+- Per the task's decision rule, **no browser fallback** was attempted. Observation-only: no changes to the site, sitemap, robots.txt, or CloudFront.
+
+**Week-over-week:** not available — no figures retrieved. Last successful reading is **S29 (15 June, browser):** sitemap discovered **52** (matches local), indexed **81**, 7-day clicks **52** / impressions **1,560** / CTR **3.3%** / avg position **9.1**; manual actions & security clean. Local `sitemap.xml` still has **52** `<loc>` entries (verified this run).
+
+**Issues to raise with Mark**
+
+1. **GSC API not set up — weekly check is blind until the key is in place.** The service-account key is missing (`secrets/` doesn't exist). Complete the one-time setup in `docs/GSC-API-SETUP.md` (steps 1–4): enable the Search Console API, create a service account + JSON key, add its email as a **Full** user on the domain property, and save the key to `secrets/gsc-service-account.json`. Until then every unattended weekly run will no-op like this one. **Action required by Mark — Claude cannot create Cloud credentials or change property access.**
+2. **Path note in the setup doc is stale.** `docs/GSC-API-SETUP.md` step 4 points the key at `C:\Users\mark\Claude Cowork\Taranis Capital Website\secrets\…`, but the live working tree is now `…\Taranis Capital\Code\Taranis Capital Website\…`. The script resolves the path from its own repo root so it'll still find the key once placed, but worth correcting the doc to avoid putting the key in the wrong (old) folder.
+3. **No indexing/performance signal this week.** Because the run produced no data, none of the usual per-URL index / performance deltas could be assessed. No evidence of a problem — simply unmeasured. Coverage gap closes as soon as item 1 is done.
+
+Overall: **not healthy/unhealthy — unmeasured.** The check is correctly wired up (script runs, deps install, sitemap count verified at 52) and is just waiting on the one-time credential setup. Once the key is placed, subsequent runs will be fully unattended.
+
+*Note: observation-only run — no site/sitemap/robots/CloudFront changes; no indexing requests or validations. Entry written to the local working tree only; fold into the next commit (repo git writes happen on the host, per S24/S26/S30). The git-ignored `gsc-check-*` scratch files were not produced (the script exited before writing them).*
