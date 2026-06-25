@@ -16,6 +16,7 @@ See docs/ADD-PRESS-RELEASE.md for the source-file format and full workflow.
 
 import argparse
 import re
+import subprocess
 import sys
 from datetime import date as date_mod
 from pathlib import Path
@@ -374,64 +375,20 @@ def update_press_listing(meta):
     PRESS_LISTING.write_text(html, encoding="utf-8")
 
 
-def update_sitemap(meta):
-    sm = SITEMAP.read_text(encoding="utf-8")
-    today = date_mod.today().isoformat()
-    iso_date = meta["date"] if isinstance(meta["date"], str) else meta["date"].isoformat()
-    slug = meta["slug"]
-    new_url = f"https://taraniscapital.com/press/{slug}"
+def update_sitemap(meta=None):
+    """Regenerate sitemap.xml from the current published page set.
 
-    # Remove placeholder URL if present
-    sm = re.sub(
-        r'  <url>\s*<loc>https://taraniscapital\.com/press/'
-        + re.escape(PLACEHOLDER_SLUG) + r'</loc>.*?</url>\n',
-        "",
-        sm,
-        flags=re.DOTALL,
-    )
+    Delegates to tools/generate-sitemap.py, which walks the repo and emits a
+    complete, deterministic sitemap. This replaced the old regex string-splice
+    approach so the sitemap can never drift from the actual pages.
 
-    # Replace stale "press releases" comment that mentioned the placeholder
-    sm = re.sub(
-        r'  <!-- Press releases \(individual release URLs.*?placeholder.*?\) -->',
-        '  <!-- Press releases -->',
-        sm,
-        flags=re.DOTALL,
-    )
-
-    # Bump /press lastmod to today
-    sm = re.sub(
-        r'(<loc>https://taraniscapital\.com/press</loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}',
-        rf'\g<1>{today}',
-        sm,
-    )
-
-    # Remove existing entry for this slug
-    sm = re.sub(
-        r'  <url>\s*<loc>' + re.escape(new_url) + r'</loc>.*?</url>\n',
-        "",
-        sm,
-        flags=re.DOTALL,
-    )
-
-    new_entry = (
-        f'  <url>\n'
-        f'    <loc>{new_url}</loc>\n'
-        f'    <lastmod>{iso_date}</lastmod>\n'
-        f'    <changefreq>yearly</changefreq>\n'
-        f'    <priority>0.6</priority>\n'
-        f'  </url>\n'
-    )
-
-    sm = re.sub(
-        r'(<url>\s*<loc>https://taraniscapital\.com/press</loc>.*?</url>\n)',
-        r'\1' + new_entry,
-        sm,
-        count=1,
-        flags=re.DOTALL,
-    )
-
-    SITEMAP.write_text(sm, encoding="utf-8")
-
+    Call this AFTER all page files have been written or removed (in particular,
+    after cleanup_placeholder_release), so the generated sitemap reflects the
+    final on-disk state. The `meta` argument is accepted for backwards
+    compatibility and is unused.
+    """
+    generator = SCRIPT_DIR / "generate-sitemap.py"
+    subprocess.run([sys.executable, str(generator)], check=True)
 
 def cleanup_placeholder_release():
     placeholder = RELEASES_DIR / f"{PLACEHOLDER_SLUG}.html"
@@ -464,8 +421,10 @@ def main():
     out_path.write_text(html, encoding="utf-8")
 
     update_press_listing(meta)
-    update_sitemap(meta)
     placeholder_removed = cleanup_placeholder_release()
+    # Regenerate the sitemap last, so it reflects the final on-disk page set
+    # (new release added, placeholder removed).
+    update_sitemap(meta)
 
     print(f"Generated: {out_path.relative_to(REPO_ROOT)}")
     print(f"Updated:   press.html, sitemap.xml")

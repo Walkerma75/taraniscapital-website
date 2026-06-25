@@ -47,6 +47,14 @@ jobs:
           python tools/build-partners.py --check
           python tools/build-people.py --check
 
+      # Block a deploy when sitemap.xml is out of date. The generator is
+      # deterministic, so --check re-renders in memory and exits non-zero if
+      # the committed sitemap would change. Needs full git history (fetch-depth: 0
+      # above) so <lastmod> dates are stable. Runs before any S3 mutation.
+      - name: Verify sitemap.xml is in sync
+        run: |
+          python tools/generate-sitemap.py --check
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v6
         with:

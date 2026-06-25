@@ -1777,3 +1777,29 @@ This was the first scheduled run under the new **API-based** weekly check (repla
 Overall: **not healthy/unhealthy — unmeasured.** The check is correctly wired up (script runs, deps install, sitemap count verified at 52) and is just waiting on the one-time credential setup. Once the key is placed, subsequent runs will be fully unattended.
 
 *Note: observation-only run — no site/sitemap/robots/CloudFront changes; no indexing requests or validations. Entry written to the local working tree only; fold into the next commit (repo git writes happen on the host, per S24/S26/S30). The git-ignored `gsc-check-*` scratch files were not produced (the script exited before writing them).*
+
+### Session 32 — 24 June 2026 (GSC Weekly Check — API)
+
+**Automated weekly Google Search Console health check — taraniscapital.com (API mode).**
+
+**Could not run — service-account key still not present. No GSC data retrieved this week.**
+
+This is the **second consecutive** API-mode run to no-op for the same reason (see S31, 22 June). The one-time API credential setup has not been done in the intervening period.
+
+**What happened**
+- Ran `python tools/gsc-weekly-check.py --out-dir .` from the repo root after installing the deps (`google-api-python-client`, `google-auth`), exactly per the task.
+- The script exited with code 2: **`service-account key not found`** — resolution order checked `--key` (not passed), `$GSC_SA_KEY` (unset) and the default `secrets/gsc-service-account.json`.
+- The `secrets/` directory **still does not exist** in the repo, so the key has never been placed. Setup steps remain as documented in `docs/GSC-API-SETUP.md`.
+- Per the task's decision rule, **no browser fallback** was attempted. Observation-only: no changes to site, sitemap, robots.txt, or CloudFront.
+
+**Week-over-week:** not available — no figures retrieved this week or last (S31 also blind). Last *successful* reading remains **S29 (15 June, browser):** sitemap discovered **52** (matches local), indexed **81**, 7-day clicks **52** / impressions **1,560** / CTR **3.3%** / avg position **9.1**; manual actions & security clean. Local `sitemap.xml` still has **52** `<loc>` entries (verified this run).
+
+**Issues to raise with Mark**
+
+1. **GSC API still not set up — weekly check has now been blind for two consecutive runs (S31, S32).** The service-account key is missing (`secrets/` doesn't exist). Complete the one-time setup in `docs/GSC-API-SETUP.md` (steps 1–4): enable the Search Console API, create a service account + JSON key, add its email as a **Full** user on the `sc-domain:taraniscapital.com` property, and save the key to `secrets/gsc-service-account.json`. Until then every unattended weekly run no-ops. **Action required by Mark — Claude cannot create Cloud credentials or change property access.**
+2. **Stale path in setup doc (carried from S31, still unfixed).** `docs/GSC-API-SETUP.md` step 4 points the key at the old working-tree path (`…\Taranis Capital Website\secrets\…`) rather than the current `…\Taranis Capital\Code\Taranis Capital Website\…`. The script resolves from its own repo root so it'll find the key once placed, but the doc should be corrected to avoid the key landing in the wrong folder.
+3. **No indexing/performance signal this week.** No data produced, so no per-URL index / performance deltas could be assessed. No evidence of a problem — simply unmeasured. The coverage gap is now ~9 days old (last reading 15 June) and grows until item 1 is done.
+
+Overall: **unmeasured, not unhealthy.** The check is correctly wired (script runs, deps install, sitemap verified at 52) and waiting solely on the one-time credential setup. As this is the second blind run, escalating item 1 as the priority blocker.
+
+*Note: observation-only run — no site/sitemap/robots/CloudFront changes; no indexing requests or validations. Entry written to the local working tree only; fold into the next commit (repo git writes happen on the host, per S24/S26/S30). The git-ignored `gsc-check-*` scratch files were not produced (the script exited before writing them).*
