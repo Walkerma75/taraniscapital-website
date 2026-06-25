@@ -23,7 +23,12 @@
 // rewrite logic at the bottom differs from what's live, keep the live
 // version and merge only the redirect block above it.
 //
-// Last updated: 2026-04-24 (press section allowlist added)
+// Last updated: 2026-06-25 — merged in live-only logic that existed in the
+//   deployed function but was missing from this file: the www->non-www
+//   canonical redirect, and the /contact-us and /ai slug redirects. Publishing
+//   this file as-is before the merge would have regressed those. The deployed
+//   function previously LACKED the WP pattern redirects below (tag/author/
+//   team_member/board_members/pagination/catch-all); this version is the union.
 
 var HOST = 'https://taraniscapital.com';
 
@@ -78,6 +83,13 @@ function handler(event) {
     var request = event.request;
     var uri     = request.uri;
     var qs      = request.querystring || {};
+    var host    = request.headers.host ? request.headers.host.value : '';
+
+    // ---- Canonical host: www -> apex (preserve path) ----
+    // Was live-only; kept here so publishing this file never drops it.
+    if (host.indexOf('www.') === 0) {
+        return redirect301(HOST + uri);
+    }
 
     // ---- Legacy WP pattern redirects (most specific first) ----
 
@@ -85,6 +97,10 @@ function handler(event) {
     if (/^\/page\/\d+\/?$/.test(uri) || /^\/insights\/page\/\d+\/?$/.test(uri)) {
         return redirect301(HOST + '/insights');
     }
+
+    // Renamed pages (old slugs — were live-only in the deployed function).
+    if (/^\/contact-us\/?$/.test(uri)) return redirect301(HOST + '/contact');
+    if (/^\/ai\/?$/.test(uri))         return redirect301(HOST + '/disruptive-tech');
 
     // WP taxonomy
     if (/^\/tag\/[^\/]+\/?$/.test(uri))    return redirect301(HOST + '/insights');
