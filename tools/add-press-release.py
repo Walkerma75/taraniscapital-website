@@ -79,9 +79,7 @@ DEFAULT_BOILERPLATE = [
     {
         "title": "About Taranis Capital",
         "body": (
-            "Taranis Capital is a Dubai-based investment firm licensed by the "
-            "Dubai International Financial Centre (DIFC) and regulated by the "
-            "Dubai Financial Services Authority. The firm deploys disciplined "
+            "Taranis Capital is an investment firm deploying disciplined "
             "capital and knowledge leadership across emerging markets and "
             "high-growth sectors including fintech, biotech, datacentres, "
             "disruptive technology, and real estate."
@@ -92,9 +90,7 @@ DEFAULT_BOILERPLATE = [
 DEFAULT_CONTACTS = [
     {
         "title": "Taranis Capital",
-        "address": "Level 02, Innovation One, Dubai International Financial Centre (DIFC), Dubai, United Arab Emirates",
         "email": "info@taraniscapital.com",
-        "phone": "+971 (0) 44 573232",
     }
 ]
 
