@@ -724,7 +724,7 @@
       },
       "mainSite": {
         "bioStatus": "Complete",
-        "bio": "Nicholas S. Bingham brings 25 years of experience from across the globe and has represented a wide range of financial markets. As the founder and chief executive of Taranis Capital, he has built an ethical, fintech-focused investment fund focused on investing in fintechs with excellent ethical governance. The fund, which has successfully secured a DFSA licence, focuses on ventures across fintech, biotechnology, datacentres, and property in the MENA region, Africa, and Europe.\nNicholas is committed to personal due diligence, visiting companies firsthand to gain a full understanding of their operations, governance, and ethical standing. Under his leadership, Taranis Capital provides both investment capital and first-hand advisory support.\nHe commented: \"Ethical governance, how staff are treated, the staff's social wellbeing and the projects companies work on are all very important. Even if a company looks attractive to an investor; if their ethical standing is not good then this fund would not want to get involved.\"",
+        "bio": "Nicholas S. Bingham brings 25 years of experience from across the globe and has represented a wide range of financial markets. As the founder and chief executive of Taranis Capital, he has built an ethical, fintech-focused investment fund focused on investing in fintechs with excellent ethical governance. The fund focuses on ventures across fintech, biotechnology, datacentres, and property in the MENA region, Africa, and Europe.\nNicholas is committed to personal due diligence, visiting companies firsthand to gain a full understanding of their operations, governance, and ethical standing. Under his leadership, Taranis Capital provides both investment capital and first-hand advisory support.\nHe commented: \"Ethical governance, how staff are treated, the staff's social wellbeing and the projects companies work on are all very important. Even if a company looks attractive to an investor; if their ethical standing is not good then this fund would not want to get involved.\"",
         "profileUrl": "taraniscapital.com/team/nicholas-bingham"
       },
       "funds": {
@@ -953,42 +953,6 @@
           "assigned": true,
           "role": "Board Adviser / ESG Partner",
           "bio": "Co-Founder and CEO of ChangeGap. Provides ESG advisory, consulting, and collaboration services. ChangeGap's Co-Labs initiative brings together a global ecosystem addressing Economic Crime, ESG, Operational Resilience, and Prudential Regulation."
-        },
-        "biotech": {
-          "assigned": false
-        }
-      }
-    },
-    {
-      "slug": "svitlana-burlakova",
-      "fullName": "Svitlana Burlakova, ICA, TEP",
-      "type": "Team",
-      "role": "Compliance Officer & MLRO",
-      "email": "compliance@taraniscapital.com",
-      "linkedIn": "https://www.linkedin.com/in/svitlana-burlakova-ica-tep-a2867a6/",
-      "profileImage": {
-        "path": "/images/team/Svitlana-Burlakova-ICA-TEP-600x650-1-277x300.jpg",
-        "hasImage": true
-      },
-      "mainSite": {
-        "bioStatus": "Complete",
-        "bio": "Svitlana Burlakova, ICA, TEP serves as Compliance Officer and Money Laundering Reporting Officer (MLRO) at Taranis Capital. Her professional designations — ICA (International Compliance Association) and TEP (Trust and Estate Practitioner) — reflect her deep expertise in regulatory compliance, anti-money laundering, and fiduciary governance.\nShe ensures Taranis Capital maintains the highest standards of regulatory compliance across all jurisdictions in which the firm operates, supporting the DFSA regulatory framework and the firm's commitment to ethical governance.",
-        "profileUrl": "taraniscapital.com/team/svitlana-burlakova"
-      },
-      "funds": {
-        "fintech": {
-          "assigned": false
-        },
-        "property": {
-          "assigned": false
-        },
-        "datacentre": {
-          "assigned": false
-        },
-        "disruptiveTech": {
-          "assigned": true,
-          "role": "Compliance Officer & MLRO",
-          "bio": "DFSA-regulated Compliance Officer and Money Laundering Reporting Officer for Taranis Capital. Ensures fund compliance with DFSA Conduct of Business Rules, AML/KYC regulations, and investor protection requirements."
         },
         "biotech": {
           "assigned": false
