@@ -220,18 +220,28 @@ def render_body_blocks(body_md, dateline_city):
             if len(sub_blocks) > 1 and re.match(r'^[\u2014\u2013-]', sub_blocks[-1].strip()):
                 attribution = re.sub(r'^[\u2014\u2013-]+\s*', '', sub_blocks[-1].strip())
                 quote_body = "\n\n".join(sub_blocks[:-1]).strip()
-            quote_html = quote_body.replace("\n\n", "</p>\n        <p>").replace("\n", " ")
+            quote_paras = [
+                re.sub(r'\s+', ' ', para).strip()
+                for para in re.split(r'\n\s*\n', quote_body)
+                if para.strip()
+            ]
+            quote_paras[0] = f'&ldquo;{quote_paras[0]}'
+            quote_paras[-1] = f'{quote_paras[-1]}&rdquo;'
+            if len(quote_paras) > 1:
+                quote_html = "\n        ".join(f'<p>{para}</p>' for para in quote_paras)
+            else:
+                quote_html = quote_paras[0]
             if attribution:
                 rendered.append(
                     f'      <blockquote class="press-quote">\n'
-                    f'        &ldquo;{quote_html}&rdquo;\n'
+                    f'        {quote_html}\n'
                     f'        <cite>&mdash; {attribution}</cite>\n'
                     f'      </blockquote>'
                 )
             else:
                 rendered.append(
                     f'      <blockquote class="press-quote">\n'
-                    f'        &ldquo;{quote_html}&rdquo;\n'
+                    f'        {quote_html}\n'
                     f'      </blockquote>'
                 )
 
