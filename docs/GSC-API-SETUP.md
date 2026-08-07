@@ -3,6 +3,15 @@
 This replaces the browser-driven weekly Google Search Console check with the
 **Search Console API**, so the scheduled task runs unattended (no Chrome needed).
 
+> **Primary path (from 1 Jul 2026): the `gsc` MCP connector.** The weekly task
+> now pulls sitemaps, performance and per-URL index status straight from the
+> authorised `gsc` connector (Search Console API, handled connector-side — no
+> local key needed). The service-account script below (`tools/gsc-weekly-check.py`)
+> is retained only as a **fallback** for when the connector isn't available. You
+> do not need to complete the service-account setup for the weekly check to run;
+> keep it as a backstop if you want one. Everything else in this doc still applies
+> to that fallback path.
+
 ## What the API can and can't do
 
 | Check | API? | How it's covered now |
@@ -56,7 +65,7 @@ from Google to the property owner, so they're covered between browser checks.
 Put the downloaded JSON at:
 
 ```
-C:\Users\mark\Claude Cowork\Taranis Capital Website\secrets\gsc-service-account.json
+C:\Users\mark\Claude Cowork\Taranis Capital\Code\Taranis Capital Website\secrets\gsc-service-account.json
 ```
 
 Create the `secrets\` folder if it doesn't exist. This location is already:
@@ -80,7 +89,7 @@ pip install --break-system-packages google-api-python-client google-auth
 ## Run it
 
 ```
-cd "C:\Users\mark\Claude Cowork\Taranis Capital Website"
+cd "C:\Users\mark\Claude Cowork\Taranis Capital\Code\Taranis Capital Website"
 python tools/gsc-weekly-check.py
 ```
 
@@ -97,10 +106,12 @@ Useful flags:
 
 ## How the scheduled tasks use this
 
-- **`gsc-weekly-health-check`** (Mondays) — now runs `tools/gsc-weekly-check.py`,
-  takes its stdout, adds the `### Session N — DATE (GSC Weekly Check — API)`
-  heading + a one-line comparison to last week, and appends to
-  `docs/PROJECT-LOG.md`. Fully unattended. See that task's SKILL.md.
+- **`gsc-weekly-health-check`** (Wednesdays) — pulls sitemaps, performance and
+  per-URL index status from the **`gsc` MCP connector** (primary), falling back to
+  `tools/gsc-weekly-check.py` only if the connector is unavailable. Adds the
+  `### Session N — DATE (GSC Weekly Check — API)` heading + a one-line comparison
+  to last week, and appends to `docs/PROJECT-LOG.md`. Fully unattended. See that
+  task's SKILL.md.
 - **`gsc-monthly-browser-check`** (monthly) — opens GSC in Chrome for Manual
   Actions, Security, Core Web Vitals and the aggregate index report. Needs
   Chrome open + the Claude in Chrome extension signed in; degrades gracefully

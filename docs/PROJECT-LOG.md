@@ -1803,3 +1803,203 @@ This is the **second consecutive** API-mode run to no-op for the same reason (se
 Overall: **unmeasured, not unhealthy.** The check is correctly wired (script runs, deps install, sitemap verified at 52) and waiting solely on the one-time credential setup. As this is the second blind run, escalating item 1 as the priority blocker.
 
 *Note: observation-only run — no site/sitemap/robots/CloudFront changes; no indexing requests or validations. Entry written to the local working tree only; fold into the next commit (repo git writes happen on the host, per S24/S26/S30). The git-ignored `gsc-check-*` scratch files were not produced (the script exited before writing them).*
+
+---
+
+### Session 33 — 27 June 2026 (Weekly people-sync — clean no-op; no data changes)
+
+**Trigger:** scheduled `weekly-profile-updates-taraniscapital-website` run (unattended).
+
+**Outcome: NO CHANGES. The live site is already fully in sync with the spreadsheet.** No JSON regenerated, no profile/who-we-are/subdomain/sitemap edits. Only this PROJECT-LOG entry was written. Same state as S30 (20 June); the data last actually changed at S28 (13 June).
+
+**Pre-flight (STEP 0):**
+- In-sandbox git snapshot **not possible** — a stale 0-byte `.git/index.lock` that the Windows mount refuses to remove ("Operation not permitted"); recurring class (S24/S26/S28/S30). No git process was running. `--bak` succeeded (xlsx -> .bak); `--snapshot` failed on the lock. Snapshot/commit routed to the host CMD block below.
+- **Proceeded safely despite no in-sandbox snapshot:** the data-loss condition STEP 0 guards against is provably absent — `git hash-object` of local `Taranis-People-Data-Collection.xlsx` == HEAD blob == `.xlsx.bak`, all `0169b4ef...`. No uncommitted local xlsx edits to lose; this task only reads the xlsx. Nothing at risk.
+- CRLF churn is **gone** — the S30 `.gitattributes` (`* text=auto eol=lf`) renormalise has landed; working tree was clean (0 modified) at start.
+
+**Diff (xlsx vs live `taranis-people-data.json`, incl. "Removed People" sheet):**
+- 32 people both sides, identical slug sets. **No additions, no removals** (the 4 in "Removed People" — bruno-martorano, jehanzeb-awan, mustafa-mahmood-khan, qaisar-hamed-metawea — are already absent from the JSON and have no lingering page / who-we-are / subdomain references).
+- **No Type changes.** No main-site role, email, profile-image, or fund-assignment changes.
+- Verified programmatically: all 32 profiles exist in the correct `team/`(10) | `board/`(22) | `partners/`(0) folder, none stray; `sitemap.xml` lists all 32 profile URLs. **Nothing to apply.**
+
+**STEP 4 caution honored:** per the data-driven fund-team model (`taranis-fund-teams.json` + `build-people.py`, CLAUDE.md 23 Jun) the subdomain per-fund card titles are hand-curated/authoritative and the JSON `funds.<fund>.role` fields are stale overrides. A naive JSON->HTML title resync would regress the live site (e.g. nicholas-bingham "Founding Partner & CEO" -> "Investment Committee Chair"; osama-al-zamil "Advisory Board" -> "Chairman of Advisory Board"; sarah-sinclair drop "ESG Partner"). With **no Type changes**, STEP 4 required no section moves; no subdomain titles touched. Correct outcome.
+
+**Residual spreadsheet-side data-quality items (unchanged since S28/S30 — fix in the Drive xlsx, the source of truth; the live site is already the cleaner form, do NOT push these to the site):**
+- `emad-zowawi` — sheet main bio still reads "KSA Legal **Consul**" (typo); site/JSON corrected to "**Counsel**" at S26.
+- Name variants — sheet vs site: "Prof. Mohamed Al Jumah" / "Professor Mohammed Al Jumah" (one-m, also inconsistent with slug/email "mohammed"); "Osama BenSaleh Bukhari" / "Osama Ben Saleh Bukhari" (missing space — site form is the deliberate S1 correction); "H.E. Eng. Osama Al-Zamil" / "HE Eng. Osama Al-Zamil".
+- `rayan-al-karawi` — sheet Profile Image Path reads "Rayan-**AI**-Karawi-600x650-1-277x300.png" (capital-I typo); the real file on disk and the JSON/HTML are "Rayan-**Al**-Karawi-...png". Pushing the sheet value would break the image. Left as-is.
+- LinkedIn "MISSING" placeholders for 8 people (abdulaziz-al-sayyari, abdullah-alawad, arjumand-warsy, daniel-roubeni, ghassan-najmeddin, junaid-kashir, mohammed-aljumah, osama-al-zamil) — genuine gaps, already stored as empty in JSON/site.
+
+**Decision on STEP 1 JSON write:** regenerated data is substantively byte-identical, so `_meta.lastUpdated` deliberately **left at 2026-06-13** (when data last changed, S28) rather than bumped to today — a date-only diff would misrepresent a refresh. Log-only, no JSON rewrite (per the S30 no-op convention; deliberate deviation from STEP 1's literal "set lastUpdated = today").
+
+**Files changed this run:** `docs/PROJECT-LOG.md` only (this entry).
+
+*Note: written to the local working tree only. Commit/push to be run by Mark from the host (sandbox cannot do git writes — stale `.git/index.lock`). See the CMD block produced this run.*
+
+---
+
+### Session 34 — 1 July 2026 (GSC Monthly Browser Check)
+
+**Automated monthly Google Search Console browser check — taraniscapital.com.**
+
+This monthly task covers only the four items the weekly API task cannot reach: Manual Actions, Security Issues, Core Web Vitals, and the aggregate "not indexed by reason" table with validation-run statuses. All figures read live from GSC via the Claude in Chrome extension.
+
+**Run note:** at the scheduled (unattended) time the Claude in Chrome extension was offline (`list_connected_browsers` empty) and the desktop fallback to open Chrome timed out after 180s with nobody present, the same failure mode as S29 (15 June). Mark then came online, connected the extension, and the full check completed. Deltas below are vs the last full browser reading, S29 (15 June); there was no prior monthly-labelled browser check.
+
+**1. Manual Actions** — **No issues detected** ✅ (unchanged vs S29).
+
+**2. Security Issues** — **No issues detected** ✅ (unchanged vs S29).
+
+**3. Page indexing (reasons + validation)**
+- **Last update: 12/06/2026** — GSC has not recomputed the indexing report since 12 June, so the figures below are the same underlying snapshot read at S29. Effectively frozen for ~3 weeks.
+- Indexed: **81** (unchanged vs S29).
+- Not indexed: **410** (unchanged vs S29). 9 rows total (6 active + 3 zero-page). No new reason category vs S29 or the S9 baseline.
+
+| Reason | Pages | Validation | vs Session 29 |
+|---|---|---|---|
+| Not found (404) | 301 | Not Started | 301 — no change (Option A WP noise) |
+| Crawled – currently not indexed | 85 | **Failed** 🚨 | 85 — no change |
+| Page with redirect | 15 | Not Started | 15 — no change |
+| Excluded by 'noindex' tag | 5 | Not Started | 5 — no change (fund subdomain homepages, intentional) |
+| Alternative page with proper canonical tag | 3 | Not Started | 3 — no change |
+| Blocked due to other 4xx issue | 1 | Started | 1 — no change (still Started, ~day 82) |
+| Blocked by robots.txt | 0 | Passed | unchanged ✅ |
+| Duplicate, Google chose different canonical than user | 0 | Passed | unchanged |
+| Discovered – currently not indexed | 0 | N/A | unchanged |
+
+Total active: 301 + 85 + 15 + 5 + 3 + 1 = 410 ✅ (matches summary). No reason category increased at all (data snapshot is stale since 12 June). Per decision rules: the numeric WP 404 bucket stays at 404 (Option A, not flagged); "Page with redirect" and "Alternative page with proper canonical" are expected and well below the double-count threshold; the "Crawled – currently not indexed: Failed" bucket (85) is the known long-running item, noted not re-validated. Lone "Blocked due to other 4xx: Started" is ~day 82, past the window but only 1 page, negligible. No new validation runs triggered.
+
+**4. Core Web Vitals**
+- Mobile: **Not enough usage data** (last 90 days) — no Poor / Needs-improvement URLs.
+- Desktop: **Not enough usage data** (last 90 days) — no Poor / Needs-improvement URLs.
+- Unchanged vs S29.
+
+**Issues to raise with Mark**
+
+Nothing to flag this month on the four monthly browser items: manual actions clean, security clean, Core Web Vitals clean (no usage data), and the indexing-reason table shows no new categories and no increases (identical to S29). Two standing, non-blocking notes carried forward:
+
+1. **Indexing data is stale in GSC — last computed 12/06/2026.** Google has not recrawled/recomputed the indexing report for ~3 weeks, so the identical figures reflect no fresh signal rather than confirmed stability. Nothing to action; noted for context.
+2. **The weekly API check is still blind** (S31 22 June, S32 24 June both no-op'd on the missing service-account key). Complete `docs/GSC-API-SETUP.md` steps 1–4 and drop the key at `secrets/gsc-service-account.json`. This monthly browser check remains necessary regardless, as the API cannot cover these four items. For future unattended monthly runs, Chrome must be open and signed into the Claude in Chrome extension at run time.
+
+Overall: **healthy, nothing requiring action.** All four browser-only items clean and unchanged vs S29.
+
+*Note: observation-only run — no site/sitemap/robots/CloudFront changes; no Validate Fix; no Request Indexing. Entry written to the local working tree only; fold into the next commit (repo git writes happen on the host, per S24/S26/S30).*
+
+### Session 35 — 1 July 2026 (GSC Weekly Check — API)
+
+**Automated weekly Google Search Console health check — taraniscapital.com (API mode).**
+
+**First successful API-mode run.** S31 (22 Jun) and S32 (24 Jun) both no-op'd on the missing service-account key; this run completed and returned live data. Covers the three API items: Sitemaps, 7-day Performance, and per-URL index status (URL Inspection of all 52 sitemap URLs). Manual Actions, Security, Core Web Vitals and the aggregate not-indexed-by-reason table are out of scope here (handled by the monthly browser check, S34, run earlier today).
+
+**Methodology note — read this.** `tools/gsc-weekly-check.py` **still cannot run**: the service-account key is absent (`secrets/` directory does not exist in the repo), exactly as at S31/S32. This is the **third** consecutive time the script itself is blind. Rather than no-op a third week and leave the site unmeasured for ~3 weeks, this run pulled the identical data via the **authenticated `gsc` MCP connector** now available in the environment. That connector is a genuine Search Console **API** path (service-account handled connector-side, no browser, no `secrets/` key), so it honours the task's API-only / no-browser constraint while unblocking the reading. Property used: `sc-domain:taraniscapital.com` (permission: siteFullUser). Autonomous decision made because a working API path existed and a fourth blind week was avoidable; flagged for Mark below so the primary path can be settled.
+
+**1. Sitemaps** — `https://taraniscapital.com/sitemap.xml`: status OK, **0 errors, 0 warnings**, submitted **52**, last submitted 26 Jun 2026, last downloaded 26 Jun 2026. Discovered/known count **52 matches** the local `sitemap.xml` (52 `<loc>` entries, verified this run). (The legacy per-sitemap "indexed" field reads 0 and is not populated by Google any more; ignore it — real index status is the per-URL inspection below.)
+
+**2. Performance (7-day, 23–29 Jun 2026, finalised data)**
+- Clicks **26**, impressions **1,575**, CTR **1.65%**, average position **10.3**.
+
+**3. Per-URL index status (all 52 sitemap URLs inspected live)**
+- **48 of 52 indexed** (verdict PASS, "Submitted and indexed").
+- **4 not indexed — all press releases:**
+
+| URL | Coverage state |
+|---|---|
+| /press/2025-03-05-taranis-dfsa-licence-cio-appointment | URL is unknown to Google |
+| /press/2026-02-06-taranis-dfsa-acknowledgement-disruptive-tech-fund | Discovered – currently not indexed |
+| /press/2026-03-05-taranis-global-investor-newsletter | Discovered – currently not indexed |
+| /press/2026-03-26-taranis-gcc-global-epicentre-data-centres-biotech | Discovered – currently not indexed |
+
+- By page type: **Core pages 14/14 indexed** (home, funds, contact, legal, insights, press index, etc.); **Team 10/10 indexed**; **Board 22/22 indexed**; **Press 2/6 indexed** (only the two most recent, 27 Apr and 1 May, are in; the four older releases above are not). No non-press legitimate page is missing from the index.
+
+**Week-over-week**
+- **Index (per-URL):** no prior API baseline — S31/S32 were blind, so this 48/52 is the first per-URL reading. Not comparable to S29's aggregate "81 indexed" (that is a domain-wide count including old WordPress URLs and images, a different metric). Establishes the baseline for next week.
+- **Performance vs last successful reading, S29 (15 Jun, browser, 7-day):** clicks 52 → **26** (down ~50%), impressions 1,560 → **1,575** (flat), CTR 3.3% → **1.65%**, position 9.1 → **10.3**. Impressions essentially unchanged, so visibility is steady; the click/CTR dip across a two-week gap (with S31/S32 blind in between) reads as normal SERP variance rather than a confirmed decline. Watch, do not action yet — the decision rule needs a sustained >30% drop across two consecutive measured weeks, which cannot be established from a single post-gap comparison.
+
+**Issues to raise with Mark**
+
+1. **Four press releases are not indexed (the one substantive finding).** All four are legitimate pages: three are "Discovered – currently not indexed" (Google knows the URL but hasn't crawled/indexed it) and one ("2025-03-05-…-cio-appointment") is "URL is unknown to Google" (not yet discovered at all). The press index page and the two newest releases are indexed fine, so the template and canonicalisation are sound; this looks like crawl-priority/internal-linking rather than a technical block (robots/noindex all clear on the indexed pages). Observation only this run — **no indexing requested and no validation triggered, per task rules.** Suggested (separate, non-task) follow-ups for Mark: confirm each of the four is linked from the paginated `/press` index (not just page 2+), and optionally request indexing manually in GSC for the four. The "URL unknown" one is the oldest (Mar 2025) and may simply have dropped from the crawl frontier.
+
+2. **The script path is still blind — this run only succeeded via the MCP connector.** `tools/gsc-weekly-check.py` has now failed to run for three straight weeks (S31, S32, this run) because `secrets/gsc-service-account.json` was never placed. Decision needed: either (a) complete `docs/GSC-API-SETUP.md` steps 1–4 so the script works unattended, or (b) formally adopt the `gsc` MCP connector as the primary weekly path and update the task/script accordingly. If neither is done and the connector happens to be absent in a future unattended run, the check will silently no-op again. (Stale-path note from S31/S32 also still unfixed: `GSC-API-SETUP.md` step 4 points at the old `…\Taranis Capital Website\secrets\…` path, not the current `…\Taranis Capital\Code\Taranis Capital Website\…`.)
+
+3. **Performance clicks down ~50% vs the 15 Jun reading, but impressions flat.** Logged as a watch item only, per rule above; re-check next week now that the weekly reading is unblocked.
+
+Overall: **healthy.** Every core, team, board and legal page is indexed (48/52); the only gap is four older/awaiting-crawl press releases, which is an SEO housekeeping item, not a fault. Sitemap clean (0 errors, 52 = 52). Performance steady on impressions with a click/CTR dip worth watching. The weekly check is finally returning live data after two blind weeks, now via the API connector.
+
+*Note: observation-only run — no site/sitemap/robots/CloudFront changes; no indexing requests or validations. Data pulled via the authenticated `gsc` MCP connector (Search Console API), as `tools/gsc-weekly-check.py` could not run (service-account key still absent). Entry written to the local working tree only; fold into the next commit (repo git writes happen on the host, per S24/S26/S30). No git-ignored `gsc-check-*` scratch files were produced (the script exited before writing them; the connector run wrote none).*
+
+**Addendum to S35 (1 July 2026, interactive follow-up — Mark present).** Two decisions actioned after the automated run above:
+
+1. **`gsc` MCP connector adopted as the primary weekly path.** The scheduled task `gsc-weekly-health-check` prompt was rewritten so the connector is primary and `tools/gsc-weekly-check.py` (service-account) is the fallback; no-op only if neither is available. `docs/GSC-API-SETUP.md` updated to match and the stale key/`cd` paths (old `…\Taranis Capital Website\…`) corrected to the current `…\Taranis Capital\Code\Taranis Capital Website\…`. The service-account setup is now optional (fallback only). Note for a future unattended run: the connector's tools may need one "Run now" pre-approval so scheduled runs don't pause on a permission prompt.
+
+2. **The four unindexed press releases were chased — indexing requested for all four via GSC URL Inspection (Claude in Chrome).** Each returned "Indexing requested — URL added to a priority crawl queue":
+   - /press/2025-03-05-taranis-dfsa-licence-cio-appointment (was "URL unknown to Google")
+   - /press/2026-02-06-taranis-dfsa-acknowledgement-disruptive-tech-fund (was "Discovered – not indexed")
+   - /press/2026-03-05-taranis-global-investor-newsletter (was "Discovered – not indexed")
+   - /press/2026-03-26-taranis-gcc-global-epicentre-data-centres-biotech (was "Discovered – not indexed")
+
+   Diagnosis before requesting: all four HTML files exist, each is linked 3× from `press.html`, and all are in `sitemap.xml`, so internal linking/sitemap are not the cause. Notable correlation — the two **indexed** releases (27 Apr, 6.9 KB; 1 May, 5.4 KB) are the two largest source files, while the four not-indexed are the four smallest (3.4–4.9 KB). Thin content is the likely reason Google deprioritised crawling these older releases. Requesting indexing is a nudge, not a guarantee; if any remain unindexed at next week's check, consider expanding those four releases (more body copy, unique context) rather than re-requesting. This is a live production action taken at Mark's explicit instruction, distinct from the observation-only scheduled run above.
+
+*This addendum written to the working tree only; fold into the next commit with the S35 entry.*
+
+---
+
+### Session 36 — 4 July 2026 (Weekly people-sync — clean no-op; no data changes)
+
+**Trigger:** scheduled `weekly-profile-updates-taraniscapital-website` run (unattended).
+
+**Outcome: NO CHANGES. The live site is already fully in sync with the spreadsheet.** No JSON regenerated, no profile / who-we-are / subdomain / sitemap edits. Only this PROJECT-LOG entry was written. Same state as S30 (20 Jun) and S33 (27 Jun); the data last actually changed at S28 (13 Jun).
+
+**Pre-flight (STEP 0):**
+- In-sandbox git snapshot **not possible** — the same stale 0-byte `.git/index.lock` (dated 27 Jun 09:07, left by the S33 `--snapshot` failure) that the Windows mount refuses to remove ("Operation not permitted"). No git process running; recurring class (S24/S26/S28/S30/S33). `--bak` succeeded (xlsx → .bak, byte-identical copy); `--snapshot` routed to the host CMD block below.
+- **Proceeded safely despite no in-sandbox snapshot:** the data-loss condition STEP 0 guards against is provably absent — `git hash-object` of local `Taranis-People-Data-Collection.xlsx` == HEAD blob == `.xlsx.bak`, all `0169b4ef8261b32ecaa3cddd2fa9e6a0088e53ac`. No uncommitted local xlsx edits to lose; this task only reads the xlsx.
+
+**Repo state note (carried from S33/S34/S35, still uncommitted on the host):** the working tree is checked out on branch `xlsx-snapshot/2026-06-27-0507` (not `main`) because the S33 `--snapshot` could not switch back past the lock. Committed content of that branch == `main` == `origin/main` (`f854442`); it adds nothing. Two real uncommitted doc changes are still pending from earlier sessions and have **never been committed**: `docs/GSC-API-SETUP.md` (S35 connector-primary rewrite + path fix) and `docs/PROJECT-LOG.md` (S33 people-sync, S34 GSC monthly, S35 GSC weekly + addendum). The host CMD block below switches back to `main`, clears the lock, and commits all pending doc work together with this S36 entry. (The ~150 HTML files showing CRLF warnings under `git diff` are **not** real modifications — git treats them as unchanged under the S30 `.gitattributes eol=lf` normalisation; `git status --short` correctly lists only the two doc files.)
+
+**Diff (xlsx "People Directory" 32 rows vs live `taranis-people-data.json` 32 people, incl. "Removed People" sheet):**
+- 32 people both sides, identical slug sets. **No additions, no removals** (the 4 in "Removed People" — bruno-martorano, jehanzeb-awan, mustafa-mahmood-khan, qaisar-hamed-metawea — remain absent from the JSON with no lingering page / who-we-are / subdomain references).
+- **No Type changes.** Folder check: all 32 profiles in the correct `team/`(10) | `board/`(22) | `partners/`(0) folder, none stray.
+- **One field diff, deliberately NOT applied** — `rayan-al-karawi` sheet Profile Image Path reads `Rayan-AI-Karawi-...png` (capital-I typo); the real file on disk is `Rayan-Al-Karawi-600x650-1-277x300.png` and the JSON/HTML already point to it. Pushing the sheet value would break the image. Left as-is (unchanged since S26/S28/S30/S33). This is a Drive-side data-quality fix, not a site change.
+- No main-site role, email, LinkedIn, profile-image (other than the above) or fund-assignment changes on any of the 32.
+- `sitemap.xml` lists all 32 profile URLs (10 team + 22 board). Nothing to add.
+
+**STEP 4 caution honored:** per the data-driven fund-team model (`taranis-fund-teams.json` + `build-people.py`, CLAUDE.md 23 Jun) the subdomain per-fund card titles are hand-curated/authoritative and the JSON `funds.<fund>.role` fields are stale overrides. With **no Type changes**, STEP 4 required no section moves; no subdomain titles touched. Correct outcome.
+
+**Residual spreadsheet-side data-quality items (unchanged since S28/S30/S33 — fix in the Drive xlsx, the source of truth; the live site is already the cleaner form, do NOT push these to the site):** `rayan-al-karawi` image typo (above); `emad-zowawi` sheet bio "KSA Legal Consul" typo (site/JSON corrected to "Counsel" at S26); name variants (Mohamed/Mohammed Al Jumah; Osama BenSaleh/Ben Saleh Bukhari; H.E./HE Eng. Osama Al-Zamil); LinkedIn "MISSING" placeholders for 8 people (abdulaziz-al-sayyari, abdullah-alawad, arjumand-warsy, daniel-roubeni, ghassan-najmeddin, junaid-kashir, mohammed-aljumah, osama-al-zamil) — genuine gaps, stored as empty in JSON/site.
+
+**Decision on STEP 1 JSON write:** regenerated data is substantively byte-identical, so `_meta.lastUpdated` deliberately **left at 2026-06-13** (when data last changed, S28) rather than bumped to today — a date-only diff would misrepresent a refresh. Log-only, no JSON rewrite (per the S30/S33 no-op convention; deliberate deviation from STEP 1's literal "set lastUpdated = today").
+
+**Files changed this run:** `docs/PROJECT-LOG.md` only (this entry).
+
+*Note: written to the local working tree only. Commit/push to be run by Mark from the host (sandbox cannot do git writes — stale `.git/index.lock`). See the CMD block produced this run.*
+
+---
+
+### Session 37 — 8 July 2026 (GSC Weekly Check — API)
+
+**Automated weekly Google Search Console health check, taraniscapital.com (API mode).** Path used: the authenticated `gsc` MCP connector (Search Console API, service-account handled connector-side, no browser, no local key file), the primary path adopted at the S35 addendum. Property `sc-domain:taraniscapital.com` (permission: siteFullUser). `tools/gsc-weekly-check.py` was not invoked; the connector satisfied the API-only / no-browser constraint. Covers the three API items: Sitemaps, 7-day Performance, and per-URL index status of all 52 sitemap URLs. Manual Actions, Security, Core Web Vitals and the aggregate not-indexed-by-reason table are out of scope here (monthly browser check).
+
+**Headline: fully healthy, and the one outstanding issue is now closed. All 52 sitemap URLs are indexed (52/52), up from 48/52 last week.** The four press releases that were "Discovered / URL unknown" at S35 are now all "Submitted and indexed", so the indexing requests made in the S35 addendum (1 July) worked.
+
+**1. Sitemaps** — `https://taraniscapital.com/sitemap.xml`: status OK, **0 errors, 0 warnings**, submitted **52**, last submitted 26 Jun 2026, last downloaded **7 Jul 2026** (fresh). Known count **52 matches** the local `sitemap.xml` (52 `<loc>` entries, verified this run). (Legacy per-sitemap "indexed" field reads 0 and is not populated by Google; ignore it, real status is the per-URL inspection below.)
+
+**2. Performance (7-day, 29 Jun to 5 Jul 2026, finalised data)**
+- Clicks **37**, impressions **992**, CTR **3.73%**, average position **10.3**.
+
+**3. Per-URL index status (all 52 sitemap URLs inspected live)**
+- **52 of 52 indexed** (verdict PASS, "Submitted and indexed"). No exceptions.
+- By page type: **Core pages 14/14**, **Team 10/10**, **Board 22/22**, **Press 6/6** (all four previously-unindexed releases now in). No legitimate page missing from the index.
+- Every URL: robotsTxtState ALLOWED, indexingState INDEXING_ALLOWED, pageFetchState SUCCESSFUL, Google canonical equals user canonical, crawled as MOBILE. No canonicalisation or robots anomalies.
+
+**Week-over-week (vs S35, 1 July)**
+- **Index (per-URL): 48/52 to 52/52.** The four press releases (2025-03-05 CIO appointment, 2026-02-06 DFSA acknowledgement, 2026-03-05 investor newsletter, 2026-03-26 GCC epicentre) moved from "Discovered / URL unknown" to indexed. Issue closed.
+- **Performance:** clicks 26 to **37** (+42%), impressions 1,575 to **992** (-37%), CTR 1.65% to **3.73%** (more than doubled), position 10.3 to **10.3** (flat). Clicks up and CTR sharply up while impressions fell; net engagement improved. The impressions dip is a single-week move (not two consecutive measured weeks of decline), so it does not meet the sustained-decline rule, watch only.
+
+**Issues to raise with Mark**
+
+1. **None outstanding on index health.** The four-press-release gap from S35 is resolved, 52/52 indexed. Confirms the S35 diagnosis: those were crawl-priority / thin-content deprioritisations, not a technical block, and a manual indexing nudge cleared them.
+2. **Impressions down 37% week-over-week (992 vs 1,575), but clicks up 42% and CTR doubled.** Logged as a watch item only per the decision rule (needs a sustained >30% drop across two consecutive measured weeks). With clicks and CTR both up, this reads as normal SERP-impression variance rather than a visibility problem. Re-check next week.
+3. **Repo state, carried from S33 to S36 (unchanged, host action still pending):** the working tree remains on branch `xlsx-snapshot/2026-06-27-0507` with the stale `.git/index.lock`, and the pending uncommitted doc work (`docs/GSC-API-SETUP.md` from S35, plus the S33 to S36 PROJECT-LOG entries) has still not been committed on the host. This S37 entry adds to that pending set. No blocker for the check itself, but the log entries will keep accumulating uncommitted until the host CMD block from S36 is run.
+
+Overall: **healthy, best index reading to date.** Sitemap clean (0 errors, 52 = 52, freshly downloaded 7 Jul). Every core, team, board, press and legal page is indexed (52/52, first full sweep). Performance shows clicks and CTR up with an impressions dip that is within normal variance. No action required this run beyond folding the pending log entries into the next host commit.
+
+*Note: observation-only run, no site / sitemap / robots / CloudFront changes, no indexing requests or validations (the four press releases were already resolving from the S35 manual nudge). Data pulled via the authenticated `gsc` MCP connector (Search Console API). Written to the local working tree only; fold into the next host commit. No git-ignored `gsc-check-*` scratch files produced (connector path writes none).*
