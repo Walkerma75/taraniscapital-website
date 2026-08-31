@@ -12,6 +12,5 @@ Standards:
 - Accessibility (WCAG 2.1 AA)
 
 Created: 2026
-Location: Level 02, Innovation One, DIFC, Dubai, United Arab Emirates
 
 Contact: info@taraniscapital.com
