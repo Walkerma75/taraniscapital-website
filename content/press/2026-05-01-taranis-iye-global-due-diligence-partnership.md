@@ -12,7 +12,7 @@ hero_alt: Taranis Capital and IYE Global logos representing the strategic due di
 boilerplate:
   - title: About Taranis Capital
     body: |
-      Taranis Capital Limited is a DFSA-regulated (Category 3C, Licence F008985) investment firm headquartered in DIFC, Dubai. The firm manages multiple fund vehicles across biotech, data centre infrastructure, disruptive technology, real estate, and green biotechnology, delivering disciplined, governance-led investment strategies across the Middle East and international markets.
+      Taranis Capital Limited is an investment firm managing multiple fund vehicles across biotech, data centre infrastructure, disruptive technology, real estate, and green biotechnology, delivering disciplined, governance-led investment strategies across the Middle East and international markets.
   - title: About IYE Global
     body: |
       IYE Global is a specialist investigative firm providing advanced background checks and due diligence investigations for corporates, investors, professional advisers, and private clients. Drawing on extensive experience in forensic financial investigation, law enforcement, security services, and international finance, IYE Global supports informed decision-making and proactive risk mitigation worldwide.
