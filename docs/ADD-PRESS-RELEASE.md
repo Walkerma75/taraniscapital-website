@@ -18,7 +18,7 @@ That's it. The generator handles template rendering, listing card insertion, sit
 
 - Renders `press/<slug>.html` from `press/_template.html` (strips `noindex` and the template comment block automatically)
 - Inserts a card at the top of `.press-grid` in `press.html`
-- Adds a URL entry to `sitemap.xml` and bumps `/press` `lastmod` to today
+- Regenerates `sitemap.xml` from the whole published page set (via `tools/generate-sitemap.py`) — the new release and `press.html` both get today's `lastmod`, which is the date they will carry once you commit
 - Removes the placeholder release (file, listing card, sitemap entry) the first time a real release ships
 - Auto-detects hero image dimensions (JPEG/PNG) so the browser reserves layout space and avoids CLS
 - Idempotent — re-running for the same slug overwrites cleanly
