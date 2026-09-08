@@ -1212,6 +1212,42 @@
           "bio": "More than 20 years of experience in biotech and biomedical R&D, innovation and ecosystem development. Held senior executive leadership roles and led national initiatives, advanced technologies and industrial transformation efforts. Advisor and board member with a strong track record of scaling science-based ventures, forging strategic partnerships and delivering high-impact growth."
         }
       }
+    },
+    {
+      "slug": "anthony-ramsanahie",
+      "fullName": "Mr Anthony Ramsanahie",
+      "type": "Board",
+      "role": "Board Adviser",
+      "email": "anthony@taraniscapital.com",
+      "linkedIn": "MISSING",
+      "profileImage": {
+        "path": "/images/team/Anthony-Ramsanahie-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Mr Anthony Ramsanahie is a Board Adviser at Taranis Capital and a member of the Scientific Advisory Board of the Taranis BioTech Growth Fund. He is a consultant colorectal and general surgeon with 14 years of senior clinical experience, encompassing complex cancer surgery, minimally invasive innovation, and the strategic development of high-performance surgical services within his NHS Trust. His career reflects a consistent focus on measurable outcomes, operational efficiency, and the translation of clinical evidence into scalable local improvements, principles that closely align with Taranis Capital's disciplined approach to healthcare investment.\n\nAcross his tenure, Mr Ramsanahie has led multidisciplinary teams, driven pathway redesign, and collaborated on research initiatives in colorectal cancer, perioperative optimisation, and the digital augmentation of surgical workflows. This work gives him a first-hand understanding of how new therapeutics, diagnostics, and technologies succeed, or fail, within real clinical environments, providing a critical lens for evaluating translational potential and adoption risk.\n\nHe brings to Taranis Capital a clinically grounded, data-driven perspective on innovation, with particular insight into unmet needs in oncology, surgical care, and population-level health outcomes. His ability to assess clinical feasibility, regulatory considerations, and integration barriers strengthens the firm's capacity to identify high-impact opportunities and to support portfolio companies through the complexities of clinical validation and market entry.\n\nMr Ramsanahie joins the board of Taranis Capital to contribute strategic clinical judgement, healthcare-system insight, and a rigorous understanding of value creation at the intersection of surgery, technology, and investment.",
+        "profileUrl": "taraniscapital.com/board/anthony-ramsanahie"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": true,
+          "role": "Scientific Advisory Board",
+          "bio": "Consultant colorectal and general surgeon with 14 years of senior NHS clinical experience in complex cancer surgery and minimally invasive innovation. Leads multidisciplinary teams and pathway redesign, with research in colorectal cancer, perioperative optimisation and digital surgical workflows. Brings a clinically grounded view of translational potential and adoption risk."
+        }
+      }
     }
   ]
 }
