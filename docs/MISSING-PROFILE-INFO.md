@@ -30,6 +30,7 @@ The following board members do not have LinkedIn profile URLs on the site. If yo
 3. **Dr Tarek El Mansy**
 4. **Ghassan Najmeddin**
 5. **Osama Al-Thanon**
+6. **Mr Anthony Ramsanahie**
 
 ---
 
