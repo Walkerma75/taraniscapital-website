@@ -34,6 +34,12 @@ The following board members do not have LinkedIn profile URLs on the site. If yo
 
 ---
 
+## Team Members: LinkedIn Still Missing
+
+1. **Timi Orija** (`/team/timi-orija.html`): LinkedIn URL outstanding; email `timi@taraniscapital.com` confirmed and shown on the profile page.
+
+---
+
 ## Board Advisers — Full Bios Already Present
 
 The following board members already have detailed biographies on the new site (sourced from the old WordPress site or PPM documents):
