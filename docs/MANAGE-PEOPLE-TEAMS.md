@@ -15,7 +15,7 @@ mirrors the strategic-partners pattern (`tools/build-partners.py`,
 | File | Role |
 |---|---|
 | `taranis-fund-teams.json` | **Source of truth** for the per-fund cards — which people appear, in which section, in what order, with what curated title. Hand-edited. |
-| `taranis-people-data.json` | The person directory (Drive-synced). Owns **identity** — `fullName`, `profileImage.path`, and per-fund `bio` — resolved by `slug`. |
+| `taranis-people-data.json` | The person directory (hand-edited). Owns **identity** — `fullName`, `profileImage.path`, and per-fund `bio` — resolved by `slug`. |
 | `tools/build-people.py` | Generator — renders the cards into the subdomain HTML between the `<!-- TEAM:START -->` / `<!-- TEAM:END -->` markers. |
 
 ## The model
@@ -63,7 +63,7 @@ alt   = the displayed name
   to own this field, because the directory's per-fund `role` values are stale and
   drive nothing.
 - **`name`** (optional) — only where the card must show a name different from the
-  directory `fullName`. Prefer fixing the name in the directory (via Drive); use
+  directory `fullName`. Prefer fixing the name in the directory itself; use
   an override only as a stopgap.
 - **`bio`** (optional) — used where the curated card bio differs from the
   directory's per-fund bio. Two reasons this is common today:
@@ -124,7 +124,7 @@ and blocks the deploy on drift.
 
 `taranis-fund-teams.json` is **hand-edited and is the source of truth** for the
 per-fund cards. Identity (`fullName`, image, and non-overridden bios) still comes
-from the Drive-synced `taranis-people-data.json`.
+from the hand-edited `taranis-people-data.json`.
 
 Note that the directory's `funds.<fund>.role` **and** `funds.<fund>.bio` fields
 are stale — no page reads them, so they drifted from the curated site copy. This
