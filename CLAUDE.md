@@ -17,7 +17,7 @@
 
 **Why:** Cowork (a separate Claude environment operating in the fund-paperwork and corporate folders) and Code (this environment, the website repo) have been drifting out of sync. Cowork writes briefings, plans, specs and code briefs that don't always reflect what the code has shipped, and the code side ships changes without picking up the latest Cowork briefings. The symmetric rule is installed on the Cowork side so each environment picks up the other's latest state.
 
-**How to apply:** Most important when the request relates to site content, the press release pipeline, the people-data sync, profile data, brand updates, redirects, subdomain setup, or anything cross-cutting between paperwork and the live site. Less important for narrow internal refactors with no paperwork-side dependency. If a Cowork folder isn't currently accessible from this environment, flag it to the user and ask whether to proceed without checking or wait for the mount.
+**How to apply:** Most important when the request relates to site content, the press release pipeline, profile data, brand updates, redirects, subdomain setup, or anything cross-cutting between paperwork and the live site. Less important for narrow internal refactors with no paperwork-side dependency. If a Cowork folder isn't currently accessible from this environment, flag it to the user and ask whether to proceed without checking or wait for the mount.
 
 ## Tech stack
 
@@ -83,12 +83,6 @@ There is no build step — the site deploys as-is.
 ## Known gotchas
 
 - Two GitHub accounts on this machine (`Walkerma75` + `markwalker-pcs`) — Windows Credential Manager has triggered auth conflicts when pushing. If git prompts for credentials unexpectedly, confirm the git config user email matches the account with repo access.
-- `Taranis-People-Data-Collection.xlsx` — the **Google Drive copy is the source of truth**. The scheduled sync reads from Drive and writes to this repo. Edits made *only* to the local xlsx (not Drive) will be silently rolled back by the next sync run. **Always make data edits in the Drive copy first** — this is what 25 May 2026's data-loss incident was caused by (see PROJECT-LOG). The local xlsx and its `.bak` are now both tracked in git as a recovery safety net.
-
-## Scheduled tasks
-
-- `taranis-people-sync` (Cowork scheduled task) — runs 09:00 local on the 1st and 15th of each month. Reads `Taranis-People-Data-Collection.xlsx` from Drive, diffs against `taranis-people-data.json`, and opens a PR on branch `sync/profiles-YYYY-MM-DD` if profile fields have changed. Never commits to `main` directly. Manage from the Scheduled sidebar.
-- **Sync safety guard** (`tools/xlsx-sync-guard.py`) — the scheduled task should invoke this before overwriting the local xlsx. Three subcommands: `--check` (refuse to overwrite when the local xlsx differs from HEAD), `--bak` (snapshot current xlsx → `.bak`), `--snapshot` (commit current xlsx + `.bak` to a `xlsx-snapshot/YYYY-MM-DD-HHMM` branch). The scheduled task SKILL.md should be amended to call these.
 
 ## Known outstanding
 
@@ -100,6 +94,8 @@ There is no build step — the site deploys as-is.
 - Fund team cards (the per-fund subdomain Team & Advisers sections) are data-driven: edit `taranis-fund-teams.json` then run `python tools/build-people.py` to regenerate the section-aware cards on the 5 fund subdomains — see `docs/MANAGE-PEOPLE-TEAMS.md`. The roster is hand-edited (source of truth) for sections/order/titles; identity (name, image, bio) resolves from `taranis-people-data.json` by slug. The directory's per-fund `role` **and** `bio` fields are stale and deliberately not driven from (bios drifted on ~31 cards, carried as roster overrides) — back-fill-or-retire is a separate decision. `who-we-are.html` is out of scope (different card structure, already in sync). Phase 2 (the editorial title canon) is a separate brief.
 
 ## Last updated
+
+16 September 2026 (retired the people-data sync: removed `Taranis-People-Data-Collection.xlsx`, its `.bak` and `tools/xlsx-sync-guard.py`. `taranis-people-data.json` is now hand-edited and is the source of truth for team and board profiles.)
 
 23 June 2026 (added data-driven fund team-cards model — `taranis-fund-teams.json` + `tools/build-people.py`, see `docs/MANAGE-PEOPLE-TEAMS.md`; Phase 1 reproduces the site with no visible change. Implements HANDOVER-CW001.)
 
