@@ -1248,6 +1248,40 @@
           "bio": "Consultant colorectal and general surgeon with 14 years of senior NHS clinical experience in complex cancer surgery and minimally invasive innovation. Leads multidisciplinary teams and pathway redesign, with research in colorectal cancer, perioperative optimisation and digital surgical workflows. Brings a clinically grounded view of translational potential and adoption risk."
         }
       }
+    },
+    {
+      "slug": "timi-orija",
+      "fullName": "Timi Orija",
+      "type": "Team",
+      "role": "Senior Development Director",
+      "email": "timi@taraniscapital.com",
+      "linkedIn": "MISSING",
+      "profileImage": {
+        "path": "/images/team/Timi-Orija-600x650-277x300.jpg",
+        "hasImage": true
+      },
+      "mainSite": {
+        "bioStatus": "Complete",
+        "bio": "Timi Orija is Senior Development Director at Taranis Capital, where he focuses on building cross-border relationships, connecting the firm with investors, capital partners and strategic networks, and sourcing new opportunities. He is also Co-Founder and Managing Partner of STK International Group, a London-based international media, events, brand activation and business development company.\n\nTimi has built a broad network across Europe, the Middle East, Africa, Asia, Latin America and the United States, working with broadcasters, OTT platforms, luxury brands, event organisers, sponsors, investors and high-net-worth individuals. His work spans international content distribution, television and film, luxury events, motorsport, brand partnerships, sponsorship, media development and the sourcing of off-market opportunities.\n\nThrough STK International, Timi builds cross-border commercial relationships and connects credible projects, brands and strategic partners with relevant networks, capital and distribution opportunities. He is also involved in the Monaco Streaming Film Festival, the World Sports Legends Award and international luxury and entertainment initiatives.\n\nHis strengths include relationship development, business strategy, sponsorship, corporate branding, event management, media production, talent management and international business development. His approach focuses on building trusted, long-term relationships and creating practical commercial value between principals, partners and organisations.",
+        "profileUrl": "taraniscapital.com/team/timi-orija"
+      },
+      "funds": {
+        "fintech": {
+          "assigned": false
+        },
+        "property": {
+          "assigned": false
+        },
+        "datacentre": {
+          "assigned": false
+        },
+        "disruptiveTech": {
+          "assigned": false
+        },
+        "biotech": {
+          "assigned": false
+        }
+      }
     }
   ]
 }
