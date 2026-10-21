@@ -123,6 +123,14 @@ function handler(event) {
         return redirect301(HOST + '/who-we-are#strategic-partnerships');
     }
 
+    // Renamed and retired profile pages (CW029, Oct 2026)
+    if (/^\/board\/tarek-el-mans(\.html)?\/?$/.test(uri)) {
+        return redirect301(HOST + '/board/tarek-el-mansy');
+    }
+    if (/^\/team\/svitlana-burlakova(\.html)?\/?$/.test(uri)) {
+        return redirect301(HOST + '/who-we-are');
+    }
+
     // Strip LinkedIn tracking param on anything that falls through
     if (qs.trk) {
         return redirect301(HOST + uri);

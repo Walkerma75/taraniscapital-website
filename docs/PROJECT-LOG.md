@@ -2003,3 +2003,20 @@ Overall: **healthy.** Every core, team, board and legal page is indexed (48/52);
 Overall: **healthy, best index reading to date.** Sitemap clean (0 errors, 52 = 52, freshly downloaded 7 Jul). Every core, team, board, press and legal page is indexed (52/52, first full sweep). Performance shows clicks and CTR up with an impressions dip that is within normal variance. No action required this run beyond folding the pending log entries into the next host commit.
 
 *Note: observation-only run, no site / sitemap / robots / CloudFront changes, no indexing requests or validations (the four press releases were already resolving from the S35 manual nudge). Data pulled via the authenticated `gsc` MCP connector (Search Console API). Written to the local working tree only; fold into the next host commit. No git-ignored `gsc-check-*` scratch files produced (connector path writes none).*
+
+### CW029 website housekeeping from Nick's brief, 21 October 2026
+
+Implements HANDOVER-CW029 (safe items only, Mark 8 Oct) with Mark's rulings of 21 Oct.
+
+- Adviser spelling on board listings only: Al Jumah "Senior Adviser", Al-Zamil "Board Adviser", Leif Hesse, two datacentre fund titles. Press releases, "Technical Services Advisor" and external roles in bios are left as written (Mark's ruling).
+- Dropped "Mr" from Anthony Ramsanahie (data, profile, Who We Are, biotech card, share card). His unpublished press markdown is untouched.
+- Osama Bukhari is now Chief Technology Officer everywhere, fund rosters included.
+- Bare "CIO" expanded: Nicholas Bingham's biotech bio to Chief Investment Officer (approved by Mark), Amit Varma's bios to Chief Information Officer.
+- Tarek El Mansy slug fixed: `board/tarek-el-mans.html` renamed to `board/tarek-el-mansy.html`; data, links, share card and sitemap updated; 301 added to the CloudFront Function source.
+- Facebook link removed from every footer and the press template.
+- Who We Are: Our Team split into Founding Partners (larger cards), Executive Team, Partners & Legal. Board of Advisers renamed Advisory Network, with Senior & Board Advisers and Scientific Advisory Board groups. Surname sort ignores Al and El prefixes (Mark's ruling). Anchors `#team`, `#advisory-network` and alias `#board` added.
+- Svitlana Burlakova profile and share card deleted; 301 to `/who-we-are` added; sitemap entry gone.
+- One-line "not an offer" disclaimer added above the copyright row on every page and the press template. Biotech skipped: its footer already carries a fuller fund disclaimer (Mark's ruling).
+- Governance sentence appears once per page, so nothing was removed. Every profile with a LinkedIn URL in the data already shows it.
+
+Post-merge manual step: republish the `url-rewrite` CloudFront Function from `infra/cloudfront-url-rewrite.js`.
