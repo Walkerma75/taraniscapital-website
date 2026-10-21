@@ -63,7 +63,7 @@
         "fintech": {
           "assigned": true,
           "role": "Chief Information Officer",
-          "bio": "28 years as CIO/Technology Head at Citibank, Emirates NBD, DBS, and Fidelity. Created 450+ fintech products. Built world's first blockchain pre-IPO trading platform."
+          "bio": "28 years as Chief Information Officer and Technology Head at Citibank, Emirates NBD, DBS, and Fidelity. Created 450+ fintech products. Built world's first blockchain pre-IPO trading platform."
         },
         "property": {
           "assigned": false
@@ -76,7 +76,7 @@
         "disruptiveTech": {
           "assigned": true,
           "role": "Chief Information Officer",
-          "bio": "28 years as CIO at Citibank, Emirates NBD, DBS, and Fidelity. Created 450+ fintech products. Built world's first blockchain pre-IPO trading platform."
+          "bio": "28 years as Chief Information Officer at Citibank, Emirates NBD, DBS, and Fidelity. Created 450+ fintech products. Built world's first blockchain pre-IPO trading platform."
         },
         "biotech": {
           "assigned": false
@@ -302,7 +302,7 @@
         },
         "datacentre": {
           "assigned": true,
-          "role": "Advisory Board / Legal Advisor",
+          "role": "Advisory Board / Legal Adviser",
           "bio": "New York and Washington DC licensed corporate lawyer and former banker with over 20 years of experience. Provides specialist KSA legal counsel to the Fund across international law firms and financial institutions."
         },
         "disruptiveTech": {
@@ -442,7 +442,7 @@
       },
       "mainSite": {
         "bioStatus": "Complete",
-        "bio": "Leif Hesse is a Board Adviser at Taranis Capital, serving as Senior Advisor providing specialist guidance on cybersecurity architecture, operational resilience, and the security dimensions of critical digital infrastructure.\n\nHis expertise is particularly relevant to sovereign-grade infrastructure investments, where facilities must meet the highest standards of physical and cyber security. Leif advises on security architecture design, operational security protocols, and compliance with international and regional cybersecurity frameworks.\n\nHis advisory role is integral to Taranis Capital's digital infrastructure proposition as the Kingdom of Saudi Arabia accelerates its digital sovereignty agenda under Vision 2030.",
+        "bio": "Leif Hesse is a Board Adviser at Taranis Capital, serving as Senior Adviser providing specialist guidance on cybersecurity architecture, operational resilience, and the security dimensions of critical digital infrastructure.\n\nHis expertise is particularly relevant to sovereign-grade infrastructure investments, where facilities must meet the highest standards of physical and cyber security. Leif advises on security architecture design, operational security protocols, and compliance with international and regional cybersecurity frameworks.\n\nHis advisory role is integral to Taranis Capital's digital infrastructure proposition as the Kingdom of Saudi Arabia accelerates its digital sovereignty agenda under Vision 2030.",
         "profileUrl": "taraniscapital.com/board/leif-hesse"
       },
       "funds": {
@@ -454,7 +454,7 @@
         },
         "datacentre": {
           "assigned": true,
-          "role": "Senior Advisor (Cybersecurity & Operations)",
+          "role": "Senior Adviser (Cybersecurity & Operations)",
           "bio": "Specialist in cybersecurity architecture, operational resilience, and security of critical digital infrastructure. Advises on sovereign-grade security standards, compliance with international cybersecurity frameworks, and operational security protocols essential for data centre operations."
         },
         "disruptiveTech": {
@@ -679,7 +679,7 @@
       "slug": "mohammed-aljumah",
       "fullName": "Professor Mohammed Al Jumah",
       "type": "Board",
-      "role": "Senior Advisor",
+      "role": "Senior Adviser",
       "email": "mohammed-aljumah@taraniscapital.com",
       "linkedIn": "",
       "profileImage": {
@@ -688,7 +688,7 @@
       },
       "mainSite": {
         "bioStatus": "Complete",
-        "bio": "Mohammed Aljumah is a Senior Advisor at Taranis Capital with extensive experience in healthcare leadership and development. He is a founding member and former leader of KAIMRC (King Abdullah International Medical Research Center) and has been instrumental in advancing healthcare innovation and research across the MENA region.",
+        "bio": "Mohammed Aljumah is a Senior Adviser at Taranis Capital with extensive experience in healthcare leadership and development. He is a founding member and former leader of KAIMRC (King Abdullah International Medical Research Center) and has been instrumental in advancing healthcare innovation and research across the MENA region.",
         "profileUrl": "taraniscapital.com/board/mohammed-aljumah"
       },
       "funds": {
@@ -801,7 +801,7 @@
       "slug": "osama-al-zamil",
       "fullName": "HE Eng. Osama Al-Zamil",
       "type": "Board",
-      "role": "Board Advisor",
+      "role": "Board Adviser",
       "email": "osamaalzamil@taraniscapital.com",
       "linkedIn": "",
       "profileImage": {
@@ -843,7 +843,7 @@
       "slug": "osama-bukhari",
       "fullName": "Osama Ben Saleh Bukhari",
       "type": "Team",
-      "role": "Chief Technical Officer",
+      "role": "Chief Technology Officer",
       "email": "osama@taraniscapital.com",
       "linkedIn": "https://www.linkedin.com/in/osama-ben-saleh-bukhari-8164295/",
       "profileImage": {
@@ -858,22 +858,22 @@
       "funds": {
         "fintech": {
           "assigned": true,
-          "role": "Chief Technical Officer",
+          "role": "Chief Technology Officer",
           "bio": "Pioneer of internet banking and e-wallets in the Kingdom of Saudi Arabia. CEO of AlFaris International Group. Named by Arabian Business as one of '50 People You Need to Know in KSA'. Drives innovation across education, medical, and IT sectors."
         },
         "property": {
           "assigned": true,
-          "role": "Chief Technical Officer",
+          "role": "Chief Technology Officer",
           "bio": "Two decades of banking experience and leadership of Alfaris International Group. Head of Banking Committee, ICC Saudi Arabia. Named by Arabian Business as one of the 50 People You Need to Know in KSA for contributions to regional financial development."
         },
         "datacentre": {
           "assigned": true,
-          "role": "Chief Technical Officer / Fund Governance Board",
+          "role": "Chief Technology Officer / Fund Governance Board",
           "bio": "Seasoned Saudi entrepreneur and technology executive. Nearly two decades of banking sector experience at Samba Financial Group, Banque Saudi Fransi, and National Commercial Bank. Pioneer of internet banking and e-wallets in KSA."
         },
         "disruptiveTech": {
           "assigned": true,
-          "role": "Chief Technical Officer",
+          "role": "Chief Technology Officer",
           "bio": "Two decades in banking and technology infrastructure. Former Chief Technology Officer, ICC Saudi Arabia. Deep expertise in enterprise systems and fintech technology architecture."
         },
         "biotech": {
@@ -960,7 +960,7 @@
       }
     },
     {
-      "slug": "tarek-el-mans",
+      "slug": "tarek-el-mansy",
       "fullName": "Dr Tarek El Mansy",
       "type": "Board",
       "role": "Board Adviser",
@@ -973,7 +973,7 @@
       "mainSite": {
         "bioStatus": "Complete",
         "bio": "Dr Tarek El Mansy is a Board Adviser and Director of Localisation at Taranis Capital, bringing over 25 years of experience in the Kingdom of Saudi Arabia and the broader MENA region.\n\nHe is a biotech growth architect with deep expertise in localisation strategy, NUPCO tenders, and SFDA regulatory pathways. Dr El Mansy has a proven track record of building profitable entities, scaling revenue, and driving end-to-end commercialisation for biologics and pharmaceuticals across the GCC.\n\nHe ensures that Taranis Capital's portfolio companies and investment strategies are aligned with national development objectives and technology adoption priorities in key target markets, including digital transformation and healthcare innovation initiatives under Saudi Vision 2030 and UAE development programmes.",
-        "profileUrl": "taraniscapital.com/board/tarek-el-mans"
+        "profileUrl": "taraniscapital.com/board/tarek-el-mansy"
       },
       "funds": {
         "fintech": {
@@ -1215,7 +1215,7 @@
     },
     {
       "slug": "anthony-ramsanahie",
-      "fullName": "Mr Anthony Ramsanahie",
+      "fullName": "Anthony Ramsanahie",
       "type": "Board",
       "role": "Board Adviser",
       "email": "anthony@taraniscapital.com",
@@ -1226,7 +1226,7 @@
       },
       "mainSite": {
         "bioStatus": "Complete",
-        "bio": "Mr Anthony Ramsanahie is a Board Adviser at Taranis Capital and a member of the Scientific Advisory Board of the Taranis BioTech Growth Fund. He is a consultant colorectal and general surgeon with 14 years of senior clinical experience, encompassing complex cancer surgery, minimally invasive innovation, and the strategic development of high-performance surgical services within his NHS Trust. His career reflects a consistent focus on measurable outcomes, operational efficiency, and the translation of clinical evidence into scalable local improvements, principles that closely align with Taranis Capital's disciplined approach to healthcare investment.\n\nAcross his tenure, Mr Ramsanahie has led multidisciplinary teams, driven pathway redesign, and collaborated on research initiatives in colorectal cancer, perioperative optimisation, and the digital augmentation of surgical workflows. This work gives him a first-hand understanding of how new therapeutics, diagnostics, and technologies succeed, or fail, within real clinical environments, providing a critical lens for evaluating translational potential and adoption risk.\n\nHe brings to Taranis Capital a clinically grounded, data-driven perspective on innovation, with particular insight into unmet needs in oncology, surgical care, and population-level health outcomes. His ability to assess clinical feasibility, regulatory considerations, and integration barriers strengthens the firm's capacity to identify high-impact opportunities and to support portfolio companies through the complexities of clinical validation and market entry.\n\nMr Ramsanahie joins the board of Taranis Capital to contribute strategic clinical judgement, healthcare-system insight, and a rigorous understanding of value creation at the intersection of surgery, technology, and investment.",
+        "bio": "Anthony Ramsanahie is a Board Adviser at Taranis Capital and a member of the Scientific Advisory Board of the Taranis BioTech Growth Fund. He is a consultant colorectal and general surgeon with 14 years of senior clinical experience, encompassing complex cancer surgery, minimally invasive innovation, and the strategic development of high-performance surgical services within his NHS Trust. His career reflects a consistent focus on measurable outcomes, operational efficiency, and the translation of clinical evidence into scalable local improvements, principles that closely align with Taranis Capital's disciplined approach to healthcare investment.\n\nAcross his tenure, Mr Ramsanahie has led multidisciplinary teams, driven pathway redesign, and collaborated on research initiatives in colorectal cancer, perioperative optimisation, and the digital augmentation of surgical workflows. This work gives him a first-hand understanding of how new therapeutics, diagnostics, and technologies succeed, or fail, within real clinical environments, providing a critical lens for evaluating translational potential and adoption risk.\n\nHe brings to Taranis Capital a clinically grounded, data-driven perspective on innovation, with particular insight into unmet needs in oncology, surgical care, and population-level health outcomes. His ability to assess clinical feasibility, regulatory considerations, and integration barriers strengthens the firm's capacity to identify high-impact opportunities and to support portfolio companies through the complexities of clinical validation and market entry.\n\nMr Ramsanahie joins the board of Taranis Capital to contribute strategic clinical judgement, healthcare-system insight, and a rigorous understanding of value creation at the intersection of surgery, technology, and investment.",
         "profileUrl": "taraniscapital.com/board/anthony-ramsanahie"
       },
       "funds": {
