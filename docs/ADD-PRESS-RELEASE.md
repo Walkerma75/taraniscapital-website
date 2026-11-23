@@ -12,12 +12,42 @@ Workflow for publishing a new press release on `taraniscapital.com/press/<slug>`
 
 That's it. The generator handles template rendering, listing card insertion, sitemap update, placeholder cleanup on first publish, and image dimension detection.
 
+**Releasing on a future date?** Don't run the generator (it will refuse). See [Scheduled releases](#scheduled-releases): commit the source with its future `date` and merge; it goes live by itself.
+
+## Scheduled releases
+
+A source whose `date` is in the future is a scheduled release. It goes live at **06:00 Riyadh time (03:00 UTC) on its date**. Until then it is not rendered, not listed on `/press`, not in `sitemap.xml` and not uploaded: its URL returns 404.
+
+How it works:
+
+1. Commit the source to `content/press/` with its future `date`, plus its share card if it has no hero image (see below), and merge as usual. Do **not** commit a rendered `press/<slug>.html` for it.
+2. Every deploy (`.github/workflows/deploy.yml`) runs `python tools/add-press-release.py --publish-due`. That renders each committed source whose go-live time has passed and which has no page yet: the page, its card in `press.html` and its sitemap entry. These rendered files exist only in the deploy's own checkout; nothing is committed to `main`.
+3. The same workflow also runs daily at 03:15 UTC. It checks each due release against the live site and deploys only if one is missing, so a release goes live on its date with no one running anything.
+
+To **change a date**, edit `date` in the source and merge. To **withdraw** a scheduled release before it goes live, delete the source and merge.
+
+Useful commands:
+
+```
+python tools/add-press-release.py --list-due                    # committed sources that are due now
+PRESS_NOW=2026-12-01 python tools/add-press-release.py --publish-due   # render what would be live on that day
+```
+
+`PRESS_NOW` takes a date or an ISO date-time in UTC. Files rendered locally this way are for checking only; discard them (`git checkout -- press.html sitemap.xml` and delete the new `press/*.html`) unless you mean to commit them. Committing them is harmless: a release with a committed page is simply skipped by `--publish-due`.
+
+Only sources tracked by git are published automatically; an uncommitted draft in `content/press/` is never picked up.
+
+### Share cards for releases without a hero image
+
+Run `python tools/generate-share-cards.py --press` to make a 1200x630 headline card at `images/press/<slug>-share.jpg` for each source with no `hero_image` or `og_image`, and commit it with the source. The generator uses it as the page's `og:image`. Without one, the page falls back to `images/share-default.jpg`.
+
 ## What the generator does
 
 `tools/add-press-release.py` reads your Markdown source (with YAML frontmatter), then:
 
 - Renders `press/<slug>.html` from `press/_template.html` (strips `noindex` and the template comment block automatically)
-- Inserts a card at the top of `.press-grid` in `press.html`
+- Inserts a card into `.press-grid` in `press.html`, in date order (newest first), so re-rendering an older release leaves its card where it is
+- Refuses a source whose `date` is in the future (see [Scheduled releases](#scheduled-releases))
 - Regenerates `sitemap.xml` from the whole published page set (via `tools/generate-sitemap.py`) — the new release and `press.html` both get today's `lastmod`, which is the date they will carry once you commit
 - Removes the placeholder release (file, listing card, sitemap entry) the first time a real release ships
 - Auto-detects hero image dimensions (JPEG/PNG) so the browser reserves layout space and avoids CLS
@@ -69,7 +99,19 @@ The first paragraph after the closing --- becomes the dateline paragraph (with t
 > — Person Name, Title, Organisation
 
 Plain paragraphs become `<p>` elements.
+
+Inline: **bold** with double asterisks, *italic* with single asterisks, and [link text](https://example.com).
+
+1. Numbered lists start each line with `1. `, `2. ` and so on.
+2. They render as `<ol>`.
+
+- Bulleted lists start each line with `- `.
+- They render as `<ul>`.
 ```
+
+Links to `taraniscapital.com` (or site-relative paths such as `/contact`) render as plain links. Links to any other site open in a new tab with `rel="noopener"`. A list must be its own block: leave a blank line before and after it.
+
+No `dateline_city`? Then there is no dateline and the first paragraph renders as an ordinary paragraph.
 
 HTML entities (`&ldquo;`, `&rdquo;`, `&mdash;`, `&ndash;`, `&rsquo;`, `&amp;`) pass through verbatim — use them for proper typography. UTF-8 punctuation works too.
 

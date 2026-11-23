@@ -30,6 +30,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    /* Matches .contact-form inputs in styles.css (kept here because styles.css is cached for a year) */
+    .contact-form select { width: 100%; padding: 12px 16px; border: 1px solid var(--tc-grey-light); border-radius: 4px; font-family: var(--font-body); font-size: 14px; color: var(--tc-charcoal); background: var(--tc-white); margin-bottom: 20px; }
+    .contact-form select:focus { outline: none; border-color: var(--tc-gold); box-shadow: 0 0 0 3px var(--tc-gold-muted); }
+  </style>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <title>Contact Us | Taranis Capital</title>
 </head>
@@ -142,6 +147,18 @@
             </div>
           </div>
 
+          <div>
+            <label for="ml-enquiry-type">I would like</label>
+            <select id="ml-enquiry-type" name="fields[enquiry_type]">
+              <option value="">Please choose (optional)</option>
+              <option value="More information">More information</option>
+              <option value="A short call">A short call</option>
+            </select>
+          </div>
+
+          <!-- Where the enquiry came from: filled from the page's utm_* parameters (empty without them) -->
+          <input type="hidden" id="ml-source" name="fields[source]" value="">
+
           <div class="form-privacy">
             <p>You can unsubscribe at any time. For more details, review our <a href="/privacy-policy">Privacy Policy</a>.</p>
           </div>
@@ -236,6 +253,19 @@
   var form = document.querySelector('.ml-block-form');
   var successMsg = document.getElementById('mlFormSuccess');
   if (!form || !successMsg) return;
+
+  // Record where the enquiry came from as "campaign / content / source / medium",
+  // e.g. "ksa-biotech-2026 / b1 / website / press". Empty without utm_* params.
+  var sourceField = document.getElementById('ml-source');
+  if (sourceField) {
+    try {
+      var q = new URLSearchParams(window.location.search);
+      var parts = ['utm_campaign', 'utm_content', 'utm_source', 'utm_medium'].map(function(k) {
+        return (q.get(k) || '').trim().slice(0, 60);
+      });
+      sourceField.value = parts.some(Boolean) ? parts.join(' / ') : '';
+    } catch (err) { /* older browsers: leave empty */ }
+  }
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
