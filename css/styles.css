@@ -1931,6 +1931,29 @@ a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
   margin-bottom: 22px;
 }
 
+.press-article ol,
+.press-article ul {
+  margin: 0 0 22px;
+  padding-left: 1.4em;
+}
+
+.press-article li {
+  margin-bottom: 10px;
+}
+
+.press-article p a,
+.press-article li a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--tc-gold);
+  text-underline-offset: 3px;
+}
+
+.press-article p a:hover,
+.press-article li a:hover {
+  color: var(--tc-green-dark);
+}
+
 .press-article h2 {
   font-family: var(--font-display);
   font-size: 26px;

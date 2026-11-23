@@ -8,6 +8,18 @@ on:
   # event carries no "before" SHA) flushes the whole CDN — see the invalidation
   # step. Use this to recover from a bad cache/content-type state at the edge.
   workflow_dispatch:
+  # Scheduled press releases (content/press sources dated in the future) go
+  # live at 06:00 Riyadh time (03:00 UTC) on their date. This daily run checks
+  # whether any due release is missing from the live site and, only if so,
+  # deploys main. Nothing is committed to main: the deploy renders due
+  # releases into its own checkout (see "Publish scheduled press releases").
+  schedule:
+    - cron: '15 3 * * *'
+
+# One deploy at a time; a queued run waits rather than racing the S3 sync.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
 
 env:
   CACHE_LONG: "public, max-age=31536000, immutable"
@@ -15,7 +27,35 @@ env:
   CACHE_META: "public, max-age=3600"
 
 jobs:
+  # Scheduled runs only: is any due press release not yet live? If none, the
+  # deploy job is skipped and nothing changes.
+  scheduled-press-gate:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    outputs:
+      publish: ${{ steps.due.outputs.publish }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check due press releases against the live site
+        id: due
+        run: |
+          python -m pip install --quiet pyyaml
+          publish=false
+          for slug in $(python tools/add-press-release.py --list-due); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "https://taraniscapital.com/press/$slug")
+            echo "$slug -> $code"
+            if [ "$code" != "200" ]; then publish=true; fi
+          done
+          echo "publish=$publish" | tee -a "$GITHUB_OUTPUT"
+
   deploy:
+    needs: scheduled-press-gate
+    # Push / manual runs: always (the gate is skipped). Scheduled runs: only
+    # when the gate found a due release that is not live yet.
+    if: ${{ !cancelled() && (github.event_name != 'schedule' || needs.scheduled-press-gate.outputs.publish == 'true') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code (full history for diff)
@@ -54,6 +94,18 @@ jobs:
       - name: Verify sitemap.xml is in sync
         run: |
           python tools/generate-sitemap.py --check
+
+      # Render every committed content/press source whose go-live time
+      # (03:00 UTC on its date) has passed and which has no page yet: the page,
+      # its press.html card and the sitemap entry. Future-dated sources are
+      # left alone, so they are never uploaded. Runs after the drift checks
+      # (which validate what is committed) and before any S3 mutation. The
+      # rendered files exist only in this runner's checkout, never in main.
+      - name: Publish scheduled press releases that are due
+        run: |
+          python -m pip install --quiet pyyaml
+          PRESS_PUBLISHED_FILE=/tmp/press-published.txt \
+            python tools/add-press-release.py --publish-due
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v6
@@ -236,8 +288,28 @@ jobs:
           # the zero SHA so compute-invalidations.sh emits "/*" for every
           # distribution — a deliberate full CDN flush for recovery runs.
           : "${BEFORE:=0000000000000000000000000000000000000000}"
-          bash infra/compute-invalidations.sh "$BEFORE" "$AFTER" \
-            | tee /tmp/invals.txt
+          # Scheduled runs carry no "before" SHA either, but must NOT flush the
+          # whole CDN: diff nothing here and invalidate only the press paths
+          # added below.
+          if [ "${{ github.event_name }}" = "schedule" ]; then BEFORE="$AFTER"; fi
+          bash infra/compute-invalidations.sh "$BEFORE" "$AFTER" > /tmp/invals.txt
+          # Scheduled press releases rendered by this run are not in the git
+          # diff: add their pages plus the listing and sitemap explicitly.
+          if [ -s /tmp/press-published.txt ]; then
+            for p in /press /press.html /sitemap.xml; do echo "APEX:$p" >> /tmp/invals.txt; done
+            while read -r slug; do
+              echo "APEX:/press/$slug" >> /tmp/invals.txt
+              echo "APEX:/press/$slug.html" >> /tmp/invals.txt
+            done < /tmp/press-published.txt
+            # If the diff plan already flushes the apex with "/*", keep just that.
+            if grep -qx 'APEX:/\*' /tmp/invals.txt; then
+              grep -v '^APEX:' /tmp/invals.txt > /tmp/invals.tmp || true
+              echo 'APEX:/*' >> /tmp/invals.tmp
+              mv /tmp/invals.tmp /tmp/invals.txt
+            fi
+          fi
+          sort -u -o /tmp/invals.txt /tmp/invals.txt
+          cat /tmp/invals.txt
           echo "Plan summary:"
           cut -d: -f1 /tmp/invals.txt | sort | uniq -c
 

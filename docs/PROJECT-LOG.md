@@ -2020,3 +2020,14 @@ Implements HANDOVER-CW029 (safe items only, Mark 8 Oct) with Mark's rulings of 2
 - Governance sentence appears once per page, so nothing was removed. Every profile with a LinkedIn URL in the data already shows it.
 
 Post-merge manual step: republish the `url-rewrite` CloudFront Function from `infra/cloudfront-url-rewrite.js`.
+
+### CW031 Saudi Biotech Briefing and scheduled press releases, 23 November 2026
+
+Implements HANDOVER-CW031 (reply: HANDOVER-C031).
+
+- Six "Saudi Biotech Briefing" sources added to `content/press/` unchanged, dated each Tuesday 24 Nov to 29 Dec 2026.
+- Generator (`tools/add-press-release.py`): body Markdown now supports bold, italic, links and numbered or bulleted lists. Links to taraniscapital.com are plain; other sites open in a new tab with `rel="noopener"`. Listing cards are inserted in date order, so re-rendering an older release no longer moves its card to the top.
+- Scheduled releases: a future-dated source goes live at 06:00 Riyadh time (03:00 UTC) on its date. `deploy.yml` runs `add-press-release.py --publish-due` on every deploy and on a daily 03:15 UTC schedule (which deploys only if a due release is missing from the live site). Rendered pages live only in the deploy checkout; nothing is committed to `main`. The manual route refuses a future-dated source. Deploys now queue (`concurrency`) instead of racing.
+- `generate-share-cards.py --press` makes headline share cards for releases with no hero image; the six cards are committed. A release with neither now falls back to `images/share-default.jpg`, not the transparent logo.
+- Contact form: optional "I would like" select (`fields[enquiry_type]`) and a hidden `fields[source]` filled from the page's utm parameters. MailerLite fields `source` and `enquiry_type` need creating in the account.
+- `styles.css`: list and link styles inside press articles.

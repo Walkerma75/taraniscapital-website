@@ -4,6 +4,12 @@ add-press-release.py - Generate a Taranis Capital press release page.
 
 Usage:
     python tools/add-press-release.py content/press/<slug>.md
+    python tools/add-press-release.py --publish-due   # scheduled releases (CI)
+    python tools/add-press-release.py --list-due
+
+A source whose `date` is in the future is refused: it goes live by itself at
+06:00 Riyadh time (03:00 UTC) on that date via the deploy workflow. Set
+PRESS_NOW=YYYY-MM-DD to see what would be published on a given day.
 
 Reads the markdown source (with YAML frontmatter), renders the release HTML
 from press/_template.html, inserts a card into press.html, and updates
@@ -15,10 +21,11 @@ See docs/ADD-PRESS-RELEASE.md for the source-file format and full workflow.
 """
 
 import argparse
+import os
 import re
 import subprocess
 import sys
-from datetime import date as date_mod
+from datetime import date as date_mod, datetime, time, timezone
 from pathlib import Path
 
 try:
@@ -185,6 +192,58 @@ def render_body(meta, body_md):
     return "\n\n".join(parts)
 
 
+INTERNAL_HOSTS = ("taraniscapital.com", "www.taraniscapital.com")
+
+_OL_ITEM = re.compile(r'^\d+\.\s+')
+_UL_ITEM = re.compile(r'^[-*]\s+')
+
+
+def _link(match):
+    text, url = match.group(1), match.group(2)
+    href = url.replace("&amp;", "&").replace("&", "&amp;")
+    host = re.match(r'^https?://([^/?#]+)', url, flags=re.IGNORECASE)
+    if host and host.group(1).lower() not in INTERNAL_HOSTS:
+        return f'<a href="{href}" target="_blank" rel="noopener">{text}</a>'
+    return f'<a href="{href}">{text}</a>'
+
+
+def render_inline(text):
+    """Inline Markdown: **bold**, *italic* and [text](url).
+
+    Links to taraniscapital.com (or site-relative paths) are plain <a href>;
+    any other host opens in a new tab with rel="noopener". Text without any
+    of these markers is returned unchanged, so older releases render exactly
+    as before.
+    """
+    text = re.sub(r'\[([^\]]+)\]\(([^)\s]+)\)', _link, text)
+    text = re.sub(r'\*\*(?=\S)(.+?)(?<=\S)\*\*', r'<strong>\1</strong>', text)
+    text = re.sub(r'(?<![*\w])\*(?=\S)(.+?)(?<=\S)\*(?![*\w])', r'<em>\1</em>', text)
+    return text
+
+
+def is_list_block(block):
+    """True when the block's first line opens a numbered or bulleted list."""
+    first = block.lstrip().split("\n", 1)[0]
+    return bool(_OL_ITEM.match(first) or _UL_ITEM.match(first))
+
+
+def render_list(block):
+    """Render a '1. ' or '- ' list block as <ol>/<ul>. Indented or unmarked
+    lines continue the previous item."""
+    lines = [l.strip() for l in block.strip().split("\n") if l.strip()]
+    ordered = bool(_OL_ITEM.match(lines[0]))
+    marker = _OL_ITEM if ordered else _UL_ITEM
+    items = []
+    for line in lines:
+        if marker.match(line):
+            items.append(marker.sub("", line, count=1))
+        else:
+            items[-1] += " " + line
+    tag = "ol" if ordered else "ul"
+    inner = "\n".join(f'        <li>{render_inline(item)}</li>' for item in items)
+    return f'      <{tag}>\n{inner}\n      </{tag}>'
+
+
 def render_body_blocks(body_md, dateline_city):
     """Render body markdown to a list of HTML block strings."""
     raw_blocks = re.split(r'\n\s*\n', body_md.strip())
@@ -241,8 +300,11 @@ def render_body_blocks(body_md, dateline_city):
                     f'      </blockquote>'
                 )
 
+        elif is_list_block(block):
+            rendered.append(render_list(block))
+
         else:
-            content = re.sub(r'\s+', ' ', block).strip()
+            content = render_inline(re.sub(r'\s+', ' ', block).strip())
             if is_first_paragraph and dateline_city:
                 rendered.append(
                     f'      <p class="press-dateline"><strong>{dateline_city}</strong> &mdash; {content}</p>'
@@ -275,8 +337,12 @@ def render_html(meta, body_html, *, is_template=False):
         og_image = meta["og_image"]
     elif meta.get("hero_image"):
         og_image = "https://taraniscapital.com/" + meta["hero_image"].lstrip("/")
+    elif (REPO_ROOT / "images" / "press" / f"{meta['slug']}-share.jpg").exists():
+        # Headline card from `generate-share-cards.py --press`
+        og_image = f"https://taraniscapital.com/images/press/{meta['slug']}-share.jpg"
     else:
-        og_image = "https://taraniscapital.com/images/logo-gold.png"
+        # Branded default, not the transparent logo (which unfurls blank)
+        og_image = "https://taraniscapital.com/images/share-default.jpg"
 
     strapline = (meta.get("strapline") or "").strip()
     strapline_block = ""
@@ -371,12 +437,21 @@ def update_press_listing(meta):
         f'      </article>\n'
     )
 
-    html = re.sub(
-        r'(    <div class="press-grid">\n)',
-        r'\1\n' + card,
-        html,
-        count=1,
-    )
+    # Insert in date order (newest first), before the first card dated
+    # earlier than this one, so re-rendering an older release leaves its card
+    # where it was and scheduled releases slot in correctly whatever order
+    # they are published in. Same-date cards keep this one on top.
+    insert_at = None
+    for m in re.finditer(r'\n      <article class="press-card">', html):
+        card_end = html.find("</article>", m.end())
+        t = re.search(r'<time datetime="([0-9-]+)"', html[m.end():card_end])
+        if t and t.group(1) <= iso_date:
+            insert_at = m.start() + 1
+            break
+    if insert_at is None:
+        grid_end = re.search(r'\n    </div>\n', html[html.index('<div class="press-grid">'):])
+        insert_at = html.index('<div class="press-grid">') + grid_end.start() + 1
+    html = html[:insert_at] + card + "\n" + html[insert_at:]
 
     PRESS_LISTING.write_text(html, encoding="utf-8")
 
@@ -404,29 +479,135 @@ def cleanup_placeholder_release():
     return False
 
 
+# ---- Scheduled publishing ---------------------------------------------------
+# A release goes live at 06:00 Riyadh time (03:00 UTC) on its `date`. Before
+# then it is not rendered, listed, put in the sitemap or deployed. The deploy
+# workflow runs `--publish-due` on every deploy and on a daily 03:15 UTC
+# schedule, so a future-dated source only needs committing and merging.
+GO_LIVE_UTC = time(3, 0, tzinfo=timezone.utc)
+CONTENT_DIR = REPO_ROOT / "content" / "press"
+
+
+def now_utc():
+    """Current UTC time. PRESS_NOW (YYYY-MM-DD or ISO datetime, UTC) overrides
+    it, for testing what the site looks like on a given day."""
+    override = os.environ.get("PRESS_NOW")
+    if override:
+        if len(override) == 10:
+            override += "T12:00:00"
+        dt = datetime.fromisoformat(override)
+        return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+    return datetime.now(timezone.utc)
+
+
+def go_live_at(meta):
+    d = meta["date"]
+    if isinstance(d, str):
+        d = date_mod.fromisoformat(d)
+    return datetime.combine(d, GO_LIVE_UTC)
+
+
+def is_due(meta, now=None):
+    return (now or now_utc()) >= go_live_at(meta)
+
+
+def load_source(md_path):
+    meta, body_md = parse_source(md_path)
+    file_slug = md_path.stem
+    if meta.get("slug") and meta["slug"] != file_slug:
+        print(f"WARNING: slug in frontmatter ({meta['slug']}) does not match filename ({file_slug}). Using filename.")
+    meta["slug"] = file_slug
+    return meta, body_md
+
+
+def write_release(meta, body_md):
+    """Render the release page and its listing card. Returns the page path.
+    The caller regenerates the sitemap once all pages are written."""
+    body_html = render_body(meta, body_md)
+    html = render_html(meta, body_html, is_template=False)
+    out_path = RELEASES_DIR / f"{meta['slug']}.html"
+    out_path.write_text(html, encoding="utf-8")
+    update_press_listing(meta)
+    return out_path
+
+
+def tracked_sources():
+    """content/press/*.md files committed to git. Untracked drafts are never
+    published automatically, even when their date has passed."""
+    result = subprocess.run(
+        ["git", "ls-files", "--", "content/press/*.md"],
+        cwd=REPO_ROOT, capture_output=True, text=True, check=True,
+    )
+    return sorted(REPO_ROOT / p for p in result.stdout.split() if p)
+
+
+def publish_due():
+    """Render every committed source that is due and has no page yet."""
+    now = now_utc()
+    published = []
+    for md_path in tracked_sources():
+        if (RELEASES_DIR / f"{md_path.stem}.html").exists():
+            continue
+        meta, body_md = load_source(md_path)
+        if not is_due(meta, now):
+            print(f"Scheduled: {meta['slug']} (goes live {go_live_at(meta):%Y-%m-%d %H:%M} UTC)")
+            continue
+        write_release(meta, body_md)
+        published.append(meta["slug"])
+        print(f"Published: press/{meta['slug']}.html")
+    if published:
+        update_sitemap()
+    else:
+        print("Nothing due to publish.")
+    # The deploy workflow reads this list to invalidate the new pages at the CDN.
+    out =os.environ.get("PRESS_PUBLISHED_FILE")
+    if out:
+        Path(out).write_text("".join(s + "\n" for s in published), encoding="utf-8")
+    return published
+
+
 def main():
     parser = argparse.ArgumentParser(description="Generate a Taranis Capital press release.")
-    parser.add_argument("source", help="Path to content/press/<slug>.md")
+    parser.add_argument("source", nargs="?", help="Path to content/press/<slug>.md")
+    parser.add_argument(
+        "--publish-due", action="store_true",
+        help="Render every committed content/press source whose go-live time has "
+             "passed and which has no page yet (used by the deploy workflow).",
+    )
+    parser.add_argument(
+        "--list-due", action="store_true",
+        help="Print the slug of every committed source whose go-live time has passed.",
+    )
     args = parser.parse_args()
+
+    if args.publish_due:
+        publish_due()
+        return
+    if args.list_due:
+        now = now_utc()
+        for md_path in tracked_sources():
+            meta, _ = parse_source(md_path)
+            if is_due(meta, now):
+                print(md_path.stem)
+        return
+    if not args.source:
+        parser.error("give a source file, or --publish-due")
 
     md_path = Path(args.source).resolve()
     if not md_path.exists():
         sys.exit(f"ERROR: {md_path} not found")
 
-    meta, body_md = parse_source(md_path)
+    meta, body_md = load_source(md_path)
 
-    file_slug = md_path.stem
-    if meta.get("slug") and meta["slug"] != file_slug:
-        print(f"WARNING: slug in frontmatter ({meta['slug']}) does not match filename ({file_slug}). Using filename.")
-    meta["slug"] = file_slug
+    if not is_due(meta):
+        sys.exit(
+            f"REFUSED: {meta['slug']} is dated {go_live_at(meta):%Y-%m-%d} and goes live at "
+            f"06:00 Riyadh time (03:00 UTC) on that date.\n"
+            f"Do not publish it by hand. Commit the source in content/press/ and merge: "
+            f"the deploy workflow publishes it automatically when it falls due."
+        )
 
-    body_html = render_body(meta, body_md)
-    html = render_html(meta, body_html, is_template=False)
-
-    out_path = RELEASES_DIR / f"{meta['slug']}.html"
-    out_path.write_text(html, encoding="utf-8")
-
-    update_press_listing(meta)
+    out_path = write_release(meta, body_md)
     placeholder_removed = cleanup_placeholder_release()
     # Regenerate the sitemap last, so it reflects the final on-disk page set
     # (new release added, placeholder removed).

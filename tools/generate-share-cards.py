@@ -185,6 +185,58 @@ def make_default_card(out_path):
     ctr("Disciplined capital. Knowledge leadership.", tag, 450, GREY)
     g.save(out_path, "JPEG", quality=90)
 
+def wrap_lines(draw, text, font, max_w):
+    words, lines, cur = text.split(), [], ""
+    for w in words:
+        trial = (cur + " " + w).strip()
+        if draw.textlength(trial, font=font) <= max_w or not cur:
+            cur = trial
+        else:
+            lines.append(cur)
+            cur = w
+    if cur:
+        lines.append(cur)
+    return lines
+
+def make_press_card(headline, strapline, out_path):
+    """Headline card for a press release that has no hero image: logo, the
+    headline in white serif (wrapped, up to three lines) and the strapline in
+    gold. Keeps LinkedIn / WhatsApp unfurls from showing the transparent logo."""
+    resolve_fonts()
+    g = gradient()
+    d = ImageDraw.Draw(g)
+    logo = logo_img(64)
+    g.paste(logo, (64, 56), logo)
+    d.text((64 + logo.width + 18, 56 + (logo.height - 28) // 2), "TARANIS CAPITAL",
+           font=ImageFont.truetype(SANS_BOLD, 28), fill=WHITE)
+    max_w = W - 128
+    for size in range(76, 40, -4):
+        font = ImageFont.truetype(SERIF_BOLD, size)
+        lines = wrap_lines(d, headline, font, max_w)
+        if len(lines) <= 3:
+            break
+    line_h = int(size * 1.18)
+    y = 200 + (3 - len(lines)) * line_h // 2
+    for line in lines:
+        d.text((64, y), line, font=font, fill=WHITE)
+        y += line_h
+    d.rectangle((64, y + 26, 154, y + 31), fill=GOLD)
+    if strapline:
+        sfont = fit_font(d, strapline, SANS, max_w, 32, 22)
+        d.text((64, y + 54), strapline, font=sfont, fill=GOLD)
+    g.save(out_path, "JPEG", quality=90)
+
+def press_sources_needing_cards():
+    """content/press sources with no hero_image / og_image of their own."""
+    import yaml
+    out = []
+    for md in sorted(glob.glob(os.path.join(ROOT, "content", "press", "*.md"))):
+        meta = yaml.safe_load(open(md, encoding="utf-8").read().split("---", 2)[1]) or {}
+        if meta.get("hero_image") or meta.get("og_image"):
+            continue
+        out.append((slug(md), meta))
+    return out
+
 def slug(page_path):
     return os.path.splitext(os.path.basename(page_path))[0]
 
@@ -203,6 +255,17 @@ def main():
     do_all = "--all" in args
     do_default = "--default" in args
     do_check = "--check" in args
+
+    if "--press" in args:
+        out_dir = os.path.join(ROOT, "images", "press")
+        os.makedirs(out_dir, exist_ok=True)
+        for s, meta in press_sources_needing_cards():
+            out = os.path.join(out_dir, s + "-share.jpg")
+            if os.path.exists(out) and not do_all:
+                continue
+            make_press_card(str(meta["headline"]), str(meta.get("strapline") or ""), out)
+            print("made images/press/" + s + "-share.jpg")
+        return
 
     def pages_in(section):
         return sorted(glob.glob(os.path.join(ROOT, section, "*.html")))
