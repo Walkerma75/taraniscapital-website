@@ -22,7 +22,7 @@ How it works:
 
 1. Commit the source to `content/press/` with its future `date`, plus its share card if it has no hero image (see below), and merge as usual. Do **not** commit a rendered `press/<slug>.html` for it.
 2. Every deploy (`.github/workflows/deploy.yml`) runs `python tools/add-press-release.py --publish-due`. That renders each committed source whose go-live time has passed and which has no page yet: the page, its card in `press.html` and its sitemap entry. These rendered files exist only in the deploy's own checkout; nothing is committed to `main`.
-3. The same workflow also runs daily at 03:15 UTC. It checks each due release against the live site and deploys only if one is missing, so a release goes live on its date with no one running anything.
+3. The same workflow also runs on a schedule, hourly from 03:17 to 09:17 UTC. Each run checks each due release against the live site and deploys only if one is missing, so a release goes live on its date with no one running anything. GitHub often starts scheduled runs late, sometimes by hours, so the hourly repeats are a backup: expect a release to appear some time after 03:00 UTC, usually that morning, not exactly at 03:00.
 
 To **change a date**, edit `date` in the source and merge. To **withdraw** a scheduled release before it goes live, delete the source and merge.
 

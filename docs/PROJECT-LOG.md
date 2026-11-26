@@ -2031,4 +2031,5 @@ Implements HANDOVER-CW031 (reply: HANDOVER-C031).
 - `generate-share-cards.py --press` makes headline share cards for releases with no hero image; the six cards are committed. A release with neither now falls back to `images/share-default.jpg`, not the transparent logo.
 - Contact form: optional "I would like" select (`fields[enquiry_type]`) and a hidden `fields[source]` filled from the page's utm parameters. MailerLite fields `source` and `enquiry_type` need creating in the account.
 - Follow-up (same day): MailerLite reserves `source`, so the hidden field is now `fields[campaign_source]` (value unchanged). MailerLite fields to create: `campaign_source` and `enquiry_type`.
+- Follow-up (26 Nov): the daily 03:15 UTC run fired about 10 hours late on 24 and 25 Nov (13:48, 13:01). The schedule is now hourly from 03:17 to 09:17 UTC (`17 3-9 * * *`); each run deploys only if a due release is still missing.
 - `styles.css`: list and link styles inside press articles.
