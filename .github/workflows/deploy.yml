@@ -13,8 +13,14 @@ on:
   # whether any due release is missing from the live site and, only if so,
   # deploys main. Nothing is committed to main: the deploy renders due
   # releases into its own checkout (see "Publish scheduled press releases").
+  #
+  # GitHub runs scheduled workflows late, sometimes by hours (the first
+  # runs, due 03:15 UTC, fired at 13:48 and 13:01), so the check repeats
+  # hourly from 03:17 to 09:17 UTC. Each run deploys only if a due release
+  # is still missing, so once one run publishes, the rest do nothing. :17
+  # avoids the busy top-of-the-hour and quarter-hour slots.
   schedule:
-    - cron: '15 3 * * *'
+    - cron: '17 3-9 * * *'
 
 # One deploy at a time; a queued run waits rather than racing the S3 sync.
 concurrency:
